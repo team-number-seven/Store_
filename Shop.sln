@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.DAL", "Shop.DAL\Shop.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.WebApi", "Shop.WebApi\Shop.WebApi.csproj", "{14FE0BC3-0FE9-4CD0-8EBB-0D7D5989C862}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.Common", "Shop.Common\Shop.Common.csproj", "{AD2A320E-4EBF-4509-8D2D-BE3EB5797E7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{14FE0BC3-0FE9-4CD0-8EBB-0D7D5989C862}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14FE0BC3-0FE9-4CD0-8EBB-0D7D5989C862}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14FE0BC3-0FE9-4CD0-8EBB-0D7D5989C862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD2A320E-4EBF-4509-8D2D-BE3EB5797E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD2A320E-4EBF-4509-8D2D-BE3EB5797E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD2A320E-4EBF-4509-8D2D-BE3EB5797E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD2A320E-4EBF-4509-8D2D-BE3EB5797E7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 		{AA5B7644-BACA-4252-A5C0-87584DEE404B} = {B3A74383-3256-4620-B4EB-7595BC10321B}
 		{4A39F189-3A85-4B10-B22B-45E74E3B1384} = {B3A74383-3256-4620-B4EB-7595BC10321B}
 		{14FE0BC3-0FE9-4CD0-8EBB-0D7D5989C862} = {B3A74383-3256-4620-B4EB-7595BC10321B}
+		{AD2A320E-4EBF-4509-8D2D-BE3EB5797E7B} = {B3A74383-3256-4620-B4EB-7595BC10321B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D20E36FB-7702-4585-8365-BF1D6C516972}
