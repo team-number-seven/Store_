@@ -25,7 +25,7 @@ namespace Shop.DAL.Entities
         public Guid ColorId { get; set; }
 
         public Country Country { get; set; }
-        public Guid ComutryId { get; set; }
+        public Guid CountryId { get; set; }
 
         public Manufacturer Manufacturer { get; set; }
         public Guid ManufacturerId { get; set; }
