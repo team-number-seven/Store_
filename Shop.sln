@@ -10,13 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "front-end", "front-end", "{
 		front.txt = front.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.BusinessLogic", "Shop.BusinessLogic\Shop.BusinessLogic.csproj", "{AA5B7644-BACA-4252-A5C0-87584DEE404B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.BusinessLogic", "Shop.BusinessLogic\Shop.BusinessLogic.csproj", "{AA5B7644-BACA-4252-A5C0-87584DEE404B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.DAL", "Shop.DAL\Shop.DAL.csproj", "{4A39F189-3A85-4B10-B22B-45E74E3B1384}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.DAL", "Shop.DAL\Shop.DAL.csproj", "{4A39F189-3A85-4B10-B22B-45E74E3B1384}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.WebApi", "Shop.WebApi\Shop.WebApi.csproj", "{14FE0BC3-0FE9-4CD0-8EBB-0D7D5989C862}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.WebApi", "Shop.WebApi\Shop.WebApi.csproj", "{14FE0BC3-0FE9-4CD0-8EBB-0D7D5989C862}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shop.Common", "Shop.Common\Shop.Common.csproj", "{AD2A320E-4EBF-4509-8D2D-BE3EB5797E7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.Common", "Shop.Common\Shop.Common.csproj", "{AD2A320E-4EBF-4509-8D2D-BE3EB5797E7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

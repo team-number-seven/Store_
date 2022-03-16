@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Shop.DAL.Interfaces;
 
 namespace Shop.DAL.Entities
 {
-    public class Item:BaseEntity
+    public class Item:IBaseEntity
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string ArticleNumber { get; set; }
@@ -28,7 +30,7 @@ namespace Shop.DAL.Entities
         public Manufacturer Manufacturer { get; set; }
         public Guid ManufacturerId { get; set; }
 
-        public List<Image> Images { get; set; }
+        public IEnumerable<Image> Images { get; set; }
 
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Shop.DAL.Entities
+namespace Shop.DAL.Interfaces
 {
-    public class BaseEntity
+    public interface IBaseEntity
     {
         public Guid Id { get; set; }
     }

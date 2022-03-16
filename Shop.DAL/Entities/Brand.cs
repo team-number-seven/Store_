@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using Shop.DAL.Interfaces;
 
 namespace Shop.DAL.Entities
 {
-    public class Brand:BaseEntity
+    public class Brand : IBaseEntity
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
-        
-        public List<Item> Items { get; set; }
+
+        public IEnumerable<Item> Items { get; set; }
 
         public Logo Logo { get; set; }
         public Guid LogoId { get; set; }

@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Shop.DAL.Interfaces;
 
 namespace Shop.DAL.Entities
 {
-    public class Gender:BaseEntity
+    public class Gender : IBaseEntity
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
-        public List<Item> Items { get; set; }
+        public IEnumerable<Item> Items { get; set; }
     }
 }
