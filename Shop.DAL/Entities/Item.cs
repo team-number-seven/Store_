@@ -4,7 +4,7 @@ using Shop.DAL.Interfaces;
 
 namespace Shop.DAL.Entities
 {
-    public class Item:IBaseEntity
+    public class Item : IBaseEntity
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
@@ -27,10 +27,12 @@ namespace Shop.DAL.Entities
         public Country Country { get; set; }
         public Guid CountryId { get; set; }
 
+        public AgeType AgeType { get; set; }
+        public Guid AgeTypeId { get; set; }
+
         public Manufacturer Manufacturer { get; set; }
         public Guid ManufacturerId { get; set; }
 
         public IEnumerable<Image> Images { get; set; }
-
     }
 }
