@@ -18,9 +18,6 @@ namespace Shop.DAL.Entities
         public Brand Brand { get; set; }
         public Guid BrandId { get; set; }
 
-        public TypeItem TypeItem { get; set; }
-        public Guid TypeItemId { get; set; }
-
         public Color Color { get; set; }
         public Guid ColorId { get; set; }
 
@@ -34,5 +31,7 @@ namespace Shop.DAL.Entities
         public Guid ManufacturerId { get; set; }
 
         public IEnumerable<Image> Images { get; set; }
+
+        public IEnumerable<TypeItem> TypeItems { get; set; }
     }
 }

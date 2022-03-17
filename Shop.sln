@@ -5,11 +5,6 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "back-end", "back-end", "{B3A74383-3256-4620-B4EB-7595BC10321B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "front-end", "front-end", "{FDD48F99-36DB-4AC7-B783-ADAC6DE8C4DC}"
-	ProjectSection(SolutionItems) = preProject
-		front.txt = front.txt
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.BusinessLogic", "Shop.BusinessLogic\Shop.BusinessLogic.csproj", "{AA5B7644-BACA-4252-A5C0-87584DEE404B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shop.DAL", "Shop.DAL\Shop.DAL.csproj", "{4A39F189-3A85-4B10-B22B-45E74E3B1384}"
