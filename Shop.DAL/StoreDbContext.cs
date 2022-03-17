@@ -2,11 +2,20 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Shop.DAL.Entities;
+using Shop.DAL.Interfaces;
 
 namespace Shop.DAL
 {
-    public class ShopDbContext:IdentityDbContext<User>
+    public class StoreDbContext : IdentityDbContext<User>, IStoreDbContext
     {
+        public StoreDbContext()
+        {
+        }
+
+        public StoreDbContext(DbContextOptions<StoreDbContext> options)
+            : base(options)
+        {
+        }
 
         public DbSet<AgeType> AgeTypes { get; set; }
         public DbSet<Brand> Brands { get; set; }
@@ -18,6 +27,7 @@ namespace Shop.DAL
         public DbSet<Logo> Logos { get; set; }
         public DbSet<Manufacturer> Manufacturers { get; set; }
         public DbSet<TypeItem> TypeItems { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql("Host=localhost;Port=5555;Database=testStore;Username=postgres;Password=admin");
