@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using System.Reflection;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Shop.DAL.Entities;
 
@@ -6,8 +7,6 @@ namespace Shop.DAL
 {
     public class ShopDbContext:IdentityDbContext<User>
     {
-        public ShopDbContext(DbContextOptions<ShopDbContext> options)
-            :base(options){}
 
         public DbSet<AgeType> AgeTypes { get; set; }
         public DbSet<Brand> Brands { get; set; }
@@ -19,10 +18,16 @@ namespace Shop.DAL
         public DbSet<Logo> Logos { get; set; }
         public DbSet<Manufacturer> Manufacturers { get; set; }
         public DbSet<TypeItem> TypeItems { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5555;Database=testStore;Username=postgres;Password=admin");
             base.OnConfiguring(optionsBuilder);
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(builder);
         }
     }
 }

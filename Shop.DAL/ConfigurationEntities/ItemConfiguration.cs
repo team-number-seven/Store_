@@ -64,6 +64,17 @@ namespace Shop.DAL.ConfigurationEntities
                 .HasMany(i => i.Images)
                 .WithMany(i => i.Items)
                 .UsingEntity(e => e.ToTable("ImageItem"));
+
+            builder
+                .HasMany(i => i.BagUsers)
+                .WithMany(u => u.BagItems)
+                .UsingEntity(u => u.ToTable("BagItemUser"));
+
+            builder
+                .HasMany(i => i.FavoriteUsers)
+                .WithMany(u => u.FavoriteItems)
+                .UsingEntity(u => u.ToTable("FavoriteItemUser"));
+
         }
     }
 }

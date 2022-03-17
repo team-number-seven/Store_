@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Shop.DAL.Entities;
 
 namespace Shop.DAL.ConfigurationEntities
 {
-    public class TypeItemConfiguration:IEntityTypeConfiguration<TypeItem>
+    public class TypeItemConfiguration : IEntityTypeConfiguration<TypeItem>
     {
         public void Configure(EntityTypeBuilder<TypeItem> builder)
         {
@@ -26,8 +21,11 @@ namespace Shop.DAL.ConfigurationEntities
                 .IsRequired()
                 .HasMaxLength(50);
 
+
             builder
-                .HasMany(t => t.Items).WithMany(i => i.TypeItems).UsingEntity(e => e.ToTable("ItemTypeItem"));
+                .HasMany(t => t.Items)
+                .WithMany(i => i.TypeItems)
+                .UsingEntity(e => e.ToTable("ItemTypeItem"));
         }
     }
 }

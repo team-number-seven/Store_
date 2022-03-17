@@ -20,7 +20,9 @@ namespace Shop.DAL.ConfigurationEntities
                 .Property(l => l.ImageData)
                 .IsRequired();
 
-            builder.Property(l => l.Format).IsRequired();
+            builder
+                .Property(l => l.Format)
+                .IsRequired();
         }
     }
 }

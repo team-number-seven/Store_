@@ -33,5 +33,9 @@ namespace Shop.DAL.Entities
         public IEnumerable<Image> Images { get; set; }
 
         public IEnumerable<TypeItem> TypeItems { get; set; }
+
+        public IEnumerable<User> BagUsers { get; set; }
+
+        public IEnumerable<User> FavoriteUsers { get; set; }
     }
 }
