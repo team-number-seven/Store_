@@ -7,49 +7,60 @@ export default class LogIn extends React.Component {
         super(props);
         this.state = {
             email: '',
-            password: '',
+            emailValid: false,
             emailDirty: false,
-            passwordDirty: false,
             emailError: 'Email field cannot be empty',
+
+            password: '',
+            passwordValid: false,
+            passwordDirty: false,
             passwordError: 'Password field cannot be empty',
+
             formValid: false,
         }
 
     }
 
-
-    checkFormForErrors() {
-        if (this.state.emailError !== '' || this.state.passwordError !== '') {
-            this.setState({
-                formValid: false,
-            })
+    validateEmail(email) {
+        const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        if (!reg.test(String(email).toLowerCase())) {
+            this.setState({emailError: 'Incorrect email'});
+            return false;
         } else {
-            this.setState({
-                formValid: true,
-            })
+            this.setState({emailError: ''});
+            return true;
         }
     }
 
     emailHandler(e) {
-        this.setState({email: e.target.value});
-        const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        if (!reg.test(String(e.target.value).toLowerCase())) {
-            this.setState({emailError: 'Incorrect email'});
+        e.preventDefault();
+        this.setState({
+            email: e.target.value,
+            emailValid: this.validateEmail(e.target.value)
+        })
+        this.validateForm();
+    }
+
+    validatePassword(password) {
+        if (password.length < 3) {
+            this.setState({passwordError: 'Password cannot be less than 4 symbols'});
+            if (!password) {
+                this.setState({passwordError: 'Password field cannot be empty'});
+            }
+            return false;
         } else {
-            this.setState({emailError: ''});
+            this.setState({passwordError: ''});
+            return true;
         }
     }
 
     passwordHandler(e) {
-        this.setState({password: e.target.value});
-        if (e.target.value.length < 4) {
-            this.setState({passwordError: 'Password cannot be less than 4 symbols'});
-            if (!e.target.value) {
-                this.setState({passwordError: 'Password field cannot be empty'});
-            }
-        } else {
-            this.setState({passwordError: ''});
-        }
+        e.preventDefault();
+        this.setState({
+            password: e.target.value,
+            passwordValid: this.validatePassword(e.target.value)
+        })
+        this.validateForm();
     }
 
     focusHandler(e) {
@@ -63,9 +74,68 @@ export default class LogIn extends React.Component {
         }
     }
 
-    blurHandler() {
-        this.checkFormForErrors();
+    validateForm() {
+        if (!this.state.passwordValid || !this.state.emailValid) {
+            this.setState({
+                formValid: false,
+            })
+        } else {
+            this.setState({
+                formValid: true,
+            })
+        }
     }
+
+
+    /*
+        checkFormForErrors() {
+            debugger;
+            if (this.state.emailError !== '' || this.state.passwordError !== '') {
+                this.setState({
+                    formValid: false,
+                })
+            } else {
+                this.setState({
+                    formValid: true,
+                })
+            }
+        }
+
+        emailHandler(e) {
+            this.setState({email: e.target.value});
+            const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            if (!reg.test(String(e.target.value).toLowerCase())) {
+                this.setState({emailError: 'Incorrect email'});
+            } else {
+                this.setState({emailError: ''});
+            }
+        }
+
+
+        passwordHandler(e) {
+            this.setState({password: e.target.value});
+            if (e.target.value.length < 4) {
+                this.setState({passwordError: 'Password cannot be less than 4 symbols'});
+                if (!e.target.value) {
+                    this.setState({passwordError: 'Password field cannot be empty'});
+                }
+            } else {
+                this.setState({passwordError: ''});
+            }
+        }
+
+        focusHandler(e) {
+            switch (e.target.name) {
+                case 'email':
+                    this.setState({emailDirty: true})
+                    break;
+                case 'password':
+                    this.setState({passwordDirty: true})
+                    break;
+            }
+        }
+    */
+
 
     render() {
         return (
@@ -76,10 +146,11 @@ export default class LogIn extends React.Component {
 
                         <div className="form-group">
                             <label htmlFor="email-input">Email:</label>
-                            <input id="email-input" className="form-control" onChange={e => this.emailHandler(e)}
+                            <input id="email-input" className="form-control" onChange={e => {
+                                this.emailHandler(e);
+                            }}
                                    value={this.state.email}
                                    onFocus={e => this.focusHandler(e)}
-                                   onBlur={() => this.blurHandler()}
                                    name="email" type="text"
                                    placeholder="Enter your email"/>
                             {/*Email error message*/}
@@ -89,11 +160,12 @@ export default class LogIn extends React.Component {
 
                         <div className="form-group">
                             <label htmlFor="password-input">Password:</label>
-                            <input id="password-input" className="form-control" onChange={e => this.passwordHandler(e)}
+                            <input id="password-input" className="form-control" onChange={e => {
+                                this.passwordHandler(e);
+                            }}
                                    value={this.state.password}
                                    onFocus={e => this.focusHandler(e)}
-                                   onBlur={() => this.blurHandler()}
-                                   name="password" type="password"
+                                   name="password" type=""
                                    placeholder="Enter your password"/>
                             {/*Password error message*/}
                             {(this.state.passwordDirty && this.state.passwordError) &&
@@ -101,7 +173,11 @@ export default class LogIn extends React.Component {
                         </div>
 
                         <div className="form-footer">
-                            <button className="btn btn-primary" onClick={() => console.log('logged in')}
+                            <button className="btn btn-primary"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        console.log(`logged in: email:${this.state.email} password:${this.state.password}`)
+                                    }}
                                     disabled={!this.state.formValid} type="submit">Log in
                             </button>
 
@@ -114,75 +190,3 @@ export default class LogIn extends React.Component {
     }
 }
 
-
-/*
-const App = () =>
-    {
-        const [email, setEmail] = useState('');
-        const [password, setPassword] = useState('');
-        const [emailDirty, setEmailDirty] = useState(false);
-        const [passwordDirty, setPasswordDirty] = useState(false);
-        const [emailError, setEmailError] = useState('Email field cannot be empty');
-        const [passwordError, setPasswordError] = useState('Password field cannot be empty');
-        const [formValid, setFormValid] = useState(false);
-
-        useEffect(() => {
-            if (emailError || passwordError) {
-                setFormValid(false);
-            } else {
-                setFormValid(true);
-            }
-        }, [emailError, passwordError])
-
-        const emailHandler = (e) => {
-            setEmail(e.target.value);
-            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            if (!re.test(String(e.target.value).toLowerCase())) {
-                setEmailError('Incorrect email');
-            } else {
-                setEmailError('');
-            }
-        }
-
-        const passwordHandler = (e) => {
-            setPassword(e.target.value);
-            if (e.target.value.length < 4) {
-                setPasswordError('Password cannot be less than 4 symbols');
-                if (!e.target.value) {
-                    setPasswordError('Password field cannot be empty');
-                }
-            } else {
-                setPasswordError('');
-            }
-        }
-
-        const blurHandler = (e) => {
-            switch (e.target.name) {
-                case 'email':
-                    setEmailDirty(true);
-                    break;
-                case 'password':
-                    setPasswordDirty(true);
-                    break;
-            }
-        }
-
-
-        return (
-            <div className="App">
-                <h1>Log in</h1>
-                {(emailDirty && emailError) && <div style={{color: 'red'}}>{emailError} </div>}
-                <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} name='email'
-                       type="text"
-                       placeholder="Enter your email"/>
-                {(passwordDirty && passwordError) && <div style={{color: 'red'}}>{passwordError} </div>}
-                <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)}
-                       name='password'
-                       type="password"
-                       placeholder="Enter your password"/>
-                <button disabled={!formValid} type="submit">Log in</button>
-            </div>
-        )
-    }
-
-export default App;*/
