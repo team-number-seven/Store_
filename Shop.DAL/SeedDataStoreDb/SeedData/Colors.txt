@@ -285,7 +285,6 @@ Dark Green
 Dark Green (X11)
 Dark Gunmetal
 Dark Imperial Blue
-Dark Imperial Blue
 Dark Jungle Green
 Dark Khaki
 Dark Lava
@@ -840,7 +839,6 @@ Pastel Yellow
 Patriarch
 Payne's Grey
 Peach
-Peach
 Peach-Orange
 Peach Puff
 Peach-Yellow
@@ -977,7 +975,6 @@ Rosso Corsa
 Rosy Brown
 Royal Azure
 Royal Blue
-Royal Blue
 Royal Fuchsia
 Royal Purple
 Royal Yellow
@@ -1015,7 +1012,6 @@ Sapphire
 Sapphire Blue
 Sasquatch Socks
 Satin Sheen Gold
-Scarlet
 Scarlet
 Schauss Pink
 School Bus Yellow
@@ -1109,7 +1105,6 @@ Taupe
 Taupe Gray
 Tea Green
 Tea Rose
-Tea Rose
 Teal
 Teal Blue
 Teal Deer
@@ -1177,7 +1172,6 @@ Vanilla Ice
 Vegas Gold
 Venetian Red
 Verdigris
-Vermilion
 Vermilion
 Veronica
 Very Light Azure
