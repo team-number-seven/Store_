@@ -1,4 +1,4 @@
-﻿namespace Shop.DAL.SeedDataStoreDb
+﻿namespace Store.DAL.SeedDataStoreDb
 {
     public static class Constans
     {

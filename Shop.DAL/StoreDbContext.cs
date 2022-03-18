@@ -1,10 +1,10 @@
 ﻿using System.Reflection;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Shop.DAL.Entities;
-using Shop.DAL.Interfaces;
+using Store.DAL.Entities;
+using Store.DAL.Interfaces;
 
-namespace Shop.DAL
+namespace Store.DAL
 {
     public class StoreDbContext : IdentityDbContext<User>, IStoreDbContext
     {

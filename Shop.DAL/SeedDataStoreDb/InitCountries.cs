@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
-using Shop.DAL.Entities;
+using Store.DAL.Entities;
 
-namespace Shop.DAL.SeedDataStoreDb
+namespace Store.DAL.SeedDataStoreDb
 {
     public static class InitCountries
     {

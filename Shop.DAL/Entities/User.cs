@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
-using Shop.DAL.Interfaces;
+using Store.DAL.Interfaces;
 
-namespace Shop.DAL.Entities
+namespace Store.DAL.Entities
 {
     public class User : IdentityUser, IBaseEntity
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using Shop.DAL.Interfaces;
+using Store.DAL.Interfaces;
 
-namespace Shop.DAL.Entities
+namespace Store.DAL.Entities
 {
     public class Logo : IBaseEntity
     {

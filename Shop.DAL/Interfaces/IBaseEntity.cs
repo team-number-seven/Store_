@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Shop.DAL.Interfaces
+namespace Store.DAL.Interfaces
 {
     public interface IBaseEntity
     {

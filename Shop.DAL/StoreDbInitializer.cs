@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Shop.DAL.Interfaces;
-using Shop.DAL.SeedDataStoreDb;
+using Store.DAL.Interfaces;
+using Store.DAL.SeedDataStoreDb;
 
-namespace Shop.DAL
+namespace Store.DAL
 {
     public static class DbInitializer<T> 
         where T: IStoreDbContext

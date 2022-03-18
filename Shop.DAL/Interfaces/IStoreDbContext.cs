@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Shop.DAL.Entities;
+using Store.DAL.Entities;
 
-namespace Shop.DAL.Interfaces
+namespace Store.DAL.Interfaces
 {
     public interface IStoreDbContext
     {

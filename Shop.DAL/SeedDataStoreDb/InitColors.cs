@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Shop.DAL.Entities;
+using Store.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shop.DAL.SeedDataStoreDb
+namespace Store.DAL.SeedDataStoreDb
 {
     public static class InitColors
     {

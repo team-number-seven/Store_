@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Shop.DAL.Entities;
+using Store.DAL.Entities;
 
-namespace Shop.DAL.ConfigurationEntities
+namespace Store.DAL.ConfigurationEntities
 {
     public class TypeItemConfiguration : IEntityTypeConfiguration<TypeItem>
     {
