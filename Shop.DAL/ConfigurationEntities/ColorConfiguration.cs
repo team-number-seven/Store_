@@ -13,11 +13,11 @@ namespace Shop.DAL.ConfigurationEntities
                 .HasKey(c => c.Id);
 
             builder
-                .HasIndex(c => c.Title)
+                .HasIndex(c => c.Name)
                 .IsUnique();
 
             builder
-                .Property(c => c.Title)
+                .Property(c => c.Name)
                 .IsRequired()
                 .HasMaxLength(50)
                 .IsRequired();

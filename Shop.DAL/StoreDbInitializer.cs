@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Shop.DAL.Entities;
+﻿using Microsoft.EntityFrameworkCore;
 using Shop.DAL.Interfaces;
+using Shop.DAL.SeedDataStoreDb;
 
 namespace Shop.DAL
 {
@@ -18,8 +14,9 @@ namespace Shop.DAL
 
         public static void InitializeSeedData(ModelBuilder builder)
         {
+            InitCountries.Init(builder,Constans.PathDerectory + Constans.Countries);
+            InitColors.Init(builder, Constans.PathDerectory + Constans.Colors);
             //init data...
-            //where to save file paths???
         }
     }
 }
