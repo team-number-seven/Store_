@@ -22,21 +22,22 @@ export default function SignIn() {
             <div className="authentication-container">
                 <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <h1>LOG IN</h1>
+                    <h1>SIGN IN</h1>
 
                     <div className="form-group">
                         <label htmlFor="email-input">Email:</label>
-                        <input id="email-input" className="form-control" type="text"
-                               autoComplete="off"
+                        <input id="email-input" className="form-control" type="email"
                                placeholder="Enter your email"
                                {...register('email', {
-                                   required: 'Email field cannot be empty',
+                                   required: {
+                                       value: true,
+                                       message: 'This field cannot be empty',
+                                   },
                                    pattern: {
                                        value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                                        message: 'Wrong email'
                                    }
                                })}
-
                         />
                         {errors?.email && <small className="input-error">{errors?.email?.message}</small>}
 
@@ -47,7 +48,10 @@ export default function SignIn() {
                         <input id="password-input" className="form-control" type="password"
                                placeholder="Enter your password"
                                {...register('password', {
-                                   required: 'Password field cannot be empty',
+                                   required: {
+                                       value: true,
+                                       message: 'This field cannot be empty'
+                                   },
                                    minLength: {
                                        value: 6,
                                        message: 'Password cannot be less than 6 characters'
