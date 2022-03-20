@@ -5,9 +5,8 @@ using Store.DAL.Interfaces;
 
 namespace Store.DAL.Entities
 {
-    public class User : IdentityUser, IBaseEntity
+    public class User : IdentityUser<Guid>,IBaseEntity
     {
-        public Guid Id { get; set; }
         public DateTime CreateDate { get; set; }
 
         public Country Country { get; set; }

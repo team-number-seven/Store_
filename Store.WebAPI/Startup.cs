@@ -1,3 +1,4 @@
+using System;
 using System.Reflection;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -32,7 +33,7 @@ namespace Store.WebAPI
             services.AddScoped<IStoreDbContext>(provider =>
                 provider.GetService<StoreDbContext>());
 
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<User, IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<StoreDbContext>();
 
             services.Configure<IdentityOptions>(options =>

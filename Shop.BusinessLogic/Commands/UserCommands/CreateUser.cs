@@ -19,9 +19,9 @@ namespace Store.BusinessLogic.Commands.UserCommands
         public class Handler : IRequestHandler<Command, Guid>
         {
             private readonly IStoreDbContext _context;
-            private readonly UserManager<User> _userManager;
+            private readonly IUserStore<User> _userManager;
 
-            public Handler(IStoreDbContext context, UserManager<User> userManager)
+            public Handler(IStoreDbContext context, IUserStore<User> userManager)
             {
                 _context = context;
                 _userManager = userManager;
@@ -29,17 +29,19 @@ namespace Store.BusinessLogic.Commands.UserCommands
 
             public async Task<Guid> Handle(Command request, CancellationToken cancellationToken)
             {
+                //In the future, this code will be replaced with query
                 var Country =
                     await _context.Countries.FirstOrDefaultAsync(c => c.Name == request.Country, cancellationToken);
+                //
                 var user = new User
                 {
-                    Id = Guid.NewGuid(),
                     UserName = request.UserName,
                     Email = request.Email,
                     PasswordHash = request.Password,
                     Country = Country,
                     CountryId = Country.Id,
                     PhoneNumber = request.PhoneNumber,
+                    NormalizedUserName = request.UserName,
                     CreateDate = DateTime.Now
                 };
 
@@ -49,7 +51,7 @@ namespace Store.BusinessLogic.Commands.UserCommands
                 Country.Users = users;
                 _context.Countries.Update(Country);
                 //
-                await _userManager.CreateAsync(user);
+                await _userManager.CreateAsync(user, cancellationToken);
                 await _context.SaveChangesAsync(cancellationToken);
                 return user.Id;
             }

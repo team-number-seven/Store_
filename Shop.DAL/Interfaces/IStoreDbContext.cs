@@ -7,7 +7,7 @@ namespace Store.DAL.Interfaces
 {
     public interface IStoreDbContext
     {
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken());
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = new());
         DbSet<AgeType> AgeTypes { get; set; }
         DbSet<Brand> Brands { get; set; }
         DbSet<Color> Colors { get; set; }

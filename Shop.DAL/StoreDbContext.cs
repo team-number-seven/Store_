@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Store.DAL.Entities;
@@ -6,7 +8,7 @@ using Store.DAL.Interfaces;
 
 namespace Store.DAL
 {
-    public class StoreDbContext : IdentityDbContext<User>, IStoreDbContext
+    public class StoreDbContext : IdentityDbContext<User,IdentityRole<Guid>, Guid>, IStoreDbContext
     {
         public StoreDbContext()
         {
