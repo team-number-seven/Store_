@@ -1,4 +1,4 @@
-#log-in {
+.authentication {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -7,7 +7,7 @@
     background-color: rgba(0, 0, 0, 0.46);
 }
 
-#log-in-container {
+.authentication-container {
     display: flex;
     justify-content: center;
     align-items: center;

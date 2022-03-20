@@ -1,6 +1,6 @@
 import React from "react";
 
-import LogIn from "./components/authentication/log-in/log-in";
+import SignIn from "./components/authentication/log-in/sign-in";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -10,7 +10,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <LogIn/>
+                <SignIn/>
             </div>
         )
     }
