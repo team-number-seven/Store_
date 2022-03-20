@@ -1,6 +1,8 @@
-﻿using System.Threading;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Store.DAL.Entities;
 
 namespace Store.DAL.Interfaces
@@ -8,6 +10,9 @@ namespace Store.DAL.Interfaces
     public interface IStoreDbContext
     {
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = new());
+
+        EntityEntry<TEntity> Entry<TEntity>(TEntity entity)
+            where TEntity : class;
         DbSet<AgeType> AgeTypes { get; set; }
         DbSet<Brand> Brands { get; set; }
         DbSet<Color> Colors { get; set; }

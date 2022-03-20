@@ -14,8 +14,6 @@ namespace Store.DAL.ConfigurationEntities
             builder.Ignore(u => u.EmailConfirmed);
             builder.Ignore(u => u.LockoutEnabled);
             builder.Ignore(u => u.LockoutEnd);
-            builder.Ignore(u => u.NormalizedUserName);
-            builder.Ignore(u => u.SecurityStamp);
             builder.Ignore(u => u.TwoFactorEnabled);
 
             builder
