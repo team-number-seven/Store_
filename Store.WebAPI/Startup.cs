@@ -11,9 +11,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Store.BusinessLogic.Behaviours;
 using Store.BusinessLogic.Commands.UserCommands;
 using Store.BusinessLogic.Common.Interfaces;
 using Store.BusinessLogic.Services;
+using Store.BusinessLogic.Validation;
 using Store.DAL;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
@@ -36,6 +38,10 @@ namespace Store.WebAPI
 
             services.AddScoped<IStoreDbContext>(provider =>
                 provider.GetService<StoreDbContext>());
+
+
+            services.AddValidators();
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
             services.AddTransient<IJWTService, JWTService>();
 
