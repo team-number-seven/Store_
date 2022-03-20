@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Reflection;
+using System.Security.Claims;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.DAL
 {
-    public class StoreDbContext : IdentityDbContext<User,IdentityRole<Guid>, Guid>, IStoreDbContext
+    public class StoreDbContext : IdentityDbContext<User, IdentityRole<Guid>,Guid>, IStoreDbContext
     {
         public StoreDbContext()
         {
@@ -32,7 +36,8 @@ namespace Store.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5555;Database=testStore;Username=postgres;Password=admin");//the test will be deleted in the future
+            optionsBuilder.UseNpgsql(
+                "Host=localhost;Port=5555;Database=testStore;Username=postgres;Password=admin"); //the test will be deleted in the future
             base.OnConfiguring(optionsBuilder);
         }
 

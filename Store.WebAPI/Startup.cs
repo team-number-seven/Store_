@@ -1,6 +1,7 @@
 using System;
-using System.Reflection;
+using System.Text;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -8,8 +9,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Store.BusinessLogic.Commands.UserCommands;
+using Store.BusinessLogic.Common.Interfaces;
+using Store.BusinessLogic.Services;
 using Store.DAL;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
@@ -33,7 +37,24 @@ namespace Store.WebAPI
             services.AddScoped<IStoreDbContext>(provider =>
                 provider.GetService<StoreDbContext>());
 
-            services.AddIdentity<User, IdentityRole<Guid>>()
+            services.AddTransient<IJWTService, JWTService>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateLifetime = false,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        ValidAudience = Configuration["Jwt:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                    };
+                });
+
+            services
+                .AddIdentity<User, IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<StoreDbContext>();
 
             services.Configure<IdentityOptions>(options =>
