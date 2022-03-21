@@ -1,13 +1,12 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Store.BusinessLogic.Common.Interfaces;
 using Store.BusinessLogic.Common.UserModels;
 using Store.DAL.Entities;
+using Store.BusinessLogic.Commands.UserCommands.create;
 using Store.DAL.Interfaces;
-
+using MediatR;
 namespace Store.WebAPI.Controllers
 {
     [Route("[controller]")]
@@ -17,13 +16,16 @@ namespace Store.WebAPI.Controllers
         private readonly IJWTService _jwtService;
         private readonly SignInManager<User> _userSignInManager;
         private readonly IStoreDbContext _context;
+        private readonly IMediator _mediator;
 
-        public UserController(UserManager<User> userManager, IJWTService jwtService, SignInManager<User> userSignInManager,IStoreDbContext context)
+        public UserController(UserManager<User> userManager, IJWTService jwtService, 
+            SignInManager<User> userSignInManager,IStoreDbContext context,IMediator mediator)
         {
             _userManager = userManager;
             _jwtService = jwtService;
             _userSignInManager = userSignInManager;
             _context = context;
+            _mediator = mediator;
         }
 
         [HttpPost]
@@ -32,7 +34,6 @@ namespace Store.WebAPI.Controllers
         {
 
             var user = await _userManager.FindByEmailAsync(userLogin.Email);
-
 
             if (user is null)
                 return BadRequest(new {message = "Username or password is incorrect"});
@@ -48,5 +49,10 @@ namespace Store.WebAPI.Controllers
             }
            return BadRequest(new { message = "Username or password is incorrect" });
         }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> Create(CreateUser.Command command)
+            => Ok(await _mediator.Send(command));
     }
 }

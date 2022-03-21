@@ -2,14 +2,13 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Validation;
 
 namespace Store.BusinessLogic.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TResponse : CQRSResponseBase, new() where TRequest : IRequest<TResponse>
+        where TResponse : ResponseBase, new() where TRequest : IRequest<TResponse>
     {
         private readonly IValidationHandler<TRequest> _validationHandler;
 

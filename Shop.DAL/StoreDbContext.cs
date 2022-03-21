@@ -46,7 +46,6 @@ namespace Store.DAL
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             DbInitializer<StoreDbContext>.InitializeSeedData(builder);
-
             base.OnModelCreating(builder);
         }
     }

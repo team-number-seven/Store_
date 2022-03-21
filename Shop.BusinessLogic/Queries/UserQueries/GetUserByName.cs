@@ -11,9 +11,9 @@ namespace Store.BusinessLogic.Queries.UserQueries
 {
     public static class GetUserByName
     {
-        public record Query(string userName) : IRequest<CQRSResponseBase>;
+        public record Query(string userName) : IRequest<ResponseBase>;
 
-        public class Handler : IRequestHandler<Query, CQRSResponseBase>
+        public class Handler : IRequestHandler<Query, ResponseBase>
         {
             private readonly IUserStore<User> _userStore;
 
@@ -22,15 +22,15 @@ namespace Store.BusinessLogic.Queries.UserQueries
                 _userStore = userStore;
             }
 
-            public async Task<CQRSResponseBase> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<ResponseBase> Handle(Query request, CancellationToken cancellationToken)
             {
                 var user = await _userStore.FindByNameAsync(request.userName, cancellationToken);
                 return user == null
-                    ? new CQRSResponseBase("User not found", HttpStatusCode.NotFound)
+                    ? new ResponseBase("User not found", HttpStatusCode.NotFound)
                     : new Response(user.Id, user.UserName, user.Email, user.PhoneNumber);
             }
         }
 
-        public record Response(Guid Id, string UserName, string Email, string PhoneNumber) : CQRSResponseBase;
+        public record Response(Guid Id, string UserName, string Email, string PhoneNumber) : ResponseBase;
     }
 }

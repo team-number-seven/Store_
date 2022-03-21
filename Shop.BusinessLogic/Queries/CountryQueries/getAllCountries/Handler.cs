@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
+﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Store.BusinessLogic.Common;
 using Store.DAL.Interfaces;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace Store.BusinessLogic.Queries.CountryQueries
+namespace Store.BusinessLogic.Queries.CountryQueries.getAllCountries
 {
-    public static class GetAllCountries
+    public static partial class GetAllCountries
     {
-        public record Query : IRequest<IEnumerable<CQRSResponseBase>>;
-
-        public class Handler: IRequestHandler<Query,IEnumerable<CQRSResponseBase>>
+        public class Handler : IRequestHandler<Query, IEnumerable<ResponseBase>>
         {
             private readonly IStoreDbContext _context;
 
@@ -24,7 +18,7 @@ namespace Store.BusinessLogic.Queries.CountryQueries
             {
                 _context = context;
             }
-            public async Task<IEnumerable<CQRSResponseBase>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<IEnumerable<ResponseBase>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var response = new List<Response>();
                 var countries = await _context.Countries.ToListAsync(cancellationToken);
@@ -35,8 +29,5 @@ namespace Store.BusinessLogic.Queries.CountryQueries
                 return response;
             }
         }
-
-
-        public record Response(Guid Id,string Name):CQRSResponseBase;
     }
 }

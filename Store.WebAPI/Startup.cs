@@ -12,13 +12,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Store.BusinessLogic.Behaviours;
-using Store.BusinessLogic.Commands.UserCommands;
 using Store.BusinessLogic.Common.Interfaces;
 using Store.BusinessLogic.Services;
 using Store.BusinessLogic.Validation;
 using Store.DAL;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
+using Store.BusinessLogic.Commands.UserCommands.create;
+using System.Security.Claims;
 
 namespace Store.WebAPI
 {
@@ -45,6 +46,7 @@ namespace Store.WebAPI
 
             services.AddTransient<IJWTService, JWTService>();
 
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -62,6 +64,20 @@ namespace Store.WebAPI
             services
                 .AddIdentity<User, IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<StoreDbContext>();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("admin", builder =>
+                {
+                    builder.RequireClaim(ClaimTypes.Role, "admin");
+                });
+
+                options.AddPolicy("user", builder =>
+                {
+                    builder.RequireAssertion(x => x.User.HasClaim(ClaimTypes.Role, "user") || x.User.HasClaim(ClaimTypes.Role, "admin"));
+                });
+            });
+
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -96,6 +112,8 @@ namespace Store.WebAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
