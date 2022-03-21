@@ -9,7 +9,7 @@ namespace Store.WebAPI.Controllers
     [Route("[controller]")]
     public class RoleController:Controller
     {
-        RoleManager<IdentityRole<Guid>> _roleManager;
+        private readonly RoleManager<IdentityRole<Guid>> _roleManager;
         public RoleController(RoleManager<IdentityRole<Guid>> roleManager)
         {
             _roleManager = roleManager;

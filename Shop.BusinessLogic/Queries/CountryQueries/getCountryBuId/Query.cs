@@ -2,7 +2,7 @@
 using Store.BusinessLogic.Common;
 using System;
 
-namespace Store.BusinessLogic.Queries.CountryQueries.getCountryBuId
+namespace Store.BusinessLogic.Queries.CountryQueries.getCountryById
 {
     public static partial class GetCountryById
     {

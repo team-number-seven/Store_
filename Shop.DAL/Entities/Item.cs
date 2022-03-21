@@ -30,6 +30,9 @@ namespace Store.DAL.Entities
         public Manufacturer Manufacturer { get; set; }
         public Guid ManufacturerId { get; set; }
 
+        public Image MainImage { get; set; }
+        public Guid MainImageId { get; set; }
+
         public IEnumerable<Image> Images { get; set; }
 
         public IEnumerable<TypeItem> TypeItems { get; set; }

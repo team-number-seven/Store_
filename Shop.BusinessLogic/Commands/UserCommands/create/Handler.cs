@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Store.BusinessLogic.Commands.UserCommands.create
 {
@@ -17,12 +18,14 @@ namespace Store.BusinessLogic.Commands.UserCommands.create
             private readonly IStoreDbContext _context;
             private readonly UserManager<User> _userManager;
             private readonly IPasswordHasher<User> _userHasher;
+            private readonly ILogger<Handler> _logger;
 
-            public Handler(IStoreDbContext context, UserManager<User> userManager, IPasswordHasher<User> userHasher)
+            public Handler(IStoreDbContext context, UserManager<User> userManager, IPasswordHasher<User> userHasher,ILogger<CreateUser.Handler> logger)
             {
                 _context = context;
                 _userManager = userManager;
                 _userHasher = userHasher;
+                _logger = logger;
             }
 
             public async Task<ResponseBase> Handle(Command request, CancellationToken cancellationToken)
@@ -50,7 +53,7 @@ namespace Store.BusinessLogic.Commands.UserCommands.create
                 await _userManager.CreateAsync(user);
                 await _userManager.AddToRoleAsync(user, "user");
                 await _context.SaveChangesAsync(cancellationToken);
-
+                _logger.LogInformation($"User was created successfully for {typeof(Handler)}");
                 return new Response(user.Id);
             }
         }

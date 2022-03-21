@@ -1,17 +1,19 @@
 ﻿using System;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Store.BusinessLogic.Common;
-using Store.DAL.Interfaces;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Store.BusinessLogic.Common;
+using Store.DAL.Entities;
+using Store.DAL.Interfaces;
 using static Store.BusinessLogic.Common.DTOS.EntitiesDTOS;
 
-namespace Store.BusinessLogic.Queries.CountryQueries.getAllCountries
+
+namespace Store.BusinessLogic.Queries.GenderQueries.getAllGenders
 {
-    public static partial class GetAllCountries
+    public static partial class GetAllGenders
     {
         public class Handler : IRequestHandler<Query, ResponseBase>
         {
@@ -26,12 +28,13 @@ namespace Store.BusinessLogic.Queries.CountryQueries.getAllCountries
 
             public async Task<ResponseBase> Handle(Query request, CancellationToken cancellationToken)
             {
-                var countries = await _context.Countries.ToListAsync(cancellationToken);
-                var response = new Response(new List<CountryDTO>());
+                IList<Gender> genders = await _context.Genders.ToListAsync(cancellationToken);
+                var response = new Response(new List<GenderDTO>());
 
-                Parallel.ForEach(countries, c => response.Countries.Add(new CountryDTO(c.Id, c.Name)));
+                if (genders is not null)
+                    Parallel.ForEach(genders, g => response.Genders.Add(new GenderDTO(g.Id, g.Title)));
 
-                _logger.LogInformation($"[{DateTime.Now}]Get countries is successful for {typeof(Handler)}");
+                _logger.LogInformation($"[{DateTime.Now}]Get genders is successful for {typeof(Handler)}");
 
                 return response;
             }
