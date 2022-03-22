@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class LogoConfiguration:IEntityTypeConfiguration<Logo>
+    public class LogoConfiguration : IEntityTypeConfiguration<Logo>
     {
         public void Configure(EntityTypeBuilder<Logo> builder)
         {
@@ -13,16 +14,21 @@ namespace Store.DAL.ConfigurationEntities
                 .HasKey(l => l.Id);
 
             builder
-                .HasIndex(l => l.ImageData)
+                .HasIndex(l => l.Path)
                 .IsUnique();
 
             builder
-                .Property(l => l.ImageData)
+                .Property(l => l.Path)
                 .IsRequired();
 
             builder
                 .Property(l => l.Format)
                 .IsRequired();
+
+            builder
+                .HasOne(l => l.Brand)
+                .WithOne(b => b.Logo)
+                .HasForeignKey<Brand>(b => b.LogoId);
         }
     }
 }

@@ -75,6 +75,11 @@ namespace Store.DAL.ConfigurationEntities
                 .WithMany(u => u.FavoriteItems)
                 .UsingEntity(u => u.ToTable("FavoriteItemUser"));
 
+            builder
+                .HasOne(i => i.MainImage)
+                .WithOne(i => i.MainItemImage)
+                .HasForeignKey<Item>(i => i.MainImageId);
+
         }
     }
 }

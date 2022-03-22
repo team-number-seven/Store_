@@ -4,7 +4,7 @@ using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class ImageConfiguration:IEntityTypeConfiguration<Image>
+    public class ImageConfiguration : IEntityTypeConfiguration<Image>
     {
         public void Configure(EntityTypeBuilder<Image> builder)
         {
@@ -18,14 +18,18 @@ namespace Store.DAL.ConfigurationEntities
                 .IsRequired();
 
             builder
-                .Property(i => i.ImageData)
+                .Property(i => i.Path)
                 .IsRequired();
+
+            builder.
+                HasOne(i => i.MainItemImage)
+                .WithOne(i => i.MainImage)
+                .HasForeignKey<Item>(i=>i.MainImageId);
 
             builder
                 .HasMany(i => i.Items)
                 .WithMany(i => i.Images)
                 .UsingEntity(e => e.ToTable("ImageItem"));
-
         }
     }
 }

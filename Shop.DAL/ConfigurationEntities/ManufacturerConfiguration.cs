@@ -21,7 +21,10 @@ namespace Store.DAL.ConfigurationEntities
                 .HasMaxLength(200)
                 .IsRequired();
 
-            builder.HasMany(m => m.Items).WithOne(i => i.Manufacturer).HasForeignKey(m => m.ManufacturerId);
+            builder
+                .HasMany(m => m.Items)
+                .WithOne(i => i.Manufacturer)
+                .HasForeignKey(m => m.ManufacturerId);
         }
     }
 }

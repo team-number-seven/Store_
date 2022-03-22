@@ -5,7 +5,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Store.BusinessLogic.Queries.CountryQueries.getCountryBuId
+namespace Store.BusinessLogic.Queries.CountryQueries.getCountryById
 {
     public static partial class GetCountryById
     {
