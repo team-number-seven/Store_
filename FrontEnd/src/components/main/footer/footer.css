@@ -1,0 +1,6 @@
+
+footer {
+    background-color: var(--main-text-color);
+    color: var(--main-bg-color);
+    height: 20vh
+}

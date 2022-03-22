@@ -5,16 +5,20 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.46);
+
+    position: fixed;
+    z-index: 2;
+    overflow: hidden;
 }
 
 .authentication-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
     width: 30vw;
     height: auto;
     min-height: 60vh;
+    background-color: white;
 }
 
 form {

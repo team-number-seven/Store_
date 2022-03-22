@@ -1,8 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700;900&display=swap');
 @import url(//db.onlinewebfonts.com/c/56e51b15f9bcb363331159989c474c45?family=TradeGothicforNike365-BdCn);
-*{
+
+
+:root {
+    --main-text-color: #2a2a2a;
+    --main-bg-color: #f5f5f5;
+}
+
+
+* {
     margin: 0;
     padding: 0;
     /*font-family: 'League Spartan', sans-serif;*/
     font-family: 'TradeGothicforNike365-BdCn, Helvetica', sans-serif;
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+body{
+    background-color: var(--main-bg-color);
 }

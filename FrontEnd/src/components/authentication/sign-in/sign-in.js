@@ -1,6 +1,7 @@
 import React from "react";
 import {useForm} from "react-hook-form";
 import "../authentication.css";
+import {Link} from "react-router-dom";
 
 export default function SignIn() {
     const {
@@ -21,7 +22,9 @@ export default function SignIn() {
         <div className="authentication">
             <div className="authentication-container">
                 <form onSubmit={handleSubmit(onSubmit)}>
-
+                    <small>
+                        <Link to='/'>Back</Link>
+                    </small>
                     <h1>SIGN IN</h1>
 
                     <div className="form-group">

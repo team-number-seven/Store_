@@ -1,5 +1,6 @@
 import React from "react";
 import {useForm} from "react-hook-form";
+import {Link} from "react-router-dom";
 
 import "../authentication.css";
 import CountryList from "../../services/country-list/country-list";
@@ -27,7 +28,9 @@ export default function SignUp(state) {
         <div className="authentication">
             <div className="authentication-container">
                 <form onSubmit={handleSubmit(onSubmit)}>
-
+                    <small>
+                        <Link to='/'>Back</Link>
+                    </small>
                     <h1>Sign Up</h1>
 
                     <div className="form-group">
@@ -117,7 +120,8 @@ export default function SignUp(state) {
                     </div>
                     <div className="form-group">
                         <label htmlFor="country">Your country:</label>
-                        <select id="country-list" className="form-control selectpicker" data-live-search="true" data-width="fit">
+                        <select id="country-list" className="form-control selectpicker" data-live-search="true"
+                                data-width="fit">
                             <CountryList/>
                         </select>
                     </div>
