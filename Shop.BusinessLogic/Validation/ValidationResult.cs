@@ -4,7 +4,11 @@
     {
         public bool IsSuccessful { get; set; } = true;
         public string Error { get; init; }
-        public static ValidationResult Success => new ValidationResult();
-        public static ValidationResult Fail(string error) => new ValidationResult { IsSuccessful = false, Error = error };
+        public static ValidationResult Success => new();
+
+        public static ValidationResult Fail(string error)
+        {
+            return new() {IsSuccessful = false, Error = error};
+        }
     }
 }

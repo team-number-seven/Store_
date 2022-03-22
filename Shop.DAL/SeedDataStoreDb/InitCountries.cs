@@ -10,12 +10,14 @@ namespace Store.DAL.SeedDataStoreDb
     {
         public static void Init(ModelBuilder builder, string pathTxt)
         {
-            List<Country> countries = new List<Country>();
-            using (StreamReader reader = new StreamReader(pathTxt))
+            var countries = new List<Country>();
+            using (var reader = new StreamReader(pathTxt))
             {
                 string name;
-                while ((name = reader.ReadLine()) != null){ countries.Add(new Country { Id = Guid.NewGuid(), Name = name }); }
+                while ((name = reader.ReadLine()) != null)
+                    countries.Add(new Country {Id = Guid.NewGuid(), Name = name});
             }
+
             builder.Entity<Country>().HasData(countries);
         }
     }

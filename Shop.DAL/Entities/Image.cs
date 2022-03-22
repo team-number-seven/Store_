@@ -6,12 +6,12 @@ namespace Store.DAL.Entities
 {
     public class Image : IBaseEntity
     {
-        public Guid Id { get; set; }
         public string Path { get; set; }
         public string Format { get; set; }
 
         public IEnumerable<Item> Items { get; set; }
-        
+
         public Item MainItemImage { get; set; }
+        public Guid Id { get; set; }
     }
 }

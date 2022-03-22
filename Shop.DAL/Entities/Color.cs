@@ -6,9 +6,9 @@ namespace Store.DAL.Entities
 {
     public class Color : IBaseEntity
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
 
         public IEnumerable<Item> Items { get; set; }
+        public Guid Id { get; set; }
     }
 }

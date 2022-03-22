@@ -79,7 +79,6 @@ namespace Store.DAL.ConfigurationEntities
                 .HasOne(i => i.MainImage)
                 .WithOne(i => i.MainItemImage)
                 .HasForeignKey<Item>(i => i.MainImageId);
-
         }
     }
 }

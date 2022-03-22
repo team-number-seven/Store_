@@ -21,10 +21,9 @@ namespace Store.DAL.ConfigurationEntities
                 .Property(i => i.Path)
                 .IsRequired();
 
-            builder.
-                HasOne(i => i.MainItemImage)
+            builder.HasOne(i => i.MainItemImage)
                 .WithOne(i => i.MainImage)
-                .HasForeignKey<Item>(i=>i.MainImageId);
+                .HasForeignKey<Item>(i => i.MainImageId);
 
             builder
                 .HasMany(i => i.Items)

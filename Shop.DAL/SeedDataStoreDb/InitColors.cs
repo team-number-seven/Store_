@@ -1,11 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Store.DAL.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Store.DAL.Entities;
 
 namespace Store.DAL.SeedDataStoreDb
 {
@@ -13,12 +10,13 @@ namespace Store.DAL.SeedDataStoreDb
     {
         public static void Init(ModelBuilder builder, string pathTxt)
         {
-            List<Color> colors = new List<Color>();
-            using (StreamReader reader = new StreamReader(pathTxt))
+            var colors = new List<Color>();
+            using (var reader = new StreamReader(pathTxt))
             {
                 string name;
-                while ((name = reader.ReadLine()) != null) { colors.Add(new Color { Id = Guid.NewGuid(), Name = name }); }
+                while ((name = reader.ReadLine()) != null) colors.Add(new Color {Id = Guid.NewGuid(), Name = name});
             }
+
             builder.Entity<Color>().HasData(colors);
         }
     }

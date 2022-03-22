@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Reflection;
-using System.Security.Claims;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.DAL
 {
-    public class StoreDbContext : IdentityDbContext<User, IdentityRole<Guid>,Guid>, IStoreDbContext
+    public class StoreDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>, IStoreDbContext
     {
         public StoreDbContext()
         {

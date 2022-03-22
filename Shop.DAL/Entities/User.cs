@@ -5,7 +5,7 @@ using Store.DAL.Interfaces;
 
 namespace Store.DAL.Entities
 {
-    public class User : IdentityUser<Guid>,IBaseEntity
+    public class User : IdentityUser<Guid>, IBaseEntity
     {
         public DateTime CreateDate { get; set; }
 
@@ -15,6 +15,5 @@ namespace Store.DAL.Entities
         public IEnumerable<Item> BagItems { get; set; }
 
         public IEnumerable<Item> FavoriteItems { get; set; }
-
     }
 }

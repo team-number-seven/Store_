@@ -1,15 +1,15 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Store.DAL.Entities;
-using System;
+﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Store.WebAPI.Controllers
 {
     [Route("[controller]")]
-    public class RoleController:Controller
+    public class RoleController : Controller
     {
         private readonly RoleManager<IdentityRole<Guid>> _roleManager;
+
         public RoleController(RoleManager<IdentityRole<Guid>> roleManager)
         {
             _roleManager = roleManager;
@@ -21,15 +21,11 @@ namespace Store.WebAPI.Controllers
         {
             if (!string.IsNullOrEmpty(name))
             {
-                IdentityResult result = await _roleManager.CreateAsync(new IdentityRole<Guid>(name));
-                if (result.Succeeded)
-                {
-                    return Ok(name);
-                }
+                var result = await _roleManager.CreateAsync(new IdentityRole<Guid>(name));
+                if (result.Succeeded) return Ok(name);
             }
+
             return BadRequest();
-
-
         }
     }
 }

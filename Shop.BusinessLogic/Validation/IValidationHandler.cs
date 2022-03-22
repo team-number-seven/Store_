@@ -2,7 +2,9 @@
 
 namespace Store.BusinessLogic.Validation
 {
-    public interface IValidationHandler { }
+    public interface IValidationHandler
+    {
+    }
 
     public interface IValidationHandler<T> : IValidationHandler
     {

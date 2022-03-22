@@ -6,16 +6,16 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Store.BusinessLogic.Commands.UserCommands.create;
-using Store.BusinessLogic.Queries.CountryQueries.getAllCountries;
-using Store.BusinessLogic.Queries.UserQueries;
-using Store.BusinessLogic.Queries.GenderQueries.getAllGenders;
+using Store.BusinessLogic.Commands.UserCommands.CreateUser;
+using Store.BusinessLogic.Queries.CountryQueries.GetAllCountries;
 
 namespace Store.WebAPI.Controllers
 {
     /// <summary>
-    /// TEST CONTROLLER
+    ///     TEST CONTROLLER
     /// </summary>
+    [Controller]
+    [Route("Store/[controller]")]
     public class HomeController : Controller
     {
         private readonly IMediator _mediator;
@@ -28,24 +28,18 @@ namespace Store.WebAPI.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> Create(CreateUser.Command command)
-            => Ok(await _mediator.Send(command));
-
-
-        [HttpPost]
-        [Route("[action]")]
-        public async Task<IActionResult> Get(GetUserByName.Query query)
+        public async Task<IActionResult> Create(CommandCreateUser command)
         {
-            var response = await _mediator.Send(query);
-            return response is null ? NotFound() : Ok(response);
+            return Ok(await _mediator.Send(command));
         }
+
 
         [Authorize(Policy = "user")]
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> GetAllCountries(GetAllCountries.Query query)
+        public async Task<IActionResult> GetAllCountries(QueryAllCountries queryAllCountries)
         {
-            var response = await _mediator.Send(query);
+            var response = await _mediator.Send(queryAllCountries);
             return response is null ? NotFound() : Ok(response);
         }
 
@@ -53,9 +47,8 @@ namespace Store.WebAPI.Controllers
         [Route("[action]")]
         public async Task<IActionResult> UploadFile(List<IFormFile> files)
         {
-            long size = files.Sum(f => f.Length);
+            var size = files.Sum(f => f.Length);
             foreach (var file in files)
-            {
                 if (file.Length > 0)
                 {
                     var filePath = Path.Combine(@"D:\Projects\GitHub\Store\Shop.DAL\Images\", file.Name + ".jpg");
@@ -64,17 +57,8 @@ namespace Store.WebAPI.Controllers
                         await file.CopyToAsync(stream);
                     }
                 }
-            }
 
             return Ok(new {count = files.Count, size});
-        }
-
-        [HttpGet]
-        [Route("[action]")]
-        public async Task<ActionResult> GetGenders()
-        {
-            var result = await _mediator.Send(new GetAllGenders.Query());
-            return result is null ? NotFound() : Ok(result);
         }
     }
 }

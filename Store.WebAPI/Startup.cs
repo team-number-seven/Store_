@@ -1,4 +1,5 @@
 using System;
+using System.Security.Claims;
 using System.Text;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -12,14 +13,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Store.BusinessLogic.Behaviours;
+using Store.BusinessLogic.Commands.UserCommands.CreateUser;
 using Store.BusinessLogic.Common.Interfaces;
+using Store.BusinessLogic.Common.Mappings;
 using Store.BusinessLogic.Services;
 using Store.BusinessLogic.Validation;
 using Store.DAL;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
-using Store.BusinessLogic.Commands.UserCommands.create;
-using System.Security.Claims;
 
 namespace Store.WebAPI
 {
@@ -40,6 +41,10 @@ namespace Store.WebAPI
             services.AddScoped<IStoreDbContext>(provider =>
                 provider.GetService<StoreDbContext>());
 
+            services.AddAutoMapper(config =>
+            {
+                config.AddProfile(new AssemblyMappingProfile(typeof(IMapWith<>).Assembly));
+            });
 
             services.AddValidators();
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
@@ -48,7 +53,8 @@ namespace Store.WebAPI
 
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options => {
+                .AddJwtBearer(options =>
+                {
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuer = false,
@@ -67,15 +73,23 @@ namespace Store.WebAPI
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("admin", builder =>
-                {
-                    builder.RequireClaim(ClaimTypes.Role, "admin");
-                });
+                options.AddPolicy("Administrator",
+                    builder => { builder.RequireClaim(ClaimTypes.Role, "Administrator"); });
 
-                options.AddPolicy("user", builder =>
-                {
-                    builder.RequireAssertion(x => x.User.HasClaim(ClaimTypes.Role, "user") || x.User.HasClaim(ClaimTypes.Role, "admin"));
-                });
+                options.AddPolicy("User",
+                    builder =>
+                    {
+                        builder.RequireAssertion(x =>
+                            x.User.HasClaim(ClaimTypes.Role, "User") ||
+                            x.User.HasClaim(ClaimTypes.Role, "Administrator"));
+                    });
+                options.AddPolicy("Manager",
+                    builder =>
+                    {
+                        builder.RequireAssertion(x =>
+                            x.User.HasClaim(ClaimTypes.Role, "Manager") ||
+                            x.User.HasClaim(ClaimTypes.Role, "Administrator"));
+                    });
             });
 
 
@@ -91,12 +105,12 @@ namespace Store.WebAPI
                 options.SignIn.RequireConfirmedPhoneNumber = false;
             });
 
-            services.AddMediatR(typeof(CreateUser).Assembly);
+            services.AddMediatR(typeof(CommandCreateUser).Assembly);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Store.WebAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "Store.WebAPI", Version = "v1"});
             });
         }
 
@@ -115,10 +129,7 @@ namespace Store.WebAPI
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

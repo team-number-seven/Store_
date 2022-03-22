@@ -2,10 +2,10 @@
 {
     public static class Constans
     {
-        public readonly static string PathDerectory = @"D:\Projects\GitHub\Store\Shop.DAL\SeedDataStoreDb\SeedData\";
+        public static readonly string PathDerectory = @"D:\Projects\GitHub\Store\Shop.DAL\SeedDataStoreDb\SeedData\";
 
-        public readonly static string Colors = "Colors.txt";
+        public static readonly string Colors = "Colors.txt";
 
-        public readonly static string Countries = "Countries.txt";
+        public static readonly string Countries = "Countries.txt";
     }
 }
