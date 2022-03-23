@@ -47,15 +47,15 @@ export default function SignUpForm(props) {
     const onSubmit = (data) => {
         const formData = {
             userName: undefined,
-            email:undefined,
+            email: undefined,
             password: undefined,
             phoneNumber: undefined,
             country: undefined,
         }
         for (let key in formData) {
-            for(let dataKey in data){
-                if(key === dataKey){
-                    formData[key]=data[dataKey];
+            for (let dataKey in data) {
+                if (key === dataKey) {
+                    formData[key] = data[dataKey];
                 }
             }
         }
@@ -80,6 +80,10 @@ export default function SignUpForm(props) {
                                    required: {
                                        value: true,
                                        message: 'This field cannot be empty',
+                                   },
+                                   pattern: {
+                                       value: /^[a-zA-Z0-9]+$/,
+                                       message: 'Invalid username',
                                    }
                                })}
                         />
