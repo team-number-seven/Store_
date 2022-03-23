@@ -13,11 +13,13 @@ namespace Store.DAL.Interfaces
         DbSet<Color> Colors { get; set; }
         DbSet<Country> Countries { get; set; }
         DbSet<Gender> Genders { get; set; }
-        DbSet<Image> Images { get; set; }
+        DbSet<MainItemImage> MainImages { get; set; }
+        DbSet<SecondaryItemImage> SecondaryImages { get;set }
         DbSet<Item> Items { get; set; }
         DbSet<Logo> Logos { get; set; }
         DbSet<Manufacturer> Manufacturers { get; set; }
-        DbSet<TypeItem> TypeItems { get; set; }
+        DbSet<ItemType> ItemTypes { get; set; }
+        DbSet<SubItemType> SubItemTypes { get; set; }
         DbSet<User> Users { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = new());
 

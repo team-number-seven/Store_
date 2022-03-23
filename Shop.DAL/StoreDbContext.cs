@@ -24,11 +24,13 @@ namespace Store.DAL
         public DbSet<Color> Colors { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Gender> Genders { get; set; }
-        public DbSet<Image> Images { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<Logo> Logos { get; set; }
         public DbSet<Manufacturer> Manufacturers { get; set; }
-        public DbSet<TypeItem> TypeItems { get; set; }
+        public DbSet<ItemType> ItemTypes { get; set; }
+        public DbSet<SubItemType> SubItemTypes { get; set; }
+        public DbSet<MainItemImage> MainImages { get; set; }
+        public DbSet<SecondaryItemImage> SecondaryImages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

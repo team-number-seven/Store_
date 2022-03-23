@@ -36,11 +36,6 @@ namespace Store.DAL.ConfigurationEntities
                 .HasForeignKey(i => i.BrandId);
 
             builder
-                .HasMany(i => i.TypeItems)
-                .WithMany(t => t.Items
-                ).UsingEntity(e => e.ToTable("ItemTypeItem"));
-
-            builder
                 .HasOne(i => i.Color)
                 .WithMany(c => c.Items)
                 .HasForeignKey(i => i.ColorId);
@@ -79,6 +74,11 @@ namespace Store.DAL.ConfigurationEntities
                 .HasOne(i => i.MainImage)
                 .WithOne(i => i.MainItemImage)
                 .HasForeignKey<Item>(i => i.MainImageId);
+
+            builder
+                .HasOne(i => i.ItemType)
+                .WithMany(t => t.Items)
+                .HasForeignKey(i => i.ItemTypeId);
         }
     }
 }

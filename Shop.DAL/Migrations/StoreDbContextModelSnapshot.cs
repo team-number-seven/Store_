@@ -34,21 +34,6 @@ namespace Store.DAL.Migrations
                     b.ToTable("ImageItem");
                 });
 
-            modelBuilder.Entity("ItemTypeItem", b =>
-                {
-                    b.Property<Guid>("ItemsId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("TypeItemsId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("ItemsId", "TypeItemsId");
-
-                    b.HasIndex("TypeItemsId");
-
-                    b.ToTable("ItemTypeItem");
-                });
-
             modelBuilder.Entity("ItemUser", b =>
                 {
                     b.Property<Guid>("BagItemsId")
@@ -272,6257 +257,6257 @@ namespace Store.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c85e6892-03df-447f-a9c3-9e568e030548"),
+                            Id = new Guid("7f3e8119-16b6-428e-992f-b8bad9ce1c81"),
                             Name = "Absolute Zero"
                         },
                         new
                         {
-                            Id = new Guid("cbf2c0bf-0106-4b7a-8dc7-7e6fdb9d5a1c"),
+                            Id = new Guid("05e9d00d-0068-4ad6-8b28-296d10e43e41"),
                             Name = "Acid Green"
                         },
                         new
                         {
-                            Id = new Guid("3bd2b63f-9317-407c-b219-a14b5625aace"),
+                            Id = new Guid("69380b23-71ac-49cb-b4aa-10cea2d16711"),
                             Name = "Aero"
                         },
                         new
                         {
-                            Id = new Guid("37f17609-d436-48a2-90d2-3824ae62198f"),
+                            Id = new Guid("bc8d1cd3-ee46-4cbc-bcb7-df5c9e7d6dfb"),
                             Name = "Aero Blue"
                         },
                         new
                         {
-                            Id = new Guid("384dbcf5-6c54-468c-b4ca-b6546f2aae59"),
+                            Id = new Guid("13863dd7-57f7-4f9f-a794-5c8c854a2aad"),
                             Name = "African Violet"
                         },
                         new
                         {
-                            Id = new Guid("92fa8d6e-36b7-4c42-b61c-e8aa072d163e"),
+                            Id = new Guid("c5298ad0-44fc-4fc9-83f9-98b11939a2bc"),
                             Name = "Air Force Blue (RAF)"
                         },
                         new
                         {
-                            Id = new Guid("fd97778f-2d2f-4bba-bf0f-7655f78f2291"),
+                            Id = new Guid("92cb934e-7284-435a-9767-a1498a25b7e5"),
                             Name = "Air Force Blue (USAF)"
                         },
                         new
                         {
-                            Id = new Guid("ad4a084a-55c2-4288-8237-598e2f89e0c5"),
+                            Id = new Guid("b09b64ce-71f1-4e46-81d7-a50c88adebf7"),
                             Name = "Air Superiority Blue"
                         },
                         new
                         {
-                            Id = new Guid("e742bed8-ac16-4b63-9d05-2bda43893ec5"),
+                            Id = new Guid("50567cb3-a1dc-48c1-b8dd-043736ac209e"),
                             Name = "Alabama Crimson"
                         },
                         new
                         {
-                            Id = new Guid("71c7316a-f2ca-45e1-ba35-e765f006c459"),
+                            Id = new Guid("fb02f57a-d9a0-460d-8cbc-11251a370167"),
                             Name = "Alice Blue"
                         },
                         new
                         {
-                            Id = new Guid("9005ad36-9bdb-41a5-a58b-f817c252e049"),
+                            Id = new Guid("823e39cc-df51-4377-9180-aad19e40b862"),
                             Name = "Alien Armpit"
                         },
                         new
                         {
-                            Id = new Guid("23bf00d6-ad10-4525-a4b9-23d5d9296d3d"),
+                            Id = new Guid("c8185dbd-5c51-4d9e-bd1f-b6c1abad1157"),
                             Name = "Alizarin Crimson"
                         },
                         new
                         {
-                            Id = new Guid("139c66e0-9afa-4fe8-bd1d-71ef71d67222"),
+                            Id = new Guid("812e8c5d-4e68-4e5d-89bc-172c2f2b103a"),
                             Name = "Alloy Orange"
                         },
                         new
                         {
-                            Id = new Guid("21da23b9-0295-4ce4-aaa7-a4329bc4af93"),
+                            Id = new Guid("7e97dcda-21ba-4289-8d4b-f56485c3f299"),
                             Name = "Almond"
                         },
                         new
                         {
-                            Id = new Guid("c37957fd-d1bc-4491-b531-758a862cd186"),
+                            Id = new Guid("bfa106a5-ce23-45ab-97ae-67f4179c6282"),
                             Name = "Amaranth"
                         },
                         new
                         {
-                            Id = new Guid("8dbd2f07-402f-40a3-97f8-480d6a30d711"),
+                            Id = new Guid("ea3abf9c-78a2-4ccd-bb03-4977833e32c9"),
                             Name = "Amaranth Deep Purple"
                         },
                         new
                         {
-                            Id = new Guid("762b41d6-39da-44ce-bd0c-ac97c5f6846d"),
+                            Id = new Guid("32e949ca-0fcd-477a-a082-a4418ed56273"),
                             Name = "Amaranth Pink"
                         },
                         new
                         {
-                            Id = new Guid("77c40673-bd2f-47f3-a03c-f06861acb52b"),
+                            Id = new Guid("e65277b7-6183-4156-b4e0-6c9063631a5b"),
                             Name = "Amaranth Purple"
                         },
                         new
                         {
-                            Id = new Guid("77e8e5f3-e66a-4a22-bb60-3470e6b72dd6"),
+                            Id = new Guid("c1673668-198d-4248-9bf8-2ed0eaeaa0d0"),
                             Name = "Amaranth Red"
                         },
                         new
                         {
-                            Id = new Guid("819e2985-dd22-424b-a516-e53959cbb090"),
+                            Id = new Guid("7c060cf4-2f04-40db-ab57-058abddf818b"),
                             Name = "Amazon"
                         },
                         new
                         {
-                            Id = new Guid("660fb612-8bac-4c61-8e58-8d614b7ebb79"),
+                            Id = new Guid("5d20402b-0ad7-427f-847a-d693249cd78c"),
                             Name = "Amber"
                         },
                         new
                         {
-                            Id = new Guid("fcd7b3b5-bac9-4b81-860e-ca44c191cf14"),
+                            Id = new Guid("f80ea686-076a-46cf-aecb-e7899e21d77b"),
                             Name = "Amber (SAE/ECE)"
                         },
                         new
                         {
-                            Id = new Guid("686dcebe-f055-48cf-a776-42479839493b"),
+                            Id = new Guid("630a8a6c-862f-41cd-8aeb-25609c596a46"),
                             Name = "American Rose"
                         },
                         new
                         {
-                            Id = new Guid("622d2a5a-8072-45da-951e-acf4538ac0a4"),
+                            Id = new Guid("3211288d-f600-4fe5-93e9-822e8e5a62cb"),
                             Name = "Amethyst"
                         },
                         new
                         {
-                            Id = new Guid("30c09db0-80ed-4a47-b0e1-db137ad521b6"),
+                            Id = new Guid("91e04982-97b6-4d76-ad5e-183a0b30f0c1"),
                             Name = "Android Green"
                         },
                         new
                         {
-                            Id = new Guid("100dcde5-4ca4-4d4c-a930-98b9fcc76ebf"),
+                            Id = new Guid("31d13f3a-68e2-48f7-baa4-705a023c3b1d"),
                             Name = "Anti-Flash White"
                         },
                         new
                         {
-                            Id = new Guid("87628e64-450d-47e9-84bb-d841e1d79021"),
+                            Id = new Guid("8cc5a2b2-785f-482f-a1c7-0891b88594e0"),
                             Name = "Antique Brass"
                         },
                         new
                         {
-                            Id = new Guid("b30ae0d0-3667-4754-9341-a17bb7167ee4"),
+                            Id = new Guid("de641e04-cd8a-4822-85d1-355495999f92"),
                             Name = "Antique Bronze"
                         },
                         new
                         {
-                            Id = new Guid("5ab7c69d-bf08-4292-86af-acbf29aef0bc"),
+                            Id = new Guid("88391e27-edaf-4eb5-9d78-7aceadae2bf7"),
                             Name = "Antique Fuchsia"
                         },
                         new
                         {
-                            Id = new Guid("e91c8712-300e-4303-847d-6745e27c843a"),
+                            Id = new Guid("e7b1716a-3e2a-4259-a259-29f5b5d7d6b4"),
                             Name = "Antique Ruby"
                         },
                         new
                         {
-                            Id = new Guid("cda0a2ec-cf40-42ce-883e-9d80c1a5313d"),
+                            Id = new Guid("54aad886-cb82-4985-90e8-5b821b2a38bd"),
                             Name = "Antique White"
                         },
                         new
                         {
-                            Id = new Guid("ce287ea8-c510-467e-9127-04c089d415d8"),
+                            Id = new Guid("8076c877-24d3-47e7-a32a-4846942b1462"),
                             Name = "Ao (English)"
                         },
                         new
                         {
-                            Id = new Guid("1ee439ae-5f71-41e5-bc67-7dd9dccfb3eb"),
+                            Id = new Guid("e78c561e-5c21-4833-8ce8-d94ccbab7594"),
                             Name = "Apple Green"
                         },
                         new
                         {
-                            Id = new Guid("2bcf4623-0d6e-493d-895b-ee0ff90cb2bb"),
+                            Id = new Guid("eb30db01-1657-4b33-a110-4c1eb349cef8"),
                             Name = "Apricot"
                         },
                         new
                         {
-                            Id = new Guid("09eca1bb-4474-48c2-8182-d17a2f48400a"),
+                            Id = new Guid("b11ae8ed-3767-495a-9747-b6946c300161"),
                             Name = "Aqua"
                         },
                         new
                         {
-                            Id = new Guid("c3dc11a7-4754-4d24-aafa-f02a3c9bc1ab"),
+                            Id = new Guid("1026cfd1-a7ae-4856-b35e-8c895dac0b82"),
                             Name = "Aquamarine"
                         },
                         new
                         {
-                            Id = new Guid("c24fc3b5-b8a3-445f-b5a8-6ff4308eb2a2"),
+                            Id = new Guid("6d6008f8-4022-41b9-9695-f52e257708d3"),
                             Name = "Arctic Lime"
                         },
                         new
                         {
-                            Id = new Guid("d29f3943-b760-455b-b44c-32989d045928"),
+                            Id = new Guid("77b035dd-812f-4f60-bad5-7087761cf6b5"),
                             Name = "Army Green"
                         },
                         new
                         {
-                            Id = new Guid("4975646f-fa3e-47e1-9876-0a2a3ae95f3e"),
+                            Id = new Guid("0e884e15-ca42-468d-9acb-7ddad9cf71e2"),
                             Name = "Arsenic"
                         },
                         new
                         {
-                            Id = new Guid("3b3fdb71-f425-4442-bbfa-b08655a84547"),
+                            Id = new Guid("b07e6184-9aa2-4063-b03a-080da9eec4d4"),
                             Name = "Artichoke"
                         },
                         new
                         {
-                            Id = new Guid("cf5eb82e-0fc2-43cc-9076-204b9b470377"),
+                            Id = new Guid("89a79852-8afc-48d6-83a1-7d6b57ca73a1"),
                             Name = "Arylide Yellow"
                         },
                         new
                         {
-                            Id = new Guid("d824a8e4-5b3b-47c4-aab5-3db19c913bd0"),
+                            Id = new Guid("7aeca22b-a1b0-4b10-9ddc-d3e8fffadeb4"),
                             Name = "Ash Grey"
                         },
                         new
                         {
-                            Id = new Guid("0b656301-125e-48a1-ace9-fafc1b520afd"),
+                            Id = new Guid("3dd033fa-4190-47ae-8cd8-da75a800eef9"),
                             Name = "Asparagus"
                         },
                         new
                         {
-                            Id = new Guid("7661d7af-0458-444e-a5e8-47010d6657b4"),
+                            Id = new Guid("51d71a3b-586e-4639-9be0-337180da3391"),
                             Name = "Atomic Tangerine"
                         },
                         new
                         {
-                            Id = new Guid("a422d80c-8da8-4fa7-852d-eae06f94ea87"),
+                            Id = new Guid("4b7db94b-e91e-4f80-9beb-a38314c93b86"),
                             Name = "Auburn"
                         },
                         new
                         {
-                            Id = new Guid("4c6b6cc6-192b-4322-84e4-8da089d1e386"),
+                            Id = new Guid("1bd0ba20-e76e-443d-814e-58c4135a625d"),
                             Name = "Aureolin"
                         },
                         new
                         {
-                            Id = new Guid("6b3e82fc-5c4e-4942-b3ac-8291878a8d34"),
+                            Id = new Guid("5d0f0a5c-b1b2-48bb-a281-cb6080ae167d"),
                             Name = "AuroMetalSaurus"
                         },
                         new
                         {
-                            Id = new Guid("2b6804b9-8b3d-4682-b2e8-155ab367cda9"),
+                            Id = new Guid("73b7cc59-5c5f-44e0-9704-cae97af04ef0"),
                             Name = "Avocado"
                         },
                         new
                         {
-                            Id = new Guid("46439bb7-a363-40b2-adb6-a1ea704c1c14"),
+                            Id = new Guid("99eb66e7-6f6c-4fc1-b375-7abeaa777f9c"),
                             Name = "Aztec Gold"
                         },
                         new
                         {
-                            Id = new Guid("e817ba5e-62e8-4538-9b13-68ed3a7eebac"),
+                            Id = new Guid("7e230459-d319-4c90-b47d-c45e9af4b622"),
                             Name = "Azure"
                         },
                         new
                         {
-                            Id = new Guid("9b11f41e-838f-4559-ad77-a997d9c3be74"),
+                            Id = new Guid("72b38557-4fb7-48f2-9530-6f0fa58c7027"),
                             Name = "Azure (Web Color)"
                         },
                         new
                         {
-                            Id = new Guid("b47ba623-9a4c-4bc6-a977-6f5cb112843f"),
+                            Id = new Guid("dcdbeca1-4501-4320-92c9-a16d0be1341a"),
                             Name = "Azure Mist"
                         },
                         new
                         {
-                            Id = new Guid("ee553e47-54c7-4686-9f08-adcf346b28b0"),
+                            Id = new Guid("be984b4f-e360-4e63-a5c3-5ba498b2cbc3"),
                             Name = "Azureish White"
                         },
                         new
                         {
-                            Id = new Guid("3057df92-ad99-43d9-ae66-a5787659bdd4"),
+                            Id = new Guid("727847a1-5cec-49e1-9e7a-036a8674616e"),
                             Name = "Baby Blue"
                         },
                         new
                         {
-                            Id = new Guid("4c8e542b-fa93-4a42-9239-05e617c0ce13"),
+                            Id = new Guid("de36ce75-0821-43fb-bc10-6d61f72d8892"),
                             Name = "Baby Blue Eyes"
                         },
                         new
                         {
-                            Id = new Guid("f79bfa58-0867-4ab2-ad4e-1ed4951ea1d4"),
+                            Id = new Guid("e2e61e90-35e7-4f95-b88b-069beb4fc1d0"),
                             Name = "Baby Pink"
                         },
                         new
                         {
-                            Id = new Guid("666de65b-a7db-4761-92d2-4646599ef7d5"),
+                            Id = new Guid("81d46194-7fba-4e0a-8cd6-ce227235d961"),
                             Name = "Baby Powder"
                         },
                         new
                         {
-                            Id = new Guid("178eb130-fcf3-44e2-8a1e-36dc20724380"),
+                            Id = new Guid("820824e2-9a56-479d-92c7-7933e74d1c76"),
                             Name = "Baker-Miller Pink"
                         },
                         new
                         {
-                            Id = new Guid("19cf19b8-0186-49e6-9a48-84ac03aa596c"),
+                            Id = new Guid("0da2d02e-888c-49f6-8ebe-d47e7a25e14c"),
                             Name = "Ball Blue"
                         },
                         new
                         {
-                            Id = new Guid("68d84ab9-233f-44e7-8147-518b18b0bb8b"),
+                            Id = new Guid("30d9a5a2-7686-416a-8c5d-cd6722ac6a22"),
                             Name = "Banana Mania"
                         },
                         new
                         {
-                            Id = new Guid("69c6edca-5c92-48ba-a356-a165679eba5c"),
+                            Id = new Guid("a9692a01-121f-4a04-9208-e175bc4fd0e1"),
                             Name = "Banana Yellow"
                         },
                         new
                         {
-                            Id = new Guid("de7d455f-1a79-4d0b-a68d-97f6456cbe80"),
+                            Id = new Guid("c9bd11d3-47c6-4c0f-9d3a-68c894e1a44c"),
                             Name = "Bangladesh Green"
                         },
                         new
                         {
-                            Id = new Guid("9967e156-3bef-42f3-b134-ea72a8f3a4e3"),
+                            Id = new Guid("6b327b54-2ce2-44cb-9af5-2e19746cd4a3"),
                             Name = "Barbie Pink"
                         },
                         new
                         {
-                            Id = new Guid("ba05a687-25a9-4f53-bb07-8c0aa94acec6"),
+                            Id = new Guid("e78b9cea-e173-4041-abbf-ad393af3a16d"),
                             Name = "Barn Red"
                         },
                         new
                         {
-                            Id = new Guid("e5721778-c2ba-479a-8882-82da2742a470"),
+                            Id = new Guid("676045c5-92fd-410a-94cc-b9b7d559d397"),
                             Name = "Battleship Grey"
                         },
                         new
                         {
-                            Id = new Guid("57ddc75a-37ab-481f-a869-ed5d778c1934"),
+                            Id = new Guid("da9209cb-6f21-4003-973c-72a812392e18"),
                             Name = "Bazaar"
                         },
                         new
                         {
-                            Id = new Guid("1c8760ab-787f-4df9-a6d6-3d2c852b384a"),
+                            Id = new Guid("80b7af4c-76c6-4769-a8c4-3fecd78d39c9"),
                             Name = "Beau Blue"
                         },
                         new
                         {
-                            Id = new Guid("3bce82c1-7745-4575-8301-13c8f157d9e8"),
+                            Id = new Guid("62ca3b0a-3028-4f03-a19c-d55daeca7b20"),
                             Name = "Beaver"
                         },
                         new
                         {
-                            Id = new Guid("94eef001-ccb2-4827-b202-c8e3f90e3c51"),
+                            Id = new Guid("99624705-83e2-4c27-b9d3-e2fc39c4a4d5"),
                             Name = "Beige"
                         },
                         new
                         {
-                            Id = new Guid("fc4b5f99-fddc-4525-8849-4dce21382edb"),
+                            Id = new Guid("1a968203-3975-4d57-9ef9-6741349fb29d"),
                             Name = "Belgion"
                         },
                         new
                         {
-                            Id = new Guid("b2250cfb-ab40-4f3d-a7ea-d8abcd670397"),
+                            Id = new Guid("50f17e48-b35c-442b-b999-0c6138005c2d"),
                             Name = "B'dazzled Blue"
                         },
                         new
                         {
-                            Id = new Guid("936c10d1-91b5-47a1-9012-92ab50d3b364"),
+                            Id = new Guid("ec12c03f-30c7-430e-bd65-66a6aab1b18f"),
                             Name = "Big Dip O’ruby"
                         },
                         new
                         {
-                            Id = new Guid("c7fb6062-ee75-47e8-8b69-706f6b8a2d4c"),
+                            Id = new Guid("8a98bcce-ccfa-43ef-ac44-c48544b8e591"),
                             Name = "Big Foot Feet"
                         },
                         new
                         {
-                            Id = new Guid("7a96238d-3e87-4f70-8034-89ab5e1b65bd"),
+                            Id = new Guid("f0920cda-1d3f-46e4-8817-af73d40369f1"),
                             Name = "Bisque"
                         },
                         new
                         {
-                            Id = new Guid("b7be774a-a4bf-40fc-a9bd-8d16344eab5f"),
+                            Id = new Guid("43878c98-b100-49e7-8696-0d679b005b75"),
                             Name = "Bistre"
                         },
                         new
                         {
-                            Id = new Guid("dfc37da6-3095-4cbd-adb1-5378d07f00b0"),
+                            Id = new Guid("23690068-9eeb-4137-95cd-3afd6ec88bc5"),
                             Name = "Bistre Brown"
                         },
                         new
                         {
-                            Id = new Guid("7bedb3f0-83ed-4701-aba8-8a9afd36323d"),
+                            Id = new Guid("a98a6e89-c059-4061-a4bd-e5fa7bb1662c"),
                             Name = "Bitter Lemon"
                         },
                         new
                         {
-                            Id = new Guid("8dcd4551-a20f-44ce-a1a8-a9f68f50c833"),
+                            Id = new Guid("b50ef2ea-3468-41e2-a776-39a81129610b"),
                             Name = "Bitter Lime"
                         },
                         new
                         {
-                            Id = new Guid("9155bcdb-a474-4389-ac80-52606199d3c9"),
+                            Id = new Guid("59260171-531a-4b67-b283-a2079ab19d10"),
                             Name = "Bittersweet"
                         },
                         new
                         {
-                            Id = new Guid("18531e59-3b0b-49d3-8f1f-ebd1a8247458"),
+                            Id = new Guid("bf5d9a25-ef9f-4b34-9298-259f2ad451af"),
                             Name = "Bittersweet Shimmer"
                         },
                         new
                         {
-                            Id = new Guid("3a960667-d951-4a10-ace2-fb315e1c07c1"),
+                            Id = new Guid("39dc87f3-93b4-429c-a0cc-8cbfa3014766"),
                             Name = "Black"
                         },
                         new
                         {
-                            Id = new Guid("b57b7fe5-e27c-4535-bffa-5187c0efd6d4"),
+                            Id = new Guid("399a1312-e201-43cd-9aa2-85608c7d7b0c"),
                             Name = "Black Bean"
                         },
                         new
                         {
-                            Id = new Guid("43ba042e-0e4d-4a3e-9439-f5f020105681"),
+                            Id = new Guid("538f728c-3102-4d63-9d1f-7ae91365713e"),
                             Name = "Black Coral"
                         },
                         new
                         {
-                            Id = new Guid("9d3e7993-cfd4-4385-ac80-5d11cacc88fa"),
+                            Id = new Guid("95ab346c-b2a8-4532-830b-aa98acb085e6"),
                             Name = "Black Leather Jacket"
                         },
                         new
                         {
-                            Id = new Guid("e199a95f-e7cf-4602-bd57-c66ef570f999"),
+                            Id = new Guid("10471b5e-2fc3-4ad7-b8fb-9f93e3d86136"),
                             Name = "Black Olive"
                         },
                         new
                         {
-                            Id = new Guid("a08fa015-7ce1-4ee8-a487-ca3120e1bf4a"),
+                            Id = new Guid("ff71c50f-3a91-4fc5-bdb4-855708e013fb"),
                             Name = "Black Shadows"
                         },
                         new
                         {
-                            Id = new Guid("34aca7e2-dd58-437d-a122-80773db66e1b"),
+                            Id = new Guid("db5c915f-3d08-4867-b4fe-cddc1e30eb5b"),
                             Name = "Blanched Almond"
                         },
                         new
                         {
-                            Id = new Guid("0550e143-4390-493d-81a8-b32f74162ce3"),
+                            Id = new Guid("1dc4e457-d285-4f87-aeb9-c203fdfe315a"),
                             Name = "Blast-Off Bronze"
                         },
                         new
                         {
-                            Id = new Guid("f7915153-5dcc-4d1d-8199-5c527d851c59"),
+                            Id = new Guid("f3c1184d-03f8-4dc3-b9f5-c9ff2397d661"),
                             Name = "Bleu De France"
                         },
                         new
                         {
-                            Id = new Guid("01c89556-63e7-4bb4-bbfe-75fe1671fdc3"),
+                            Id = new Guid("006dbb59-d41e-456c-87eb-98e47112159f"),
                             Name = "Blizzard Blue"
                         },
                         new
                         {
-                            Id = new Guid("e6138c63-7575-42d7-92ab-7f60ebb904ab"),
+                            Id = new Guid("e6738e5b-c747-469b-9a37-ba12cc506659"),
                             Name = "Blond"
                         },
                         new
                         {
-                            Id = new Guid("235a51ae-1063-4daa-86aa-a79a5184311e"),
+                            Id = new Guid("58e8c150-12f9-4923-9384-d6f5f2ddc9b5"),
                             Name = "Blue"
                         },
                         new
                         {
-                            Id = new Guid("bf4cc7bc-799e-43b2-bd12-bbc4e9d19efe"),
+                            Id = new Guid("70b9f459-6c05-4d00-9122-35a972c3daab"),
                             Name = "Blue (Crayola)"
                         },
                         new
                         {
-                            Id = new Guid("07595868-692f-4380-955a-932358e96056"),
+                            Id = new Guid("098da8c5-d7f0-4925-95b7-1e4d190086b7"),
                             Name = "Blue (Munsell)"
                         },
                         new
                         {
-                            Id = new Guid("f255abc4-23ee-4432-8ea5-43389d006a0b"),
+                            Id = new Guid("8ffd1ae3-6da2-4a4d-bc6d-2591a11ce273"),
                             Name = "Blue (NCS)"
                         },
                         new
                         {
-                            Id = new Guid("14c291df-0729-4cd9-bf8e-4b8e4b9fea2a"),
+                            Id = new Guid("f0252c79-3e1f-451f-a0fb-7452245c9b3b"),
                             Name = "Blue (Pantone)"
                         },
                         new
                         {
-                            Id = new Guid("13606b71-738b-4b9e-9854-4f1a87382d56"),
+                            Id = new Guid("17d9eb00-a3c9-4d37-9ac8-1d184fbcf299"),
                             Name = "Blue (Pigment)"
                         },
                         new
                         {
-                            Id = new Guid("dba7f368-2a6f-4ce7-8819-c916ecb81aa4"),
+                            Id = new Guid("826db787-0bdf-4e6a-abb9-619ca59a492f"),
                             Name = "Blue (RYB)"
                         },
                         new
                         {
-                            Id = new Guid("0debbb00-3963-4de7-8ea0-2c1040b977ee"),
+                            Id = new Guid("95bf88a3-d9f9-4dbb-95dc-db62e4f2212e"),
                             Name = "Blue Bell"
                         },
                         new
                         {
-                            Id = new Guid("e57fa9fc-1886-4b86-b012-c942d009235a"),
+                            Id = new Guid("6799c73c-09a1-4662-88af-c3f6d584e420"),
                             Name = "Blue-Gray"
                         },
                         new
                         {
-                            Id = new Guid("5021bc0b-3d57-4a3d-9b5c-535ef6b9807e"),
+                            Id = new Guid("cc387135-23dc-45a1-a40e-40c8ec641504"),
                             Name = "Blue-Green"
                         },
                         new
                         {
-                            Id = new Guid("65eb0407-d986-45a1-8208-bf6395980af3"),
+                            Id = new Guid("25699b20-59a0-4115-bd23-f8a83cc442ae"),
                             Name = "Blue Jeans"
                         },
                         new
                         {
-                            Id = new Guid("e1e19e73-6dae-46a1-9f46-34188ff82ccc"),
+                            Id = new Guid("fd0190ac-0c8f-426f-b406-f0a51ca430f3"),
                             Name = "Blue Lagoon"
                         },
                         new
                         {
-                            Id = new Guid("aa4941e3-8c36-41c1-b607-ca07990c7ff7"),
+                            Id = new Guid("02cb9a15-004a-4184-9a25-70d7e9abe38d"),
                             Name = "Blue-Magenta Violet"
                         },
                         new
                         {
-                            Id = new Guid("cc79279b-5dfb-41b9-a9d7-a0bbc5506b5e"),
+                            Id = new Guid("399645cd-6082-4584-b68a-379037eeee33"),
                             Name = "Blue Sapphire"
                         },
                         new
                         {
-                            Id = new Guid("921f4fa6-cfe6-4b53-ba55-32760d99f877"),
+                            Id = new Guid("6cc29e35-3b2c-4dcb-adfb-40bbdeed4a50"),
                             Name = "Blue-Violet"
                         },
                         new
                         {
-                            Id = new Guid("f108a2ba-85d7-4fe3-816c-7e0f55f91697"),
+                            Id = new Guid("b0eacda6-918a-4721-9a51-15d46cba3fa2"),
                             Name = "Blue Yonder"
                         },
                         new
                         {
-                            Id = new Guid("cfa1c84d-08f6-4f00-86d6-a25fff4fcfc1"),
+                            Id = new Guid("3240c34c-314e-45ff-adf2-ceadeb4d632d"),
                             Name = "Blueberry"
                         },
                         new
                         {
-                            Id = new Guid("71e0eab5-925a-4670-b4a3-58d335e7fa6b"),
+                            Id = new Guid("f2bbcc7c-5530-487d-8bae-024e6fc7f550"),
                             Name = "Bluebonnet"
                         },
                         new
                         {
-                            Id = new Guid("b9eff235-a000-4ff7-b480-6a0d5fc54314"),
+                            Id = new Guid("70151498-a80d-42a6-bdb1-0d62f78b0b76"),
                             Name = "Blush"
                         },
                         new
                         {
-                            Id = new Guid("4631ff1f-d081-40e3-9af2-a88bde662782"),
+                            Id = new Guid("a885e2c8-1e7b-4360-8be7-8b04448a0107"),
                             Name = "Bole"
                         },
                         new
                         {
-                            Id = new Guid("08dd52ef-1012-4f9b-bde5-92508fb7a979"),
+                            Id = new Guid("b985efc2-c148-40a2-b737-af69e5be909e"),
                             Name = "Bondi Blue"
                         },
                         new
                         {
-                            Id = new Guid("e48d1306-1104-4a2a-acdf-7c113cf60cfe"),
+                            Id = new Guid("3f1b71ac-e7d1-435d-bffb-4b3cdba67069"),
                             Name = "Bone"
                         },
                         new
                         {
-                            Id = new Guid("78b3039e-05c7-4349-b3e0-b095d0a3b3b4"),
+                            Id = new Guid("929cebff-5bfb-47c0-bf47-fd8a32b77176"),
                             Name = "Booger Buster"
                         },
                         new
                         {
-                            Id = new Guid("d76d4bbf-a603-4786-9975-74ab532cb051"),
+                            Id = new Guid("940c198d-dd34-418e-bd97-028284b486ee"),
                             Name = "Boston University Red"
                         },
                         new
                         {
-                            Id = new Guid("c20f18d2-e782-497b-9c7d-d0fa73f7d7cd"),
+                            Id = new Guid("4fe24026-139f-4457-8e36-21629b8b857c"),
                             Name = "Bottle Green"
                         },
                         new
                         {
-                            Id = new Guid("ee1e59bf-2098-4e6a-bb8a-ee9f8ccfb21a"),
+                            Id = new Guid("330bfd24-d8ab-486b-bbf1-2c0af9804c8b"),
                             Name = "Boysenberry"
                         },
                         new
                         {
-                            Id = new Guid("af707855-4d02-4690-b5a8-c17706fc05c3"),
+                            Id = new Guid("40de7603-5c15-495e-9406-6f659f4917f1"),
                             Name = "Brandeis Blue"
                         },
                         new
                         {
-                            Id = new Guid("0b934424-bc20-493a-a29a-f868b7a25534"),
+                            Id = new Guid("bd207de7-ccd8-404c-b64f-e22c8e961420"),
                             Name = "Brass"
                         },
                         new
                         {
-                            Id = new Guid("d5fec7e5-fe6f-4e2d-abdb-ee5c2325ec8c"),
+                            Id = new Guid("17ed1a11-b8cd-4418-92e7-886fe76149a8"),
                             Name = "Brick Red"
                         },
                         new
                         {
-                            Id = new Guid("4b9eb037-d709-41c7-ac5f-5739d80c1573"),
+                            Id = new Guid("bc28c2d6-1ada-4ee9-8b1c-8289400ba6d1"),
                             Name = "Bright Cerulean"
                         },
                         new
                         {
-                            Id = new Guid("2b8e8135-b464-4025-8aca-309a9beb0576"),
+                            Id = new Guid("37d990b3-140b-45f3-baee-ce881b218f2f"),
                             Name = "Bright Green"
                         },
                         new
                         {
-                            Id = new Guid("2deac40e-8534-493f-acec-3f87800db628"),
+                            Id = new Guid("adaa548c-f5a5-4d9f-a31d-7a6ce398cfd3"),
                             Name = "Bright Lavender"
                         },
                         new
                         {
-                            Id = new Guid("6e2bd927-9060-435f-83c2-6df173c654a4"),
+                            Id = new Guid("5c933bab-16ed-4fb0-a960-7c304604e682"),
                             Name = "Bright Lilac"
                         },
                         new
                         {
-                            Id = new Guid("a8b73ade-3f2d-4ab1-ac69-c111db354f14"),
+                            Id = new Guid("79708aa3-99f1-4d14-a085-4ea0f1010c9b"),
                             Name = "Bright Maroon"
                         },
                         new
                         {
-                            Id = new Guid("a5f3a5f7-e470-49e5-b8a2-8e812222c8ec"),
+                            Id = new Guid("18b01ce7-223d-4e99-97db-eb4411b3c500"),
                             Name = "Bright Navy Blue"
                         },
                         new
                         {
-                            Id = new Guid("5d0a374d-bbd1-42bd-9713-d336322bb6e7"),
+                            Id = new Guid("920596e2-718c-42c7-80bc-74037cf539e6"),
                             Name = "Bright Pink"
                         },
                         new
                         {
-                            Id = new Guid("aee54d6b-e88a-4ec0-8e43-961dca72d882"),
+                            Id = new Guid("8cf82e1f-289c-4a6d-bc01-6a45e2ddda49"),
                             Name = "Bright Turquoise"
                         },
                         new
                         {
-                            Id = new Guid("9dc8cbbb-9bd3-4f41-bfbe-355105c8990f"),
+                            Id = new Guid("2cbf2f89-db5a-4507-b660-06e598c88f2f"),
                             Name = "Bright Ube"
                         },
                         new
                         {
-                            Id = new Guid("a31b60ec-ef4a-4d8b-a64b-0f8d2c0eaf51"),
+                            Id = new Guid("6da06e28-7234-466d-96ce-1e5c399ce45a"),
                             Name = "Bright Yellow (Crayola)"
                         },
                         new
                         {
-                            Id = new Guid("186e1cb0-e091-4313-8f30-1d52258f34f0"),
+                            Id = new Guid("9a7dab3d-cd6f-45c0-8f4e-c675b6cc2276"),
                             Name = "Brilliant Azure"
                         },
                         new
                         {
-                            Id = new Guid("a1dba393-2773-40eb-8653-84cb95294a97"),
+                            Id = new Guid("dfcdf473-4f10-4999-8dba-f39fa146ee49"),
                             Name = "Brilliant Lavender"
                         },
                         new
                         {
-                            Id = new Guid("057b28df-8e82-49e9-9196-4d5d0bc1c221"),
+                            Id = new Guid("f1a2d2d3-e24e-4d03-8d32-f4a18bfcd61a"),
                             Name = "Brilliant Rose"
                         },
                         new
                         {
-                            Id = new Guid("a51a6fea-5257-4dd9-8063-7dbf72e2a48c"),
+                            Id = new Guid("9148eebd-9a4f-455b-adae-9743e0b26312"),
                             Name = "Brink Pink"
                         },
                         new
                         {
-                            Id = new Guid("8bfe55e4-5e46-4c6b-ae64-0d8ea8e1fd1d"),
+                            Id = new Guid("8206d3fd-89d9-4503-8fea-6799dccaef44"),
                             Name = "British Racing Green"
                         },
                         new
                         {
-                            Id = new Guid("019aa0bc-b9aa-4216-9ef7-5b4043a1bf17"),
+                            Id = new Guid("56457fee-a539-4be0-85e5-3d52195dfcd2"),
                             Name = "Bronze"
                         },
                         new
                         {
-                            Id = new Guid("38014f83-7f79-4bed-a663-935ac6639091"),
+                            Id = new Guid("5986e2c1-7e1d-4748-a6a1-dad954a56245"),
                             Name = "Bronze Yellow"
                         },
                         new
                         {
-                            Id = new Guid("da628adf-2b98-4b1f-9592-1c230a766129"),
+                            Id = new Guid("43b0089a-c30b-4241-b99c-dc3246a1a3a7"),
                             Name = "Brown (Traditional)"
                         },
                         new
                         {
-                            Id = new Guid("060056e5-9175-47bb-84c0-8bf7f261f22c"),
+                            Id = new Guid("c42624a1-1817-4500-af79-8bef245516e1"),
                             Name = "Brown (Web)"
                         },
                         new
                         {
-                            Id = new Guid("cc9ee10d-1705-469f-be09-42b62e849fec"),
+                            Id = new Guid("68b3b501-05e5-4d2a-a548-f49f367518cb"),
                             Name = "Brown-Nose"
                         },
                         new
                         {
-                            Id = new Guid("12905e28-dc82-4565-aa23-ce8bddba8305"),
+                            Id = new Guid("6d333bf0-b4d2-447e-8009-7d82cfd81435"),
                             Name = "Brown Sugar"
                         },
                         new
                         {
-                            Id = new Guid("4022e959-ab8f-4efd-94b0-18f35ed37072"),
+                            Id = new Guid("faccd3e8-b3cc-42a3-ba14-9ee3be862e5a"),
                             Name = "Brown Yellow"
                         },
                         new
                         {
-                            Id = new Guid("c7729ebd-b7c0-46db-bb0a-d02f309be17d"),
+                            Id = new Guid("ad3a15f4-3206-4b3f-83cb-5a295e9aad48"),
                             Name = "Brunswick Green"
                         },
                         new
                         {
-                            Id = new Guid("125705ef-27b1-4f3f-97dd-56187d61e5be"),
+                            Id = new Guid("53513678-0bd1-4b21-a1f8-6da6b98c58b5"),
                             Name = "Bubble Gum"
                         },
                         new
                         {
-                            Id = new Guid("8bfdb2a8-f476-47c0-a3ea-ef0e98a19868"),
+                            Id = new Guid("73d078f5-1caf-4835-a175-6c86cf334d4a"),
                             Name = "Bubbles"
                         },
                         new
                         {
-                            Id = new Guid("42faa3d1-07d5-48ab-b00a-d3bb32be495a"),
+                            Id = new Guid("5e6907e7-1198-430f-aff2-6683a7278a10"),
                             Name = "Bud Green"
                         },
                         new
                         {
-                            Id = new Guid("c040013e-2764-4ba0-a999-6451c663e3f4"),
+                            Id = new Guid("67d1dc7b-9a1c-4159-96d8-41f1e6566bfc"),
                             Name = "Buff"
                         },
                         new
                         {
-                            Id = new Guid("b2a0d198-fec2-4382-aefc-d2b688fb6389"),
+                            Id = new Guid("6c7db9b1-ca03-43d4-aa60-386c5b727609"),
                             Name = "Bulgarian Rose"
                         },
                         new
                         {
-                            Id = new Guid("ac5542b4-3576-4863-89da-c9deb132c44d"),
+                            Id = new Guid("c5913213-398d-4d5f-8e6d-539a4a6dd6a7"),
                             Name = "Burgundy"
                         },
                         new
                         {
-                            Id = new Guid("85a4054e-611e-4088-b239-063d7ea412ee"),
+                            Id = new Guid("1d276b1a-27ce-4f27-94d6-9acb9eb117a3"),
                             Name = "Burlywood"
                         },
                         new
                         {
-                            Id = new Guid("fc52360c-bf2e-4ad4-b4c7-d0889c59f666"),
+                            Id = new Guid("8e53753c-ca29-48cb-bd22-7e83e76c6fe6"),
                             Name = "Burnished Brown"
                         },
                         new
                         {
-                            Id = new Guid("b3a36307-1a74-4bd4-9511-d2735ce07da1"),
+                            Id = new Guid("fcf45632-b41a-4fc4-8d7d-46d5ee575ddc"),
                             Name = "Burnt Orange"
                         },
                         new
                         {
-                            Id = new Guid("7029fdff-c27d-454e-bcbc-0550733f2f3a"),
+                            Id = new Guid("159e0766-d640-49e7-9908-4b39384358df"),
                             Name = "Burnt Sienna"
                         },
                         new
                         {
-                            Id = new Guid("227571f5-aac9-4361-b085-27e7959c32f7"),
+                            Id = new Guid("b804cb96-e9b4-44cb-95bc-2cbdf511b3dc"),
                             Name = "Burnt Umber"
                         },
                         new
                         {
-                            Id = new Guid("247004a2-cb1a-46ec-af1d-493dfd5dcd7b"),
+                            Id = new Guid("c9bef0a2-7edf-476d-9d08-d10bd5335ab4"),
                             Name = "Byzantine"
                         },
                         new
                         {
-                            Id = new Guid("64b56d05-70ed-49da-a795-773b0df1bbd2"),
+                            Id = new Guid("71697a6a-ef2c-4804-a973-abc3541a144c"),
                             Name = "Byzantium"
                         },
                         new
                         {
-                            Id = new Guid("a1190dc3-9093-4a65-848a-dcbcd3e96f6c"),
+                            Id = new Guid("d91a6de9-14a7-4426-a9ea-c46834e91b55"),
                             Name = "Cadet"
                         },
                         new
                         {
-                            Id = new Guid("81936ca9-ac77-46ee-b9f5-fb4762d7bac8"),
+                            Id = new Guid("c0f14799-058e-4f67-9bd5-2996ecfc6c9d"),
                             Name = "Cadet Blue"
                         },
                         new
                         {
-                            Id = new Guid("04639616-9ebd-4057-994f-e4a5253df14f"),
+                            Id = new Guid("8730b91a-2fb2-45d0-a055-3030f1ae7611"),
                             Name = "Cadet Grey"
                         },
                         new
                         {
-                            Id = new Guid("d1fb900d-6d35-46b0-b679-86e25831aeb8"),
+                            Id = new Guid("a38b392b-36a1-4b81-8b25-92302fc78f7f"),
                             Name = "Cadmium Green"
                         },
                         new
                         {
-                            Id = new Guid("3001d2dd-9bcd-4563-af9b-9d55390018ae"),
+                            Id = new Guid("d52d09a5-fa10-4c74-aeb5-1b2ec96ac4da"),
                             Name = "Cadmium Orange"
                         },
                         new
                         {
-                            Id = new Guid("be8cae48-f6aa-487e-a4a4-97b42ea0c75b"),
+                            Id = new Guid("09a4d598-6a1b-4548-8261-4b0b1ad3b875"),
                             Name = "Cadmium Red"
                         },
                         new
                         {
-                            Id = new Guid("e19758fa-d41f-4a5f-9c30-c95951c14f38"),
+                            Id = new Guid("fc2243d1-df52-4540-ba6d-c2d40a49b2d9"),
                             Name = "Cadmium Yellow"
                         },
                         new
                         {
-                            Id = new Guid("8c418362-3b4c-4109-a3cc-18d113e08be3"),
+                            Id = new Guid("1be88d3f-d4b1-4893-a9f7-0ed655bc9536"),
                             Name = "Café Au Lait"
                         },
                         new
                         {
-                            Id = new Guid("3edff171-9aeb-47e4-be9d-ec975f2f9e74"),
+                            Id = new Guid("ec58fe10-9a2a-4a38-a133-2466f1af5259"),
                             Name = "Café Noir"
                         },
                         new
                         {
-                            Id = new Guid("2c7a6ec8-d72a-40ec-b5c8-9cdc476feaae"),
+                            Id = new Guid("6e873724-d1ab-4b0f-8dc9-2294afaa20ef"),
                             Name = "Cal Poly Green"
                         },
                         new
                         {
-                            Id = new Guid("f882a517-284a-4309-95fb-32579c2ed273"),
+                            Id = new Guid("5c474432-e5fb-4778-9315-e305f9835709"),
                             Name = "Cambridge Blue"
                         },
                         new
                         {
-                            Id = new Guid("0044112e-6986-4f32-9db5-2d0fe8d952bd"),
+                            Id = new Guid("89a2f885-9248-45c1-ba03-8f0a90a1bf65"),
                             Name = "Camel"
                         },
                         new
                         {
-                            Id = new Guid("4ae306cd-ee26-46c2-b54e-ff5d16b46b15"),
+                            Id = new Guid("7b869729-fb72-404d-86df-038753ba87f7"),
                             Name = "Cameo Pink"
                         },
                         new
                         {
-                            Id = new Guid("d8388bcd-b13c-4709-94ca-19c45131e3a4"),
+                            Id = new Guid("1d710a53-6d74-4345-86f1-e2e6cf3d4173"),
                             Name = "Camouflage Green"
                         },
                         new
                         {
-                            Id = new Guid("8f342f22-d276-4265-8985-2919c0c0e850"),
+                            Id = new Guid("db10515e-329f-4059-b0ff-5e95adc807d3"),
                             Name = "Canary Yellow"
                         },
                         new
                         {
-                            Id = new Guid("d5753696-695a-4f2a-8fd7-8b0e531a8742"),
+                            Id = new Guid("2f8f2629-f2de-4d06-b5fa-e33036fd9626"),
                             Name = "Candy Apple Red"
                         },
                         new
                         {
-                            Id = new Guid("330c7d3c-5922-4e4f-ba79-137c140f293d"),
+                            Id = new Guid("ee31b0a5-f4e5-4815-8c50-959d0f04cc6f"),
                             Name = "Candy Pink"
                         },
                         new
                         {
-                            Id = new Guid("d5e019b2-b7ca-4b8c-a201-bcbcff66a066"),
+                            Id = new Guid("e9dcc39c-bac4-4709-9b42-17476d8ce8b6"),
                             Name = "Capri"
                         },
                         new
                         {
-                            Id = new Guid("e803165a-646f-480b-ac9b-908755ad7dd9"),
+                            Id = new Guid("e2166b46-72f7-42d5-978e-eb8b18ac11ec"),
                             Name = "Caput Mortuum"
                         },
                         new
                         {
-                            Id = new Guid("7bbd2e8d-61d7-44b4-8e52-33d79236c43a"),
+                            Id = new Guid("b3258c7a-1e36-43ce-92e8-6ba0965de3ac"),
                             Name = "Cardinal"
                         },
                         new
                         {
-                            Id = new Guid("89d3f999-bdf2-4e6d-8387-ed90f1c8b756"),
+                            Id = new Guid("269a64fe-9b0f-4041-809d-ac8a0d2b3893"),
                             Name = "Caribbean Green"
                         },
                         new
                         {
-                            Id = new Guid("6e9abd6a-92d4-4689-8201-afc18423cf43"),
+                            Id = new Guid("28a166e7-d21e-4ef9-92c8-7db5802c1640"),
                             Name = "Carmine"
                         },
                         new
                         {
-                            Id = new Guid("e8818fbb-d548-4130-8dc9-f60cdb36a077"),
+                            Id = new Guid("d9e9c058-2cfe-48b5-b8d4-abd1466ddbfa"),
                             Name = "Carmine (M&P)"
                         },
                         new
                         {
-                            Id = new Guid("09538f09-9c66-4d90-addd-a7516bcc171f"),
+                            Id = new Guid("cbe70450-7d64-47b9-b6aa-4e4516a2dcc4"),
                             Name = "Carmine Pink"
                         },
                         new
                         {
-                            Id = new Guid("b6f4f482-d3a2-4f74-a017-8a748b2db71c"),
+                            Id = new Guid("c6b38e56-8b72-413e-9e21-daf5732521cf"),
                             Name = "Carmine Red"
                         },
                         new
                         {
-                            Id = new Guid("04255e83-65c0-47bc-a1f9-d5158cc87c58"),
+                            Id = new Guid("8e7d543b-9199-454b-9f94-c2138ed70ad9"),
                             Name = "Carnation Pink"
                         },
                         new
                         {
-                            Id = new Guid("31ffcc72-5e60-4389-8b33-bba0df42616e"),
+                            Id = new Guid("843558cc-3dfe-4ecc-9ece-dbfb0af75db5"),
                             Name = "Carnelian"
                         },
                         new
                         {
-                            Id = new Guid("13c7b568-f26e-47a1-8dae-d6b20ae39ed1"),
+                            Id = new Guid("73ba8550-3c1c-4cea-962a-b1d3c8d75d12"),
                             Name = "Carolina Blue"
                         },
                         new
                         {
-                            Id = new Guid("c04a0a35-6daf-466a-8cf0-916c90d88cf7"),
+                            Id = new Guid("cf8763f0-b422-4693-9850-68aead2bf5cd"),
                             Name = "Carrot Orange"
                         },
                         new
                         {
-                            Id = new Guid("c1d355a3-59a1-4c08-80b4-202ac36c611d"),
+                            Id = new Guid("cb479794-e1ec-49da-aa51-f934c8193e01"),
                             Name = "Castleton Green"
                         },
                         new
                         {
-                            Id = new Guid("0e504119-e847-4e89-876b-677ec1cf71c1"),
+                            Id = new Guid("ac5cb188-95c5-40a0-ad1a-8b4d32853403"),
                             Name = "Catalina Blue"
                         },
                         new
                         {
-                            Id = new Guid("908c8f3d-0abd-4d65-95c2-76a0359528f2"),
+                            Id = new Guid("2bff8cf1-fbc3-45c3-a6eb-cce20d9cc3cc"),
                             Name = "Catawba"
                         },
                         new
                         {
-                            Id = new Guid("8b03f289-ce6d-4a48-92f7-d8882f5f738b"),
+                            Id = new Guid("158583bc-6bfe-4559-9392-dd218fcd5f3d"),
                             Name = "Cedar Chest"
                         },
                         new
                         {
-                            Id = new Guid("4641369f-4153-4ec9-84dd-50ac39967df1"),
+                            Id = new Guid("2a28c41e-aa44-40dc-a57b-6eca4634952e"),
                             Name = "Ceil"
                         },
                         new
                         {
-                            Id = new Guid("76311010-d0c1-47ca-b5d4-dce492508cfc"),
+                            Id = new Guid("1ca2bfb2-51ad-469b-9700-72b3c02c2d39"),
                             Name = "Celadon"
                         },
                         new
                         {
-                            Id = new Guid("abb9159b-892a-444c-b714-c1c2a835c3e0"),
+                            Id = new Guid("db5a9bd8-19d3-4714-9ed2-e62e26ccd82f"),
                             Name = "Celadon Blue"
                         },
                         new
                         {
-                            Id = new Guid("8de25918-4b1e-402e-b8dd-71bbedc48d52"),
+                            Id = new Guid("c472493b-17a8-4325-ab40-b039480ab72c"),
                             Name = "Celadon Green"
                         },
                         new
                         {
-                            Id = new Guid("9eef93ff-3a85-4760-8027-0649e34ac873"),
+                            Id = new Guid("d7b3158e-9aea-4314-84b3-f3268c873035"),
                             Name = "Celeste"
                         },
                         new
                         {
-                            Id = new Guid("a0a61db7-db72-4d3b-875a-5b4e6de34479"),
+                            Id = new Guid("fa5357d1-43d8-4c63-bd58-9dffb549c2ca"),
                             Name = "Celestial Blue"
                         },
                         new
                         {
-                            Id = new Guid("f98b864e-57a6-4e86-8851-4ca8b486f3bd"),
+                            Id = new Guid("0ca579cf-fb81-427c-82e7-28a5f6e6f0f5"),
                             Name = "Cerise"
                         },
                         new
                         {
-                            Id = new Guid("cbe6565b-42c4-4c0f-b6c2-81bd75ca6c7a"),
+                            Id = new Guid("f4a3cf5b-d13d-4835-9ce9-7dfbfab5e6d1"),
                             Name = "Cerise Pink"
                         },
                         new
                         {
-                            Id = new Guid("30d8107b-e809-45ee-a4f9-d517362ccc96"),
+                            Id = new Guid("85722ff6-29cb-4eab-b7ac-d9cfffb8e0f4"),
                             Name = "Cerulean"
                         },
                         new
                         {
-                            Id = new Guid("7761e7a5-0951-4408-b281-71873382d691"),
+                            Id = new Guid("696413c6-1da1-4d31-aa23-08af0c0686c6"),
                             Name = "Cerulean Blue"
                         },
                         new
                         {
-                            Id = new Guid("a9ee1d6f-0c7c-409f-a15b-5a55ae984938"),
+                            Id = new Guid("90f095a9-4e95-44d8-97b2-eb0909a9ea36"),
                             Name = "Cerulean Frost"
                         },
                         new
                         {
-                            Id = new Guid("64d829f4-5a30-476d-a648-04201f8dc780"),
+                            Id = new Guid("8a1a6ee2-4531-44c5-9145-a1efabffd55f"),
                             Name = "CG Blue"
                         },
                         new
                         {
-                            Id = new Guid("b74a0267-c770-4e5b-9301-baef457fed8b"),
+                            Id = new Guid("13520240-4d27-416d-bd82-ea9075d62f0e"),
                             Name = "CG Red"
                         },
                         new
                         {
-                            Id = new Guid("c0c1c834-424a-4e0a-a5bd-a0a066c45983"),
+                            Id = new Guid("9bef5229-1732-4a36-a1a2-989bcafdf44b"),
                             Name = "Chamoisee"
                         },
                         new
                         {
-                            Id = new Guid("a4d5d395-d05d-4937-baf3-55ac52cebd3c"),
+                            Id = new Guid("39af13fb-d7e4-4f44-aa5a-8d87b2f568fd"),
                             Name = "Champagne"
                         },
                         new
                         {
-                            Id = new Guid("fe123603-fa9d-470f-8ec3-6301d0d3f7cb"),
+                            Id = new Guid("491d8520-0ef8-4779-8243-95dff916a284"),
                             Name = "Charcoal"
                         },
                         new
                         {
-                            Id = new Guid("970cef7e-c5db-4fb4-8cfe-d8317fcb33e1"),
+                            Id = new Guid("4816f171-542c-44dc-868f-f37068389a13"),
                             Name = "Charleston Green"
                         },
                         new
                         {
-                            Id = new Guid("658d77fb-579d-4448-ba48-04a4682e4549"),
+                            Id = new Guid("75d9ae79-04c5-4631-97b6-bf9382521f6e"),
                             Name = "Charm Pink"
                         },
                         new
                         {
-                            Id = new Guid("c3b5acdb-1287-44b1-bf94-37d84aec3f79"),
+                            Id = new Guid("81415437-2858-4aea-9817-5b63b3f5b34b"),
                             Name = "Chartreuse (Traditional)"
                         },
                         new
                         {
-                            Id = new Guid("c2dd3d2f-c2b3-45ac-9983-514f8ccc07fe"),
+                            Id = new Guid("33c2f3e8-cb96-43b7-bbe3-dc5b707de698"),
                             Name = "Chartreuse (Web)"
                         },
                         new
                         {
-                            Id = new Guid("a3d52e5c-44a5-461f-baca-16bad3dd2557"),
+                            Id = new Guid("0b3c590a-a8fc-494b-b6b2-d3262cdb4cf2"),
                             Name = "Cherry"
                         },
                         new
                         {
-                            Id = new Guid("76bdcbfb-7ff6-4fd7-8bcf-fd52d5e166b0"),
+                            Id = new Guid("ceaefdd4-0dbd-4635-8a9c-d3c4ce16a285"),
                             Name = "Cherry Blossom Pink"
                         },
                         new
                         {
-                            Id = new Guid("374cb38d-f1b4-4328-91d5-78077b3fa4a3"),
+                            Id = new Guid("59cf038e-50b7-4c00-ae68-a1427d98de7c"),
                             Name = "Chestnut"
                         },
                         new
                         {
-                            Id = new Guid("b591df26-10de-4e63-acde-0201de7fd515"),
+                            Id = new Guid("fa13c58c-0122-4c08-b4af-1d5067dd685e"),
                             Name = "China Pink"
                         },
                         new
                         {
-                            Id = new Guid("721d4fd8-821e-4345-a556-e3ecba5aeb0a"),
+                            Id = new Guid("ab9fb4a4-7309-481d-a09f-1f4b3c6fd832"),
                             Name = "China Rose"
                         },
                         new
                         {
-                            Id = new Guid("43e86538-a1ec-4d0e-a529-39394b1d7c0d"),
+                            Id = new Guid("21152881-ee9c-4d93-b0b0-91cd52dadf8d"),
                             Name = "Chinese Red"
                         },
                         new
                         {
-                            Id = new Guid("768b9ccb-b6e5-438e-a64e-1ec12ceae370"),
+                            Id = new Guid("7e40d2ac-0857-4e37-a410-65518f42ec2f"),
                             Name = "Chinese Violet"
                         },
                         new
                         {
-                            Id = new Guid("8f28c7de-cec1-4b83-ad32-791ae1557418"),
+                            Id = new Guid("a241c500-911a-486a-b858-53f86b2e59ec"),
                             Name = "Chlorophyll Green"
                         },
                         new
                         {
-                            Id = new Guid("6f666edd-df7a-44f0-8faa-8951e4a95b74"),
+                            Id = new Guid("bec02d71-bb92-4169-b850-c6fc8ffb2730"),
                             Name = "Chocolate (Traditional)"
                         },
                         new
                         {
-                            Id = new Guid("1517c1db-9272-437e-ad03-598d89b12020"),
+                            Id = new Guid("4a7f8d9d-a270-4ea4-b59b-d97440ce0b20"),
                             Name = "Chocolate (Web)"
                         },
                         new
                         {
-                            Id = new Guid("5cceb006-8c5e-46dc-9375-02eea5bb7f39"),
+                            Id = new Guid("0fa9f970-efe3-410a-9b00-a88e3973020e"),
                             Name = "Chrome Yellow"
                         },
                         new
                         {
-                            Id = new Guid("e4dd2be9-bc90-4758-9b95-2df5912e7388"),
+                            Id = new Guid("f8a2918f-f53b-45be-819f-4dfbc45e19fc"),
                             Name = "Cinereous"
                         },
                         new
                         {
-                            Id = new Guid("59582f17-53a8-4828-975b-5e5ca1b1baff"),
+                            Id = new Guid("fa5d9d59-b941-496a-a17c-e193ceba6810"),
                             Name = "Cinnabar"
                         },
                         new
                         {
-                            Id = new Guid("1e70d4ee-1a94-4797-8eb6-cb98fa10c369"),
+                            Id = new Guid("eedec6ec-37fd-4c3a-b862-96f8d8510165"),
                             Name = "Cinnamon[Citation Needed]"
                         },
                         new
                         {
-                            Id = new Guid("53c34e41-6462-4f64-a65a-6c24c782bba8"),
+                            Id = new Guid("6d5e97f6-c748-40af-928d-1a89e27240ba"),
                             Name = "Cinnamon Satin"
                         },
                         new
                         {
-                            Id = new Guid("2382a647-ae01-4211-b85e-d6a480dbfa79"),
+                            Id = new Guid("9a5ac668-a0f8-4576-b89c-a6e15e80ffe3"),
                             Name = "Citrine"
                         },
                         new
                         {
-                            Id = new Guid("5185ace3-f354-45d4-b8f3-b85774c7cfa8"),
+                            Id = new Guid("beb0eff6-e1d9-4eef-8048-af7b36c0c432"),
                             Name = "Citron"
                         },
                         new
                         {
-                            Id = new Guid("77f55f73-10f2-4760-af4a-5c08fddf69af"),
+                            Id = new Guid("b42166f2-5e75-4f2f-9bed-20259f2e5a3d"),
                             Name = "Claret"
                         },
                         new
                         {
-                            Id = new Guid("e2b3ee88-6366-4073-a82c-e901bd23e1a0"),
+                            Id = new Guid("c181d356-7b14-4354-8b82-745bd3dc3aa9"),
                             Name = "Classic Rose"
                         },
                         new
                         {
-                            Id = new Guid("1ba5307d-392d-4ee9-82a6-d750deb8cb11"),
+                            Id = new Guid("93f54c38-bfdc-4833-bbb9-30ca3d88c36d"),
                             Name = "Cobalt Blue"
                         },
                         new
                         {
-                            Id = new Guid("3cefa813-11dc-449d-bb4d-185d008ff5ec"),
+                            Id = new Guid("5b53a0c2-2af1-410c-865d-e56bcd4ec4a5"),
                             Name = "Cocoa Brown"
                         },
                         new
                         {
-                            Id = new Guid("ed8d5fb7-1223-45cc-94c3-457d9b79592b"),
+                            Id = new Guid("630bcbd2-020d-4d70-96f4-6532790207e1"),
                             Name = "Coconut"
                         },
                         new
                         {
-                            Id = new Guid("3ecf1064-a776-47ac-94b9-d3fa391c470f"),
+                            Id = new Guid("97e17415-a818-4055-bc16-14d5d42ca510"),
                             Name = "Coffee"
                         },
                         new
                         {
-                            Id = new Guid("ef915b80-3ea2-448a-93a3-1f62a863098c"),
+                            Id = new Guid("2d29c398-6f68-40dd-a5d2-4134b79b809c"),
                             Name = "Columbia Blue"
                         },
                         new
                         {
-                            Id = new Guid("55fdf5a7-29ad-493a-ac08-c3a99db1ac17"),
+                            Id = new Guid("bea0f947-709e-4915-a1ae-38223c16341e"),
                             Name = "Congo Pink"
                         },
                         new
                         {
-                            Id = new Guid("304ea074-bfd4-4f26-b79a-593c221b401b"),
+                            Id = new Guid("c147f549-f764-4402-8fa9-6f761c1223bc"),
                             Name = "Cool Black"
                         },
                         new
                         {
-                            Id = new Guid("4e46da6d-f866-4909-ad0b-bd753ce7570b"),
+                            Id = new Guid("95d2a2c6-0294-416c-8a2a-c86a71b4014f"),
                             Name = "Cool Grey"
                         },
                         new
                         {
-                            Id = new Guid("0f2550fc-0b34-429a-8e1b-796fd8c05bc1"),
+                            Id = new Guid("31a0d3e1-99e8-4ce0-ba01-c5c5252485f9"),
                             Name = "Copper"
                         },
                         new
                         {
-                            Id = new Guid("ca6b0ffa-4435-4f9e-a149-0637c5fa233c"),
+                            Id = new Guid("b57b379b-7e7a-461d-8ec0-2b585b2d8ceb"),
                             Name = "Copper (Crayola)"
                         },
                         new
                         {
-                            Id = new Guid("a9cfe24d-3cb4-40fa-ab8e-67e8bd42f522"),
+                            Id = new Guid("9c6c1163-6325-49e7-8fce-ab41a01f59f9"),
                             Name = "Copper Penny"
                         },
                         new
                         {
-                            Id = new Guid("5640751a-b9c0-4bfd-9748-5f8f7818ffc2"),
+                            Id = new Guid("5efc4cc3-def2-4564-8f5e-19089338e5c5"),
                             Name = "Copper Red"
                         },
                         new
                         {
-                            Id = new Guid("0ea97e4a-3d28-4e1f-93da-2cc700210199"),
+                            Id = new Guid("b11f21cd-14a8-4586-9797-eaa448e6eacc"),
                             Name = "Copper Rose"
                         },
                         new
                         {
-                            Id = new Guid("238c5e7a-62ba-49b8-a4ec-170f0310b255"),
+                            Id = new Guid("492e4aba-6fe5-4268-822a-aec6ca1dbddd"),
                             Name = "Coquelicot"
                         },
                         new
                         {
-                            Id = new Guid("5af4cc90-d3b7-4d7b-835b-5d388834ce7d"),
+                            Id = new Guid("866dd9c4-b479-4e9e-a301-3a4efdd53a5f"),
                             Name = "Coral"
                         },
                         new
                         {
-                            Id = new Guid("0dc37b77-0dc5-44e4-97d7-19e5065e5312"),
+                            Id = new Guid("0ca1dd4c-e943-4889-9895-5dd810306e5a"),
                             Name = "Coral Pink"
                         },
                         new
                         {
-                            Id = new Guid("8ba337a5-34d6-4d1d-9f25-e245ef9dd1b5"),
+                            Id = new Guid("c1d287dd-e21b-4e34-9833-b98f884bc416"),
                             Name = "Coral Red"
                         },
                         new
                         {
-                            Id = new Guid("5dd7e741-eef5-4f9a-9f89-3e525d40eaae"),
+                            Id = new Guid("0fbf3a7f-2854-4007-95fb-c73623feded2"),
                             Name = "Cordovan"
                         },
                         new
                         {
-                            Id = new Guid("502760c1-446d-4da5-9363-d273aa14289c"),
+                            Id = new Guid("66885358-b7c7-4451-8290-b040547fa329"),
                             Name = "Corn"
                         },
                         new
                         {
-                            Id = new Guid("a83a14f9-9540-4517-95b2-8dbfce77830a"),
+                            Id = new Guid("f7d386f3-50c2-478b-9558-0d82a4b4720b"),
                             Name = "Cornell Red"
                         },
                         new
                         {
-                            Id = new Guid("55618ae2-3126-4d23-b3c4-37a12a0136c4"),
+                            Id = new Guid("cefff5a0-e7ab-4bed-bd8c-41992c1495f1"),
                             Name = "Cornflower Blue"
                         },
                         new
                         {
-                            Id = new Guid("3c1b856d-e77e-471c-be1d-2d2a074c0db4"),
+                            Id = new Guid("43d2cd49-4904-4a9c-83fe-87ec76bd1341"),
                             Name = "Cornsilk"
                         },
                         new
                         {
-                            Id = new Guid("927a4fe5-e19c-49f4-8f42-619d3996aa3c"),
+                            Id = new Guid("0e0af4d1-a348-44eb-bb31-85f12031173a"),
                             Name = "Cosmic Cobalt"
                         },
                         new
                         {
-                            Id = new Guid("7236be73-b7c0-49d3-8c08-22485c2a3c30"),
+                            Id = new Guid("a7d17927-c73e-4b24-816f-860155df836d"),
                             Name = "Cosmic Latte"
                         },
                         new
                         {
-                            Id = new Guid("c7c36641-2d35-46bc-90e2-bb2a53e0c546"),
+                            Id = new Guid("f8d65389-d16f-4cc3-b097-935df3e4cac6"),
                             Name = "Coyote Brown"
                         },
                         new
                         {
-                            Id = new Guid("7d86e422-5c6a-4f88-abf5-1c21a37c11f9"),
+                            Id = new Guid("24c0651c-a444-447a-b10f-94609bffd94d"),
                             Name = "Cotton Candy"
                         },
                         new
                         {
-                            Id = new Guid("ae659497-3423-44b8-af7d-a8f52b217912"),
+                            Id = new Guid("16c1b735-54dd-4d3a-87eb-dc25bc4afda1"),
                             Name = "Cream"
                         },
                         new
                         {
-                            Id = new Guid("41f661a1-3f79-4d1c-8313-d3bc9801c562"),
+                            Id = new Guid("2025a143-14fa-4dd6-af95-a4c31412d145"),
                             Name = "Crimson"
                         },
                         new
                         {
-                            Id = new Guid("421707d5-d778-4fbe-a5df-4681305b466c"),
+                            Id = new Guid("8ed5d736-1958-48e9-ba1b-b86d77a075b8"),
                             Name = "Crimson Glory"
                         },
                         new
                         {
-                            Id = new Guid("bbda9135-7b37-4bf4-9464-48d0255206f9"),
+                            Id = new Guid("a6c3f52a-8f52-42c4-a9bb-30a1808ceed3"),
                             Name = "Crimson Red"
                         },
                         new
                         {
-                            Id = new Guid("70808211-723e-4604-b2d3-bff671930d62"),
+                            Id = new Guid("9b72df3a-c8c4-40c7-8869-b3e7aa118b9e"),
                             Name = "Cultured"
                         },
                         new
                         {
-                            Id = new Guid("97996abe-20e4-464b-a9c6-7d045c7ef3be"),
+                            Id = new Guid("823910ed-40e8-4a1c-b473-0a5936cf7a7d"),
                             Name = "Cyan"
                         },
                         new
                         {
-                            Id = new Guid("0fcf2937-ad98-4228-a347-ed9c1aec428b"),
+                            Id = new Guid("d6c5e351-a8f5-4b36-acd8-b4ab35b3836e"),
                             Name = "Cyan Azure"
                         },
                         new
                         {
-                            Id = new Guid("6b753bae-3cfb-4b81-aaeb-993778c850de"),
+                            Id = new Guid("e79af014-2c6b-4d79-8035-dd45fc41c726"),
                             Name = "Cyan-Blue Azure"
                         },
                         new
                         {
-                            Id = new Guid("ab3a9758-8dbd-4f62-b274-f0f333120ce8"),
+                            Id = new Guid("7002e778-3f24-4ef1-bc15-b19bd0f95d84"),
                             Name = "Cyan Cobalt Blue"
                         },
                         new
                         {
-                            Id = new Guid("f22e79d9-ec33-4543-906d-15f5638c5bcd"),
+                            Id = new Guid("7fa9e587-6014-403f-be34-858f2eb3a268"),
                             Name = "Cyan Cornflower Blue"
                         },
                         new
                         {
-                            Id = new Guid("a5e30862-819b-4901-b37b-5e3f5c26bbc5"),
+                            Id = new Guid("0b8cb92a-f023-45fb-9e2e-cd48b1e8a64c"),
                             Name = "Cyan (Process)"
                         },
                         new
                         {
-                            Id = new Guid("9f5b91c2-90e7-4f45-a228-07aa9b2f5d73"),
+                            Id = new Guid("313d6991-b6b7-42c0-8f11-4e63ed89d00f"),
                             Name = "Cyber Grape"
                         },
                         new
                         {
-                            Id = new Guid("cac9a72a-0288-408f-b035-e8341c35a87d"),
+                            Id = new Guid("e3a2af56-46dc-4348-bbf7-8737d4820a11"),
                             Name = "Cyber Yellow"
                         },
                         new
                         {
-                            Id = new Guid("04c67605-4c05-429f-9f3f-e2ecac005f78"),
+                            Id = new Guid("099ea3eb-f625-44b4-8322-60d12869b69b"),
                             Name = "Cyclamen"
                         },
                         new
                         {
-                            Id = new Guid("32bedc67-6ca6-484e-8cb5-bfbe6a9f82da"),
+                            Id = new Guid("b940f56f-11e8-41f1-89f6-dd204873d847"),
                             Name = "Daffodil"
                         },
                         new
                         {
-                            Id = new Guid("b8df045e-d190-495a-82a2-c235b4ae8ab3"),
+                            Id = new Guid("2fbadad5-745e-4249-8275-bbb6d091c10c"),
                             Name = "Dandelion"
                         },
                         new
                         {
-                            Id = new Guid("9c2fa0bc-a5c7-412e-8f43-b1c3e9f375ed"),
+                            Id = new Guid("c2ea1b5e-dda8-45ee-965d-f328c338b622"),
                             Name = "Dark Blue"
                         },
                         new
                         {
-                            Id = new Guid("78bb0eaa-878e-4fbf-aeaf-5f7d97b76e22"),
+                            Id = new Guid("47ce24da-37f8-47c8-907b-47c0bb136616"),
                             Name = "Dark Blue-Gray"
                         },
                         new
                         {
-                            Id = new Guid("6cfc1686-3b49-48bd-8d23-d062da7d992d"),
+                            Id = new Guid("f9478a2a-ca09-49c5-b99f-34e8e9f197cf"),
                             Name = "Dark Brown"
                         },
                         new
                         {
-                            Id = new Guid("cffa06e9-a483-40d4-9037-6bc0bb6334f8"),
+                            Id = new Guid("400888f8-ec60-4521-8f11-ead1c90f3caa"),
                             Name = "Dark Brown-Tangelo"
                         },
                         new
                         {
-                            Id = new Guid("c90cdac2-98a0-4aad-a120-55844a618ae4"),
+                            Id = new Guid("f451377d-9c18-4604-ab48-9a4e050c27fb"),
                             Name = "Dark Byzantium"
                         },
                         new
                         {
-                            Id = new Guid("2b59e732-db2b-4b0f-b32c-327a28f9e257"),
+                            Id = new Guid("492d81a5-9e49-40cd-b303-1d90e1da605e"),
                             Name = "Dark Candy Apple Red"
                         },
                         new
                         {
-                            Id = new Guid("f2954b13-f40a-4e05-be9a-de92b9316bb6"),
+                            Id = new Guid("79e235cd-b6a1-4d99-afb1-e0c364f6ace0"),
                             Name = "Dark Cerulean"
                         },
                         new
                         {
-                            Id = new Guid("fb24148d-9731-4cfb-9b64-ed51998dc406"),
+                            Id = new Guid("840b7e27-e66a-4ad7-a400-d777f7d201b5"),
                             Name = "Dark Chestnut"
                         },
                         new
                         {
-                            Id = new Guid("14bc329b-a149-47fe-9a1c-52483990e8f1"),
+                            Id = new Guid("5441cc54-5f09-493d-9a1f-278af16503c4"),
                             Name = "Dark Coral"
                         },
                         new
                         {
-                            Id = new Guid("c083ddfb-7999-4cdb-92ee-a3f06bb72fb0"),
+                            Id = new Guid("2f1342fc-ea60-4f6b-be3b-60b6aa785e60"),
                             Name = "Dark Cyan"
                         },
                         new
                         {
-                            Id = new Guid("11b9bc2f-a763-466a-8011-be1a7ba0b11a"),
+                            Id = new Guid("bd653fd2-a337-4650-9864-7559dea0c2ca"),
                             Name = "Dark Electric Blue"
                         },
                         new
                         {
-                            Id = new Guid("c5a324a6-dcc2-452b-8fc0-83a8016347b5"),
+                            Id = new Guid("726e78a0-0494-4c0c-916e-52a5ea56ff30"),
                             Name = "Dark Goldenrod"
                         },
                         new
                         {
-                            Id = new Guid("1f133600-1162-4182-9ddb-02ef8b877556"),
+                            Id = new Guid("a528941d-3c47-4b63-90b2-a7fa96ae695d"),
                             Name = "Dark Gray (X11)"
                         },
                         new
                         {
-                            Id = new Guid("d9b74604-a7c0-44fb-bf31-d2a3e1487ad0"),
+                            Id = new Guid("d57c8e91-81a2-4f8d-8305-1df3e6c40c7d"),
                             Name = "Dark Green"
                         },
                         new
                         {
-                            Id = new Guid("2165b7ea-63c8-47ec-9cdc-27253a9f4749"),
+                            Id = new Guid("0fae3eca-d675-4842-936f-513df1b5b471"),
                             Name = "Dark Green (X11)"
                         },
                         new
                         {
-                            Id = new Guid("852e1301-10f2-414c-a6a6-1741ed1f1cf9"),
+                            Id = new Guid("35c84c04-1adc-47d4-b757-8cbd315741cf"),
                             Name = "Dark Gunmetal"
                         },
                         new
                         {
-                            Id = new Guid("49f3e16a-6109-47e8-8c04-44eaaa8902bb"),
+                            Id = new Guid("d52cdace-10bc-410c-8a1a-3b32ca0d3398"),
                             Name = "Dark Imperial Blue"
                         },
                         new
                         {
-                            Id = new Guid("d86c59bb-6079-4f4f-9ca7-ed76cee17166"),
+                            Id = new Guid("f52f2e34-aedf-4fac-a54c-c411393e7dbd"),
                             Name = "Dark Jungle Green"
                         },
                         new
                         {
-                            Id = new Guid("001b3102-29ba-4ab1-affd-81e5345c8221"),
+                            Id = new Guid("e2a465aa-bf0b-4e53-84ae-6c9ddc69978f"),
                             Name = "Dark Khaki"
                         },
                         new
                         {
-                            Id = new Guid("172a76e0-e16c-4448-bc6e-20b1a10b32b7"),
+                            Id = new Guid("875a7f83-44fe-4b0f-8e02-7cbf7304a490"),
                             Name = "Dark Lava"
                         },
                         new
                         {
-                            Id = new Guid("5ff8f702-1630-402a-9d07-daa46c2e4c99"),
+                            Id = new Guid("27458a33-6ef2-4c3b-9c85-d6143cd9a1d9"),
                             Name = "Dark Lavender"
                         },
                         new
                         {
-                            Id = new Guid("d24c6d14-d1a7-4111-a394-d24d76a67b1b"),
+                            Id = new Guid("dfdec086-9aa8-4da6-b850-85a5928cfd48"),
                             Name = "Dark Liver"
                         },
                         new
                         {
-                            Id = new Guid("0d0a64a1-00aa-4a06-bfc1-8089a7366757"),
+                            Id = new Guid("9be3bcd6-b456-4f50-a499-2855306f48c1"),
                             Name = "Dark Liver (Horses)"
                         },
                         new
                         {
-                            Id = new Guid("d2a60f22-afcb-4aac-a449-3bc2e3fe77f0"),
+                            Id = new Guid("cd00ccd1-c2d3-4ab6-8400-a51d05209617"),
                             Name = "Dark Magenta"
                         },
                         new
                         {
-                            Id = new Guid("9e9d987f-954f-4342-a550-82f37c502320"),
+                            Id = new Guid("916df4ae-0204-4bed-b4dd-ddfc0a64200b"),
                             Name = "Dark Medium Gray"
                         },
                         new
                         {
-                            Id = new Guid("9a10a85f-d5a9-4aa1-a1ac-06a76cda6243"),
+                            Id = new Guid("b60307e6-a09a-4ef4-8ad8-5c56b28919ee"),
                             Name = "Dark Midnight Blue"
                         },
                         new
                         {
-                            Id = new Guid("8a4954a6-5a18-4988-879b-c55b74c77de1"),
+                            Id = new Guid("888d87f3-9e4e-4fdb-a0bf-b2b4452d0ef2"),
                             Name = "Dark Moss Green"
                         },
                         new
                         {
-                            Id = new Guid("1a551faf-98b0-42ed-82fc-71b76235ff01"),
+                            Id = new Guid("dd7a4c88-5b06-4fd3-ab26-a24a21b0ec17"),
                             Name = "Dark Olive Green"
                         },
                         new
                         {
-                            Id = new Guid("d9b29672-367f-4527-b4e8-fe909fbd33cb"),
+                            Id = new Guid("2f3c13f2-ad1c-4f53-9e9d-0c535d627218"),
                             Name = "Dark Orange"
                         },
                         new
                         {
-                            Id = new Guid("e546b617-bad0-4885-90fc-473f9c41e3fb"),
+                            Id = new Guid("6cb15faa-7a73-46d9-b2b1-cce4855af8fa"),
                             Name = "Dark Orchid"
                         },
                         new
                         {
-                            Id = new Guid("09f78e1c-4b26-4a9b-ba36-d971d3460dd8"),
+                            Id = new Guid("598e13b3-3468-421f-81e4-8347108db919"),
                             Name = "Dark Pastel Blue"
                         },
                         new
                         {
-                            Id = new Guid("be5b4f26-385d-4d91-904e-2a893003c889"),
+                            Id = new Guid("c0c2f125-831b-488b-a768-86835097a7a1"),
                             Name = "Dark Pastel Green"
                         },
                         new
                         {
-                            Id = new Guid("61ee2270-1685-4f54-aac4-d0f74fdd0b00"),
+                            Id = new Guid("4619cf49-6197-4707-8917-7ce5b018a72b"),
                             Name = "Dark Pastel Purple"
                         },
                         new
                         {
-                            Id = new Guid("61c31800-903b-47cc-befb-1b1d6142aee5"),
+                            Id = new Guid("7ad96545-fbd7-4c78-a44e-30f956d187df"),
                             Name = "Dark Pastel Red"
                         },
                         new
                         {
-                            Id = new Guid("c0e57c86-f090-41d4-ac3d-b8ff41b035d8"),
+                            Id = new Guid("08b9d893-fb2c-4d3d-b0bb-9f13709ac3cb"),
                             Name = "Dark Pink"
                         },
                         new
                         {
-                            Id = new Guid("98cd85ec-b953-42b1-b722-68b06d8b1303"),
+                            Id = new Guid("4f9e2ba9-d6e0-4d54-9293-d82dd0f03dd3"),
                             Name = "Dark Powder Blue"
                         },
                         new
                         {
-                            Id = new Guid("5b18fd33-1f5a-4dea-8419-5fa97d38124c"),
+                            Id = new Guid("218fc36c-d563-4541-9d45-712a2f370e53"),
                             Name = "Dark Puce"
                         },
                         new
                         {
-                            Id = new Guid("3285d698-e9e4-43cd-b7bb-ad95f22944ba"),
+                            Id = new Guid("33959993-6762-4ab1-879c-a097add75aed"),
                             Name = "Dark Purple"
                         },
                         new
                         {
-                            Id = new Guid("5db5c26c-e5a2-49da-a602-41cf868c2716"),
+                            Id = new Guid("7735adc7-d570-4161-aa75-cf303acaa536"),
                             Name = "Dark Raspberry"
                         },
                         new
                         {
-                            Id = new Guid("818d1ff6-60e8-40f9-bdc5-74ccc1d2e311"),
+                            Id = new Guid("a0801dfe-8cb7-40ce-a969-9e86e630fd48"),
                             Name = "Dark Red"
                         },
                         new
                         {
-                            Id = new Guid("72ee67bb-9b53-464b-a83f-931d03b01e68"),
+                            Id = new Guid("b45f223f-5314-4daa-a799-55a24ed18c7c"),
                             Name = "Dark Salmon"
                         },
                         new
                         {
-                            Id = new Guid("f8767121-961b-422f-931c-32da30ca9455"),
+                            Id = new Guid("35e98fa5-5967-46f4-b1d8-52d639d82903"),
                             Name = "Dark Scarlet"
                         },
                         new
                         {
-                            Id = new Guid("eead78ca-54c5-47bb-a4be-08741192191e"),
+                            Id = new Guid("658734b0-b59c-4403-a2b5-132781337d05"),
                             Name = "Dark Sea Green"
                         },
                         new
                         {
-                            Id = new Guid("7fff724c-9450-49c3-baa7-d9f339f53568"),
+                            Id = new Guid("1dbb4dd6-2279-4f1f-a89f-09aece16836e"),
                             Name = "Dark Sienna"
                         },
                         new
                         {
-                            Id = new Guid("a6c8a5c6-1e4a-40e3-9d2e-63b5a6a8be9c"),
+                            Id = new Guid("5f657591-2f3e-4145-9c82-a82c35b37b7e"),
                             Name = "Dark Sky Blue"
                         },
                         new
                         {
-                            Id = new Guid("99988155-4b2c-45f4-8e20-3102e3a08b01"),
+                            Id = new Guid("06dd57eb-8e64-4eb6-93c9-092615901cb8"),
                             Name = "Dark Slate Blue"
                         },
                         new
                         {
-                            Id = new Guid("135abc7d-292a-4ed2-b205-9b47f5e9fdbb"),
+                            Id = new Guid("f68bc3e9-806d-4bcb-8d87-17d81ec315fe"),
                             Name = "Dark Slate Gray"
                         },
                         new
                         {
-                            Id = new Guid("a153f1c0-8453-4dfe-b892-419d1bba3da0"),
+                            Id = new Guid("89eaead0-2e23-4019-91c9-8dcfc4def70b"),
                             Name = "Dark Spring Green"
                         },
                         new
                         {
-                            Id = new Guid("df6666b8-c1aa-4e04-9c44-3315cb8b572e"),
+                            Id = new Guid("39db5215-fc0c-46c9-93eb-d4252e4faa8c"),
                             Name = "Dark Tan"
                         },
                         new
                         {
-                            Id = new Guid("46b2026f-c4e3-4b16-bd9f-b5910b2b2960"),
+                            Id = new Guid("4588fcfb-791a-406b-98a2-ead621102613"),
                             Name = "Dark Tangerine"
                         },
                         new
                         {
-                            Id = new Guid("feaa95d4-f660-417e-8696-b07c3a0b4c23"),
+                            Id = new Guid("6c8bd240-fde3-4785-a0dc-d58f8447b7e9"),
                             Name = "Dark Taupe"
                         },
                         new
                         {
-                            Id = new Guid("39bfe917-d0c5-46be-9eab-58f5c4b39ee1"),
+                            Id = new Guid("737865ee-16ba-428c-880f-9bbbb6beec85"),
                             Name = "Dark Terra Cotta"
                         },
                         new
                         {
-                            Id = new Guid("23488719-43d5-4f3c-b6d4-71d2f5bfc164"),
+                            Id = new Guid("9ae16843-a22f-478d-a66e-64070c09336c"),
                             Name = "Dark Turquoise"
                         },
                         new
                         {
-                            Id = new Guid("13447892-f2f6-411b-a9d4-f4c5ec5432d1"),
+                            Id = new Guid("0354a53e-9cbc-4991-937f-c1567e6511df"),
                             Name = "Dark Vanilla"
                         },
                         new
                         {
-                            Id = new Guid("277d3a50-47f5-42dc-bb06-0d056edf2adf"),
+                            Id = new Guid("86c77759-febe-4443-bca9-5807c213cf37"),
                             Name = "Dark Violet"
                         },
                         new
                         {
-                            Id = new Guid("ab30744b-8bf2-4903-8be7-4222146460cd"),
+                            Id = new Guid("f6130503-7e24-46f9-ac1d-ded0275d4392"),
                             Name = "Dark Yellow"
                         },
                         new
                         {
-                            Id = new Guid("13116d58-71ef-42de-8de9-82e323214b0f"),
+                            Id = new Guid("c88400d7-dba1-48b1-97c3-a212132cf640"),
                             Name = "Dartmouth Green"
                         },
                         new
                         {
-                            Id = new Guid("fc69cd6f-22b1-4bab-a6ce-536a7ace0c80"),
+                            Id = new Guid("0e277a47-01f6-4dfe-9c1a-e4a08d8b97a7"),
                             Name = "Davy's Grey"
                         },
                         new
                         {
-                            Id = new Guid("1299ef81-a0af-4caf-83d4-34f8dee2add8"),
+                            Id = new Guid("5310cac3-3ddf-44df-9522-504ac3b4bc66"),
                             Name = "Debian Red"
                         },
                         new
                         {
-                            Id = new Guid("f34b189f-01a3-41b0-bc0a-a0f7a53641a1"),
+                            Id = new Guid("21232240-d008-4ccd-bf96-0dfa20309547"),
                             Name = "Deep Aquamarine"
                         },
                         new
                         {
-                            Id = new Guid("2abaec8d-4652-48f2-86cd-7e41494fd639"),
+                            Id = new Guid("b07ac4ff-b567-4036-bfdf-a4a0426139b5"),
                             Name = "Deep Carmine"
                         },
                         new
                         {
-                            Id = new Guid("427f6408-41e6-4e64-9c90-21d07d0185c8"),
+                            Id = new Guid("c445ce58-9301-44c6-8ceb-ed5f4586c162"),
                             Name = "Deep Carmine Pink"
                         },
                         new
                         {
-                            Id = new Guid("3aa14988-49f6-4e9f-9e29-09d5685f1e71"),
+                            Id = new Guid("d6bc1f43-06eb-410a-952c-ab4c5ab8d030"),
                             Name = "Deep Carrot Orange"
                         },
                         new
                         {
-                            Id = new Guid("7c9ed5a4-396c-4c05-9d85-51d3735d4d38"),
+                            Id = new Guid("3b23041a-3cd9-40af-bc9c-910bbe73dc69"),
                             Name = "Deep Cerise"
                         },
                         new
                         {
-                            Id = new Guid("560b002d-287b-48c9-9dc2-6513e851e547"),
+                            Id = new Guid("514d39f4-e6ac-4524-a605-d5f9c9d50ec5"),
                             Name = "Deep Champagne"
                         },
                         new
                         {
-                            Id = new Guid("b56d79af-2afc-473c-bfc1-40557b899d47"),
+                            Id = new Guid("7f043698-0448-4334-a5c1-3404145eeccb"),
                             Name = "Deep Chestnut"
                         },
                         new
                         {
-                            Id = new Guid("37e82e5f-8998-418f-acee-a3cd2c0e1991"),
+                            Id = new Guid("8f1de441-899d-421f-a689-41e7fcaaf058"),
                             Name = "Deep Coffee"
                         },
                         new
                         {
-                            Id = new Guid("3df2db78-18fd-4e0f-8356-d188fe3cabeb"),
+                            Id = new Guid("7bfe6b95-cd51-43d4-954a-7b50b3b9bd73"),
                             Name = "Deep Fuchsia"
                         },
                         new
                         {
-                            Id = new Guid("dc791555-222b-4866-96f4-a80de18c86aa"),
+                            Id = new Guid("f09053ec-e26e-49d1-b945-ecb0d4568560"),
                             Name = "Deep Green"
                         },
                         new
                         {
-                            Id = new Guid("49b99c4b-256e-4c22-84e3-ecb5658cded2"),
+                            Id = new Guid("dc33dd66-c66e-4ad5-8e26-25ef453dd2fb"),
                             Name = "Deep Green-Cyan Turquoise"
                         },
                         new
                         {
-                            Id = new Guid("7b9b118d-4f6c-42a6-a4f1-b99860d45588"),
+                            Id = new Guid("0119ffca-5f0c-415e-b606-8fefec5a1705"),
                             Name = "Deep Jungle Green"
                         },
                         new
                         {
-                            Id = new Guid("d9b63bbc-ebac-417d-aaa5-a8c17063c734"),
+                            Id = new Guid("e23f658d-de1e-49b0-9244-92e1085f4e49"),
                             Name = "Deep Koamaru"
                         },
                         new
                         {
-                            Id = new Guid("63110371-c2b9-4716-aa41-fd3cce3d7e59"),
+                            Id = new Guid("61c60e83-27cd-4f75-8627-2e46b99e60ac"),
                             Name = "Deep Lemon"
                         },
                         new
                         {
-                            Id = new Guid("28445c35-3485-4df9-a37e-86da746b2cf0"),
+                            Id = new Guid("effbec7f-7481-4960-8803-b66f65f5c003"),
                             Name = "Deep Lilac"
                         },
                         new
                         {
-                            Id = new Guid("4e2188da-e30d-45ca-a60d-c91f1bca653e"),
+                            Id = new Guid("81fb06ff-898e-4e49-ba19-968af9ddde08"),
                             Name = "Deep Magenta"
                         },
                         new
                         {
-                            Id = new Guid("903d399c-90bb-4ea3-958f-ce6393a581be"),
+                            Id = new Guid("d1fdc999-b4c9-4cf7-9e16-c7fc6dec3166"),
                             Name = "Deep Maroon"
                         },
                         new
                         {
-                            Id = new Guid("2ded651a-a8c5-45e9-b00b-b2915eee46bc"),
+                            Id = new Guid("df4afbfa-2f20-40eb-8ee0-dfd43bea6c58"),
                             Name = "Deep Mauve"
                         },
                         new
                         {
-                            Id = new Guid("9b06092d-0f7b-40c0-96f6-facf47e44a22"),
+                            Id = new Guid("32d272ad-4d36-4ca2-9560-a59edfa336bd"),
                             Name = "Deep Moss Green"
                         },
                         new
                         {
-                            Id = new Guid("c8524938-a480-440a-b9a7-3712d1261047"),
+                            Id = new Guid("a732f67a-b6da-4a0a-9780-e4303450612f"),
                             Name = "Deep Peach"
                         },
                         new
                         {
-                            Id = new Guid("9d4ee2b0-1b33-4aa0-b702-64684e980e3f"),
+                            Id = new Guid("955bf350-7fb0-46d8-8277-f351fa0234f4"),
                             Name = "Deep Pink"
                         },
                         new
                         {
-                            Id = new Guid("2801ecb3-361d-498f-8517-44e2d05fdf28"),
+                            Id = new Guid("f0547ee7-8c6d-4d63-8819-d05ce982cbaa"),
                             Name = "Deep Puce"
                         },
                         new
                         {
-                            Id = new Guid("b5a52653-c5ab-45e5-acbc-8c7d021a36fe"),
+                            Id = new Guid("a2c43806-6198-4ff2-b8e4-04cde2b03ab7"),
                             Name = "Deep Red"
                         },
                         new
                         {
-                            Id = new Guid("8410f079-a30d-44b7-b5bd-3cab69c05730"),
+                            Id = new Guid("84c10525-7386-4961-96ea-d71caca6123a"),
                             Name = "Deep Ruby"
                         },
                         new
                         {
-                            Id = new Guid("21009179-7257-4476-92ee-8cfb769bf590"),
+                            Id = new Guid("afd37206-da81-4efd-9cce-949d9784562e"),
                             Name = "Deep Saffron"
                         },
                         new
                         {
-                            Id = new Guid("b341659e-1a3a-4190-8a5e-93454ad0cb13"),
+                            Id = new Guid("80351d22-9e8e-4d5b-b1c3-c2b0c7870f42"),
                             Name = "Deep Sky Blue"
                         },
                         new
                         {
-                            Id = new Guid("82099d0d-82b5-4322-b928-e255439605c4"),
+                            Id = new Guid("3b951f21-5f34-41b9-af5c-1606644f1da7"),
                             Name = "Deep Space Sparkle"
                         },
                         new
                         {
-                            Id = new Guid("271852d1-fccc-4d74-b489-3ae5616f13b2"),
+                            Id = new Guid("818befdb-cd77-4a95-bb2d-e1287e668afe"),
                             Name = "Deep Spring Bud"
                         },
                         new
                         {
-                            Id = new Guid("7953eae9-7ba4-4edc-89a5-aa11b1c8781a"),
+                            Id = new Guid("816d682a-fbac-4680-b545-67824f396946"),
                             Name = "Deep Taupe"
                         },
                         new
                         {
-                            Id = new Guid("e8967f5e-8e6b-4f10-932f-0407143f74de"),
+                            Id = new Guid("21da0127-5ae3-478f-98bb-e0a342208959"),
                             Name = "Deep Tuscan Red"
                         },
                         new
                         {
-                            Id = new Guid("e33b192c-42fc-4166-afc7-b65ff291ccd3"),
+                            Id = new Guid("dbe4f58d-62d5-4698-a149-468d292da7b7"),
                             Name = "Deep Violet"
                         },
                         new
                         {
-                            Id = new Guid("8200b08a-a456-4353-bd25-64c250c8c1f9"),
+                            Id = new Guid("d7d32ddd-9f02-474a-9131-8255234e5e30"),
                             Name = "Deer"
                         },
                         new
                         {
-                            Id = new Guid("eb580779-0227-4082-8a17-625a1aa0dd38"),
+                            Id = new Guid("9e03ed75-5c73-41d7-90a0-1abc3039a029"),
                             Name = "Denim"
                         },
                         new
                         {
-                            Id = new Guid("27626641-ee2e-48fa-bc6d-d4531d46165b"),
+                            Id = new Guid("e73f4872-41e7-4ca0-81e8-e26c8e13bfca"),
                             Name = "Denim Blue"
                         },
                         new
                         {
-                            Id = new Guid("19d4023f-1b95-414a-9528-4f42c8f799aa"),
+                            Id = new Guid("0d736f35-41c0-453f-9be4-30c8019bce6f"),
                             Name = "Desaturated Cyan"
                         },
                         new
                         {
-                            Id = new Guid("082311b7-775d-4008-9be8-978b8b2b32d8"),
+                            Id = new Guid("6bf23aeb-5387-40b6-8cfe-c6b4618cd579"),
                             Name = "Desert"
                         },
                         new
                         {
-                            Id = new Guid("fd45718c-79f7-4dd5-9627-b033bc2c1ae7"),
+                            Id = new Guid("192ccd7e-b8f4-4d5b-88e1-767d96b891fc"),
                             Name = "Desert Sand"
                         },
                         new
                         {
-                            Id = new Guid("fc24eb93-99cc-48d9-b6fe-9e9c233518d9"),
+                            Id = new Guid("3eb691d9-efe1-43da-a141-37e2680d1b10"),
                             Name = "Desire"
                         },
                         new
                         {
-                            Id = new Guid("b78dc660-a813-490b-a5dd-0b040876fc35"),
+                            Id = new Guid("c0b0f387-f0d7-4a21-8a93-f69976077b6d"),
                             Name = "Diamond"
                         },
                         new
                         {
-                            Id = new Guid("dfb57ede-6cd0-44ff-8a9f-7f738897141f"),
+                            Id = new Guid("dcea6174-da1d-463d-b987-9c0ecf37ddea"),
                             Name = "Dim Gray"
                         },
                         new
                         {
-                            Id = new Guid("340e7eaa-67bf-43a4-afcf-0718926183f5"),
+                            Id = new Guid("238fa585-99d0-4924-b64c-da89ed170897"),
                             Name = "Dingy Dungeon"
                         },
                         new
                         {
-                            Id = new Guid("960663ae-2206-46fa-b4a6-05d6babe31d9"),
+                            Id = new Guid("e25844a0-089a-4b81-bb87-a3e33f949125"),
                             Name = "Dirt"
                         },
                         new
                         {
-                            Id = new Guid("174d50b1-2401-4d0d-ae22-f8d20e282de3"),
+                            Id = new Guid("2693cdb1-fb4a-4446-83c6-6c999fc7a85d"),
                             Name = "Dodger Blue"
                         },
                         new
                         {
-                            Id = new Guid("0e13b714-0a7e-4fc8-9748-78d210c4c17d"),
+                            Id = new Guid("7933c002-0f09-4196-9666-c53e7a48c2e8"),
                             Name = "Dogwood Rose"
                         },
                         new
                         {
-                            Id = new Guid("ce9331c5-5965-4467-bd2e-dc9cca083189"),
+                            Id = new Guid("0051d8ea-2eb0-43be-95fa-6251459ad585"),
                             Name = "Dollar Bill"
                         },
                         new
                         {
-                            Id = new Guid("36397569-b11d-4b15-af16-1408d2d30b1b"),
+                            Id = new Guid("9758dd93-d5b7-431c-b030-e200ef530316"),
                             Name = "Donkey Brown"
                         },
                         new
                         {
-                            Id = new Guid("66936544-08f3-468e-ac99-0944fce31c04"),
+                            Id = new Guid("790ced00-9c63-4f63-8cca-79b723bb6d9d"),
                             Name = "Drab"
                         },
                         new
                         {
-                            Id = new Guid("0f6ae715-ff76-48b5-a5af-85307abf222e"),
+                            Id = new Guid("d19666c7-9757-4ccd-892c-07b32beab443"),
                             Name = "Duke Blue"
                         },
                         new
                         {
-                            Id = new Guid("846cace9-d0e2-4635-b6b0-831f3cdddb1c"),
+                            Id = new Guid("56f21334-1985-4592-a814-ce82c79d3363"),
                             Name = "Dust Storm"
                         },
                         new
                         {
-                            Id = new Guid("bf2871b3-c795-4eb9-8483-25fc6ba2c4bd"),
+                            Id = new Guid("ec6c4272-e053-4768-8e25-d0ffe08ca14b"),
                             Name = "Dutch White"
                         },
                         new
                         {
-                            Id = new Guid("7f4874a2-794c-419f-b94c-b18c7bea1f32"),
+                            Id = new Guid("43a38f5c-67c9-4af0-8fb0-8e896ea6c794"),
                             Name = "Earth Yellow"
                         },
                         new
                         {
-                            Id = new Guid("19e9beca-7340-4450-92b4-6253892c6d4c"),
+                            Id = new Guid("39ec02ec-663b-4d25-85e6-274f15e7c20a"),
                             Name = "Ebony"
                         },
                         new
                         {
-                            Id = new Guid("9471fe83-1f70-4fef-b884-01ee4316acc8"),
+                            Id = new Guid("0a83a249-253e-4e18-b20c-2192e148493d"),
                             Name = "Ecru"
                         },
                         new
                         {
-                            Id = new Guid("019ad011-b140-42ea-b9f2-10cc79382792"),
+                            Id = new Guid("a80eda6c-a35c-4678-b9fb-f7f99712c6ac"),
                             Name = "Eerie Black"
                         },
                         new
                         {
-                            Id = new Guid("2e3fe7fe-159b-47db-aa68-7f7c8f75fb1e"),
+                            Id = new Guid("3717e627-59be-4b29-8334-b7cecd9e4e0f"),
                             Name = "Eggplant"
                         },
                         new
                         {
-                            Id = new Guid("d7a0c4d1-8b17-43ed-a402-9c247c5987a7"),
+                            Id = new Guid("9abfbe26-6225-4818-a071-09d7da92ef43"),
                             Name = "Eggshell"
                         },
                         new
                         {
-                            Id = new Guid("bad90fe7-f8ba-4004-8521-8c983b286230"),
+                            Id = new Guid("89d626b8-5a72-451d-a6ad-a0c8da61593d"),
                             Name = "Egyptian Blue"
                         },
                         new
                         {
-                            Id = new Guid("8d03a7f7-63a1-4514-93d9-1c09c9fcfdc4"),
+                            Id = new Guid("75e75fed-095c-4835-884e-22f3e2673d5e"),
                             Name = "Electric Blue"
                         },
                         new
                         {
-                            Id = new Guid("66909993-3f06-4dff-b67f-8a44bf6f0396"),
+                            Id = new Guid("5a521d02-38af-4f66-8c0a-7a436530e503"),
                             Name = "Electric Crimson"
                         },
                         new
                         {
-                            Id = new Guid("3c1ff90f-e91a-4d6d-8544-f96bd6b0abc3"),
+                            Id = new Guid("faf6aef5-8b5e-4f58-81fa-79a7b8608552"),
                             Name = "Electric Cyan"
                         },
                         new
                         {
-                            Id = new Guid("cd1783c6-7e02-4bac-aab7-f5df38387dbf"),
+                            Id = new Guid("2b718b38-c32c-419e-9c35-55eaa0195b8d"),
                             Name = "Electric Green"
                         },
                         new
                         {
-                            Id = new Guid("9c5d55d3-23a2-45ba-8b38-7e3314948123"),
+                            Id = new Guid("4c1156c1-9b3f-495c-9ec9-f9a4c5bcc064"),
                             Name = "Electric Indigo"
                         },
                         new
                         {
-                            Id = new Guid("2b58dfba-cd28-4ac8-95d9-1d07afffa5da"),
+                            Id = new Guid("8d56e96d-68de-4f76-b5ff-fa187ae79243"),
                             Name = "Electric Lavender"
                         },
                         new
                         {
-                            Id = new Guid("75853a0f-37bf-4048-9663-78f68ac5afb7"),
+                            Id = new Guid("f271b56a-d7bd-45b9-afb5-a3ea794b4e2a"),
                             Name = "Electric Lime"
                         },
                         new
                         {
-                            Id = new Guid("94871f60-ee03-453b-b7ed-4d85c0c7021d"),
+                            Id = new Guid("6155a2b5-b1e8-4e04-b72c-e13b15e19345"),
                             Name = "Electric Purple"
                         },
                         new
                         {
-                            Id = new Guid("da20bc6d-3744-41cf-ae86-54ffb07ccfe3"),
+                            Id = new Guid("54ee38df-cc40-4e6b-a8ef-a163ce2f34dc"),
                             Name = "Electric Ultramarine"
                         },
                         new
                         {
-                            Id = new Guid("38aca51c-898f-4ea8-a0e3-9ff7ddb26441"),
+                            Id = new Guid("7e5e9c6a-db6f-476d-ae3a-91319a2ad5f8"),
                             Name = "Electric Violet"
                         },
                         new
                         {
-                            Id = new Guid("ece8dc8e-e3d9-42a3-8cc0-444be8506828"),
+                            Id = new Guid("41b8f6e8-ea07-4014-81f0-c7a4a22e5360"),
                             Name = "Electric Yellow"
                         },
                         new
                         {
-                            Id = new Guid("ed73b922-9f97-4261-ab28-2a99cd441a11"),
+                            Id = new Guid("cb80d1ad-b4b6-475f-8f63-d6d4c63e0fe4"),
                             Name = "Emerald"
                         },
                         new
                         {
-                            Id = new Guid("4fa95a5f-1e1f-4b81-bda2-e801405a79a6"),
+                            Id = new Guid("6f919d4a-7f00-4109-8412-8880cc590901"),
                             Name = "Eminence"
                         },
                         new
                         {
-                            Id = new Guid("21b53be0-1f32-4065-8634-6ca82fbc7ae2"),
+                            Id = new Guid("9928e6ae-f0ff-46e8-9cf0-7b801248ed38"),
                             Name = "English Green"
                         },
                         new
                         {
-                            Id = new Guid("ba5431e2-75da-4d55-b15f-7bf2c891be51"),
+                            Id = new Guid("f3fb524c-51f5-4223-96a7-ec9fb9804ed0"),
                             Name = "English Lavender"
                         },
                         new
                         {
-                            Id = new Guid("f2c5bdb1-e675-4357-acd4-f5306fd4bd76"),
+                            Id = new Guid("7e3a1a6a-7d97-48f5-ae19-65e0371a7943"),
                             Name = "English Red"
                         },
                         new
                         {
-                            Id = new Guid("146bfc5d-bc00-42b9-940b-ecc46a2b46c6"),
+                            Id = new Guid("92207be4-6fbb-475b-89f4-7cfd7da26187"),
                             Name = "English Vermillion"
                         },
                         new
                         {
-                            Id = new Guid("fcb9cb51-aa1a-4b4e-b075-76c67767d55e"),
+                            Id = new Guid("e4572614-a0c1-449a-9a2b-a3f37eb531a3"),
                             Name = "English Violet"
                         },
                         new
                         {
-                            Id = new Guid("0d542f88-570e-4ed6-be0d-786e9a7fe175"),
+                            Id = new Guid("b33d4781-4b88-4bfa-9b30-f6bc5b6f9ff6"),
                             Name = "Eton Blue"
                         },
                         new
                         {
-                            Id = new Guid("8da1f1ca-6792-4979-a2ba-77e3bd13e956"),
+                            Id = new Guid("79805bd0-cd6f-4f36-920f-c13a3bd6cf45"),
                             Name = "Eucalyptus"
                         },
                         new
                         {
-                            Id = new Guid("71b0b046-f173-4c5d-8979-f986c4485ab5"),
+                            Id = new Guid("cd9e681f-60cb-4951-a461-25fadb9725c2"),
                             Name = "Fallow"
                         },
                         new
                         {
-                            Id = new Guid("03efb9c1-e3ec-4e6f-a6a9-6af29263d9fb"),
+                            Id = new Guid("3560cf3f-5523-4bbc-a891-459e2a126986"),
                             Name = "Falu Red"
                         },
                         new
                         {
-                            Id = new Guid("ccd5fc37-c35a-403d-ab8e-ed899b507339"),
+                            Id = new Guid("bf269548-12e9-45f4-abcf-7d902c7c5439"),
                             Name = "Fandango"
                         },
                         new
                         {
-                            Id = new Guid("01b166d3-ef8d-46d6-a46a-eb553d6fdbc3"),
+                            Id = new Guid("05ed6441-f0da-4c5d-bd6a-d9542f33d935"),
                             Name = "Fandango Pink"
                         },
                         new
                         {
-                            Id = new Guid("f5af14f6-2e96-40af-a8b5-4a8f0e3c352e"),
+                            Id = new Guid("2c482fdd-1fe4-439b-8765-91d988efe5a9"),
                             Name = "Fashion Fuchsia"
                         },
                         new
                         {
-                            Id = new Guid("305f3aa9-4d6a-408b-8865-0d1b0e441188"),
+                            Id = new Guid("c07d180e-0547-4f74-a041-33ea455a9ccb"),
                             Name = "Fawn"
                         },
                         new
                         {
-                            Id = new Guid("2e4dcee8-f18e-40ef-ba47-c603cdf74f63"),
+                            Id = new Guid("57b86634-c043-438a-a023-76d088efd57a"),
                             Name = "Feldgrau"
                         },
                         new
                         {
-                            Id = new Guid("1557536e-9209-4e5f-b634-f39a168b3c0e"),
+                            Id = new Guid("74f61265-035d-46a2-989d-900f703e2511"),
                             Name = "Feldspar"
                         },
                         new
                         {
-                            Id = new Guid("382d2233-07ec-4449-859b-2acd091ce664"),
+                            Id = new Guid("68788f55-f63f-4638-a959-b36c5b271f1f"),
                             Name = "Fern Green"
                         },
                         new
                         {
-                            Id = new Guid("ba8c72f5-5628-4f3f-b88c-202d45207c26"),
+                            Id = new Guid("0313e157-1bae-44a8-a4a4-8364461c6c8a"),
                             Name = "Ferrari Red"
                         },
                         new
                         {
-                            Id = new Guid("7d4af4b4-6f21-409a-ba07-532d509e8149"),
+                            Id = new Guid("f55fe5e8-53d0-40c6-81cb-67795eee7985"),
                             Name = "Field Drab"
                         },
                         new
                         {
-                            Id = new Guid("cfd3a89d-ede3-42be-a1cd-74d0a6988bf6"),
+                            Id = new Guid("01cfe7bd-43ed-4550-85b8-9c67aaed6ded"),
                             Name = "Fiery Rose"
                         },
                         new
                         {
-                            Id = new Guid("cd41b0db-5b80-402f-8ba2-6cb8cdb221bd"),
+                            Id = new Guid("b3d70e3f-c78d-4239-9da1-53a4e83b510f"),
                             Name = "Firebrick"
                         },
                         new
                         {
-                            Id = new Guid("a6ab9de0-d41a-4c18-b873-8f1a09187ee0"),
+                            Id = new Guid("16c2986d-3d88-45e5-83df-83093a71df31"),
                             Name = "Fire Engine Red"
                         },
                         new
                         {
-                            Id = new Guid("7d4e380f-4533-4945-a9ef-88a2acf86720"),
+                            Id = new Guid("5fbd0a16-e585-49ca-bc2d-b45bf57e0ed8"),
                             Name = "Flame"
                         },
                         new
                         {
-                            Id = new Guid("62799a91-4aa1-49b9-8a2e-fd8d0f86a3dc"),
+                            Id = new Guid("fba118d5-915c-477e-bb6d-2e08310a06bb"),
                             Name = "Flamingo Pink"
                         },
                         new
                         {
-                            Id = new Guid("2a1997b5-1d1c-432d-9c3d-b6686b575123"),
+                            Id = new Guid("6156f3ef-2cdd-48f5-b674-e3de5e30aca2"),
                             Name = "Flattery"
                         },
                         new
                         {
-                            Id = new Guid("b415e6f5-3390-4ef4-b3bd-33f5d5d65b6a"),
+                            Id = new Guid("882df965-0b82-4b57-b1d0-fc1f9168aa9e"),
                             Name = "Flavescent"
                         },
                         new
                         {
-                            Id = new Guid("7d7345e3-dd86-42c3-91c9-19f2f9c746eb"),
+                            Id = new Guid("cff8754b-05cb-4fd5-9aa9-ac95ef82f692"),
                             Name = "Flax"
                         },
                         new
                         {
-                            Id = new Guid("47ef947e-4d68-419a-9168-ec0c3c26d563"),
+                            Id = new Guid("eac1e1f3-11c8-4081-8d68-a68dc3fa8c58"),
                             Name = "Flirt"
                         },
                         new
                         {
-                            Id = new Guid("40c3ea0f-748a-4ea4-a2f7-56c114d2c56b"),
+                            Id = new Guid("a2ef8322-df78-4b77-8b61-3534582d5f7f"),
                             Name = "Floral White"
                         },
                         new
                         {
-                            Id = new Guid("079fec06-8762-4891-bdf1-0fb838a2a168"),
+                            Id = new Guid("4de981cf-d9d3-4452-8e04-f645884ca066"),
                             Name = "Fluorescent Orange"
                         },
                         new
                         {
-                            Id = new Guid("6cf67420-7cd9-45e9-a926-1d0d2ca98c24"),
+                            Id = new Guid("c9f415ad-9da4-4117-9b84-bddc793b0474"),
                             Name = "Fluorescent Pink"
                         },
                         new
                         {
-                            Id = new Guid("4f894151-a0c8-45f2-8451-842c229c0125"),
+                            Id = new Guid("e581389e-0e59-4480-9a69-fb5a21a6d806"),
                             Name = "Fluorescent Yellow"
                         },
                         new
                         {
-                            Id = new Guid("937f4580-285a-493b-822b-c5c78224d9d8"),
+                            Id = new Guid("dcc836b0-a88b-4f1b-b2fe-f64e7e9194d7"),
                             Name = "Folly"
                         },
                         new
                         {
-                            Id = new Guid("6f090a55-6dbc-44c4-be80-a0e28196cbcf"),
+                            Id = new Guid("9a5d6f4b-7ef1-40b4-8eb7-d59bd4359927"),
                             Name = "Forest Green (Traditional)"
                         },
                         new
                         {
-                            Id = new Guid("0a6d3e38-ff0d-496b-b4c6-7f1c8a4924ad"),
+                            Id = new Guid("8dd68e1f-ce5b-47c5-90f3-6252dfd4cf89"),
                             Name = "Forest Green (Web)"
                         },
                         new
                         {
-                            Id = new Guid("a3632b9c-50cb-4483-bfea-4141a0fb4792"),
+                            Id = new Guid("cda1da69-e4e0-409f-8a2e-e51fd88cf3c9"),
                             Name = "French Beige"
                         },
                         new
                         {
-                            Id = new Guid("48223752-b26a-41ff-a88d-e25befeb0061"),
+                            Id = new Guid("889a83b2-d35d-4590-8eba-b95bbb93bb5b"),
                             Name = "French Bistre"
                         },
                         new
                         {
-                            Id = new Guid("77020ae9-0e73-426d-9591-dd416979a20a"),
+                            Id = new Guid("cefc0a2a-ac61-412f-87e5-644e1ff759ba"),
                             Name = "French Blue"
                         },
                         new
                         {
-                            Id = new Guid("91497e98-70d0-4b88-8b02-9b1cc6d3d121"),
+                            Id = new Guid("e3ea0c79-270d-462d-b94e-b295e4bd143c"),
                             Name = "French Fuchsia"
                         },
                         new
                         {
-                            Id = new Guid("70b23777-9f21-4619-a666-ac1f4af1e118"),
+                            Id = new Guid("b8cd0aea-e0a0-4215-9b87-bd2b655533e3"),
                             Name = "French Lilac"
                         },
                         new
                         {
-                            Id = new Guid("db37b99a-f3ee-48da-9798-984fcdf3de24"),
+                            Id = new Guid("09786ee0-7419-4a8e-9a5c-54a17709fe0b"),
                             Name = "French Lime"
                         },
                         new
                         {
-                            Id = new Guid("8b89ab8f-e665-41d1-98c6-1bf3c8e25f04"),
+                            Id = new Guid("6e523711-aba2-4308-a212-c5ad39b1b23c"),
                             Name = "French Mauve"
                         },
                         new
                         {
-                            Id = new Guid("65f44792-877c-4875-9477-fef481e7ec1b"),
+                            Id = new Guid("52cb99b6-291e-4d01-b222-08282e9db9c3"),
                             Name = "French Pink"
                         },
                         new
                         {
-                            Id = new Guid("e2dbacc6-daa2-459f-a938-81d134593627"),
+                            Id = new Guid("5b23348f-6d90-4b26-8425-6a8fc1cb0755"),
                             Name = "French Plum"
                         },
                         new
                         {
-                            Id = new Guid("7b1099c8-6fee-4252-a796-03426398494d"),
+                            Id = new Guid("3c30f8c6-f57d-4146-9c2d-296dd5627b4c"),
                             Name = "French Puce"
                         },
                         new
                         {
-                            Id = new Guid("e0d4641e-4318-4226-bdb6-c57f602cf367"),
+                            Id = new Guid("3a2e1794-c927-4dc0-ba43-80c8e51ba39b"),
                             Name = "French Raspberry"
                         },
                         new
                         {
-                            Id = new Guid("df938041-2785-4924-8cb4-82d4df80c84e"),
+                            Id = new Guid("21e258e3-7122-42ae-8c9b-29b412b7a986"),
                             Name = "French Rose"
                         },
                         new
                         {
-                            Id = new Guid("eca10976-acb4-478f-a8f0-a63d4f7a355c"),
+                            Id = new Guid("24103333-cf5e-4efd-a817-fa1507fddbcb"),
                             Name = "French Sky Blue"
                         },
                         new
                         {
-                            Id = new Guid("784b0c75-79c3-4679-8f3d-5b491ecdc390"),
+                            Id = new Guid("6fae3f00-5678-49d4-9652-a6ee92771ecb"),
                             Name = "French Violet"
                         },
                         new
                         {
-                            Id = new Guid("c30f0f29-0247-4d8c-a476-7d4ef7cf7cd7"),
+                            Id = new Guid("878c60b3-abe7-49ad-8c39-c52d0f1d9d30"),
                             Name = "French Wine"
                         },
                         new
                         {
-                            Id = new Guid("2ba5d702-bf9f-4f08-a7e3-6f480467c583"),
+                            Id = new Guid("395c1f97-df53-4a4e-89b9-08805285939c"),
                             Name = "Fresh Air"
                         },
                         new
                         {
-                            Id = new Guid("59859852-5991-4c25-8cc8-78ef4f0df05e"),
+                            Id = new Guid("9bc2cff9-374c-41a9-8a5b-b55d28537b66"),
                             Name = "Frostbite"
                         },
                         new
                         {
-                            Id = new Guid("3d23d79d-e106-4e69-ba44-8f9a3b727316"),
+                            Id = new Guid("d774aef0-a2cb-4c85-805f-eeb2d3fa193c"),
                             Name = "Fuchsia"
                         },
                         new
                         {
-                            Id = new Guid("c7b66fbb-2bd8-4252-bb6e-647272750c53"),
+                            Id = new Guid("2b9a82d4-5650-4427-a398-6cf2f4d1cbfd"),
                             Name = "Fuchsia (Crayola)"
                         },
                         new
                         {
-                            Id = new Guid("634dc36f-2971-4fba-bcf7-26ca32ed11aa"),
+                            Id = new Guid("6041e7c4-3bae-4a22-82b5-af125b8aa5f2"),
                             Name = "Fuchsia Pink"
                         },
                         new
                         {
-                            Id = new Guid("e3375fa8-c56d-492b-b28d-0272755b047a"),
+                            Id = new Guid("f7fe80f6-f875-47b6-aefc-1fd483d95793"),
                             Name = "Fuchsia Purple"
                         },
                         new
                         {
-                            Id = new Guid("14b77f8e-a1ed-41f4-9ad4-b3425f7c7576"),
+                            Id = new Guid("5aa8e858-e367-4244-8629-4f5243e51356"),
                             Name = "Fuchsia Rose"
                         },
                         new
                         {
-                            Id = new Guid("06a06fd5-0bcc-4f66-9bbf-5dd64a76a27f"),
+                            Id = new Guid("816ef9a2-cd14-4cb3-bd04-923c99b58b2e"),
                             Name = "Fulvous"
                         },
                         new
                         {
-                            Id = new Guid("76557953-2f02-4b3d-bf6d-d123ee142d79"),
+                            Id = new Guid("467318f6-bc14-494a-94f6-c6babbf10b2e"),
                             Name = "Fuzzy Wuzzy"
                         },
                         new
                         {
-                            Id = new Guid("9d87a30c-df5d-42fc-a019-5cfe27b469b5"),
+                            Id = new Guid("fd58cb9b-e890-4685-926f-514fa58efe06"),
                             Name = "Gainsboro"
                         },
                         new
                         {
-                            Id = new Guid("ea7828c5-d018-41ed-ba4f-8b0dbae6b59a"),
+                            Id = new Guid("7df4f231-5ae8-4dd4-ba4c-323bb6c8dac4"),
                             Name = "Gamboge"
                         },
                         new
                         {
-                            Id = new Guid("ecefbdf4-5e10-49cc-b6f3-ad5ea2d1a7c8"),
+                            Id = new Guid("15add500-37b6-4863-ad10-1ff2c3fe9683"),
                             Name = "Gamboge Orange (Brown)"
                         },
                         new
                         {
-                            Id = new Guid("61b62080-42b4-4251-8e24-3d00c17c12a7"),
+                            Id = new Guid("f0d3c721-16f4-4aa3-b2bc-bed26d3a2340"),
                             Name = "Gargoyle Gas"
                         },
                         new
                         {
-                            Id = new Guid("b55643a5-b6e2-4867-b1a9-aa181b1151c0"),
+                            Id = new Guid("66c965f1-f002-44f4-a12e-01c336d3a7e7"),
                             Name = "Generic Viridian"
                         },
                         new
                         {
-                            Id = new Guid("779ce388-30f4-452a-aa04-4ed54963666d"),
+                            Id = new Guid("791882e9-8e68-4254-9d59-1a9bb1eaed5f"),
                             Name = "Ghost White"
                         },
                         new
                         {
-                            Id = new Guid("47c76342-cc1b-4f6e-963d-5932d5ba21ba"),
+                            Id = new Guid("8f8d9d6d-4ed6-4bbf-85d3-151815cc5c56"),
                             Name = "Giant's Club"
                         },
                         new
                         {
-                            Id = new Guid("73f2899d-a05c-451e-818e-fe4671e5392d"),
+                            Id = new Guid("ea928f01-dc58-4dea-8353-a83983b657ce"),
                             Name = "Giants Orange"
                         },
                         new
                         {
-                            Id = new Guid("b6b54358-3b9f-476d-af61-0f5d1200833d"),
+                            Id = new Guid("36ca62ce-3baf-49b1-b43f-9e1af2867839"),
                             Name = "Ginger"
                         },
                         new
                         {
-                            Id = new Guid("9a89f0b0-4550-4fc4-a3e1-447b9f34e9b7"),
+                            Id = new Guid("44b3be00-eb15-45b2-a8db-da923b70bcbb"),
                             Name = "Glaucous"
                         },
                         new
                         {
-                            Id = new Guid("295acd9f-444d-4a02-8f83-3e320a58472a"),
+                            Id = new Guid("225354df-2442-40ed-ae44-d8f5616d578e"),
                             Name = "Glitter"
                         },
                         new
                         {
-                            Id = new Guid("578bd971-25ca-4ad0-93d3-ff335e36c9f5"),
+                            Id = new Guid("bea81afb-ec0e-47da-b11f-e244f56adb72"),
                             Name = "Glossy Grape"
                         },
                         new
                         {
-                            Id = new Guid("b25ed71d-6862-4a53-8670-e08daa01d059"),
+                            Id = new Guid("59f1337b-d099-443a-b836-f186f6bf6c62"),
                             Name = "GO Green"
                         },
                         new
                         {
-                            Id = new Guid("4ecf04dc-cfa5-4e28-951b-af53759d0bc5"),
+                            Id = new Guid("78cfc4c9-9747-40fc-9ddd-288f0487c65d"),
                             Name = "Gold (Metallic)"
                         },
                         new
                         {
-                            Id = new Guid("bb574ca2-d8dc-4baf-a4f2-efbab5cebae3"),
+                            Id = new Guid("7f93439e-8bca-4f97-9254-15217aeafea8"),
                             Name = "Gold (Web) (Golden)"
                         },
                         new
                         {
-                            Id = new Guid("b633d3a8-a02b-4e6c-8be3-476926c6bc2a"),
+                            Id = new Guid("e34256aa-da19-445f-8f5c-a40e1d1406fd"),
                             Name = "Gold Fusion"
                         },
                         new
                         {
-                            Id = new Guid("8a8a5708-d1a8-4719-9c7d-2b7a8458ed61"),
+                            Id = new Guid("7c40fa2a-d465-4199-adc8-6f5b2255c2a0"),
                             Name = "Golden Brown"
                         },
                         new
                         {
-                            Id = new Guid("6397520d-55d6-4787-b82e-e46d952248b3"),
+                            Id = new Guid("d4c28e3e-f108-41f8-9688-ca29f4b20f88"),
                             Name = "Golden Poppy"
                         },
                         new
                         {
-                            Id = new Guid("59c9e47c-3597-4d65-9abe-fdccd703f8fc"),
+                            Id = new Guid("0803b929-a9f6-47b5-a8cb-2e9c3f108f95"),
                             Name = "Golden Yellow"
                         },
                         new
                         {
-                            Id = new Guid("4c43d8bc-b64d-485b-bb96-498aaa45ef86"),
+                            Id = new Guid("095415b7-b561-4b0a-b342-9a95484eab7f"),
                             Name = "Goldenrod"
                         },
                         new
                         {
-                            Id = new Guid("abb381a3-2bc3-4727-8163-5bf64da146c9"),
+                            Id = new Guid("a6f412c3-18af-412c-92a5-ec6eaa0d7c7a"),
                             Name = "Granite Gray"
                         },
                         new
                         {
-                            Id = new Guid("6eb805b7-0c2c-437d-a26d-3e9b041321a0"),
+                            Id = new Guid("d05c8993-56fd-4021-8dc6-4b1810aca257"),
                             Name = "Granny Smith Apple"
                         },
                         new
                         {
-                            Id = new Guid("132814d6-a306-4ae6-a834-5bbb82cf5099"),
+                            Id = new Guid("ca1701f2-598e-442c-88ef-f9c7d6527f4d"),
                             Name = "Grape"
                         },
                         new
                         {
-                            Id = new Guid("b89fe705-49f2-4769-8b21-21b70ef88c5c"),
+                            Id = new Guid("0f92f092-c640-40c9-8cc3-3a77026d9494"),
                             Name = "Gray"
                         },
                         new
                         {
-                            Id = new Guid("c217ab23-8bea-40f0-90c9-e14e5c0133db"),
+                            Id = new Guid("f9a5fd9c-0e25-4919-9a18-85bba01efef8"),
                             Name = "Gray (HTML/CSS Gray)"
                         },
                         new
                         {
-                            Id = new Guid("7171f7a5-f999-44da-8ea1-016951de6643"),
+                            Id = new Guid("29b6a974-d93e-4219-96db-a78890783613"),
                             Name = "Gray (X11 Gray)"
                         },
                         new
                         {
-                            Id = new Guid("82219ade-f686-434c-b2e8-bbc1bd26443d"),
+                            Id = new Guid("24b19c80-1f22-4a47-a7c3-9ed27a00b765"),
                             Name = "Gray-Asparagus"
                         },
                         new
                         {
-                            Id = new Guid("2cd656dc-eb44-4ed5-a73d-b8f53621746d"),
+                            Id = new Guid("169ace8d-de3a-409e-80e3-e682db48c3c3"),
                             Name = "Gray-Blue"
                         },
                         new
                         {
-                            Id = new Guid("17f8d9e9-3c6c-4d33-9659-fbec107ac543"),
+                            Id = new Guid("192fcaaa-8231-4211-aa3a-db2e0200e676"),
                             Name = "Green (Color Wheel) (X11 Green)"
                         },
                         new
                         {
-                            Id = new Guid("4d561a7c-4cd6-49ee-9b3d-c89a6e41e708"),
+                            Id = new Guid("3df4975d-8954-480e-a513-ef5d3a63b8d5"),
                             Name = "Green (Crayola)"
                         },
                         new
                         {
-                            Id = new Guid("36cb8f3a-3c20-4ddb-8fa1-602c68b546b3"),
+                            Id = new Guid("1f020067-e4c3-4b48-a126-a0a23d2d9626"),
                             Name = "Green (HTML/CSS Color)"
                         },
                         new
                         {
-                            Id = new Guid("d6c81712-f717-41d2-a43f-273ec1058807"),
+                            Id = new Guid("41304b34-a09f-4d5a-9e1b-61bfcabfee39"),
                             Name = "Green (Munsell)"
                         },
                         new
                         {
-                            Id = new Guid("c0043835-6256-43cb-92c8-fa7608665add"),
+                            Id = new Guid("add023a6-aba3-4c29-8124-4f2a715305d0"),
                             Name = "Green (NCS)"
                         },
                         new
                         {
-                            Id = new Guid("838f8a6a-085f-4cb7-8519-458829a7781a"),
+                            Id = new Guid("86dd5a26-5891-414a-a9b0-7e88dec1fbb5"),
                             Name = "Green (Pantone)"
                         },
                         new
                         {
-                            Id = new Guid("633c321d-d53b-4b04-acfd-9987e432fb8f"),
+                            Id = new Guid("528a5f7a-3e53-4a7b-96bf-953eb2e71557"),
                             Name = "Green (Pigment)"
                         },
                         new
                         {
-                            Id = new Guid("bc7b9650-9d71-4a56-ada6-ef3889f61f4c"),
+                            Id = new Guid("9954f047-6ab5-433a-8b85-2c1b54485eff"),
                             Name = "Green (RYB)"
                         },
                         new
                         {
-                            Id = new Guid("d9b6c4e1-9a56-49b6-87d2-c788c9d65d88"),
+                            Id = new Guid("031ac03c-3bf4-4283-b6b1-acacb9006e32"),
                             Name = "Green-Blue"
                         },
                         new
                         {
-                            Id = new Guid("9d77c305-3b8c-4195-9c84-00c520d5eccb"),
+                            Id = new Guid("096d051a-bb29-485b-aa0a-369ef920f76d"),
                             Name = "Green-Cyan"
                         },
                         new
                         {
-                            Id = new Guid("f5a2c8c5-cc34-4909-99a0-89ff15f33e59"),
+                            Id = new Guid("e56acb40-e113-4946-84c3-5c313fa30d7e"),
                             Name = "Green Lizard"
                         },
                         new
                         {
-                            Id = new Guid("c7c6b666-1ed0-4984-a234-92e1fad2912f"),
+                            Id = new Guid("fa337fed-6cf5-495e-9c62-9eef15453104"),
                             Name = "Green Sheen"
                         },
                         new
                         {
-                            Id = new Guid("5a445b87-58d8-4426-8488-436e410edd34"),
+                            Id = new Guid("9d6fed8a-1aa9-4ccc-9725-5a79471d8375"),
                             Name = "Green-Yellow"
                         },
                         new
                         {
-                            Id = new Guid("8b996a35-caac-4c87-acf8-dda718710fdc"),
+                            Id = new Guid("0cf96cf5-fb90-4848-abef-30fdb58a26d0"),
                             Name = "Grizzly"
                         },
                         new
                         {
-                            Id = new Guid("c9326e9d-ad6e-41b7-a33a-e9103a3ffbcf"),
+                            Id = new Guid("faebfc5a-ecfe-47e3-8307-61c3f8096f1b"),
                             Name = "Grullo"
                         },
                         new
                         {
-                            Id = new Guid("14b8979d-8f32-4931-b3ca-ecfc126c24a8"),
+                            Id = new Guid("c9961fde-e582-44f0-a844-01517c01d410"),
                             Name = "Guppie Green"
                         },
                         new
                         {
-                            Id = new Guid("e1b16f8b-f469-4e30-a3c8-0384cbf8f1db"),
+                            Id = new Guid("9209d2b5-0183-482f-86c9-0cb89c317db6"),
                             Name = "Gunmetal"
                         },
                         new
                         {
-                            Id = new Guid("91c546b7-68c4-4114-9952-f1b19994904d"),
+                            Id = new Guid("3ded5888-fd0f-4e4b-a352-2a9238fdef6e"),
                             Name = "Halayà Úbe"
                         },
                         new
                         {
-                            Id = new Guid("f67b4ef6-d81a-4678-9227-12e5307aee0a"),
+                            Id = new Guid("18a9bcb1-7ba9-43ba-892e-4236cd7aec65"),
                             Name = "Han Blue"
                         },
                         new
                         {
-                            Id = new Guid("6a9ab298-9225-4f75-b89e-f872ffd01102"),
+                            Id = new Guid("32823fdb-a375-4e0a-ab43-0d29954e0ec7"),
                             Name = "Han Purple"
                         },
                         new
                         {
-                            Id = new Guid("5cad102d-af79-4161-ae0f-6d1db2978f9d"),
+                            Id = new Guid("a8bfdabb-87c8-440d-85ef-5006e80bc93b"),
                             Name = "Hansa Yellow"
                         },
                         new
                         {
-                            Id = new Guid("9df0969a-d974-4b8d-b784-a11c2df55448"),
+                            Id = new Guid("497b931b-11c9-4985-b26f-5857f6c01013"),
                             Name = "Harlequin"
                         },
                         new
                         {
-                            Id = new Guid("cff6bb02-7f06-4730-a5db-2310bfebf595"),
+                            Id = new Guid("3f76a30e-0ca9-4146-bcbd-fddce274adb3"),
                             Name = "Harlequin Green"
                         },
                         new
                         {
-                            Id = new Guid("900d9f53-8cf7-4817-9853-9a23df248f36"),
+                            Id = new Guid("fd5d7093-d6cf-4f05-ad28-2204165b0b48"),
                             Name = "Harvard Crimson"
                         },
                         new
                         {
-                            Id = new Guid("8291244b-e6fd-4c3d-99de-2793237cf660"),
+                            Id = new Guid("4a1bd24d-878f-42b6-8821-60dd5135df9a"),
                             Name = "Harvest Gold"
                         },
                         new
                         {
-                            Id = new Guid("6ae1a5c3-c345-48b5-a657-a19574d0174e"),
+                            Id = new Guid("b2deef23-c800-4c8a-b938-59d2bfd5fd35"),
                             Name = "Heart Gold"
                         },
                         new
                         {
-                            Id = new Guid("9c5695bf-82a0-4239-876a-af463dc3ce82"),
+                            Id = new Guid("a37b00f7-4866-4b12-aaf8-630060e36bda"),
                             Name = "Heat Wave"
                         },
                         new
                         {
-                            Id = new Guid("2bb835aa-7d31-46a3-9846-1f049af18d63"),
+                            Id = new Guid("55c7a576-7637-4633-8fa2-f52551705e30"),
                             Name = "Heliotrope"
                         },
                         new
                         {
-                            Id = new Guid("ecf375e8-857c-4f89-bb1f-230f824cb222"),
+                            Id = new Guid("4ad80581-980c-4cca-a797-38f1d3290781"),
                             Name = "Heliotrope Gray"
                         },
                         new
                         {
-                            Id = new Guid("7b5dd16f-9eee-401d-a5af-c2f22694b517"),
+                            Id = new Guid("5745d62c-cff5-4630-8c71-d244992b643f"),
                             Name = "Heliotrope Magenta"
                         },
                         new
                         {
-                            Id = new Guid("88a02f82-451d-44d7-82fd-8cdb2848bdf0"),
+                            Id = new Guid("14ec95a7-db62-4a90-bb8b-6c419917fc1e"),
                             Name = "Hollywood Cerise"
                         },
                         new
                         {
-                            Id = new Guid("93f4e684-26b1-42cf-b2a3-afe4a69c59be"),
+                            Id = new Guid("031a7cd4-f2cc-4936-ad41-c64237e325dd"),
                             Name = "Honeydew"
                         },
                         new
                         {
-                            Id = new Guid("a8127059-8999-4d09-a6f2-444897bf9134"),
+                            Id = new Guid("5e00f73c-509d-4aa9-906b-9842838606cd"),
                             Name = "Honolulu Blue"
                         },
                         new
                         {
-                            Id = new Guid("a5c0d647-5418-43d9-91f1-238e63a6812b"),
+                            Id = new Guid("2e68975c-1bbd-44af-8513-762011bcde96"),
                             Name = "Hooker's Green"
                         },
                         new
                         {
-                            Id = new Guid("13cd594b-445f-4747-9cf9-5e70839d71a8"),
+                            Id = new Guid("f5a0c5a3-04f2-435d-9f47-5410e3119c0c"),
                             Name = "Hot Magenta"
                         },
                         new
                         {
-                            Id = new Guid("e582a6d0-8e41-4a40-84b2-2ec47727c1bb"),
+                            Id = new Guid("a6bad065-f271-49d2-a345-e29b654465e4"),
                             Name = "Hot Pink"
                         },
                         new
                         {
-                            Id = new Guid("dda32f2e-2232-4b5a-9ef6-f8270f953c65"),
+                            Id = new Guid("b2b89975-f0ae-4858-9fb5-eb053ec96c99"),
                             Name = "Hunter Green"
                         },
                         new
                         {
-                            Id = new Guid("f2d71f42-9f06-48cc-a9fb-02c5460b3f55"),
+                            Id = new Guid("07c34cd1-6257-41e9-b1a3-3277240e4b40"),
                             Name = "Iceberg"
                         },
                         new
                         {
-                            Id = new Guid("401d8a21-b762-443d-b046-b1adf78fe681"),
+                            Id = new Guid("95fd130b-52bb-4fe4-b842-34e3246672b7"),
                             Name = "Icterine"
                         },
                         new
                         {
-                            Id = new Guid("563c4b0c-55a3-4df0-8d24-ac32b7138c68"),
+                            Id = new Guid("318d3f86-1cea-4dba-a7ac-514e3d48457a"),
                             Name = "Illuminating Emerald"
                         },
                         new
                         {
-                            Id = new Guid("ef85f03e-d96d-4d48-9474-6d7950f052b7"),
+                            Id = new Guid("2275b812-29db-4294-9bf3-a1d426a5fe6e"),
                             Name = "Imperial"
                         },
                         new
                         {
-                            Id = new Guid("c0b6a986-6a5c-41ad-890a-94448eb1b628"),
+                            Id = new Guid("427e1ff2-a708-4740-8ef1-91721968a02a"),
                             Name = "Imperial Blue"
                         },
                         new
                         {
-                            Id = new Guid("b3d5a085-5369-4dba-ab5c-b8462846c904"),
+                            Id = new Guid("93c3f6de-baf5-4786-8379-a6b00eb5f945"),
                             Name = "Imperial Purple"
                         },
                         new
                         {
-                            Id = new Guid("199578bc-59c2-44de-96f1-18507f18b011"),
+                            Id = new Guid("3c598558-6ee2-4cc3-8631-cf3f4d48b704"),
                             Name = "Imperial Red"
                         },
                         new
                         {
-                            Id = new Guid("6b8a4180-0d42-40f3-8e35-f8123421dd3f"),
+                            Id = new Guid("a78c8a29-1d1c-408f-a7c1-dd246f165faf"),
                             Name = "Inchworm"
                         },
                         new
                         {
-                            Id = new Guid("ca8bee71-7bfd-483e-8389-d6ab3240ef9e"),
+                            Id = new Guid("944ccfde-adc9-41d6-b7f8-12fea7faa918"),
                             Name = "Independence"
                         },
                         new
                         {
-                            Id = new Guid("7c721bd2-d5aa-4ce6-b995-a7edf5d578fa"),
+                            Id = new Guid("2e9f2367-3afa-4f55-9049-b60de7aa3bb9"),
                             Name = "India Green"
                         },
                         new
                         {
-                            Id = new Guid("bd32a647-8024-4fed-b5e6-160c4d9e12c6"),
+                            Id = new Guid("38284239-7937-4b4c-8298-bb6c0b96a4bf"),
                             Name = "Indian Red"
                         },
                         new
                         {
-                            Id = new Guid("c0892252-53ca-4978-b10c-c819d86d1550"),
+                            Id = new Guid("69dc9e0d-ea2c-4d5f-8cf9-1a40cb360c78"),
                             Name = "Indian Yellow"
                         },
                         new
                         {
-                            Id = new Guid("096b0090-f573-4040-953a-e35ebac2d037"),
+                            Id = new Guid("1e12833a-a8f0-41a1-ad75-0bf4435e66ba"),
                             Name = "Indigo"
                         },
                         new
                         {
-                            Id = new Guid("29e5858d-1329-42d7-88b9-f5001a3e0a3e"),
+                            Id = new Guid("b66e9354-7c8d-4071-9bf5-ec171dea8b6e"),
                             Name = "Indigo Dye"
                         },
                         new
                         {
-                            Id = new Guid("c4557d54-244a-4853-9647-07b1981b32a0"),
+                            Id = new Guid("2eda46e4-427a-482f-a949-e6b7c6b4d10f"),
                             Name = "Indigo (Web)"
                         },
                         new
                         {
-                            Id = new Guid("3389d0b9-0982-4207-a715-6fd281a51245"),
+                            Id = new Guid("1509111e-faf5-4074-887a-228f2f66e486"),
                             Name = "International Klein Blue"
                         },
                         new
                         {
-                            Id = new Guid("c9999899-fd92-428d-8f27-5b23a1671f6e"),
+                            Id = new Guid("5f6669ff-9f08-4c39-9082-5dfabf45ddac"),
                             Name = "International Orange (Aerospace)"
                         },
                         new
                         {
-                            Id = new Guid("56b399de-43d1-47c4-b64d-2d9bb4bd370a"),
+                            Id = new Guid("75babc69-e0cc-4add-b258-330e87896642"),
                             Name = "International Orange (Engineering)"
                         },
                         new
                         {
-                            Id = new Guid("151cf616-9a99-4f2b-a068-f30259aa67a6"),
+                            Id = new Guid("503432e7-1736-4d69-a23d-a2a2f81a038c"),
                             Name = "International Orange (Golden Gate Bridge)"
                         },
                         new
                         {
-                            Id = new Guid("59f1c3a2-ec06-4bf7-bbff-e1d9b76a1946"),
+                            Id = new Guid("5d307fb3-a8f1-4432-a009-4adeffad0163"),
                             Name = "Iris"
                         },
                         new
                         {
-                            Id = new Guid("92b36e2b-ead1-4e02-83a4-4ebaaaab03f3"),
+                            Id = new Guid("cdb3e39b-187a-4717-964d-739515359965"),
                             Name = "Irresistible"
                         },
                         new
                         {
-                            Id = new Guid("ec3d2432-1358-4c23-b285-96ab28d97f3d"),
+                            Id = new Guid("a6ec6174-9b47-4427-9010-379eaf546055"),
                             Name = "Isabelline"
                         },
                         new
                         {
-                            Id = new Guid("e175138d-896a-49bd-919e-20eec2c2abe3"),
+                            Id = new Guid("f4df0180-854e-447b-8054-faa89a2e9fa1"),
                             Name = "Islamic Green"
                         },
                         new
                         {
-                            Id = new Guid("d6a360ba-f57b-47d0-94e0-51b218d99a2a"),
+                            Id = new Guid("e85b479f-9cdc-4d22-b7d3-fb744ced7d20"),
                             Name = "Italian Sky Blue"
                         },
                         new
                         {
-                            Id = new Guid("16cf9972-c13c-446c-b0ca-d793edc2cf51"),
+                            Id = new Guid("36344a36-1231-4176-ac29-333c6a40ea07"),
                             Name = "Ivory"
                         },
                         new
                         {
-                            Id = new Guid("41cd1118-a64b-4679-966d-138bca2ada1f"),
+                            Id = new Guid("94492484-3870-43a9-8bc8-e6bb198a9639"),
                             Name = "Jade"
                         },
                         new
                         {
-                            Id = new Guid("820e2743-983e-4c0d-a1dc-ae0f352cfc1e"),
+                            Id = new Guid("5a2f5f80-bccc-46d0-a12a-d655c424ad66"),
                             Name = "Japanese Carmine"
                         },
                         new
                         {
-                            Id = new Guid("8b9e1c4c-8dc2-42e2-9839-b0d79f06d12a"),
+                            Id = new Guid("afca88d1-0f53-4233-a20f-3d85b60f46cf"),
                             Name = "Japanese Indigo"
                         },
                         new
                         {
-                            Id = new Guid("36e79efe-8979-426a-932b-a51987c3ca7b"),
+                            Id = new Guid("7d9385ed-9c85-43b2-860e-dba722ec1ac5"),
                             Name = "Japanese Violet"
                         },
                         new
                         {
-                            Id = new Guid("fd95c53a-5728-4785-ac34-0669f96087e7"),
+                            Id = new Guid("39c1bd1e-c05c-49f4-96b4-38f6a83d9da6"),
                             Name = "Jasmine"
                         },
                         new
                         {
-                            Id = new Guid("8f332359-7f6e-4dd1-b56b-34f9b94cb258"),
+                            Id = new Guid("472ea937-d8d1-4ab1-82c8-ecab34e32b82"),
                             Name = "Jasper"
                         },
                         new
                         {
-                            Id = new Guid("6165af6e-ad57-4d93-b243-07d81bb8560b"),
+                            Id = new Guid("c648e797-b425-4ae0-8551-77e2171fdada"),
                             Name = "Jazzberry Jam"
                         },
                         new
                         {
-                            Id = new Guid("6f5829d2-167e-4efb-bf61-9a7494550b73"),
+                            Id = new Guid("7cf524e5-5fb7-4fa0-9060-d5acb6bc4c86"),
                             Name = "Jelly Bean"
                         },
                         new
                         {
-                            Id = new Guid("1f12b9ed-da2a-4a9e-819c-52b46da4f2ff"),
+                            Id = new Guid("a05c40b6-0fd3-400d-8bbd-778474c5c3de"),
                             Name = "Jet"
                         },
                         new
                         {
-                            Id = new Guid("55454b7d-a5a1-4695-a9e1-12d885c1a8b6"),
+                            Id = new Guid("fc1379fe-cca9-4002-9481-8340e95c5acd"),
                             Name = "Jonquil"
                         },
                         new
                         {
-                            Id = new Guid("a28ffedf-5b65-43a6-ac2c-cc0fb4a471f4"),
+                            Id = new Guid("5a513da8-08e3-4d3b-9f7a-8b0ff32bb4fb"),
                             Name = "Jordy Blue"
                         },
                         new
                         {
-                            Id = new Guid("08e381b5-5a34-470b-8559-4af597dd574d"),
+                            Id = new Guid("7c973301-9c3f-4c23-83ec-1f9e568c0650"),
                             Name = "June Bud"
                         },
                         new
                         {
-                            Id = new Guid("3b2d52ae-3079-4727-92c3-80839486f045"),
+                            Id = new Guid("4b63cec2-e2a4-48e3-8279-860bbdaa59eb"),
                             Name = "Jungle Green"
                         },
                         new
                         {
-                            Id = new Guid("2011f7a9-de6c-4d2c-9e89-410565e82554"),
+                            Id = new Guid("66f75af2-df4d-44b7-a6d2-1a21aa272ee3"),
                             Name = "Kelly Green"
                         },
                         new
                         {
-                            Id = new Guid("16ee5d66-c3e8-410a-84e6-2a4a1d9e26f7"),
+                            Id = new Guid("d0dd4f75-81cb-480c-a38d-dffeed27da44"),
                             Name = "Kenyan Copper"
                         },
                         new
                         {
-                            Id = new Guid("4be9ce47-4d9a-47bf-b5a6-272abc158899"),
+                            Id = new Guid("a7df82de-4da0-4a93-b54c-57a6425763e5"),
                             Name = "Keppel"
                         },
                         new
                         {
-                            Id = new Guid("93ed076b-6864-4a72-bbdc-7cff6d26010d"),
+                            Id = new Guid("c67bf907-4737-4adf-a0af-c57f555d7e0b"),
                             Name = "Key Lime"
                         },
                         new
                         {
-                            Id = new Guid("0faee83f-90c3-498f-8296-f75acadb1d48"),
+                            Id = new Guid("f5b4dd97-1eda-4f0f-b3c2-1923eb80aa4d"),
                             Name = "Khaki (HTML/CSS) (Khaki)"
                         },
                         new
                         {
-                            Id = new Guid("254b9580-ab29-48d1-96db-17c2544ac1b0"),
+                            Id = new Guid("c0503396-5e4f-4a0f-a0e6-782d5ef4fc8d"),
                             Name = "Khaki (X11) (Light Khaki)"
                         },
                         new
                         {
-                            Id = new Guid("f90fd6fb-629d-408c-8d36-1bb0b17e57fd"),
+                            Id = new Guid("27401bac-c618-44b7-bbcc-9d1258b1496d"),
                             Name = "Kobe"
                         },
                         new
                         {
-                            Id = new Guid("800c88e3-9fb9-4fcd-9528-b8b7efa17b46"),
+                            Id = new Guid("ec18c0af-f55e-4f83-9dab-031cb17a1470"),
                             Name = "Kobi"
                         },
                         new
                         {
-                            Id = new Guid("7f177223-d8dc-46f3-ad4f-f893c5324c96"),
+                            Id = new Guid("3dc6d222-d30a-4eab-84f2-46c325d3440b"),
                             Name = "Kobicha"
                         },
                         new
                         {
-                            Id = new Guid("8012cde6-f306-4d83-8cb2-01e1da7f1f07"),
+                            Id = new Guid("bed34c87-62bc-4722-be39-9719f7122b69"),
                             Name = "Kombu Green"
                         },
                         new
                         {
-                            Id = new Guid("6eac397e-3df7-46cf-a0c5-f7173adf0d30"),
+                            Id = new Guid("ba61f4df-f588-4b71-8b26-17d9a5a8ca8d"),
                             Name = "KU Crimson"
                         },
                         new
                         {
-                            Id = new Guid("578e8b32-c095-4bc1-a1e9-bf4ea4a16b82"),
+                            Id = new Guid("fe5373aa-ea84-4ff5-b910-f41cf37a90ed"),
                             Name = "La Salle Green"
                         },
                         new
                         {
-                            Id = new Guid("04b6cbe5-22ed-4dde-92c3-2992eb5aa9ae"),
+                            Id = new Guid("25323dd1-0c3a-4883-b150-2e21e9947c63"),
                             Name = "Languid Lavender"
                         },
                         new
                         {
-                            Id = new Guid("086d7be5-e8fd-4088-8914-6c6d969e0fdb"),
+                            Id = new Guid("cc4c8dd2-dbb3-4dae-8af1-3e4812d7963a"),
                             Name = "Lapis Lazuli"
                         },
                         new
                         {
-                            Id = new Guid("a53f2e48-ba0c-45f3-a333-28d5a6886019"),
+                            Id = new Guid("4c51f48e-4b8a-43c6-b69c-5512b7ff742f"),
                             Name = "Laser Lemon"
                         },
                         new
                         {
-                            Id = new Guid("3499cf5b-ed1d-4c50-9f7a-bd4676a19015"),
+                            Id = new Guid("22bd82ba-6e18-47dd-ac63-d733b697c72f"),
                             Name = "Laurel Green"
                         },
                         new
                         {
-                            Id = new Guid("f9e63dea-8b91-4a62-bfe7-846f9a4fa189"),
+                            Id = new Guid("fe8bd7fa-c91e-4e52-b6ec-0dc4914d9efe"),
                             Name = "Lava"
                         },
                         new
                         {
-                            Id = new Guid("cc858291-bb58-480d-9f72-a074f39eb3e8"),
+                            Id = new Guid("b13c6dc5-c0f7-4cad-b089-b68cd7e76350"),
                             Name = "Lavender (Floral)"
                         },
                         new
                         {
-                            Id = new Guid("59b1a362-7b20-4063-a50d-01d770951237"),
+                            Id = new Guid("1773f9a1-265d-41f2-b5d3-94780d642f6e"),
                             Name = "Lavender (Web)"
                         },
                         new
                         {
-                            Id = new Guid("91c5089a-9bc4-4ad9-a958-8636110c793c"),
+                            Id = new Guid("a905f95d-387b-478b-87e2-b3c4ca4c15df"),
                             Name = "Lavender Blue"
                         },
                         new
                         {
-                            Id = new Guid("b2496722-5bf1-4ae0-87f9-c248b38d2dbb"),
+                            Id = new Guid("071ebcc5-f0df-4f5e-acb9-b4178fc514b3"),
                             Name = "Lavender Blush"
                         },
                         new
                         {
-                            Id = new Guid("9eb91acf-b753-465d-bc9f-31bb1e571bc8"),
+                            Id = new Guid("3d07cf0a-47f0-414c-81ed-d5b865480c4c"),
                             Name = "Lavender Gray"
                         },
                         new
                         {
-                            Id = new Guid("e5ac8062-26b1-4bf5-9155-f8547c7a0e4f"),
+                            Id = new Guid("62d22eea-50af-4995-ac05-d0c55bef2d31"),
                             Name = "Lavender Indigo"
                         },
                         new
                         {
-                            Id = new Guid("19f4fe66-dd6f-4036-adaa-fb77b179b23c"),
+                            Id = new Guid("164dc62c-60fb-4e74-87fd-55e27115c8d2"),
                             Name = "Lavender Magenta"
                         },
                         new
                         {
-                            Id = new Guid("8bef20c1-8f4f-46fa-8234-8918266258e0"),
+                            Id = new Guid("6f187f50-c8fd-4aa1-8474-d5807182a5cc"),
                             Name = "Lavender Mist"
                         },
                         new
                         {
-                            Id = new Guid("249152c3-5b28-4bf9-a148-a3c308eed5e6"),
+                            Id = new Guid("94164d69-3629-4a2e-8c38-e5f87b35f3b0"),
                             Name = "Lavender Pink"
                         },
                         new
                         {
-                            Id = new Guid("f3f0e451-8928-49f7-a921-af73d5fd8a13"),
+                            Id = new Guid("58ce3f98-42a1-45d5-8b89-c1f37220345a"),
                             Name = "Lavender Purple"
                         },
                         new
                         {
-                            Id = new Guid("2b41ab0a-3dc4-4cc5-b3ea-bbc29dfa7b66"),
+                            Id = new Guid("2ce14728-8008-47df-b2c4-7d2cb201b188"),
                             Name = "Lavender Rose"
                         },
                         new
                         {
-                            Id = new Guid("d424c3bb-597a-499f-81e4-15516525fccf"),
+                            Id = new Guid("e84e8d5a-5cc8-4754-9a75-6562104b38b0"),
                             Name = "Lawn Green"
                         },
                         new
                         {
-                            Id = new Guid("d2ed92c0-b891-4f61-8ae8-13dfaa82bfe8"),
+                            Id = new Guid("b6296b6b-0bcd-40a3-82bd-51031a8a5964"),
                             Name = "Lemon"
                         },
                         new
                         {
-                            Id = new Guid("eebd1476-8253-4c89-bcc9-33a8fea1e4ef"),
+                            Id = new Guid("fd940f85-b4a4-4443-a611-d0ddc9f2e3c0"),
                             Name = "Lemon Chiffon"
                         },
                         new
                         {
-                            Id = new Guid("eb1e5c0d-ebb7-4586-9fed-57a6565c0cbf"),
+                            Id = new Guid("3f706e7e-67fc-4908-8674-2c8aad9c6008"),
                             Name = "Lemon Curry"
                         },
                         new
                         {
-                            Id = new Guid("1f998268-6577-4fec-a836-8c92c03770c0"),
+                            Id = new Guid("d2ff4415-ca5e-427c-ad23-644b290a7bb4"),
                             Name = "Lemon Glacier"
                         },
                         new
                         {
-                            Id = new Guid("ee66248b-0d39-4348-b0bc-57f9475897bf"),
+                            Id = new Guid("3ecd49a2-e6c0-4593-bc68-4bf4d8305b14"),
                             Name = "Lemon Lime"
                         },
                         new
                         {
-                            Id = new Guid("f00150ff-7858-447a-9a4d-92b92d196ac1"),
+                            Id = new Guid("1883e9eb-dc4b-4ed7-b4f6-c8b1c365a1a1"),
                             Name = "Lemon Meringue"
                         },
                         new
                         {
-                            Id = new Guid("f5116eb7-7cc6-44b0-bec7-74896c3a4666"),
+                            Id = new Guid("bf2d3a83-000d-4675-90dc-473c40d7836a"),
                             Name = "Lemon Yellow"
                         },
                         new
                         {
-                            Id = new Guid("e0b408ea-8953-4d05-a34f-0f1873de7c0e"),
+                            Id = new Guid("8af0e113-801b-4857-b9c3-03ce5d995dfe"),
                             Name = "Lenurple"
                         },
                         new
                         {
-                            Id = new Guid("8f67be0e-6b26-4607-800a-0888a7e5f7d9"),
+                            Id = new Guid("c20293ca-5317-404f-89cc-76171fb6d63c"),
                             Name = "Licorice"
                         },
                         new
                         {
-                            Id = new Guid("57283c71-bca3-4639-9e50-d2484baad10e"),
+                            Id = new Guid("ed993e98-36fe-40ce-9ada-e5e6cf088ede"),
                             Name = "Liberty"
                         },
                         new
                         {
-                            Id = new Guid("977fac91-afc3-4629-a8d1-c053b05d4d13"),
+                            Id = new Guid("988af716-12bc-46ce-ac80-f66a5e2268fe"),
                             Name = "Light Apricot"
                         },
                         new
                         {
-                            Id = new Guid("a27e5b21-a372-4bd4-8e19-1cff0ff48a97"),
+                            Id = new Guid("1377ecf9-8085-4dd4-b938-5893a43f4494"),
                             Name = "Light Blue"
                         },
                         new
                         {
-                            Id = new Guid("295da8ae-7d60-41b9-9c4c-ed5f37217d57"),
+                            Id = new Guid("1af90c0f-09ef-41dc-85b3-a571c67b7e1e"),
                             Name = "Light Brilliant Red"
                         },
                         new
                         {
-                            Id = new Guid("e0a35a3b-337e-40f9-8848-77f9ddfb2ef1"),
+                            Id = new Guid("881b3c51-b4ae-4e76-8a6d-d7fb83ab3906"),
                             Name = "Light Brown"
                         },
                         new
                         {
-                            Id = new Guid("4019cdca-bbb5-41bd-9c96-1db49d56ae4f"),
+                            Id = new Guid("fd7d0354-7615-4277-a094-f6244fb7afa4"),
                             Name = "Light Carmine Pink"
                         },
                         new
                         {
-                            Id = new Guid("f3c963a6-d257-4498-8c3a-5303954eaa0e"),
+                            Id = new Guid("1a7f674c-0a55-49db-a59f-8e0a1ac40e1e"),
                             Name = "Light Cobalt Blue"
                         },
                         new
                         {
-                            Id = new Guid("6c712334-07a6-41d9-a96b-0f320c5beaf0"),
+                            Id = new Guid("18022831-ddfa-40c9-90e3-325c37c62802"),
                             Name = "Light Coral"
                         },
                         new
                         {
-                            Id = new Guid("ac0f9f83-a946-4669-87f3-bd938b96adce"),
+                            Id = new Guid("8aa0ea2f-c3f1-47e3-ba7e-06ff5b1ac77e"),
                             Name = "Light Cornflower Blue"
                         },
                         new
                         {
-                            Id = new Guid("841ae4c6-8764-4143-a5ad-79c19ce98e7e"),
+                            Id = new Guid("77b861e5-f0b9-4b59-a1db-f09ee1b53ea8"),
                             Name = "Light Crimson"
                         },
                         new
                         {
-                            Id = new Guid("284435ac-7f43-4ab4-91b4-8c4052e6f9b2"),
+                            Id = new Guid("a4a1a8cf-1691-42cb-8c23-a875de594b84"),
                             Name = "Light Cyan"
                         },
                         new
                         {
-                            Id = new Guid("41547068-a01c-45c9-a9bf-5b2a7fc917c6"),
+                            Id = new Guid("59fcd100-c0ac-498e-b531-2f229c971608"),
                             Name = "Light Deep Pink"
                         },
                         new
                         {
-                            Id = new Guid("a3400c25-5b65-4b76-ade7-49cb62e26ec1"),
+                            Id = new Guid("78e36272-90d8-4cc5-906f-ec4a23c85136"),
                             Name = "Light French Beige"
                         },
                         new
                         {
-                            Id = new Guid("164fc006-0627-49df-87ed-160ab7b34a3a"),
+                            Id = new Guid("a5dddf25-9e53-4667-aa85-77ef93306456"),
                             Name = "Light Fuchsia Pink"
                         },
                         new
                         {
-                            Id = new Guid("2687f22e-c6f3-4cb5-bffb-9f1b819b2b50"),
+                            Id = new Guid("b8469508-8171-4780-8efd-806aab87d10a"),
                             Name = "Light Goldenrod Yellow"
                         },
                         new
                         {
-                            Id = new Guid("a5d09a18-b2ae-4c5c-97c7-df6aadef3b93"),
+                            Id = new Guid("fd4809d4-08c2-478e-b070-af26a2fdcf35"),
                             Name = "Light Gray"
                         },
                         new
                         {
-                            Id = new Guid("e0073fa6-1561-4bd4-b569-74677bfebdd7"),
+                            Id = new Guid("67745053-1b47-462a-8a23-cf273ae4affb"),
                             Name = "Light Grayish Magenta"
                         },
                         new
                         {
-                            Id = new Guid("ed9becc4-a7fb-4e77-a7db-31809af0056f"),
+                            Id = new Guid("d58efaa3-5b64-426b-bc77-34a537de1f33"),
                             Name = "Light Green"
                         },
                         new
                         {
-                            Id = new Guid("5009ca2f-446d-46f1-8f8e-7c3f0012630f"),
+                            Id = new Guid("90c901d0-c4d7-48c4-b604-522aefae7719"),
                             Name = "Light Hot Pink"
                         },
                         new
                         {
-                            Id = new Guid("f0938853-e0d3-49fa-8c70-b7c21d912d89"),
+                            Id = new Guid("ba05cccf-5306-4324-ab41-e157348f6fda"),
                             Name = "Light Khaki"
                         },
                         new
                         {
-                            Id = new Guid("70b19014-739a-4ed9-898f-9499e8c8e7d6"),
+                            Id = new Guid("3d5e668a-7cab-4174-b3da-c7dcbae13f2e"),
                             Name = "Light Medium Orchid"
                         },
                         new
                         {
-                            Id = new Guid("372fee2c-127d-48e1-87b7-5e528e3957bc"),
+                            Id = new Guid("d4625777-3388-43a6-80eb-48efe3418851"),
                             Name = "Light Moss Green"
                         },
                         new
                         {
-                            Id = new Guid("81972428-dabd-4d6c-afb9-4ed67437bf10"),
+                            Id = new Guid("ae872a17-c5f3-4cc1-905e-fa5f9d45ff70"),
                             Name = "Light Orchid"
                         },
                         new
                         {
-                            Id = new Guid("f9f40ca1-65ac-4357-b030-6d38a318e04a"),
+                            Id = new Guid("71e549dc-baa0-4099-82b5-2688867e3adf"),
                             Name = "Light Pastel Purple"
                         },
                         new
                         {
-                            Id = new Guid("986bc501-adfa-4cb4-a935-b657cfad50ba"),
+                            Id = new Guid("eeb06701-e9ce-4e5b-8ea9-5562f031eebf"),
                             Name = "Light Pink"
                         },
                         new
                         {
-                            Id = new Guid("3d1bc641-c64a-4562-a2b8-e6240d506403"),
+                            Id = new Guid("07594dc9-19e7-4c0a-952b-372e68c8c09a"),
                             Name = "Light Red Ochre"
                         },
                         new
                         {
-                            Id = new Guid("078c84ff-6130-4aa9-a2d8-c707a1a6aacf"),
+                            Id = new Guid("077c7d90-3ca0-4322-9c9b-f82105e7211a"),
                             Name = "Light Salmon"
                         },
                         new
                         {
-                            Id = new Guid("77f8aa9f-ce6f-4422-9280-20b143d7ab55"),
+                            Id = new Guid("c42eb8c1-da39-49b9-b4e3-ef5f9997f495"),
                             Name = "Light Salmon Pink"
                         },
                         new
                         {
-                            Id = new Guid("b095bfc1-281a-43f0-8def-2fd471354041"),
+                            Id = new Guid("e9dfaa99-256a-41f8-b7b6-e412922a262e"),
                             Name = "Light Sea Green"
                         },
                         new
                         {
-                            Id = new Guid("ac6ac759-c60c-4151-9a33-3d5d4743d94c"),
+                            Id = new Guid("f578497e-0095-4dc0-9483-4ee3552ce239"),
                             Name = "Light Sky Blue"
                         },
                         new
                         {
-                            Id = new Guid("f4311231-bcf7-44cb-8682-1df9817497e6"),
+                            Id = new Guid("2858490c-df3c-4644-9b5f-b3f21d0a8a70"),
                             Name = "Light Slate Gray"
                         },
                         new
                         {
-                            Id = new Guid("506444ce-bb4b-4389-a6d6-b995538d62d8"),
+                            Id = new Guid("65adf1e2-850f-4dff-82b5-989f0dd0b2fa"),
                             Name = "Light Steel Blue"
                         },
                         new
                         {
-                            Id = new Guid("f883cb7b-6ff5-46b7-aa5e-bfdadfb70414"),
+                            Id = new Guid("b299eb03-3fb9-4e69-b0a2-19a09a91b535"),
                             Name = "Light Taupe"
                         },
                         new
                         {
-                            Id = new Guid("e46208f3-7156-4543-a009-50ac0f920904"),
+                            Id = new Guid("46a2ceaf-a43f-4cc8-8540-ce96d5e83822"),
                             Name = "Light Thulian Pink"
                         },
                         new
                         {
-                            Id = new Guid("c3fa6181-79b3-45af-9264-4b9203bd7a67"),
+                            Id = new Guid("ef867c8e-84ce-4a9c-8116-436176e61ec0"),
                             Name = "Light Yellow"
                         },
                         new
                         {
-                            Id = new Guid("dbcb5a86-8340-47c1-9156-c012b5099c24"),
+                            Id = new Guid("2e2d2397-ef70-4671-bbeb-50cc06a80302"),
                             Name = "Lilac"
                         },
                         new
                         {
-                            Id = new Guid("e9a4fce5-c0c6-497a-8964-6b1ebe6a820c"),
+                            Id = new Guid("ac2c0393-5853-4219-ab13-36881eb5236a"),
                             Name = "Lilac Luster"
                         },
                         new
                         {
-                            Id = new Guid("543217d9-3434-4787-b924-ddcbaea43dfa"),
+                            Id = new Guid("45113722-e1ab-4401-9bf6-e67e1fde5e9f"),
                             Name = "Lime (Color Wheel)"
                         },
                         new
                         {
-                            Id = new Guid("1201fe37-d654-432e-a83f-54008b21f373"),
+                            Id = new Guid("76d9094a-6d06-4071-a42b-bcaa7f3e5896"),
                             Name = "Lime (Web) (X11 Green)"
                         },
                         new
                         {
-                            Id = new Guid("161a85e8-3bd1-421e-8bac-b77bca77f6c8"),
+                            Id = new Guid("43eb40c2-2bf4-45a2-b5eb-6972ca04ec17"),
                             Name = "Lime Green"
                         },
                         new
                         {
-                            Id = new Guid("ebe5b419-ae48-4e6a-89be-ca10694dd51f"),
+                            Id = new Guid("9b1c13c7-3efc-455c-a1e9-2843dfc683a3"),
                             Name = "Limerick"
                         },
                         new
                         {
-                            Id = new Guid("36a1a936-2b54-4012-90aa-7faeeedb2880"),
+                            Id = new Guid("e72c8f5d-c73c-43f7-8a1c-688a974d18e2"),
                             Name = "Lincoln Green"
                         },
                         new
                         {
-                            Id = new Guid("d9be3dec-05a7-4419-818d-71e9cd0b88d1"),
+                            Id = new Guid("b70b36a7-e7db-4c2a-b2c6-0483301b4f0b"),
                             Name = "Linen"
                         },
                         new
                         {
-                            Id = new Guid("29d6b876-6e47-48b9-a58f-89398bf727de"),
+                            Id = new Guid("ef5150d9-4925-45cb-b98a-909c945c4838"),
                             Name = "Lion"
                         },
                         new
                         {
-                            Id = new Guid("4ada11d0-58f4-4fd5-aa37-aa2ff03488ae"),
+                            Id = new Guid("408e5425-a6c9-4670-b3b0-ca0493173a7b"),
                             Name = "Liseran Purple"
                         },
                         new
                         {
-                            Id = new Guid("072a2786-c649-41f8-a6ea-9b8b55a021a2"),
+                            Id = new Guid("9f3f827a-b8a7-4c73-a2e3-a368ec0a3749"),
                             Name = "Little Boy Blue"
                         },
                         new
                         {
-                            Id = new Guid("22523045-4f41-4e5f-9fea-56d687d91d35"),
+                            Id = new Guid("0da0748d-048f-42b2-90f4-643c8c188b24"),
                             Name = "Liver"
                         },
                         new
                         {
-                            Id = new Guid("a1e1fff0-19a4-4126-9e2f-dd9ffe7c9f38"),
+                            Id = new Guid("f8cd5246-87ab-454c-86d3-e4a2eb479bfc"),
                             Name = "Liver (Dogs)"
                         },
                         new
                         {
-                            Id = new Guid("6c5c0c66-466e-4996-a374-d60975f612d4"),
+                            Id = new Guid("f1a98730-1907-47b4-ae46-9154e647692f"),
                             Name = "Liver (Organ)"
                         },
                         new
                         {
-                            Id = new Guid("f9104d51-98be-48a1-82e9-b72b2de6f8e9"),
+                            Id = new Guid("a2eeece9-8c1c-45a9-8c2c-9b29f2390def"),
                             Name = "Liver Chestnut"
                         },
                         new
                         {
-                            Id = new Guid("ff652f88-2dba-4d16-bd4c-787ff16b469f"),
+                            Id = new Guid("2183900c-5e8f-4d30-84a5-2176b60c4991"),
                             Name = "Livid"
                         },
                         new
                         {
-                            Id = new Guid("45651b30-1a43-4f5a-8eea-436649c9a98a"),
+                            Id = new Guid("78c2fb60-961e-4259-993d-65a45f28d590"),
                             Name = "Lumber"
                         },
                         new
                         {
-                            Id = new Guid("bfbc1484-9baa-46ea-ac59-b69662473f8f"),
+                            Id = new Guid("533252ac-4a93-4358-a37c-3e806c819df6"),
                             Name = "Lust"
                         },
                         new
                         {
-                            Id = new Guid("88ad09b6-f44c-4708-a632-36b858bb7690"),
+                            Id = new Guid("7a130666-2bb6-4326-ac33-88ff21fdbbbb"),
                             Name = "Macaroni And Cheese"
                         },
                         new
                         {
-                            Id = new Guid("82e1e526-407f-4a1f-9892-9234f4d83ac1"),
+                            Id = new Guid("ba38bb3e-5bd3-41ed-b1fc-77ea2896a331"),
                             Name = "Magenta"
                         },
                         new
                         {
-                            Id = new Guid("23560bb2-b5bf-440f-a103-6bfb8562ee64"),
+                            Id = new Guid("b9e193ce-d493-41af-8bb6-65e75ebdd464"),
                             Name = "Magenta (Crayola)"
                         },
                         new
                         {
-                            Id = new Guid("17fd9389-af5b-4101-b86f-8fa00decb22d"),
+                            Id = new Guid("3867435e-ef0a-48e1-95b7-fe9c86d49c35"),
                             Name = "Magenta (Dye)"
                         },
                         new
                         {
-                            Id = new Guid("5edddd2c-4cec-47ee-824d-56360d3da236"),
+                            Id = new Guid("ad9a53ae-663c-4924-a078-b656127661e3"),
                             Name = "Magenta (Pantone)"
                         },
                         new
                         {
-                            Id = new Guid("2ddb81cf-4906-477d-a495-6968ee8ee405"),
+                            Id = new Guid("481476f2-1355-43fb-84b5-f49b6293ee0c"),
                             Name = "Magenta (Process)"
                         },
                         new
                         {
-                            Id = new Guid("c8cdce14-0d67-4f92-839d-55e1baa8c737"),
+                            Id = new Guid("32cb7a6e-6998-48e9-bebc-d4a6ccff64b6"),
                             Name = "Magenta Haze"
                         },
                         new
                         {
-                            Id = new Guid("de6eb5ca-26f1-48ba-9efa-fab518e82c7c"),
+                            Id = new Guid("04fc5e64-759f-41a3-af4d-a4cfcc242257"),
                             Name = "Magenta-Pink"
                         },
                         new
                         {
-                            Id = new Guid("f8f0c9d1-aa58-4b14-9ec2-ab30c9c4ea0b"),
+                            Id = new Guid("42f552e7-77fd-4a31-a6be-2b1d735137d0"),
                             Name = "Magic Mint"
                         },
                         new
                         {
-                            Id = new Guid("bda7d932-fad5-48d5-97db-812fdd4a6053"),
+                            Id = new Guid("aa4f96d5-c487-4008-8650-211bb7a406f6"),
                             Name = "Magic Potion"
                         },
                         new
                         {
-                            Id = new Guid("d70a19bf-ed1d-4ce0-bc99-f6c3a95e0e47"),
+                            Id = new Guid("94865a5d-5484-4b7a-a3fb-04a73797fec5"),
                             Name = "Magnolia"
                         },
                         new
                         {
-                            Id = new Guid("5ee88863-f820-421c-8cc2-d76504631660"),
+                            Id = new Guid("7bfdab83-16b2-4825-a782-4aa15d7d6045"),
                             Name = "Mahogany"
                         },
                         new
                         {
-                            Id = new Guid("bc4351f6-7324-4018-add4-895682572878"),
+                            Id = new Guid("c45a3b9b-78c4-4ad7-96e8-e0b6c32aa280"),
                             Name = "Maize"
                         },
                         new
                         {
-                            Id = new Guid("7a2fb89c-2b88-474b-af5f-556a5781214b"),
+                            Id = new Guid("06343d96-a878-41ab-9905-2ecae9f7e0a7"),
                             Name = "Majorelle Blue"
                         },
                         new
                         {
-                            Id = new Guid("301ad038-9582-412c-bde6-5040147d4492"),
+                            Id = new Guid("a89c5cc4-8e50-463a-b2d2-344e6c2c7302"),
                             Name = "Malachite"
                         },
                         new
                         {
-                            Id = new Guid("fd9c0b42-1e3a-4700-97e5-eb703ff89605"),
+                            Id = new Guid("56042367-76f0-49e9-bd86-f246b010817c"),
                             Name = "Manatee"
                         },
                         new
                         {
-                            Id = new Guid("7a741b9a-660f-4cdc-8ee0-15d4d66f39f8"),
+                            Id = new Guid("794550b0-40b4-4730-9275-b29c39e3f84f"),
                             Name = "Mandarin"
                         },
                         new
                         {
-                            Id = new Guid("3f4c9f5c-b6e8-45bf-99b5-f9401ccf0fc0"),
+                            Id = new Guid("dfa78859-6925-486f-9d79-6660ed53caaa"),
                             Name = "Mango Tango"
                         },
                         new
                         {
-                            Id = new Guid("f97b0577-893b-47c7-bb37-09d6ec572dcd"),
+                            Id = new Guid("c8b7e11b-352c-40dd-b304-53768f78bfd9"),
                             Name = "Mantis"
                         },
                         new
                         {
-                            Id = new Guid("d00eb21d-c303-49da-a7e1-5756bd3a8895"),
+                            Id = new Guid("1a3caea0-06f6-43aa-a142-4cdaf21ae9df"),
                             Name = "Mardi Gras"
                         },
                         new
                         {
-                            Id = new Guid("1a21dd10-9bbb-4d34-8b15-176023edbf7a"),
+                            Id = new Guid("47342af6-9e4d-4daf-8630-7cbcc3fc1e16"),
                             Name = "Marigold"
                         },
                         new
                         {
-                            Id = new Guid("ae38d329-8000-4a53-9803-c55545c5cc03"),
+                            Id = new Guid("5f6ce551-acf3-4009-9fbf-9bc9ebb564b8"),
                             Name = "Maroon (Crayola)"
                         },
                         new
                         {
-                            Id = new Guid("28d0e87e-3153-4ef6-a637-f9f6ac84d0eb"),
+                            Id = new Guid("b7454d6d-1ac0-4516-8dae-553413a4ce87"),
                             Name = "Maroon (HTML/CSS)"
                         },
                         new
                         {
-                            Id = new Guid("42c841f1-cdfa-4905-aede-d0f3c94480f4"),
+                            Id = new Guid("0bc9b884-2f75-459d-ad38-bd8f3e53d6b9"),
                             Name = "Maroon (X11)"
                         },
                         new
                         {
-                            Id = new Guid("ea0f9f41-574f-4edf-84f1-7129a980214e"),
+                            Id = new Guid("906b3f22-fc1b-4e5a-b5bb-6f6382bb3c8d"),
                             Name = "Mauve"
                         },
                         new
                         {
-                            Id = new Guid("1ac5a11f-f983-46a0-a526-337f4231bd16"),
+                            Id = new Guid("2bc4deee-3634-44bb-8ee9-4c086b2e07cb"),
                             Name = "Mauve Taupe"
                         },
                         new
                         {
-                            Id = new Guid("97c2e80f-dbcc-45f9-96ef-7b559ffdb3ed"),
+                            Id = new Guid("18aca111-c9b2-4f7f-a36b-b1047e41405c"),
                             Name = "Mauvelous"
                         },
                         new
                         {
-                            Id = new Guid("2915aedb-55e2-4979-be80-122a9a131d08"),
+                            Id = new Guid("d58269a4-5581-4e6f-8f73-aa3d074a5b7e"),
                             Name = "Maximum Blue"
                         },
                         new
                         {
-                            Id = new Guid("e6e8a3a5-53f5-4677-96b2-3ae2927d8dee"),
+                            Id = new Guid("845b5f48-d55d-4e1f-a5cf-be87ab6af297"),
                             Name = "Maximum Yellow"
                         },
                         new
                         {
-                            Id = new Guid("23a94421-5345-4821-b422-b2b6db85db70"),
+                            Id = new Guid("4d0b54ff-3381-40d5-82a7-07f513d1812b"),
                             Name = "May Green"
                         },
                         new
                         {
-                            Id = new Guid("7077bace-3722-455d-8a80-ba1fea780c59"),
+                            Id = new Guid("2b808069-3b01-4d63-a5dc-53c988a77f1b"),
                             Name = "Maya Blue"
                         },
                         new
                         {
-                            Id = new Guid("22c2ed49-f1b3-4e38-a160-08ce84229cf8"),
+                            Id = new Guid("9072df24-3109-498e-b963-d45e683e24f1"),
                             Name = "Meat Brown"
                         },
                         new
                         {
-                            Id = new Guid("66e9bdcc-9b69-4e6d-ba39-8c8afba4e25e"),
+                            Id = new Guid("aaae6add-585a-47cc-ae61-7508eeea5ac3"),
                             Name = "Medium Aquamarine"
                         },
                         new
                         {
-                            Id = new Guid("2812d97b-2b67-4abb-8bac-5df5a16d4d3f"),
+                            Id = new Guid("8e86248d-4083-4777-8c56-2ee21a438cdc"),
                             Name = "Medium Blue"
                         },
                         new
                         {
-                            Id = new Guid("e0060d2f-4df0-4a93-8816-d4e5a9ec64ef"),
+                            Id = new Guid("50a5f98b-e6f4-4860-a41d-b906d2c34625"),
                             Name = "Medium Candy Apple Red"
                         },
                         new
                         {
-                            Id = new Guid("49e356e5-92df-4bc7-a147-6d9662af2c3e"),
+                            Id = new Guid("8834a7be-a80b-48ff-af95-d9ef115148d3"),
                             Name = "Medium Carmine"
                         },
                         new
                         {
-                            Id = new Guid("21ab993f-b961-4672-af8e-11f02974ee22"),
+                            Id = new Guid("8d0ef3b3-820d-4b80-a065-30dbea879bbf"),
                             Name = "Medium Champagne"
                         },
                         new
                         {
-                            Id = new Guid("63e0eb57-9797-4737-ad98-b28187661045"),
+                            Id = new Guid("4183a372-e242-42b3-8f0d-96ea96041f6d"),
                             Name = "Medium Electric Blue"
                         },
                         new
                         {
-                            Id = new Guid("a8fa5ef3-7ddb-4fd3-8b03-c97a7a9c922a"),
+                            Id = new Guid("61e2a5d7-5dec-430f-87ea-aeb311a17c72"),
                             Name = "Medium Jungle Green"
                         },
                         new
                         {
-                            Id = new Guid("d0a65451-21f6-4b02-822d-6e6aaecc3900"),
+                            Id = new Guid("6404fd71-e270-46c9-893a-cc5483db7e2f"),
                             Name = "Medium Lavender Magenta"
                         },
                         new
                         {
-                            Id = new Guid("3e3e9893-0c16-45e0-90c2-24f2cb9d5db4"),
+                            Id = new Guid("bdef1302-3f6a-40ed-8ac5-2c48fccfd6a1"),
                             Name = "Medium Orchid"
                         },
                         new
                         {
-                            Id = new Guid("1aadf95b-7d5e-442b-b89d-ade674cb116d"),
+                            Id = new Guid("7e223078-9300-4bf6-b030-572573317b11"),
                             Name = "Medium Persian Blue"
                         },
                         new
                         {
-                            Id = new Guid("4c2c1881-5d7f-4345-8c97-ba6731435956"),
+                            Id = new Guid("be7ab970-3b86-431b-9872-5952c4e0349e"),
                             Name = "Medium Purple"
                         },
                         new
                         {
-                            Id = new Guid("29c72fd1-0458-42fc-867f-fec569da56e3"),
+                            Id = new Guid("8ab08946-2d96-4fc2-913b-bab5b54f48cf"),
                             Name = "Medium Red-Violet"
                         },
                         new
                         {
-                            Id = new Guid("61f921cd-bdc0-49e8-a83d-236420e675a4"),
+                            Id = new Guid("ea236efc-acc0-4d09-bf63-25758f941de4"),
                             Name = "Medium Ruby"
                         },
                         new
                         {
-                            Id = new Guid("760c65a0-b9b7-48c7-9455-034ebcd55898"),
+                            Id = new Guid("49929e8d-92b6-46bc-ba26-0be166947c7f"),
                             Name = "Medium Sea Green"
                         },
                         new
                         {
-                            Id = new Guid("344c9281-370a-425c-bb55-e82ac2babc79"),
+                            Id = new Guid("9be4a626-f474-4048-b25c-35f7af41d79f"),
                             Name = "Medium Sky Blue"
                         },
                         new
                         {
-                            Id = new Guid("de4a65ee-21ff-4917-9c71-84bb23f635bf"),
+                            Id = new Guid("c8e978da-64ac-48b8-aca8-2f7c12eb0481"),
                             Name = "Medium Slate Blue"
                         },
                         new
                         {
-                            Id = new Guid("8be862a8-b5c3-4061-9117-0eabab0a8b53"),
+                            Id = new Guid("192d2728-5560-4b24-9d0c-20e23684f5e7"),
                             Name = "Medium Spring Bud"
                         },
                         new
                         {
-                            Id = new Guid("45d59137-8874-4e79-9de3-51e3c3aa0bd9"),
+                            Id = new Guid("38dfcbe4-c4fa-4d62-b447-bd9e957dbb95"),
                             Name = "Medium Spring Green"
                         },
                         new
                         {
-                            Id = new Guid("23836917-b64a-4b53-976f-07521804456a"),
+                            Id = new Guid("f8b22cd2-5ee8-4e4b-9f2c-de5a44855aa5"),
                             Name = "Medium Taupe"
                         },
                         new
                         {
-                            Id = new Guid("a5f0fa5d-dd3f-402b-942f-1f509ba95175"),
+                            Id = new Guid("9557d977-8001-41ce-9edc-371a98d389c6"),
                             Name = "Medium Turquoise"
                         },
                         new
                         {
-                            Id = new Guid("92319cb1-4408-4c1c-9e71-d1c5c417c849"),
+                            Id = new Guid("a9f0b178-6b90-4615-975a-1bb7eedebf0d"),
                             Name = "Medium Tuscan Red"
                         },
                         new
                         {
-                            Id = new Guid("22964faf-cfd3-4bb6-b9a5-8b6cf5dc4772"),
+                            Id = new Guid("2d72cf05-b51e-4b13-81a5-42378856e871"),
                             Name = "Medium Vermilion"
                         },
                         new
                         {
-                            Id = new Guid("5a7cd104-7708-42f0-af1d-5c2935b7a652"),
+                            Id = new Guid("c2479d09-736a-4439-bb20-4d6f9bbc1092"),
                             Name = "Medium Violet-Red"
                         },
                         new
                         {
-                            Id = new Guid("df510168-60d1-4c18-be03-53a52a3ba44b"),
+                            Id = new Guid("d954854a-acac-47b2-b1d7-8c01c7651463"),
                             Name = "Mellow Apricot"
                         },
                         new
                         {
-                            Id = new Guid("a1492ecb-d542-43e8-84d6-b0d59513cfe4"),
+                            Id = new Guid("2f57ea8d-f920-44c8-8b39-4d789e53eda8"),
                             Name = "Mellow Yellow"
                         },
                         new
                         {
-                            Id = new Guid("61e551f7-4d9a-452f-824f-63e29dbc0425"),
+                            Id = new Guid("5b2eca53-ef77-4a35-ab13-1a965b650989"),
                             Name = "Melon"
                         },
                         new
                         {
-                            Id = new Guid("d1ccd4b5-dcf1-4dae-ade1-eeda56c27c19"),
+                            Id = new Guid("7396c625-b2ac-4b9a-9fdc-d99af62b9faa"),
                             Name = "Metallic Seaweed"
                         },
                         new
                         {
-                            Id = new Guid("9d00ee80-b8a5-4f54-9e13-4e5a795cd046"),
+                            Id = new Guid("c857e0ae-e38d-469d-85cf-bfbbad0887f4"),
                             Name = "Metallic Sunburst"
                         },
                         new
                         {
-                            Id = new Guid("64d08410-bd92-4618-b54d-e0333ad481a4"),
+                            Id = new Guid("4bf4fea3-57e3-4cd0-bfc5-ace2fd3e6ba2"),
                             Name = "Metal Pink"
                         },
                         new
                         {
-                            Id = new Guid("44dbb407-b98f-4b69-be06-8d04d7e6fffa"),
+                            Id = new Guid("6f527e5a-ce52-4c5f-a7f5-4e68a0acb50a"),
                             Name = "Mexican Pink"
                         },
                         new
                         {
-                            Id = new Guid("8fbd5402-ede0-4f47-85f4-9f0f6a81af5c"),
+                            Id = new Guid("0568ccbf-bf92-48fa-808f-128be820002a"),
                             Name = "Midnight"
                         },
                         new
                         {
-                            Id = new Guid("c394b3f6-9b2c-49fa-8b64-2da9a1fd3599"),
+                            Id = new Guid("fc9ca826-d605-4bd6-a43e-2abf7d31f5b9"),
                             Name = "Midnight Blue"
                         },
                         new
                         {
-                            Id = new Guid("8f8d3dac-dcd4-4228-8a2b-6fed0d5da38d"),
+                            Id = new Guid("f54b2904-89f2-4032-be98-d959178fc5fd"),
                             Name = "Midnight Green (Eagle Green)"
                         },
                         new
                         {
-                            Id = new Guid("46f759c6-43b0-4190-bb99-64e5a274ff54"),
+                            Id = new Guid("244dca63-b4b6-4b41-bfcc-b5d5bf0e3f8f"),
                             Name = "Mikado Yellow"
                         },
                         new
                         {
-                            Id = new Guid("0b6414b8-e969-4707-a488-31f63d59f695"),
+                            Id = new Guid("085eadb6-ce85-4621-85c2-cf990f41f530"),
                             Name = "Mindaro"
                         },
                         new
                         {
-                            Id = new Guid("4942cebf-3ee2-4b59-ad7e-aea0fe108e74"),
+                            Id = new Guid("e5584411-b491-4588-b9f3-c9ac2b62912a"),
                             Name = "Ming"
                         },
                         new
                         {
-                            Id = new Guid("dbffb68c-32c5-4f9c-b304-2b28c1121c82"),
+                            Id = new Guid("d906991f-6ad5-4af4-bcce-9fdd5e3b1daf"),
                             Name = "Minion Yellow"
                         },
                         new
                         {
-                            Id = new Guid("435da20d-aca9-4a70-a23f-5fdad4149324"),
+                            Id = new Guid("64d02cad-c0dd-4ca5-8f9c-7ab3df1ebb70"),
                             Name = "Mint"
                         },
                         new
                         {
-                            Id = new Guid("92eb1e33-01c7-4017-a7ac-d8b85d14c8df"),
+                            Id = new Guid("6208374c-ff4a-4708-8115-acb3db80485b"),
                             Name = "Mint Cream"
                         },
                         new
                         {
-                            Id = new Guid("b7d0601b-db09-42cb-a5b8-914e5cbea6fa"),
+                            Id = new Guid("5e57a36f-17a2-4d9a-84ac-e1bef6b046fd"),
                             Name = "Mint Green"
                         },
                         new
                         {
-                            Id = new Guid("68cd6c0b-71eb-40fb-bf5b-3d90268ebb44"),
+                            Id = new Guid("352ebf24-5e0b-48c5-ac58-071a52076b05"),
                             Name = "Misty Moss"
                         },
                         new
                         {
-                            Id = new Guid("aa427a32-c3b1-4148-b85a-c2d4f843c21f"),
+                            Id = new Guid("31a118a9-c2ad-4a07-9cc2-35283deedccb"),
                             Name = "Misty Rose"
                         },
                         new
                         {
-                            Id = new Guid("4db300c1-7d12-44dd-895f-f7eaadc6e495"),
+                            Id = new Guid("c76a89c6-9e1c-48d1-b28f-ce461190a26d"),
                             Name = "Moccasin"
                         },
                         new
                         {
-                            Id = new Guid("75e8d03c-735c-4a90-82eb-479f0d549da5"),
+                            Id = new Guid("34797b32-8456-41f8-9023-511b2c331298"),
                             Name = "Mode Beige"
                         },
                         new
                         {
-                            Id = new Guid("4536eaa8-4cc9-4feb-93e9-52a1047f18d2"),
+                            Id = new Guid("30f0dbf4-1989-4bfa-8180-137b613e031b"),
                             Name = "Moonstone Blue"
                         },
                         new
                         {
-                            Id = new Guid("ffcc90dd-28be-444b-b363-6ee52fd25329"),
+                            Id = new Guid("347ff49b-4710-47fe-8020-713eb48f04e2"),
                             Name = "Mordant Red 19"
                         },
                         new
                         {
-                            Id = new Guid("6c475ca2-fc22-4446-bfa2-31495ebad524"),
+                            Id = new Guid("79c8e194-8c62-45ca-a609-9f197670a440"),
                             Name = "Moss Green"
                         },
                         new
                         {
-                            Id = new Guid("5d04e8ab-e21f-49e9-abdb-60fff287e9cd"),
+                            Id = new Guid("28e7dd78-b1bd-4e2e-82a6-3764d99bb0b6"),
                             Name = "Mountain Meadow"
                         },
                         new
                         {
-                            Id = new Guid("0ab63234-3f5c-4de5-b1da-d88a6227852e"),
+                            Id = new Guid("73a4d075-889d-49eb-959e-7f2a9b7a046c"),
                             Name = "Mountbatten Pink"
                         },
                         new
                         {
-                            Id = new Guid("d2d970c7-53c9-4fee-827f-84ba9d76bb93"),
+                            Id = new Guid("6a88709f-8be2-4de1-a120-506f29030184"),
                             Name = "MSU Green"
                         },
                         new
                         {
-                            Id = new Guid("f2f08660-dc68-406f-ba14-b2113e44ad9c"),
+                            Id = new Guid("c8b6a527-e5c6-4bb5-91dd-99e484a70c62"),
                             Name = "Mughal Green"
                         },
                         new
                         {
-                            Id = new Guid("6e7bcb8f-4a71-43ab-9d0a-d64be4d1f4d5"),
+                            Id = new Guid("606ebf5a-8c68-4630-8229-4b3a936454d9"),
                             Name = "Mulberry"
                         },
                         new
                         {
-                            Id = new Guid("0d84ae09-5638-442c-a1d7-9fd716be60a5"),
+                            Id = new Guid("b62d0767-cbcf-4f28-8380-55698cbcae0a"),
                             Name = "Mummy's Tomb"
                         },
                         new
                         {
-                            Id = new Guid("52428a05-0867-40bf-840b-f581ee367797"),
+                            Id = new Guid("d9eecfa3-dfe6-4a57-8d81-e19b782a18f4"),
                             Name = "Mustard"
                         },
                         new
                         {
-                            Id = new Guid("efd93ef4-9331-4a35-8301-cf4ace002b34"),
+                            Id = new Guid("fb9a87a7-ebf5-4ebf-b318-33b1a40e78b0"),
                             Name = "Myrtle Green"
                         },
                         new
                         {
-                            Id = new Guid("d7c4adb6-02a2-4dd6-9570-b9a5b9178da6"),
+                            Id = new Guid("4c24c682-7a41-4367-82eb-4bbfa594fcbf"),
                             Name = "Mystic"
                         },
                         new
                         {
-                            Id = new Guid("7280a31b-fb0d-4691-85a4-3b21f9b4d060"),
+                            Id = new Guid("e14b66b3-a37c-4701-b3cb-b3eb5edbde66"),
                             Name = "Mystic Maroon"
                         },
                         new
                         {
-                            Id = new Guid("d05ae2f1-9001-462f-bd1d-a9afe5fc18d3"),
+                            Id = new Guid("a1d763a5-0804-4ff7-b996-0d9ed5693390"),
                             Name = "Nadeshiko Pink"
                         },
                         new
                         {
-                            Id = new Guid("2ee9ec81-3260-4789-ac06-4f25f9c2cc3c"),
+                            Id = new Guid("a312d430-db09-4569-b444-ce7e91399e24"),
                             Name = "Napier Green"
                         },
                         new
                         {
-                            Id = new Guid("90258cee-370e-42a4-9db3-03e2b46f9c6f"),
+                            Id = new Guid("497a1371-c04b-4521-87b8-c4d8bc7609f9"),
                             Name = "Naples Yellow"
                         },
                         new
                         {
-                            Id = new Guid("6e80bee1-0737-4e47-8ca5-f7e5e534cc7b"),
+                            Id = new Guid("54af9813-221a-4bb0-ae45-bc1122e1a136"),
                             Name = "Navajo White"
                         },
                         new
                         {
-                            Id = new Guid("5a5719d7-0ed4-4f08-9e15-062ea1555cee"),
+                            Id = new Guid("64b1e272-f4fd-468f-b1b7-5272e109286f"),
                             Name = "Navy"
                         },
                         new
                         {
-                            Id = new Guid("2802f770-5b94-4dce-bcfc-f93c72846329"),
+                            Id = new Guid("8a70af29-2702-49a9-8e84-2eb6051a8276"),
                             Name = "Navy Purple"
                         },
                         new
                         {
-                            Id = new Guid("8ea0de8e-70f3-4382-8549-5da5ea29e282"),
+                            Id = new Guid("b74a026e-6193-4eff-b5bc-e0d1e964de6d"),
                             Name = "Neon Carrot"
                         },
                         new
                         {
-                            Id = new Guid("89be9a13-2f62-4fb6-9c14-47e8242a23c9"),
+                            Id = new Guid("c9b0fe1f-8f56-4dd3-9d3b-04978d4a62e8"),
                             Name = "Neon Fuchsia"
                         },
                         new
                         {
-                            Id = new Guid("ca30d3a9-d3fb-42bd-87fe-34d044f9100a"),
+                            Id = new Guid("aa40eaa0-eb1d-4507-b8f9-583bfdb9111e"),
                             Name = "Neon Green"
                         },
                         new
                         {
-                            Id = new Guid("677a5adb-cd10-455e-8357-25120ec117eb"),
+                            Id = new Guid("18105000-d733-4c43-a4df-4e8a8929cac5"),
                             Name = "New Car"
                         },
                         new
                         {
-                            Id = new Guid("162d3cff-1422-45a6-8cf2-4e2df8b21df2"),
+                            Id = new Guid("233f1b7e-9648-48ea-a505-9347c7c9e392"),
                             Name = "New York Pink"
                         },
                         new
                         {
-                            Id = new Guid("412f9a21-390a-4fb0-8d11-5f5001638fd1"),
+                            Id = new Guid("f577a322-c66e-4549-8b2f-9aa5327fcce5"),
                             Name = "Nickel"
                         },
                         new
                         {
-                            Id = new Guid("f89e1832-bea1-47a6-a003-e0157658cdbe"),
+                            Id = new Guid("5ec303f0-36d1-41ff-b174-a68fc3faab60"),
                             Name = "Non-Photo Blue"
                         },
                         new
                         {
-                            Id = new Guid("3ca7df26-ca8f-401f-847c-b1ff0cc56677"),
+                            Id = new Guid("499660dd-53d4-42f1-aad4-a32ffa8955e6"),
                             Name = "North Texas Green"
                         },
                         new
                         {
-                            Id = new Guid("9ad135d2-d11c-4d74-8182-17610c0e1036"),
+                            Id = new Guid("4c0cecad-e65f-4a31-a3ce-d89ffe9efaa0"),
                             Name = "Nyanza"
                         },
                         new
                         {
-                            Id = new Guid("a6313d2f-b8d0-4d7f-babf-f83250e19ede"),
+                            Id = new Guid("78e57333-09fe-461e-89ad-17660c510b22"),
                             Name = "Ocean Blue"
                         },
                         new
                         {
-                            Id = new Guid("dec71a5e-4037-4176-ac81-d831d309179b"),
+                            Id = new Guid("bc231dfa-7d8c-49e1-8d2d-1c3b0ce1577c"),
                             Name = "Ocean Boat Blue"
                         },
                         new
                         {
-                            Id = new Guid("db52434e-cea1-49b6-9ea3-cbc9795f9aba"),
+                            Id = new Guid("8776b3d0-cd3b-4fa2-b5b1-2841df690583"),
                             Name = "Ocean Green"
                         },
                         new
                         {
-                            Id = new Guid("8ead232e-c724-4783-b6a6-cace4253a741"),
+                            Id = new Guid("c80aa8d3-b27e-485d-80b0-d7c864973d31"),
                             Name = "Ochre"
                         },
                         new
                         {
-                            Id = new Guid("25f50fe8-0384-4278-945f-ee62c1e0fa21"),
+                            Id = new Guid("c58e064e-b077-4acc-93e5-0d87aaee6c22"),
                             Name = "Office Green"
                         },
                         new
                         {
-                            Id = new Guid("97fd37cd-2873-4407-a875-17db676ed44c"),
+                            Id = new Guid("d1b3224c-5eef-429e-956e-b225391726bb"),
                             Name = "Ogre Odor"
                         },
                         new
                         {
-                            Id = new Guid("9b235003-fd2a-4994-bcf6-d86afd547ea8"),
+                            Id = new Guid("4c7f08e1-f558-4e92-9f49-c2729814b39e"),
                             Name = "Old Burgundy"
                         },
                         new
                         {
-                            Id = new Guid("76b84852-88a7-471a-803e-081f2231ec87"),
+                            Id = new Guid("4aa1291d-2b52-412d-a8cf-10ce98064340"),
                             Name = "Old Gold"
                         },
                         new
                         {
-                            Id = new Guid("5b10e4e4-3872-4b25-8914-c4f0802538cc"),
+                            Id = new Guid("5ee0e80b-4dc7-4aca-902e-eaccdfebe78f"),
                             Name = "Old Heliotrope"
                         },
                         new
                         {
-                            Id = new Guid("97be713e-b3bf-44e4-be73-7642fad1d4fa"),
+                            Id = new Guid("96f2086e-099d-4548-8822-1eeeb945852b"),
                             Name = "Old Lace"
                         },
                         new
                         {
-                            Id = new Guid("39a3a44d-ca9e-4683-9cb8-a814066657a9"),
+                            Id = new Guid("95a71e2c-0785-482e-9c9d-d3b9dcaa45a6"),
                             Name = "Old Lavender"
                         },
                         new
                         {
-                            Id = new Guid("2731ce0a-0aa3-4072-8d6f-67fa03af49e8"),
+                            Id = new Guid("79355032-aeff-4e9d-ba23-002bf801929f"),
                             Name = "Old Mauve"
                         },
                         new
                         {
-                            Id = new Guid("e25e6377-09da-4814-bccd-9a7433fd8b03"),
+                            Id = new Guid("65130f10-02fa-49cc-a69a-68ab4735dcb0"),
                             Name = "Old Moss Green"
                         },
                         new
                         {
-                            Id = new Guid("7aff13ff-8c07-4d73-86a4-32c907cdb8e7"),
+                            Id = new Guid("7f09a8ed-5f6c-4c64-b7eb-57cd5fec3b24"),
                             Name = "Old Rose"
                         },
                         new
                         {
-                            Id = new Guid("b35020c2-cc56-4e8d-97eb-a0b893b1ee4f"),
+                            Id = new Guid("3c8b52ff-a108-49cd-bbea-3b358ed62e14"),
                             Name = "Old Silver"
                         },
                         new
                         {
-                            Id = new Guid("c6faf26b-f836-44ff-9806-effeebb36096"),
+                            Id = new Guid("3b0062be-9865-4417-a05b-06cbe92a6745"),
                             Name = "Olive"
                         },
                         new
                         {
-                            Id = new Guid("e46eef2f-361d-4f2d-9d76-c53cda1b91f3"),
+                            Id = new Guid("b24f7bbc-ea0e-450d-aeb6-b5d55eb12898"),
                             Name = "Olive Drab (#3)"
                         },
                         new
                         {
-                            Id = new Guid("48a32dab-b737-4aa3-b0b3-17fb7f5e4861"),
+                            Id = new Guid("e56dedcc-b3f5-4594-8506-bfe3f01c3af4"),
                             Name = "Olive Drab #7"
                         },
                         new
                         {
-                            Id = new Guid("59cbc483-1330-4f7b-a68c-2a19d82ccfcd"),
+                            Id = new Guid("27c56fe0-19ec-4963-b125-551b834a7f08"),
                             Name = "Olivine"
                         },
                         new
                         {
-                            Id = new Guid("91b7ad92-524c-4abf-bfc6-4086b9067cb0"),
+                            Id = new Guid("0d810bd1-e9e1-4c9c-be6a-89e97813595a"),
                             Name = "Onyx"
                         },
                         new
                         {
-                            Id = new Guid("e305a01d-7cba-47f7-8168-98ecd7584afc"),
+                            Id = new Guid("b24a636d-a172-4d64-b8b2-9d7fec091e48"),
                             Name = "Opera Mauve"
                         },
                         new
                         {
-                            Id = new Guid("a6c3566c-8f4c-43fd-bbfe-29a81d7bc5fc"),
+                            Id = new Guid("32e186e0-5c8e-463a-beb8-021ea7f4c7fc"),
                             Name = "Orange (Color Wheel)"
                         },
                         new
                         {
-                            Id = new Guid("478c5493-7ce0-4316-b52d-1f1c0528db4e"),
+                            Id = new Guid("23606a18-f9c0-413e-b1cf-df4e1c0f90aa"),
                             Name = "Orange (Crayola)"
                         },
                         new
                         {
-                            Id = new Guid("2f4643b7-55dd-4a18-a668-b166aaa1a4a1"),
+                            Id = new Guid("9731e6d5-62e5-41f3-a93e-4e6c75e351db"),
                             Name = "Orange (Pantone)"
                         },
                         new
                         {
-                            Id = new Guid("6e0f1165-96af-4781-b131-fb2fcba1fac4"),
+                            Id = new Guid("254bdfa9-abc8-457e-b5fd-2309132c9523"),
                             Name = "Orange (RYB)"
                         },
                         new
                         {
-                            Id = new Guid("9358a38a-ba36-4a67-81f4-68ac70ca89d4"),
+                            Id = new Guid("63202eaf-83ad-4741-8a5e-2ca4fe45bedb"),
                             Name = "Orange (Web)"
                         },
                         new
                         {
-                            Id = new Guid("862d1b49-7e60-40d1-9a33-40cf952462bd"),
+                            Id = new Guid("0310ec78-52b9-4807-b6d6-0bfeefca2e68"),
                             Name = "Orange Peel"
                         },
                         new
                         {
-                            Id = new Guid("360adf1a-0096-4d91-aaab-971a9109fb3f"),
+                            Id = new Guid("c52aaa99-fdd9-47c5-9bfb-59eed3163a6d"),
                             Name = "Orange-Red"
                         },
                         new
                         {
-                            Id = new Guid("3535c1b0-1ed6-45e9-8eca-f03874d415ec"),
+                            Id = new Guid("a6f01079-3295-4238-bc18-9045a9f53567"),
                             Name = "Orange Soda"
                         },
                         new
                         {
-                            Id = new Guid("628d4574-5a7c-46ba-a391-97e2ab88045b"),
+                            Id = new Guid("1fb8c305-22d4-4c88-83f7-b9889bdfee0e"),
                             Name = "Orange-Yellow"
                         },
                         new
                         {
-                            Id = new Guid("db4d26ab-4f2d-4d58-a9a5-600f0782e1b3"),
+                            Id = new Guid("439036ac-ecdb-47b4-88ec-013b6b4fa81d"),
                             Name = "Orchid"
                         },
                         new
                         {
-                            Id = new Guid("bf67715a-7f50-4348-b087-8a5ec9ed3d71"),
+                            Id = new Guid("cfc24d48-c300-4013-8822-0cf155918700"),
                             Name = "Orchid Pink"
                         },
                         new
                         {
-                            Id = new Guid("07f5f68d-37d5-4d95-a555-94fcea42eeea"),
+                            Id = new Guid("ee9ec9ae-a25a-4fdc-a2d4-a14ef15b74bb"),
                             Name = "Orioles Orange"
                         },
                         new
                         {
-                            Id = new Guid("565dbaac-a20a-4f47-af5f-b9c43cc2e8d6"),
+                            Id = new Guid("5bdefbbb-324e-4689-a40f-165e114bd1d8"),
                             Name = "Otter Brown"
                         },
                         new
                         {
-                            Id = new Guid("bfee31f7-65cb-4268-810b-041e666c3536"),
+                            Id = new Guid("b1a699a7-19cf-44e1-b139-05d4ca846ea7"),
                             Name = "Outer Space"
                         },
                         new
                         {
-                            Id = new Guid("ff1e675e-6740-43f0-b299-1962c4699959"),
+                            Id = new Guid("146549a3-bc81-4495-aaf7-76b9049cbce6"),
                             Name = "Outrageous Orange"
                         },
                         new
                         {
-                            Id = new Guid("075a3e59-cbbb-4d50-98bf-ae0f415d4f39"),
+                            Id = new Guid("e5d8e25e-861b-4c08-be23-3892c3f45d6a"),
                             Name = "Oxford Blue"
                         },
                         new
                         {
-                            Id = new Guid("6a58f3ca-d0ef-4699-9395-49bdc4f32971"),
+                            Id = new Guid("5e2f872b-6875-49bf-993c-fd38e7e054ff"),
                             Name = "OU Crimson Red"
                         },
                         new
                         {
-                            Id = new Guid("c113625f-984e-4b6e-93ed-87ef90956456"),
+                            Id = new Guid("37bb3be3-7d8b-4261-8399-40329e6767a0"),
                             Name = "Pacific Blue"
                         },
                         new
                         {
-                            Id = new Guid("c87cdc16-d607-4cf4-838d-6de635e3a895"),
+                            Id = new Guid("41865b24-62cc-4446-b42b-75416c80acd6"),
                             Name = "Pakistan Green"
                         },
                         new
                         {
-                            Id = new Guid("22f14d11-26e2-4981-8067-eaa181488a36"),
+                            Id = new Guid("64103120-fa9a-4ad1-a05a-9f3377e25055"),
                             Name = "Palatinate Blue"
                         },
                         new
                         {
-                            Id = new Guid("95445e07-e3b1-45e9-8574-ebd68c29f7d8"),
+                            Id = new Guid("064f0226-0e47-489c-b3fe-65a9a61c20f3"),
                             Name = "Palatinate Purple"
                         },
                         new
                         {
-                            Id = new Guid("4f7ec65d-4600-4a28-b824-d02c4ad9fa4c"),
+                            Id = new Guid("c6a4c2a4-7879-4c0d-9238-e3b44b87b7bd"),
                             Name = "Pale Aqua"
                         },
                         new
                         {
-                            Id = new Guid("6c72ba92-6dd2-4c86-880b-5cdc5060fc91"),
+                            Id = new Guid("ff208796-2a9a-4b7d-87c7-ad36d6d4bda3"),
                             Name = "Pale Blue"
                         },
                         new
                         {
-                            Id = new Guid("e986dfa8-a25f-4bfe-9800-f945bee5ad29"),
+                            Id = new Guid("b4dffc04-246f-43df-99d6-acfb0f492531"),
                             Name = "Pale Brown"
                         },
                         new
                         {
-                            Id = new Guid("f7e36f8b-7cad-48ab-830a-87a8052ee53c"),
+                            Id = new Guid("061339d3-a8d9-44a3-903e-ca47b2aa573e"),
                             Name = "Pale Carmine"
                         },
                         new
                         {
-                            Id = new Guid("a32370ae-f743-4d28-931f-0342a07e0728"),
+                            Id = new Guid("2de58736-2ca4-4502-ade0-41f837f23478"),
                             Name = "Pale Cerulean"
                         },
                         new
                         {
-                            Id = new Guid("9df2b25f-90bf-4cde-b365-b2325df4810b"),
+                            Id = new Guid("bef94fd4-46d8-4368-8842-a1299e534737"),
                             Name = "Pale Chestnut"
                         },
                         new
                         {
-                            Id = new Guid("222f1050-71b5-4117-9e38-31aff163af4b"),
+                            Id = new Guid("2976595b-a3e3-43b6-ae38-34d6e8fd504e"),
                             Name = "Pale Copper"
                         },
                         new
                         {
-                            Id = new Guid("942f6927-835e-42ab-b1b1-278787646893"),
+                            Id = new Guid("6a5298ae-eb53-47d7-8f16-f12aeb1e898a"),
                             Name = "Pale Cornflower Blue"
                         },
                         new
                         {
-                            Id = new Guid("3ac0444f-4cd2-4eb4-a5eb-faed01a73889"),
+                            Id = new Guid("b90e743e-9c73-4a04-8710-f5e1f1a1d626"),
                             Name = "Pale Cyan"
                         },
                         new
                         {
-                            Id = new Guid("79a40f1f-5384-4e3d-9d70-005742e9b373"),
+                            Id = new Guid("4b88eb33-1925-4039-b780-782f8e30fc30"),
                             Name = "Pale Gold"
                         },
                         new
                         {
-                            Id = new Guid("b84c5f14-6f04-462f-be30-68bbab033233"),
+                            Id = new Guid("74643a10-f962-4c49-8bf0-6bd06e3712d5"),
                             Name = "Pale Goldenrod"
                         },
                         new
                         {
-                            Id = new Guid("6ef21e38-6c42-456c-8f62-7e5a0fed6abf"),
+                            Id = new Guid("271575a1-0af7-4720-b371-4722f28436da"),
                             Name = "Pale Green"
                         },
                         new
                         {
-                            Id = new Guid("042749fc-fc85-4629-b1ec-3c46d32efbca"),
+                            Id = new Guid("ff17eebb-a0cb-4987-ab73-c658685060ef"),
                             Name = "Pale Lavender"
                         },
                         new
                         {
-                            Id = new Guid("a41d66a5-f55a-4150-a398-73f05491dcca"),
+                            Id = new Guid("dc2ea6b2-7036-4c0a-aa42-4703f184b250"),
                             Name = "Pale Magenta"
                         },
                         new
                         {
-                            Id = new Guid("84d79aa1-5c42-41dc-90ae-f273b5c9fcd8"),
+                            Id = new Guid("375b58a8-f6c2-49a9-8df1-3642cb034a8e"),
                             Name = "Pale Magenta-Pink"
                         },
                         new
                         {
-                            Id = new Guid("14416dcb-516b-4c34-a357-b935d780aebd"),
+                            Id = new Guid("0c3f8b1f-8438-4794-b3df-5a0673223144"),
                             Name = "Pale Pink"
                         },
                         new
                         {
-                            Id = new Guid("27b2201d-abf2-493e-95e4-8d29262da0d4"),
+                            Id = new Guid("e3d19fb7-8488-4e75-9d88-3580ce97655b"),
                             Name = "Pale Plum"
                         },
                         new
                         {
-                            Id = new Guid("30d9416d-69aa-4149-a703-a69345532fa3"),
+                            Id = new Guid("2ca300f0-63d8-432b-99e8-0dacc188bdd9"),
                             Name = "Pale Red-Violet"
                         },
                         new
                         {
-                            Id = new Guid("b26b9952-bdf1-49a3-8bc7-4416c947c58c"),
+                            Id = new Guid("2febbd37-2c58-4646-89c1-76acf6d0c56f"),
                             Name = "Pale Robin Egg Blue"
                         },
                         new
                         {
-                            Id = new Guid("e5b22d00-364c-4160-9793-d287e1726a9a"),
+                            Id = new Guid("064a7bb4-0042-405f-9776-0e67865c08fb"),
                             Name = "Pale Silver"
                         },
                         new
                         {
-                            Id = new Guid("6293ad47-24a4-409f-9cbd-c8bba0ccc402"),
+                            Id = new Guid("7d3ee98f-9169-4cb5-b6b0-cf71e4ccfc11"),
                             Name = "Pale Spring Bud"
                         },
                         new
                         {
-                            Id = new Guid("6ea93ae0-02a9-452e-9a34-bf2dd5318a4c"),
+                            Id = new Guid("ebc7701d-ff13-42e5-aed5-0ec7bb9ba4a7"),
                             Name = "Pale Taupe"
                         },
                         new
                         {
-                            Id = new Guid("06f7db45-fb2c-4e42-bddf-9179419f2779"),
+                            Id = new Guid("88ff96ae-ad53-4a81-8d54-ed4f4c3f6af5"),
                             Name = "Pale Turquoise"
                         },
                         new
                         {
-                            Id = new Guid("4979b926-faf6-4bb1-9649-d7d302440b22"),
+                            Id = new Guid("5b8378fb-9879-4ce5-99da-3824e0a4b2ce"),
                             Name = "Pale Violet"
                         },
                         new
                         {
-                            Id = new Guid("55984636-7c9f-4939-8cfe-09ef89e7bea9"),
+                            Id = new Guid("6b00dfc0-f9a7-43cd-b90a-28a8053a5d3b"),
                             Name = "Pale Violet-Red"
                         },
                         new
                         {
-                            Id = new Guid("dc4a5fef-c240-48fd-b72b-5cbd1d76c88d"),
+                            Id = new Guid("35ce66bb-4c10-4f66-a914-29f4eccec5c6"),
                             Name = "Pansy Purple"
                         },
                         new
                         {
-                            Id = new Guid("a7cb7692-9198-4d16-9444-51078760fbd0"),
+                            Id = new Guid("b259ff82-f885-44a2-8cc4-ae6f89ce6635"),
                             Name = "Paolo Veronese Green"
                         },
                         new
                         {
-                            Id = new Guid("327e1715-9373-4f0b-b971-9673ad4c50cf"),
+                            Id = new Guid("63f08c88-8055-4e7e-aca4-efb49a43e401"),
                             Name = "Papaya Whip"
                         },
                         new
                         {
-                            Id = new Guid("ba286905-4f1c-4f96-a9ed-b0035387a4fb"),
+                            Id = new Guid("20bfa6c8-0008-484f-b3ab-cc9f0a485dc1"),
                             Name = "Paradise Pink"
                         },
                         new
                         {
-                            Id = new Guid("675e8202-b7fc-4326-ae1c-581f35629489"),
+                            Id = new Guid("f357ab48-3a8b-4f46-adf8-af9102e60244"),
                             Name = "Paris Green"
                         },
                         new
                         {
-                            Id = new Guid("06f50f9e-dc07-4b09-86e5-2dc1c2051d60"),
+                            Id = new Guid("44c4d1f5-03b2-4b2f-9e3c-c1b5cb8453c2"),
                             Name = "Pastel Blue"
                         },
                         new
                         {
-                            Id = new Guid("d03ce4f4-25d2-415e-b151-b08dffd8d7f4"),
+                            Id = new Guid("b97ae929-8abf-494d-89ed-ad60c3d1cf48"),
                             Name = "Pastel Brown"
                         },
                         new
                         {
-                            Id = new Guid("5116251e-a07d-43df-9178-d7197b6b3745"),
+                            Id = new Guid("f1f13755-fad4-4175-9930-876c0634b68a"),
                             Name = "Pastel Gray"
                         },
                         new
                         {
-                            Id = new Guid("e7798ca6-26af-4c02-b182-0655d569b1d4"),
+                            Id = new Guid("8943e7f1-311f-4dc8-b450-cbc23812aba1"),
                             Name = "Pastel Green"
                         },
                         new
                         {
-                            Id = new Guid("4fb1e5be-43cf-4b50-b42d-49c43d540346"),
+                            Id = new Guid("fc79a177-2426-4efb-b4fc-3121033123ff"),
                             Name = "Pastel Magenta"
                         },
                         new
                         {
-                            Id = new Guid("564c64c2-6d2b-43f3-afa3-f896db7f78c4"),
+                            Id = new Guid("21c0480c-9ce8-4d5a-a3b6-1e97097d68af"),
                             Name = "Pastel Orange"
                         },
                         new
                         {
-                            Id = new Guid("3f3096f9-3ae6-4af0-b922-ddb9054dcf97"),
+                            Id = new Guid("52ef103b-9722-4ed0-a805-82913430e98f"),
                             Name = "Pastel Pink"
                         },
                         new
                         {
-                            Id = new Guid("e91d50e6-1c88-43a8-8930-14297000240b"),
+                            Id = new Guid("73abb0b8-0d1f-4ffe-af5d-51828f3f89f3"),
                             Name = "Pastel Purple"
                         },
                         new
                         {
-                            Id = new Guid("94c79a08-860f-487c-8b9d-b739960e7a49"),
+                            Id = new Guid("f42a1057-635f-407c-865d-50c8ebe4429e"),
                             Name = "Pastel Red"
                         },
                         new
                         {
-                            Id = new Guid("36ce772c-7f7d-4f98-8315-ab6c358a6b96"),
+                            Id = new Guid("a4c5a3ca-5347-4e01-a026-b19b8befa0cf"),
                             Name = "Pastel Violet"
                         },
                         new
                         {
-                            Id = new Guid("4e4871e2-4be6-4336-ac65-6d6accded709"),
+                            Id = new Guid("5bdaa256-4704-4c4d-9b88-445dd4007d04"),
                             Name = "Pastel Yellow"
                         },
                         new
                         {
-                            Id = new Guid("3c218fbc-ebed-4a75-b9f3-178aef8d2add"),
+                            Id = new Guid("2e2ebd09-b619-417e-84d0-6e4107f1d899"),
                             Name = "Patriarch"
                         },
                         new
                         {
-                            Id = new Guid("36c2cee8-95ae-4e62-9da4-0133f244eab6"),
+                            Id = new Guid("7bf02b1b-045d-43e4-a15c-0c99406d5c85"),
                             Name = "Payne's Grey"
                         },
                         new
                         {
-                            Id = new Guid("ecab7989-0953-4140-8ee1-abf016027016"),
+                            Id = new Guid("60d0eda0-fdd8-41f1-9649-808b60d12864"),
                             Name = "Peach"
                         },
                         new
                         {
-                            Id = new Guid("6c286709-a7c4-41d8-922a-96d69944681a"),
+                            Id = new Guid("bd5787cc-94f2-47e5-9681-3fc87ef3aa08"),
                             Name = "Peach-Orange"
                         },
                         new
                         {
-                            Id = new Guid("77af646d-5850-4757-ac70-45aada27baa3"),
+                            Id = new Guid("09e7771f-378b-4a9b-9e91-51b8ff0f0c65"),
                             Name = "Peach Puff"
                         },
                         new
                         {
-                            Id = new Guid("14ce0152-a72c-4a7e-a9bc-d7f2a053ef17"),
+                            Id = new Guid("6ca7bbd6-4596-462f-b5cf-14f4a3f97a20"),
                             Name = "Peach-Yellow"
                         },
                         new
                         {
-                            Id = new Guid("4265eabf-6c5e-44a0-ab75-b07845ba5435"),
+                            Id = new Guid("f0ab1ec9-7008-4b22-a29b-d029c44cb031"),
                             Name = "Pear"
                         },
                         new
                         {
-                            Id = new Guid("2bf5dc73-e8ff-4def-be8c-edcfb5c3e49f"),
+                            Id = new Guid("f1d952d6-3374-4e8b-a153-59a4fbc3c288"),
                             Name = "Pearl"
                         },
                         new
                         {
-                            Id = new Guid("bc0a819d-4e50-4e8b-9094-9e85df80367c"),
+                            Id = new Guid("0f1e0589-a61b-47b1-9db4-32d04c0cff70"),
                             Name = "Pearl Aqua"
                         },
                         new
                         {
-                            Id = new Guid("43b801a7-c0e6-4c46-b302-7460b9e68540"),
+                            Id = new Guid("d8fa5715-63ee-4843-a64a-61d3ef7f5de5"),
                             Name = "Pearly Purple"
                         },
                         new
                         {
-                            Id = new Guid("040ffde6-713a-4de8-940d-a870b420b2bf"),
+                            Id = new Guid("a6794355-0b65-4d01-8c67-835ca67741f6"),
                             Name = "Peridot"
                         },
                         new
                         {
-                            Id = new Guid("f41e98ca-9f48-472c-b70e-2f804035c8af"),
+                            Id = new Guid("87f264d3-016f-44e9-b471-f3019c49939f"),
                             Name = "Periwinkle"
                         },
                         new
                         {
-                            Id = new Guid("76376dd0-6abd-41af-8b5b-ba6c1089578b"),
+                            Id = new Guid("335a6972-d96f-4814-ab37-f3d98a5ef8be"),
                             Name = "Permanent Geranium Lake"
                         },
                         new
                         {
-                            Id = new Guid("75d5cd7a-4c15-473b-af4a-423faca96ea9"),
+                            Id = new Guid("90626042-467a-4d42-9001-df34274d85f6"),
                             Name = "Persian Blue"
                         },
                         new
                         {
-                            Id = new Guid("3f790af6-ee63-406c-abcf-e042c747bf2b"),
+                            Id = new Guid("bca57018-c55a-47f6-a219-1f60c070d403"),
                             Name = "Persian Green"
                         },
                         new
                         {
-                            Id = new Guid("75a1a3ca-2246-4c1b-a3d7-73554f2f1a5e"),
+                            Id = new Guid("29996c64-a268-4089-9d81-dba389c762ab"),
                             Name = "Persian Indigo"
                         },
                         new
                         {
-                            Id = new Guid("8075eeaf-dea6-4599-9fa6-d6445c7e26b5"),
+                            Id = new Guid("682636a3-d2c5-4c0c-bd6b-74f1f0b94bfc"),
                             Name = "Persian Orange"
                         },
                         new
                         {
-                            Id = new Guid("a808f638-cf66-42bd-95b7-ec986636bf2d"),
+                            Id = new Guid("f4a1e842-d074-48a5-9585-da070213fa7a"),
                             Name = "Persian Pink"
                         },
                         new
                         {
-                            Id = new Guid("7aa87803-9c2d-4e1f-8cf6-bdfcd076f7d8"),
+                            Id = new Guid("d1946dd1-391c-453f-ab6f-9a8f47b52d30"),
                             Name = "Persian Plum"
                         },
                         new
                         {
-                            Id = new Guid("343be755-e1cd-4ecc-91a7-1cae39a99815"),
+                            Id = new Guid("1deabbfc-4018-4845-b3bf-256a7530d111"),
                             Name = "Persian Red"
                         },
                         new
                         {
-                            Id = new Guid("13eca0a7-9ba5-46be-822c-7b2d11db3491"),
+                            Id = new Guid("88956838-bdd5-49ac-8f73-87636e64baad"),
                             Name = "Persian Rose"
                         },
                         new
                         {
-                            Id = new Guid("e248c3d6-11a8-43ae-8e02-d61bd0d9ca0e"),
+                            Id = new Guid("9fda479c-ccd1-4922-8757-cb14509fd24a"),
                             Name = "Persimmon"
                         },
                         new
                         {
-                            Id = new Guid("f6cede40-a9d9-4923-817c-32428d9cdadb"),
+                            Id = new Guid("488ce9a9-2a4e-40b1-8ec2-09e6b5f7c996"),
                             Name = "Peru"
                         },
                         new
                         {
-                            Id = new Guid("539d82a5-8eef-46ff-8b1d-959ac94669f3"),
+                            Id = new Guid("d3040860-1f3b-4a27-9e00-8b6b8abbe69e"),
                             Name = "Pewter Blue"
                         },
                         new
                         {
-                            Id = new Guid("a7c661bb-7e1a-457b-aab3-6276d228203c"),
+                            Id = new Guid("ca8d3658-2109-47ae-8105-dff8a826e771"),
                             Name = "Phlox"
                         },
                         new
                         {
-                            Id = new Guid("871e88a1-f98f-4d9a-8a9b-34d51c16f7eb"),
+                            Id = new Guid("c298051d-b25a-497e-b828-eb581f806df5"),
                             Name = "Phthalo Blue"
                         },
                         new
                         {
-                            Id = new Guid("edc74ce1-1924-40be-96a0-1b006ea0cb2c"),
+                            Id = new Guid("09226640-42a6-4056-9072-eec476271e42"),
                             Name = "Phthalo Green"
                         },
                         new
                         {
-                            Id = new Guid("85355623-db5e-4af4-8cf3-65eb8d5c57e4"),
+                            Id = new Guid("5903fa37-2901-4c2c-a487-0f3c7a684fba"),
                             Name = "Picton Blue"
                         },
                         new
                         {
-                            Id = new Guid("92bd7bf1-72e5-4196-b842-b13e2ccdc876"),
+                            Id = new Guid("fecb709a-f260-4f90-b2b3-b016f421d3ad"),
                             Name = "Pictorial Carmine"
                         },
                         new
                         {
-                            Id = new Guid("a3b7290c-5a6c-46bb-9ae1-56c0cadc6cc2"),
+                            Id = new Guid("06fbfa6b-6a30-485b-b5d2-f97a9f82d762"),
                             Name = "Piggy Pink"
                         },
                         new
                         {
-                            Id = new Guid("79770fbd-83c7-4f90-a40c-04de435d399f"),
+                            Id = new Guid("51ab4e29-da6c-4eee-a7dd-15f5b659a7ef"),
                             Name = "Pine Green"
                         },
                         new
                         {
-                            Id = new Guid("9b8c4296-46a6-4ac4-a5b5-c4e4dced8f27"),
+                            Id = new Guid("9f006123-a364-4850-bb65-8003afd1d290"),
                             Name = "Pineapple"
                         },
                         new
                         {
-                            Id = new Guid("66fadc6b-c0c4-48e3-b1b4-0d2381cdcf4e"),
+                            Id = new Guid("0d9ea5f8-abb8-4659-a45c-630ff63d4866"),
                             Name = "Pink"
                         },
                         new
                         {
-                            Id = new Guid("5630a41b-115e-4019-b89f-37f20a2c1694"),
+                            Id = new Guid("2ccf69fc-5f34-4fda-b9fe-29ccb28640df"),
                             Name = "Pink (Pantone)"
                         },
                         new
                         {
-                            Id = new Guid("e017a46a-41e6-4db0-b91b-a42b60ce80f3"),
+                            Id = new Guid("1b0ec78c-d9ce-449d-867e-695a304d2ba5"),
                             Name = "Pink Flamingo"
                         },
                         new
                         {
-                            Id = new Guid("f809ef06-735a-4572-864c-cfe14d94dabf"),
+                            Id = new Guid("e783a5a7-af76-4023-a01f-7a4cc2ddea3a"),
                             Name = "Pink Lace"
                         },
                         new
                         {
-                            Id = new Guid("34fe5bcc-ea7b-4734-9537-7564dcca35a9"),
+                            Id = new Guid("18f23075-fa84-4911-a532-afb5c1fa8865"),
                             Name = "Pink Lavender"
                         },
                         new
                         {
-                            Id = new Guid("80b3943b-3279-4dcf-a0ae-9c0c7b2345c1"),
+                            Id = new Guid("9561b2af-037e-4344-ae5e-d5787cb1bd1e"),
                             Name = "Pink-Orange"
                         },
                         new
                         {
-                            Id = new Guid("7ad013e4-5fed-464b-9d15-a70aec64b188"),
+                            Id = new Guid("da94b760-56f2-4d5e-9888-1a021df020ed"),
                             Name = "Pink Pearl"
                         },
                         new
                         {
-                            Id = new Guid("6b85ce57-1aa2-4cac-b180-465938785307"),
+                            Id = new Guid("58d563bd-2848-45a2-a476-30b541c3d403"),
                             Name = "Pink Raspberry"
                         },
                         new
                         {
-                            Id = new Guid("af32aecc-32e6-4ca6-a4bd-62b6feecff48"),
+                            Id = new Guid("59988059-92d3-47d3-88a6-f7ce874ce41d"),
                             Name = "Pink Sherbet"
                         },
                         new
                         {
-                            Id = new Guid("ef89c8db-f0e0-4a33-81f1-1fa0ca2e8ed8"),
+                            Id = new Guid("740395e5-dd78-4255-908c-23400f2ad03c"),
                             Name = "Pistachio"
                         },
                         new
                         {
-                            Id = new Guid("ba69256d-c0c6-4731-acf7-a04f146a9dfd"),
+                            Id = new Guid("e27c0c2b-c140-4a83-82dc-6014f462f7fb"),
                             Name = "Pixie Powder"
                         },
                         new
                         {
-                            Id = new Guid("7d20496b-b8a0-460b-ad24-b9e4031c53d6"),
+                            Id = new Guid("1959c69f-6b12-4d2d-9607-be2f8123e6b6"),
                             Name = "Platinum"
                         },
                         new
                         {
-                            Id = new Guid("c5a8cc25-8f85-4a83-bc56-f5e3a392c69f"),
+                            Id = new Guid("39ab015e-79f7-4988-8bfc-1f92a9d103f9"),
                             Name = "Plum"
                         },
                         new
                         {
-                            Id = new Guid("926226eb-65ab-4c97-8251-88a50461ad11"),
+                            Id = new Guid("82902715-cb17-4c1d-b6ec-c3ec6cc0ccc4"),
                             Name = "Plum (Web)"
                         },
                         new
                         {
-                            Id = new Guid("60b0890a-8484-4bd9-a073-76ffaef01924"),
+                            Id = new Guid("12eb6dc0-499f-40c8-a563-d3961cd8b602"),
                             Name = "Plump Purple"
                         },
                         new
                         {
-                            Id = new Guid("e9622ae1-bbfc-4e87-883d-63da8409216a"),
+                            Id = new Guid("092e54cc-3f28-4e74-87a1-d94ef83043f1"),
                             Name = "Polished Pine"
                         },
                         new
                         {
-                            Id = new Guid("ce02e54e-a4e3-4131-b549-a3dd2cfd97b6"),
+                            Id = new Guid("e0b6c26a-4c7c-4996-bd43-cc5ce1a0d8b8"),
                             Name = "Pomp And Power"
                         },
                         new
                         {
-                            Id = new Guid("99ecaf47-8f40-4de1-b2ac-a5da60ad4002"),
+                            Id = new Guid("47daa4be-de92-469d-b471-7aee143eeace"),
                             Name = "Popstar"
                         },
                         new
                         {
-                            Id = new Guid("d1addbde-e811-4599-8f1c-2d84165db69e"),
+                            Id = new Guid("8d447140-5955-4bcc-beca-42a23fc51372"),
                             Name = "Portland Orange"
                         },
                         new
                         {
-                            Id = new Guid("ee532bd1-72fe-4c79-b8a7-27e44f60a9a5"),
+                            Id = new Guid("dfcdf155-87e0-4313-a670-d050dc248497"),
                             Name = "Powder Blue"
                         },
                         new
                         {
-                            Id = new Guid("2c1ce0fc-edf5-4234-9f14-9771e5e60d21"),
+                            Id = new Guid("eeb7bd64-f0be-400d-9348-5cf2b9ffb60b"),
                             Name = "Princess Perfume"
                         },
                         new
                         {
-                            Id = new Guid("17fc2d53-a483-4ce8-a252-f2135be9cfd4"),
+                            Id = new Guid("a6c01928-60d4-4599-aff4-31bf662f409b"),
                             Name = "Princeton Orange"
                         },
                         new
                         {
-                            Id = new Guid("ba90a2b9-ca81-4358-93c2-9247afd9cc5f"),
+                            Id = new Guid("2cd7c347-d069-4d19-9451-ee8fe60a86f2"),
                             Name = "Prune"
                         },
                         new
                         {
-                            Id = new Guid("a33b1783-4b0a-44e1-9a15-074a6434bf1a"),
+                            Id = new Guid("7b9a5ef3-f9d9-45d3-928f-dffe52e1836a"),
                             Name = "Prussian Blue"
                         },
                         new
                         {
-                            Id = new Guid("76d8d301-1984-49d6-a4b4-b7784089ad9c"),
+                            Id = new Guid("4d82c160-3948-490c-bc0b-8d15c365596f"),
                             Name = "Psychedelic Purple"
                         },
                         new
                         {
-                            Id = new Guid("197a38f4-469e-42db-9dbf-b50e85c4e528"),
+                            Id = new Guid("8a918ab3-9759-46a1-aab3-e4ac0f1eac8f"),
                             Name = "Puce"
                         },
                         new
                         {
-                            Id = new Guid("a62c9ee1-21c5-4b56-a550-99645ced6f2b"),
+                            Id = new Guid("ff0dfd03-a526-4d0f-a942-e4541d93a721"),
                             Name = "Puce Red"
                         },
                         new
                         {
-                            Id = new Guid("4d99cdae-70e7-4813-96a7-205318cd4db2"),
+                            Id = new Guid("c536fcc0-57d1-4482-a1a1-38af53ac0041"),
                             Name = "Pullman Brown (UPS Brown)"
                         },
                         new
                         {
-                            Id = new Guid("4c53f7b2-6a61-4321-b212-4d26c47ed690"),
+                            Id = new Guid("e92a883e-3b42-486c-acbb-692280db93a8"),
                             Name = "Pullman Green"
                         },
                         new
                         {
-                            Id = new Guid("36a8ce99-7fdf-453d-807c-082b2b6dd77c"),
+                            Id = new Guid("e6598e14-f95e-4e67-9cb7-cee7371fa6ec"),
                             Name = "Pumpkin"
                         },
                         new
                         {
-                            Id = new Guid("9dbfd304-b9b6-42e2-bdd5-983122134a3c"),
+                            Id = new Guid("eb947a90-149c-4d99-82d3-277a95e02c5f"),
                             Name = "Purple (HTML)"
                         },
                         new
                         {
-                            Id = new Guid("5494f395-1505-4689-b14b-141c4893a406"),
+                            Id = new Guid("166010cf-0f43-4b3d-847b-4a159a1fc455"),
                             Name = "Purple (Munsell)"
                         },
                         new
                         {
-                            Id = new Guid("33afc289-7366-45c1-9d65-09a99a0f2293"),
+                            Id = new Guid("92e2591f-d135-42d2-959f-ae58f73981af"),
                             Name = "Purple (X11)"
                         },
                         new
                         {
-                            Id = new Guid("d2a4ef5d-60ef-4645-a7e0-af06b0ab04cd"),
+                            Id = new Guid("2b9f6eda-fc32-4054-ba8c-255b1a2f0da1"),
                             Name = "Purple Heart"
                         },
                         new
                         {
-                            Id = new Guid("ae2d7ca1-db3f-4221-b3c5-80554eb943f5"),
+                            Id = new Guid("301ed6a9-726b-4624-9bcb-79a96e834eea"),
                             Name = "Purple Mountain Majesty"
                         },
                         new
                         {
-                            Id = new Guid("3e53145c-5a58-473a-a76c-c0f5d48b409d"),
+                            Id = new Guid("df638da0-cfc0-420e-aa4f-8912f4a2f21b"),
                             Name = "Purple Navy"
                         },
                         new
                         {
-                            Id = new Guid("2014ee77-ed4c-4fab-9d12-a832165a0f08"),
+                            Id = new Guid("31fde518-46d8-485b-bd77-98a59336059d"),
                             Name = "Purple Pizzazz"
                         },
                         new
                         {
-                            Id = new Guid("bae74fa1-af10-4e13-81f4-bbd1ecd7225f"),
+                            Id = new Guid("0ded8e74-02fd-4cf3-96b8-f973bba30720"),
                             Name = "Purple Plum"
                         },
                         new
                         {
-                            Id = new Guid("4dd63252-4aaa-4c89-8ede-d95e8b5a75b7"),
+                            Id = new Guid("1dda3288-16a3-4419-8879-1761c75ba0cd"),
                             Name = "Purple Taupe"
                         },
                         new
                         {
-                            Id = new Guid("cb3e1e0c-39dd-41c0-8e1b-0b0cda98b6e6"),
+                            Id = new Guid("438b07ec-ad1c-4adb-95c4-76086ecf6d46"),
                             Name = "Purpureus"
                         },
                         new
                         {
-                            Id = new Guid("3ca993f9-7a65-4e5f-a299-cb354ac3359e"),
+                            Id = new Guid("30c62965-91ef-49e3-8734-485ef14e1df7"),
                             Name = "Quartz"
                         },
                         new
                         {
-                            Id = new Guid("1a88859c-b3c0-484e-9e58-74dc9384623b"),
+                            Id = new Guid("cc6dc2cf-4484-44a1-8f8c-9e46b774f8d9"),
                             Name = "Queen Blue"
                         },
                         new
                         {
-                            Id = new Guid("71b7c169-c460-4d7c-b6cf-1f808016d224"),
+                            Id = new Guid("80d7f4f7-5ca1-421e-84d6-920aefed27df"),
                             Name = "Queen Pink"
                         },
                         new
                         {
-                            Id = new Guid("6e179b8d-75c2-45ae-a748-774b9ebbeb24"),
+                            Id = new Guid("81fcc324-7447-40dd-855e-5272b41dcc35"),
                             Name = "Quick Silver"
                         },
                         new
                         {
-                            Id = new Guid("3e3de85c-586b-4d99-9a54-650188b49647"),
+                            Id = new Guid("6ffe8303-23c7-41a0-af46-db240ebe446d"),
                             Name = "Quinacridone Magenta"
                         },
                         new
                         {
-                            Id = new Guid("7a9f4fd2-10a6-40fd-b321-4e91acf998b7"),
+                            Id = new Guid("3788d348-65d8-4011-b196-a60310e2c60c"),
                             Name = "Rackley"
                         },
                         new
                         {
-                            Id = new Guid("32ae0182-e12e-4858-a322-50459d0b4b7d"),
+                            Id = new Guid("cbfe6fee-d124-4ddb-8243-18ab8a53b303"),
                             Name = "Radical Red"
                         },
                         new
                         {
-                            Id = new Guid("911514ec-6fca-47e7-92f3-c97a9efad738"),
+                            Id = new Guid("2249d5cc-cb9d-4594-9fb5-7bd553523953"),
                             Name = "Raisin Black"
                         },
                         new
                         {
-                            Id = new Guid("7ad1e6e0-2143-4957-9827-e886865e9cb9"),
+                            Id = new Guid("97d13bbc-f86d-4ef6-8d95-ea6ce22f9213"),
                             Name = "Rajah"
                         },
                         new
                         {
-                            Id = new Guid("fced7c8d-f825-44d5-a167-882fb77d6fa9"),
+                            Id = new Guid("ec76a2c2-47f9-468e-870c-9b3756d21207"),
                             Name = "Raspberry"
                         },
                         new
                         {
-                            Id = new Guid("976c8466-9dc3-4abd-b507-7917f99b8c68"),
+                            Id = new Guid("eac6fd47-de53-46f7-ab90-1e550874580a"),
                             Name = "Raspberry Glace"
                         },
                         new
                         {
-                            Id = new Guid("c3831be3-b6a6-414b-8c12-b3e9a3d45e8b"),
+                            Id = new Guid("587f27b9-83f1-40e4-9f1e-84df49c9219b"),
                             Name = "Raspberry Pink"
                         },
                         new
                         {
-                            Id = new Guid("2fdf66c1-9f3c-44d3-9fda-af741d1e7adf"),
+                            Id = new Guid("cc153b2a-dc4e-4a61-a780-b05204111d9a"),
                             Name = "Raspberry Rose"
                         },
                         new
                         {
-                            Id = new Guid("17a089b3-8c74-42c4-a4a5-d0d9b86b8c8c"),
+                            Id = new Guid("ea382fe6-6fce-4bcd-8a8f-6f140556a502"),
                             Name = "Raw Sienna"
                         },
                         new
                         {
-                            Id = new Guid("36872fe0-5708-4303-b950-657180c3db6f"),
+                            Id = new Guid("e0c21f3e-41db-4aa1-a4de-372c97ba247b"),
                             Name = "Raw Umber"
                         },
                         new
                         {
-                            Id = new Guid("4db9c642-478e-41d6-b3fb-22cee3ce2bec"),
+                            Id = new Guid("db37d9a4-f847-4923-b926-cf08134d9622"),
                             Name = "Razzle Dazzle Rose"
                         },
                         new
                         {
-                            Id = new Guid("362d61d3-7c34-4223-86e0-9db15737d2f7"),
+                            Id = new Guid("704b722d-88db-4622-a7fc-2b1b023b8ba4"),
                             Name = "Razzmatazz"
                         },
                         new
                         {
-                            Id = new Guid("e553e6c8-b177-483d-a10f-30651ab1ab94"),
+                            Id = new Guid("9945ce9f-b791-405e-9649-fa399367b50a"),
                             Name = "Razzmic Berry"
                         },
                         new
                         {
-                            Id = new Guid("62ed18c7-db45-4ba7-b3de-55073be630fa"),
+                            Id = new Guid("fbded74e-428e-4665-affe-b00492b23176"),
                             Name = "Rebecca Purple"
                         },
                         new
                         {
-                            Id = new Guid("0e8e69e7-264d-4026-9f33-93e779845dfd"),
+                            Id = new Guid("ef08768b-e83e-4b94-ae88-690b881ccc4f"),
                             Name = "Red"
                         },
                         new
                         {
-                            Id = new Guid("ad352a8c-6cbc-4172-aca9-199cfc5284cc"),
+                            Id = new Guid("f9a767ac-2c83-44b3-991b-8f79baac9c35"),
                             Name = "Red (Crayola)"
                         },
                         new
                         {
-                            Id = new Guid("6a4c9ccf-41e5-4180-880b-15711e829b0b"),
+                            Id = new Guid("10db4745-c7af-49df-b48e-e7ab2a1a558d"),
                             Name = "Red (Munsell)"
                         },
                         new
                         {
-                            Id = new Guid("3b3789cf-ab35-443c-a32d-52edac566e20"),
+                            Id = new Guid("e463a841-35a9-4ced-a8d7-e9c316880ead"),
                             Name = "Red (NCS)"
                         },
                         new
                         {
-                            Id = new Guid("b5c77657-78e3-4e50-8a0a-a103344ac2c7"),
+                            Id = new Guid("17055c10-cf7c-4f1f-abb2-518a06b24f5f"),
                             Name = "Red (Pantone)"
                         },
                         new
                         {
-                            Id = new Guid("9c887d92-6281-4921-80de-f552af8df49e"),
+                            Id = new Guid("ab1cebed-65ea-4d01-b8a6-11f9d4790080"),
                             Name = "Red (Pigment)"
                         },
                         new
                         {
-                            Id = new Guid("d0ac3bf6-7bbf-49a8-979a-eaa8967b6770"),
+                            Id = new Guid("f5e39cc1-1fea-48c1-a334-26c01da99a1b"),
                             Name = "Red (RYB)"
                         },
                         new
                         {
-                            Id = new Guid("8909567e-9316-452d-b1ec-557cf0ee51bf"),
+                            Id = new Guid("b99038df-aa33-4a0f-a1e7-0e5face5ad1d"),
                             Name = "Red-Brown"
                         },
                         new
                         {
-                            Id = new Guid("8d4c03c4-ad05-48ef-bc83-e17fb0807bc8"),
+                            Id = new Guid("7b0d1859-ad17-48ce-a16b-0920ae0b2202"),
                             Name = "Red Devil"
                         },
                         new
                         {
-                            Id = new Guid("0cf78056-3425-48c3-adc4-87a545e3caca"),
+                            Id = new Guid("5a257bc9-e2e3-4e23-84f2-b161a4241a08"),
                             Name = "Red-Orange"
                         },
                         new
                         {
-                            Id = new Guid("262ec1e3-e55c-4c0d-af42-a1b8dc62147e"),
+                            Id = new Guid("380ba0a4-abcf-4cd6-8d45-dde5b98631e5"),
                             Name = "Red-Purple"
                         },
                         new
                         {
-                            Id = new Guid("7eda6dc3-980b-4f8d-af21-6280d9790f06"),
+                            Id = new Guid("95712077-aa8c-49fb-bb96-d8ce97c8c422"),
                             Name = "Red Salsa"
                         },
                         new
                         {
-                            Id = new Guid("9803fc90-1d92-4316-9408-22857129c35c"),
+                            Id = new Guid("060ad90a-7b4a-4a00-8384-70f2c8ecef5e"),
                             Name = "Red-Violet"
                         },
                         new
                         {
-                            Id = new Guid("8abd764a-7948-49d1-9aa4-1b31a724db31"),
+                            Id = new Guid("9c178270-0ece-4c72-97a0-0f22fde828fb"),
                             Name = "Redwood"
                         },
                         new
                         {
-                            Id = new Guid("c80a31e9-c59c-4cc1-b032-bbab74a54f95"),
+                            Id = new Guid("2978284c-53b2-42af-ba4b-955a82afe9c1"),
                             Name = "Regalia"
                         },
                         new
                         {
-                            Id = new Guid("1709e86c-4a3d-4346-bd92-2e7e523ea68f"),
+                            Id = new Guid("9b05fae5-9bcb-424d-93c1-9f32cb1bb3dd"),
                             Name = "Registration Black"
                         },
                         new
                         {
-                            Id = new Guid("eeaa5a4b-a720-4486-b0ee-a55f678d4008"),
+                            Id = new Guid("da72365e-8f59-40b6-aad0-a24528a9c742"),
                             Name = "Resolution Blue"
                         },
                         new
                         {
-                            Id = new Guid("03987b23-7cf0-4310-8942-e788ceb402d8"),
+                            Id = new Guid("a94266c5-5129-40db-919b-a400061d76ad"),
                             Name = "Rhythm"
                         },
                         new
                         {
-                            Id = new Guid("a71ac049-0674-446c-8578-26e7d4ee4dac"),
+                            Id = new Guid("99c429c1-096b-4850-8f4c-845032eaaac2"),
                             Name = "Rich Black"
                         },
                         new
                         {
-                            Id = new Guid("455cd922-8dbe-45a9-a92e-b785843cf307"),
+                            Id = new Guid("a8023217-32ac-47f1-b161-8682ab07fc54"),
                             Name = "Rich Black (FOGRA29)"
                         },
                         new
                         {
-                            Id = new Guid("6092728d-fbe8-4fec-ac9a-c879b9e19a69"),
+                            Id = new Guid("4d1629c1-0b8f-44a6-83fd-fd34b5a515be"),
                             Name = "Rich Black (FOGRA39)"
                         },
                         new
                         {
-                            Id = new Guid("13016edd-34e0-49d9-806a-0dc6ffee687d"),
+                            Id = new Guid("e9c4be90-8f62-4c6d-ae95-461c4a4190f0"),
                             Name = "Rich Brilliant Lavender"
                         },
                         new
                         {
-                            Id = new Guid("1fd0f22b-ebaa-4557-b9d8-74e4402cc19e"),
+                            Id = new Guid("ca40aa3e-6f05-4470-8531-3f971133c3bc"),
                             Name = "Rich Carmine"
                         },
                         new
                         {
-                            Id = new Guid("c332d6c6-70e7-4c53-85b5-a12c65e0fd45"),
+                            Id = new Guid("b194bddc-6b88-41ac-a2b6-0851a95c4193"),
                             Name = "Rich Electric Blue"
                         },
                         new
                         {
-                            Id = new Guid("5c198217-1c5e-4b81-a8e3-5f82a4a068ce"),
+                            Id = new Guid("501399ef-e3f5-4c3a-a18f-76048287b497"),
                             Name = "Rich Lavender"
                         },
                         new
                         {
-                            Id = new Guid("a404f2e0-1434-41e8-a4f7-70db5e3c82f8"),
+                            Id = new Guid("a7e2abc0-6037-4c7b-a2e0-1b7677685470"),
                             Name = "Rich Lilac"
                         },
                         new
                         {
-                            Id = new Guid("fd122ff4-b7b1-434f-b32a-94874c0c7ab4"),
+                            Id = new Guid("7836c78e-3297-4fa6-8853-5dccd48db947"),
                             Name = "Rich Maroon"
                         },
                         new
                         {
-                            Id = new Guid("fe41b8d2-96b1-4833-af8e-ef99205722fe"),
+                            Id = new Guid("993d908a-cfd5-4b39-a68d-f9c79ab93061"),
                             Name = "Rifle Green"
                         },
                         new
                         {
-                            Id = new Guid("b68baae7-f9aa-4f14-862f-ab48552c9d46"),
+                            Id = new Guid("6843bfe3-f76e-47e3-bdf3-3f1988f5b8ac"),
                             Name = "Roast Coffee"
                         },
                         new
                         {
-                            Id = new Guid("3e0024d8-1089-4cf4-96f0-716a9ec09e5e"),
+                            Id = new Guid("a0537693-6f92-4c47-995a-280e378ccdc4"),
                             Name = "Robin Egg Blue"
                         },
                         new
                         {
-                            Id = new Guid("f9bd606a-38c6-4ab6-aee0-e0c6eebf3e8e"),
+                            Id = new Guid("6629fde0-61dc-477c-af0f-110124437338"),
                             Name = "Rocket Metallic"
                         },
                         new
                         {
-                            Id = new Guid("62ea22a9-07b3-4ffb-ba6f-ba37b5f394ea"),
+                            Id = new Guid("00a444b0-1c83-4382-88cf-a898d0a392ad"),
                             Name = "Roman Silver"
                         },
                         new
                         {
-                            Id = new Guid("14a7e8da-c82f-4739-a2e3-5ae0b6452817"),
+                            Id = new Guid("85c7ea44-fcd9-4627-ab47-a1e428c6e197"),
                             Name = "Rose"
                         },
                         new
                         {
-                            Id = new Guid("f3fddb9e-08e2-4fbd-8cb2-59d89573eb97"),
+                            Id = new Guid("245b35de-1345-463c-89f6-d3a2f843447f"),
                             Name = "Rose Bonbon"
                         },
                         new
                         {
-                            Id = new Guid("9ee2c665-662a-49d5-aeb5-7ca517c608de"),
+                            Id = new Guid("6bf0c406-96ac-4e5f-95be-fd63047468fc"),
                             Name = "Rose Dust"
                         },
                         new
                         {
-                            Id = new Guid("11a46d82-dff8-440f-8892-cb878d5ee638"),
+                            Id = new Guid("827901cf-dc2f-408d-aa3a-d99e942823fe"),
                             Name = "Rose Ebony"
                         },
                         new
                         {
-                            Id = new Guid("9026f528-bda2-4ad5-90f0-0e66f57b50e9"),
+                            Id = new Guid("6843e023-d129-4f98-912d-b0400329c562"),
                             Name = "Rose Gold"
                         },
                         new
                         {
-                            Id = new Guid("99a75279-31cc-45d3-ae68-50d6ee3ab3f0"),
+                            Id = new Guid("ce91b932-85c2-485e-adbb-4ff5b644c310"),
                             Name = "Rose Madder"
                         },
                         new
                         {
-                            Id = new Guid("f2b760cf-7c37-416f-9fb6-cc331b6405cd"),
+                            Id = new Guid("23a7f728-2485-4ac7-b099-72d2b758c9d5"),
                             Name = "Rose Pink"
                         },
                         new
                         {
-                            Id = new Guid("444444d1-41b3-482a-81d1-bf14747c2345"),
+                            Id = new Guid("3a44bacd-7e67-439e-9cbf-158ccbf957fe"),
                             Name = "Rose Quartz"
                         },
                         new
                         {
-                            Id = new Guid("06ac129a-13ee-4ffa-b2f7-815c66c538de"),
+                            Id = new Guid("1fbe3a0d-6589-4ebe-a44f-8e71f2f4ef4a"),
                             Name = "Rose Red"
                         },
                         new
                         {
-                            Id = new Guid("92bfc8ff-76a3-4149-8f86-034d29d44028"),
+                            Id = new Guid("ac8d8e1f-f4fd-438a-9336-df3adb00becd"),
                             Name = "Rose Taupe"
                         },
                         new
                         {
-                            Id = new Guid("d6ce8a31-6066-4262-8773-49b60c395a30"),
+                            Id = new Guid("ce5caa2f-393d-40ab-b134-53fc814a34ae"),
                             Name = "Rose Vale"
                         },
                         new
                         {
-                            Id = new Guid("c53d0ccb-5436-45fc-8997-8c4749a0cfb2"),
+                            Id = new Guid("149b739e-3971-4e6f-add1-593b81c1e068"),
                             Name = "Rosewood"
                         },
                         new
                         {
-                            Id = new Guid("3ccf77b0-a178-4a13-b5b3-291bdd764658"),
+                            Id = new Guid("0089a577-2fd8-40a4-be2a-a1f7d5abaaf8"),
                             Name = "Rosso Corsa"
                         },
                         new
                         {
-                            Id = new Guid("44f4c5d1-1c8b-4ea7-9038-0a7a60761479"),
+                            Id = new Guid("3adaa817-ae9f-4aa2-8765-bf6ceffe1ac9"),
                             Name = "Rosy Brown"
                         },
                         new
                         {
-                            Id = new Guid("e9ac3979-aac7-4824-837c-a798c32b7da0"),
+                            Id = new Guid("a2fea8f6-5218-462a-8c05-b491d56f81c7"),
                             Name = "Royal Azure"
                         },
                         new
                         {
-                            Id = new Guid("17b6eeb8-22c8-43a8-8da4-aa05ddb7d02c"),
+                            Id = new Guid("1acbf3e2-821e-4f10-ace9-4c3cd1203edb"),
                             Name = "Royal Blue"
                         },
                         new
                         {
-                            Id = new Guid("00e8f104-0304-45db-86b0-9e8ebff5144b"),
+                            Id = new Guid("e1153457-0b98-4740-8567-4aea9fb78fdd"),
                             Name = "Royal Fuchsia"
                         },
                         new
                         {
-                            Id = new Guid("2d21a70d-32c9-4a97-a2aa-3be0b76daaac"),
+                            Id = new Guid("10b36702-9362-4b5e-9fb1-7bef00449a85"),
                             Name = "Royal Purple"
                         },
                         new
                         {
-                            Id = new Guid("d925ba66-4177-4a0e-9135-9544f6e2ba42"),
+                            Id = new Guid("5da99fd0-aca4-421e-a944-91c7f6375647"),
                             Name = "Royal Yellow"
                         },
                         new
                         {
-                            Id = new Guid("0aed51c8-4347-40c9-9a99-f4e95ae23bba"),
+                            Id = new Guid("ae1b7c19-519a-4424-9f8d-739c250a97cf"),
                             Name = "Ruber"
                         },
                         new
                         {
-                            Id = new Guid("c7e9b157-e654-4d58-8971-0ba963cc3886"),
+                            Id = new Guid("5ef5f288-87ab-4fb4-ab76-4d7f67f46ef4"),
                             Name = "Rubine Red"
                         },
                         new
                         {
-                            Id = new Guid("8ebc564c-979a-4bfb-aca5-ea63d476b8d7"),
+                            Id = new Guid("29221dd2-3c5d-4dfa-8347-c7ea1649a822"),
                             Name = "Ruby"
                         },
                         new
                         {
-                            Id = new Guid("f91abb6a-719c-41f9-b792-c31ef1613ef0"),
+                            Id = new Guid("c2c50d7f-03a0-4613-b66c-8d3260c480f2"),
                             Name = "Ruby Red"
                         },
                         new
                         {
-                            Id = new Guid("864493cc-4aba-4a33-9611-15dd97e81e9b"),
+                            Id = new Guid("b7d409d0-2757-488f-8fd2-0822f44e011f"),
                             Name = "Ruddy"
                         },
                         new
                         {
-                            Id = new Guid("e2ac239b-2776-4dcf-8a75-85b616b42eb7"),
+                            Id = new Guid("6ddb7d2f-119f-42f1-a7fc-6259f137f646"),
                             Name = "Ruddy Brown"
                         },
                         new
                         {
-                            Id = new Guid("183e4333-4247-48c8-ac19-066cccbe1509"),
+                            Id = new Guid("f70e3795-98be-43fa-a48f-732de5bc708b"),
                             Name = "Ruddy Pink"
                         },
                         new
                         {
-                            Id = new Guid("df641689-d8ba-46a7-bc0c-6cc79dbd609e"),
+                            Id = new Guid("4c2483ba-32ae-4c8a-9434-cc4c3f4b5003"),
                             Name = "Rufous"
                         },
                         new
                         {
-                            Id = new Guid("d84f460f-aeef-4a1f-b474-e87202657001"),
+                            Id = new Guid("911623ab-aeb3-42f4-95ef-1687828d724f"),
                             Name = "Russet"
                         },
                         new
                         {
-                            Id = new Guid("59f5cde1-633e-4950-b8a4-71a66de75304"),
+                            Id = new Guid("79a05193-58bf-4c91-8d2a-132e822ff92c"),
                             Name = "Russian Green"
                         },
                         new
                         {
-                            Id = new Guid("5a786e5e-8fce-4d67-8ed7-0d9fc7dca3ba"),
+                            Id = new Guid("f33765bc-e1e4-4d69-84e7-d8df1f6c2c4c"),
                             Name = "Russian Violet"
                         },
                         new
                         {
-                            Id = new Guid("8c3f8457-e4c3-4a61-a61c-7a08b3e02672"),
+                            Id = new Guid("920dcb3a-a5b4-41a4-9dc0-72be377f631a"),
                             Name = "Rust"
                         },
                         new
                         {
-                            Id = new Guid("d1ca8b22-2c64-4446-87af-409774625465"),
+                            Id = new Guid("8f67429a-cbea-4564-bc21-62f8d11920dc"),
                             Name = "Rusty Red"
                         },
                         new
                         {
-                            Id = new Guid("3128662c-24ad-4112-bfdc-298bd65edd60"),
+                            Id = new Guid("b0cea482-9290-4892-8661-bc6eaba56444"),
                             Name = "Sacramento State Green"
                         },
                         new
                         {
-                            Id = new Guid("ec226be4-0bd6-424a-af34-314df026bea7"),
+                            Id = new Guid("7f548fd3-a4e4-43b3-b25a-62933bcf10cf"),
                             Name = "Saddle Brown"
                         },
                         new
                         {
-                            Id = new Guid("9cf159d2-2b4c-40ce-8011-9fcd36e74fce"),
+                            Id = new Guid("e2ce6671-339d-4201-a7fd-c53f57cce7a5"),
                             Name = "Safety Orange"
                         },
                         new
                         {
-                            Id = new Guid("438175ea-459d-4ea8-a176-a8aeec499944"),
+                            Id = new Guid("cf310be2-60ae-42da-b78e-63518c143710"),
                             Name = "Safety Orange (Blaze Orange)"
                         },
                         new
                         {
-                            Id = new Guid("2075bfd6-e4af-447f-80df-ca5b71cf3509"),
+                            Id = new Guid("b9c45156-c5ae-4c9a-8a09-f4e57daf407b"),
                             Name = "Safety Yellow"
                         },
                         new
                         {
-                            Id = new Guid("a938d524-a1ad-490a-9eb8-861a13fba215"),
+                            Id = new Guid("0675caa0-b390-4d88-ab8a-a716f0fc129e"),
                             Name = "Saffron"
                         },
                         new
                         {
-                            Id = new Guid("d716f755-a7ce-4130-bd84-9509fe4f44a2"),
+                            Id = new Guid("e1b6924b-cddf-4852-907b-78b07c0609da"),
                             Name = "Sage"
                         },
                         new
                         {
-                            Id = new Guid("b5108ae1-e180-4b8f-9f93-dcc8ef305925"),
+                            Id = new Guid("b8f80c54-83c7-4613-aa38-274414f8db30"),
                             Name = "St. Patrick's Blue"
                         },
                         new
                         {
-                            Id = new Guid("d92b98f7-59e5-4f71-bab5-bd93976f590e"),
+                            Id = new Guid("0b6bfcbd-b7da-4eef-89ea-3a697a3c4968"),
                             Name = "Salmon"
                         },
                         new
                         {
-                            Id = new Guid("e4d486a8-67f0-4322-8963-b081757f659c"),
+                            Id = new Guid("af968100-092a-4ab6-80c4-6973d1edd2b1"),
                             Name = "Salmon Pink"
                         },
                         new
                         {
-                            Id = new Guid("ba49ccbb-874f-4b8b-ba8c-3231203a76b8"),
+                            Id = new Guid("b3446643-a8e3-48a5-8b6a-b11afade5f86"),
                             Name = "Sand"
                         },
                         new
                         {
-                            Id = new Guid("1639c14f-f1e1-40c8-9d6e-ebc95a4be527"),
+                            Id = new Guid("c166bae8-1139-4bc0-85b3-d50de64ef35c"),
                             Name = "Sand Dune"
                         },
                         new
                         {
-                            Id = new Guid("f2ed203d-00d4-4dd4-9b9e-7095036710ab"),
+                            Id = new Guid("ff32d86a-f7a4-42a4-8ecb-348376611309"),
                             Name = "Sandstorm"
                         },
                         new
                         {
-                            Id = new Guid("72c76ec0-8a34-4d17-aa82-ffd417348cb2"),
+                            Id = new Guid("91befbfa-151e-4dbe-8aff-7b9da8706485"),
                             Name = "Sandy Brown"
                         },
                         new
                         {
-                            Id = new Guid("af6ddf7f-f53d-4f8e-a203-9802fdeb893b"),
+                            Id = new Guid("644e6e9c-ccf1-497e-bfe1-5a5faec4cc2f"),
                             Name = "Sandy Taupe"
                         },
                         new
                         {
-                            Id = new Guid("7e92b39f-b146-4151-81ba-a456c7e7e57d"),
+                            Id = new Guid("2cbb0a23-2f96-481d-b1ce-48c51d94f4ee"),
                             Name = "Sangria"
                         },
                         new
                         {
-                            Id = new Guid("1bc2689f-f832-4ce2-8072-eb047f17e214"),
+                            Id = new Guid("dd77f7f1-68c0-4e44-9959-28bab90e7e8d"),
                             Name = "Sap Green"
                         },
                         new
                         {
-                            Id = new Guid("f20af407-db84-46c0-9f8f-e3a4540a0109"),
+                            Id = new Guid("acb84ef7-744c-4fcd-b487-1f56d91b61c3"),
                             Name = "Sapphire"
                         },
                         new
                         {
-                            Id = new Guid("0aeffbb3-7bd2-42db-9c60-b3c4575d7e3a"),
+                            Id = new Guid("a78ab357-1e12-4977-8440-9808e2a35d3b"),
                             Name = "Sapphire Blue"
                         },
                         new
                         {
-                            Id = new Guid("7ba52a00-f096-4870-9ebd-8d4b4dfee7b5"),
+                            Id = new Guid("048eca3a-157b-4c77-ad31-0bda5406d43a"),
                             Name = "Sasquatch Socks"
                         },
                         new
                         {
-                            Id = new Guid("e24076da-c7b7-4455-9e20-5fb49dc50639"),
+                            Id = new Guid("babd034a-ab1a-4c2a-ab6b-14b14809428a"),
                             Name = "Satin Sheen Gold"
                         },
                         new
                         {
-                            Id = new Guid("9af0a057-4fe1-47ef-b608-b0496ca12385"),
+                            Id = new Guid("a584635e-9a56-4912-a7fc-bda9f03800b7"),
                             Name = "Scarlet"
                         },
                         new
                         {
-                            Id = new Guid("b2f8828f-65f6-451f-97f2-c8e64d7fe5ce"),
+                            Id = new Guid("4f8f545d-0193-4222-8cff-e6c7e9424a60"),
                             Name = "Schauss Pink"
                         },
                         new
                         {
-                            Id = new Guid("7e50128c-b6e0-4ff0-babe-35922504b4f8"),
+                            Id = new Guid("7a041d53-f263-45a9-9b42-d2eb68b844a5"),
                             Name = "School Bus Yellow"
                         },
                         new
                         {
-                            Id = new Guid("ca393b66-bb67-4a23-ac5f-72f7ff94535a"),
+                            Id = new Guid("5d883054-5163-4c7b-9cae-ad364c43d836"),
                             Name = "Screamin' Green"
                         },
                         new
                         {
-                            Id = new Guid("949384fa-8113-4671-9fdb-395fc43ef255"),
+                            Id = new Guid("01f1c464-ef98-4b9d-8dbb-95ff55d81978"),
                             Name = "Sea Blue"
                         },
                         new
                         {
-                            Id = new Guid("81347f99-7200-4133-9c1a-cffe69fcd4de"),
+                            Id = new Guid("344e7ed7-9710-4975-8859-b4a319d55295"),
                             Name = "Sea Green"
                         },
                         new
                         {
-                            Id = new Guid("13129dea-e0d9-42c7-a146-9f54fa51eb09"),
+                            Id = new Guid("81335000-9c1c-4e11-b726-31fa3f39cf4d"),
                             Name = "Sea Serpent"
                         },
                         new
                         {
-                            Id = new Guid("f156420b-dfcf-4542-9435-40306a7215dc"),
+                            Id = new Guid("e38d35f2-fdfa-4a89-815e-4f268fe0aa89"),
                             Name = "Seal Brown"
                         },
                         new
                         {
-                            Id = new Guid("83b11566-ea47-4949-970f-229ba6e09756"),
+                            Id = new Guid("c9d31290-bc9e-4a05-9651-d0bcc5e4d84c"),
                             Name = "Seashell"
                         },
                         new
                         {
-                            Id = new Guid("67df8e34-058a-434d-bcb3-52322813fce6"),
+                            Id = new Guid("dae71311-61f3-41cd-9115-1ddd94f99a5b"),
                             Name = "Selective Yellow"
                         },
                         new
                         {
-                            Id = new Guid("b88b0e6b-af6f-4fe5-a116-1c56b41af9fe"),
+                            Id = new Guid("de76ecae-2b98-4123-ab51-9dad86180ded"),
                             Name = "Sepia"
                         },
                         new
                         {
-                            Id = new Guid("c9e6ce8c-e795-412a-9383-acc70b02a3de"),
+                            Id = new Guid("fee5e2da-6d7d-4075-8f8e-4495e483b515"),
                             Name = "Shadow"
                         },
                         new
                         {
-                            Id = new Guid("6e4e7cb2-ad77-4d61-b68b-bb1f817e3b5e"),
+                            Id = new Guid("a2c378c7-9b73-47e7-86c3-bfe159f96d4d"),
                             Name = "Shadow Blue"
                         },
                         new
                         {
-                            Id = new Guid("491d6c5d-230f-4344-8786-fa6b335f71d1"),
+                            Id = new Guid("daa16966-9991-4aae-89d9-ed385f100b79"),
                             Name = "Shampoo"
                         },
                         new
                         {
-                            Id = new Guid("2f994323-bb1a-488b-bd16-3bf70965fc70"),
+                            Id = new Guid("6cab0d64-f452-4616-9e54-9d3f030ed620"),
                             Name = "Shamrock Green"
                         },
                         new
                         {
-                            Id = new Guid("8d6431d8-8a5d-4e75-a05f-0bfa2b987d0a"),
+                            Id = new Guid("611e451a-55d2-4bf6-8dd5-6bfc4ff0d878"),
                             Name = "Sheen Green"
                         },
                         new
                         {
-                            Id = new Guid("ed6dca81-41fe-4899-b7e3-baf5620ed538"),
+                            Id = new Guid("37da96dd-684b-4c1a-9b50-fcd42f8c01e4"),
                             Name = "Shimmering Blush"
                         },
                         new
                         {
-                            Id = new Guid("98c96db0-b44b-4aee-8b6d-af948ea360ad"),
+                            Id = new Guid("cc0f7187-22de-4d3c-aef1-9e14a046b41e"),
                             Name = "Shiny Shamrock"
                         },
                         new
                         {
-                            Id = new Guid("0256789e-99e0-4eb3-8b70-d961896a0a6a"),
+                            Id = new Guid("042b248b-7874-4c6b-b378-57a816e13e7b"),
                             Name = "Shocking Pink"
                         },
                         new
                         {
-                            Id = new Guid("7696856d-c4fa-49db-b3b8-50d4b3221bd3"),
+                            Id = new Guid("a81ec825-e437-451c-8d00-04da6f171586"),
                             Name = "Shocking Pink (Crayola)"
                         },
                         new
                         {
-                            Id = new Guid("fb8c1af4-d36b-421d-aef9-6bfc9fd5b4fa"),
+                            Id = new Guid("101481cc-b817-427e-b182-c093e45ec09a"),
                             Name = "Sienna"
                         },
                         new
                         {
-                            Id = new Guid("205b7f64-4e53-4ed3-99c4-2c6c56aed9ed"),
+                            Id = new Guid("9147935b-b088-4c4b-a9a2-dc980063f533"),
                             Name = "Silver"
                         },
                         new
                         {
-                            Id = new Guid("8b656af8-d896-4338-b98b-a1ff71d305a3"),
+                            Id = new Guid("1a83f3e7-9c55-4d50-93e8-5ae1929104fe"),
                             Name = "Silver Chalice"
                         },
                         new
                         {
-                            Id = new Guid("affe820a-3918-4775-825f-1148f592577c"),
+                            Id = new Guid("a1ddfc4e-6140-4e22-8601-01dffa013a5e"),
                             Name = "Silver Lake Blue"
                         },
                         new
                         {
-                            Id = new Guid("c1b8e4bc-d80d-41db-a9a5-b17e3c63cfac"),
+                            Id = new Guid("71bf47f7-44ad-4a39-9817-30739c09fbf3"),
                             Name = "Silver Pink"
                         },
                         new
                         {
-                            Id = new Guid("14909508-53fd-45ae-8259-c35c43ffe667"),
+                            Id = new Guid("1198904d-2ec7-4745-b963-dcd014a80b82"),
                             Name = "Silver Sand"
                         },
                         new
                         {
-                            Id = new Guid("f6ec1633-6972-451b-8c08-25075142bf7a"),
+                            Id = new Guid("8278cf82-1a05-4b28-99f5-68ef5d6eda24"),
                             Name = "Sinopia"
                         },
                         new
                         {
-                            Id = new Guid("604080b8-f8f1-44f0-985a-2f11f62765a2"),
+                            Id = new Guid("37bad57d-26d0-49f3-b69e-2e5cdf68a6f4"),
                             Name = "Sizzling Red"
                         },
                         new
                         {
-                            Id = new Guid("a7c593fe-b085-474c-bfb7-8a174c428d2d"),
+                            Id = new Guid("f005f56f-77bb-4543-9de9-224e20e72988"),
                             Name = "Sizzling Sunrise"
                         },
                         new
                         {
-                            Id = new Guid("963cf106-010e-4b06-89d6-62f90a9dc417"),
+                            Id = new Guid("c04db1c3-8fd6-431e-af7c-d3aba72c84e8"),
                             Name = "Skobeloff"
                         },
                         new
                         {
-                            Id = new Guid("8f6aa1fe-eb52-4833-a203-9a3db3cd3713"),
+                            Id = new Guid("ad382c72-4f7c-4fcd-af05-de93f6d3951c"),
                             Name = "Sky Blue"
                         },
                         new
                         {
-                            Id = new Guid("cdf21aa4-ffde-4dd5-a5cd-fca32922297a"),
+                            Id = new Guid("489b0a25-96d9-4684-bcc7-8705dfabaa98"),
                             Name = "Sky Magenta"
                         },
                         new
                         {
-                            Id = new Guid("736cb2b8-ba67-45df-aca3-e0d802c80585"),
+                            Id = new Guid("895dbaa1-15b4-45b4-8297-9c7dcc088af5"),
                             Name = "Slate Blue"
                         },
                         new
                         {
-                            Id = new Guid("767784f6-b8e6-408d-a858-53e0821d0196"),
+                            Id = new Guid("6fff370e-e833-40c2-91d7-1a67837fa302"),
                             Name = "Slate Gray"
                         },
                         new
                         {
-                            Id = new Guid("6f7f962e-c71b-41c9-810f-4af2a557b8bf"),
+                            Id = new Guid("fdf0fdad-38da-40b6-a921-ad2c3274d05f"),
                             Name = "Smalt (Dark Powder Blue)"
                         },
                         new
                         {
-                            Id = new Guid("280975c7-fcb9-4b2c-ac7b-35b0f2d80fc9"),
+                            Id = new Guid("d9dfb227-5cf3-40a3-a55a-8f7899954094"),
                             Name = "Slimy Green"
                         },
                         new
                         {
-                            Id = new Guid("39769a99-e98f-47c1-999a-e753a8ec3afb"),
+                            Id = new Guid("36ca9d35-1f07-4ec9-adf3-504a6f2e88a0"),
                             Name = "Smashed Pumpkin"
                         },
                         new
                         {
-                            Id = new Guid("05a25637-3c31-4df0-a6d7-6cf586fffa29"),
+                            Id = new Guid("aca34e2d-e8a6-45c4-8037-71f7bfb7d4de"),
                             Name = "Smitten"
                         },
                         new
                         {
-                            Id = new Guid("e9dc3080-d7ad-411f-b4c2-243db95d6887"),
+                            Id = new Guid("c1047c2d-7d58-4e9d-9072-e52d64c2b44c"),
                             Name = "Smoke"
                         },
                         new
                         {
-                            Id = new Guid("f960424d-7c3f-4358-84ab-958cabd8c2fe"),
+                            Id = new Guid("d7cd8a55-3a66-46f6-bc3d-fc77ab27c7c1"),
                             Name = "Smokey Topaz"
                         },
                         new
                         {
-                            Id = new Guid("0f6fecf3-cbb0-4165-8576-80bf3f06324f"),
+                            Id = new Guid("0a660e30-1323-4884-9e26-5716b7b233dd"),
                             Name = "Smoky Black"
                         },
                         new
                         {
-                            Id = new Guid("56e8c3cd-23db-48fb-9330-8f788681a492"),
+                            Id = new Guid("e5f5d141-c4a7-4b08-bf17-113b2a91b6a5"),
                             Name = "Smoky Topaz"
                         },
                         new
                         {
-                            Id = new Guid("bd55c002-65c0-47b1-a953-a843b0fd962b"),
+                            Id = new Guid("80c0cb34-7f7d-4a99-9d9a-b1075a9c76fd"),
                             Name = "Snow"
                         },
                         new
                         {
-                            Id = new Guid("74359468-567b-4a37-a53a-5c8090cbe7c0"),
+                            Id = new Guid("9d73ce0a-1756-4ed2-99bf-1f3a800cf740"),
                             Name = "Soap"
                         },
                         new
                         {
-                            Id = new Guid("80a514b9-bc8d-4ce4-b659-0eea01baabcd"),
+                            Id = new Guid("48407c1d-a400-455f-a371-943f2e63ffab"),
                             Name = "Solid Pink"
                         },
                         new
                         {
-                            Id = new Guid("d4da10ac-c12c-48f3-b39e-09a7c8a1783a"),
+                            Id = new Guid("e8692c82-cd2b-44fe-9ca6-8640b25b796d"),
                             Name = "Sonic Silver"
                         },
                         new
                         {
-                            Id = new Guid("d8f0d4bf-53d7-4223-a0b9-f2ce41e60442"),
+                            Id = new Guid("5ee35312-e96d-4209-9aa4-ac3500b699fe"),
                             Name = "Spartan Crimson"
                         },
                         new
                         {
-                            Id = new Guid("1df900bd-6324-4d5e-8659-fdef608933a1"),
+                            Id = new Guid("edd803b8-bdbc-4b5e-a339-fb12bec5d8d1"),
                             Name = "Space Cadet"
                         },
                         new
                         {
-                            Id = new Guid("fa7450c2-1825-4784-ac29-a62341eb18b1"),
+                            Id = new Guid("91c55071-9a4d-4f0b-8521-55eb48894720"),
                             Name = "Spanish Bistre"
                         },
                         new
                         {
-                            Id = new Guid("e0c9351a-d1a7-45c5-a49a-27e3eb5c7df4"),
+                            Id = new Guid("9a9bfa15-95ce-4d6f-a299-0342b4ce18a2"),
                             Name = "Spanish Blue"
                         },
                         new
                         {
-                            Id = new Guid("32644edf-33d2-4271-990d-c1c2d626f305"),
+                            Id = new Guid("d1850dfb-5653-43e0-b915-a2a0ad195013"),
                             Name = "Spanish Carmine"
                         },
                         new
                         {
-                            Id = new Guid("ec268112-439c-4117-a619-fe7e16bf3d22"),
+                            Id = new Guid("b9e75a32-9bd6-4ee6-8f0d-a66ec097687d"),
                             Name = "Spanish Crimson"
                         },
                         new
                         {
-                            Id = new Guid("2461343b-3107-4332-833c-02a5e18cd766"),
+                            Id = new Guid("2b65c990-701c-472d-a219-beaa21750b7d"),
                             Name = "Spanish Gray"
                         },
                         new
                         {
-                            Id = new Guid("3396635a-e48c-41cc-9389-0e35a3c9832c"),
+                            Id = new Guid("d9f48ffb-f5e3-4177-9dd0-40b6fa00b5d7"),
                             Name = "Spanish Green"
                         },
                         new
                         {
-                            Id = new Guid("d8b53986-0ddc-4a0a-b658-843be44a1076"),
+                            Id = new Guid("3cf978cd-0cc9-40cd-bd2c-cbad18a002a5"),
                             Name = "Spanish Orange"
                         },
                         new
                         {
-                            Id = new Guid("a28df7db-3861-4605-a5da-d1b5908a8e12"),
+                            Id = new Guid("67ef3196-0877-411e-9466-8fc71f9f44ff"),
                             Name = "Spanish Pink"
                         },
                         new
                         {
-                            Id = new Guid("406c39af-681c-43d1-a071-eaa2770b1b39"),
+                            Id = new Guid("e966336a-f30e-489f-bf1e-02eba9dbc80b"),
                             Name = "Spanish Red"
                         },
                         new
                         {
-                            Id = new Guid("355ecd90-768d-401f-ad43-d3b054efd816"),
+                            Id = new Guid("5a92c84f-5de6-4c39-932d-3412a69e2cc8"),
                             Name = "Spanish Sky Blue"
                         },
                         new
                         {
-                            Id = new Guid("97ddb14c-bc6d-4f74-9530-e72e75bffa20"),
+                            Id = new Guid("48e4184a-89d3-445e-841e-1b36b7d59f6b"),
                             Name = "Spanish Violet"
                         },
                         new
                         {
-                            Id = new Guid("dc0e1433-b3e8-47c0-8e55-9a2221d1b3f6"),
+                            Id = new Guid("e67f4987-0160-4f38-8cde-08b670447f80"),
                             Name = "Spanish Viridian"
                         },
                         new
                         {
-                            Id = new Guid("aa50b464-6c8a-4e9a-b845-6db0b86971d5"),
+                            Id = new Guid("78771dad-5872-41dc-82f6-3beee72380d6"),
                             Name = "Spicy Mix"
                         },
                         new
                         {
-                            Id = new Guid("8602b299-47e8-478e-9fd5-ebdf7c58ba04"),
+                            Id = new Guid("a86042a9-5e21-4846-aa0a-7efb25661b33"),
                             Name = "Spiro Disco Ball"
                         },
                         new
                         {
-                            Id = new Guid("4b5056ca-3c31-47b0-b17c-0585595eec26"),
+                            Id = new Guid("b9b48310-8572-4d80-9659-f19bf3c717f8"),
                             Name = "Spring Bud"
                         },
                         new
                         {
-                            Id = new Guid("ff3c9b70-9a15-4c45-80dd-9ec7917c8a5f"),
+                            Id = new Guid("63f58f4b-4d1f-44ea-b3b6-b1030a9ed80c"),
                             Name = "Spring Frost"
                         },
                         new
                         {
-                            Id = new Guid("3eed3d0d-53d5-4580-bb4e-4e4f2e69c68b"),
+                            Id = new Guid("522106f4-f3d4-4a2d-8723-7e9cce2fd13d"),
                             Name = "Spring Green"
                         },
                         new
                         {
-                            Id = new Guid("11825714-74e5-4f0c-99c9-cfd896171a90"),
+                            Id = new Guid("435146a2-cb13-4544-a038-059ec80aa73b"),
                             Name = "Star Command Blue"
                         },
                         new
                         {
-                            Id = new Guid("e34d7c8c-e359-40f7-ad6a-94785a4d7af3"),
+                            Id = new Guid("a56716d3-4685-4e72-912b-d26743d62ed1"),
                             Name = "Steel Blue"
                         },
                         new
                         {
-                            Id = new Guid("1ee5ed72-421d-4042-b494-7f3e7ac9d1c5"),
+                            Id = new Guid("c9fe7589-0a7b-4530-a69b-a00aadd4bdac"),
                             Name = "Steel Pink"
                         },
                         new
                         {
-                            Id = new Guid("6e862dc2-070e-487b-be90-7d313650797b"),
+                            Id = new Guid("06cd0f5f-99ca-431e-82a1-38db96b44c95"),
                             Name = "Steel Teal"
                         },
                         new
                         {
-                            Id = new Guid("0ad5fee3-4a63-474a-9dde-04fe1b180420"),
+                            Id = new Guid("bc56effe-cce3-442f-a91e-e866912c53f2"),
                             Name = "Stil De Grain Yellow"
                         },
                         new
                         {
-                            Id = new Guid("2b8b2377-acc6-4b7c-b7cc-dc05eecc26cd"),
+                            Id = new Guid("a95875ff-16e9-4baf-b83c-a309799fdb96"),
                             Name = "Stizza"
                         },
                         new
                         {
-                            Id = new Guid("e34b5589-4eb2-463e-8d84-4516643611af"),
+                            Id = new Guid("4b4debe3-879b-419d-a8ac-ac8f266b04dd"),
                             Name = "Stormcloud"
                         },
                         new
                         {
-                            Id = new Guid("2783aed4-9d1b-46e2-aa49-451281477ded"),
+                            Id = new Guid("b347705a-25f5-4092-9534-f2a8f5d1b2c5"),
                             Name = "Straw"
                         },
                         new
                         {
-                            Id = new Guid("ab5ebecc-0afa-4d06-88ca-87bc0512e994"),
+                            Id = new Guid("eeed8c9e-a621-4446-bbd6-1bf1ce46ece0"),
                             Name = "Strawberry"
                         },
                         new
                         {
-                            Id = new Guid("778fc500-7390-4eed-8939-0b51edbd62b3"),
+                            Id = new Guid("19189783-0c8e-4eaf-85af-dc97b2799126"),
                             Name = "Sugar Plum"
                         },
                         new
                         {
-                            Id = new Guid("8c54b497-afac-4c15-a8ca-b835840e96cb"),
+                            Id = new Guid("0cd1ee42-f6f8-47ed-a8bd-cfee9f0dfbcd"),
                             Name = "Sunburnt Cyclops"
                         },
                         new
                         {
-                            Id = new Guid("33fa3fc7-3d5c-4b65-97cb-44573f387fb9"),
+                            Id = new Guid("a3f3f73b-f708-48d1-871e-e5086ff3ac50"),
                             Name = "Sunglow"
                         },
                         new
                         {
-                            Id = new Guid("028d6eac-0cf7-4d9a-b7d7-6e3291aa0398"),
+                            Id = new Guid("952a4419-c2a3-47f9-850a-980ab5672624"),
                             Name = "Sunny"
                         },
                         new
                         {
-                            Id = new Guid("042f8627-6390-48f2-a70c-826ffbd65d8c"),
+                            Id = new Guid("d69b8903-c6f0-415b-be38-3e2630f6e5b5"),
                             Name = "Sunray"
                         },
                         new
                         {
-                            Id = new Guid("bebee541-89ae-4099-b97a-cbe4e17ef1c4"),
+                            Id = new Guid("6f94d3eb-825e-4eb3-99f4-d0846bfa8170"),
                             Name = "Sunset"
                         },
                         new
                         {
-                            Id = new Guid("f8d07919-b340-418d-8175-60aae6ee8798"),
+                            Id = new Guid("90d67c9d-e76f-4dbc-9c36-3c6b133d1ab5"),
                             Name = "Sunset Orange"
                         },
                         new
                         {
-                            Id = new Guid("819caf63-678e-47e4-8771-fb43d39f702d"),
+                            Id = new Guid("f9f1aa67-3c51-462a-a55d-c47cb3beecbf"),
                             Name = "Super Pink"
                         },
                         new
                         {
-                            Id = new Guid("db043b38-efba-4231-a1aa-d695d82267a8"),
+                            Id = new Guid("c57503b0-854e-49c7-8de0-947b00f87f9a"),
                             Name = "Sweet Brown"
                         },
                         new
                         {
-                            Id = new Guid("a0702193-cf3d-489a-af0d-8fe806a77240"),
+                            Id = new Guid("9c8fe8d5-3b43-4d53-ad54-c0579d3351f9"),
                             Name = "Tan"
                         },
                         new
                         {
-                            Id = new Guid("90a3d70d-2df2-4f8c-9afe-2f5a44242999"),
+                            Id = new Guid("461bd59e-59a3-4f4e-80e5-486581fe23a4"),
                             Name = "Tangelo"
                         },
                         new
                         {
-                            Id = new Guid("0d4f31b5-49a2-44c5-8540-0fced253d8e2"),
+                            Id = new Guid("654a7912-1430-4156-9a28-d21a2cc97c59"),
                             Name = "Tangerine"
                         },
                         new
                         {
-                            Id = new Guid("c7937239-6a6e-48dd-9582-046f3b91968d"),
+                            Id = new Guid("d7bbbb7a-e530-4906-af82-bbb1407208e4"),
                             Name = "Tangerine Yellow"
                         },
                         new
                         {
-                            Id = new Guid("5c6b9482-4b5b-4dda-bce3-1b7985e91e36"),
+                            Id = new Guid("6b771bd8-7581-4313-ae6b-942404b95620"),
                             Name = "Tango Pink"
                         },
                         new
                         {
-                            Id = new Guid("4c3e3ead-c209-4096-9eea-34ce31589ada"),
+                            Id = new Guid("4737e6e1-09e0-40c5-9622-9d51823fa904"),
                             Name = "Tart Orange"
                         },
                         new
                         {
-                            Id = new Guid("cb1b1e2a-57f7-4c60-91e9-966e10841366"),
+                            Id = new Guid("19cad7f1-5c4f-483c-97f5-fa6939c62c62"),
                             Name = "Taupe"
                         },
                         new
                         {
-                            Id = new Guid("d403945d-60ce-4c0a-a616-05c2ecbfb09a"),
+                            Id = new Guid("67796ce6-bf8f-4a9e-90b1-8b74e726c5a7"),
                             Name = "Taupe Gray"
                         },
                         new
                         {
-                            Id = new Guid("f0e00761-400a-4559-b9f7-715477d93fc2"),
+                            Id = new Guid("3e54f3e0-8f6d-469a-9021-dad4f3b9a3da"),
                             Name = "Tea Green"
                         },
                         new
                         {
-                            Id = new Guid("8a0f0c73-fc93-4aa6-b54e-3374e95c3303"),
+                            Id = new Guid("cc392f8f-7ee8-4890-ab55-e80779fb9f63"),
                             Name = "Tea Rose"
                         },
                         new
                         {
-                            Id = new Guid("e811280c-e466-427f-b728-4c47c069613f"),
+                            Id = new Guid("129da7ba-1ab8-4916-98fb-e340b75877ef"),
                             Name = "Teal"
                         },
                         new
                         {
-                            Id = new Guid("cb41cac5-3642-4808-85a9-39db64df89c7"),
+                            Id = new Guid("1ca078b0-7554-4b73-aa7d-6df39961ffd3"),
                             Name = "Teal Blue"
                         },
                         new
                         {
-                            Id = new Guid("a5e71516-af46-46a8-aa3f-26e82b89159d"),
+                            Id = new Guid("762864a9-5c66-4c17-9383-b43fcbc131db"),
                             Name = "Teal Deer"
                         },
                         new
                         {
-                            Id = new Guid("0b481e87-742b-4a08-908d-b3db3e2780d4"),
+                            Id = new Guid("906005ca-3a16-49b0-b88d-738f3f49b813"),
                             Name = "Teal Green"
                         },
                         new
                         {
-                            Id = new Guid("bef556fa-7e49-43ef-a223-fd9cfad45970"),
+                            Id = new Guid("24002d71-538d-4ab7-9d82-0a9d70d539d5"),
                             Name = "Telemagenta"
                         },
                         new
                         {
-                            Id = new Guid("7248c95e-26bd-4429-800b-873f073669ed"),
+                            Id = new Guid("7933dfc8-9892-4a66-91a3-2e9e0a52607c"),
                             Name = "Tenné"
                         },
                         new
                         {
-                            Id = new Guid("958f69aa-e0f0-46a9-83cf-1b242f62bc3d"),
+                            Id = new Guid("c10c6c19-1e63-464a-949c-02335db7f4c7"),
                             Name = "Terra Cotta"
                         },
                         new
                         {
-                            Id = new Guid("2a483470-33ed-495c-b213-80424cde22a1"),
+                            Id = new Guid("01ee7653-7660-4555-ba2f-b6b402b84e59"),
                             Name = "Thistle"
                         },
                         new
                         {
-                            Id = new Guid("278285b5-c75f-4671-afb3-6ceebc7aadb1"),
+                            Id = new Guid("5e3a73f8-cfea-4cb9-adf5-374e879b8658"),
                             Name = "Thulian Pink"
                         },
                         new
                         {
-                            Id = new Guid("3ca295b9-6f0f-4c20-ae7f-babd327294b2"),
+                            Id = new Guid("6f537921-4013-4f90-8f08-0e5814dba819"),
                             Name = "Tickle Me Pink"
                         },
                         new
                         {
-                            Id = new Guid("f9634c60-336e-4b55-8f14-05843b0d17fb"),
+                            Id = new Guid("5d782441-dd58-4a08-b97b-00a6e32f56ee"),
                             Name = "Tiffany Blue"
                         },
                         new
                         {
-                            Id = new Guid("46ffb80e-787e-4639-880d-9eca9372ce56"),
+                            Id = new Guid("2d0e0e2e-be72-47dd-ba6a-4548f02b7df0"),
                             Name = "Tiger's Eye"
                         },
                         new
                         {
-                            Id = new Guid("a2f92cc8-e7ca-45b9-8dee-73acfc3449b2"),
+                            Id = new Guid("1b3eef1e-8154-43b0-a73d-b36707296ce2"),
                             Name = "Timberwolf"
                         },
                         new
                         {
-                            Id = new Guid("63170e2f-3e9f-4a9c-a300-7c48d5e02af5"),
+                            Id = new Guid("648beb23-b873-4137-b486-c5e79b5b2604"),
                             Name = "Titanium Yellow"
                         },
                         new
                         {
-                            Id = new Guid("5b7da644-2410-42aa-ae2e-04e3bf792d9f"),
+                            Id = new Guid("c9fb0f84-1262-461c-9cc5-5d09ef1966d8"),
                             Name = "Tomato"
                         },
                         new
                         {
-                            Id = new Guid("cb25e97b-d7ff-435c-9a4e-5e5287ea20bd"),
+                            Id = new Guid("64b08609-000e-4cb4-a696-d68f763b07c3"),
                             Name = "Toolbox"
                         },
                         new
                         {
-                            Id = new Guid("75a9a6e2-e9a7-44e7-af2f-8a5123fa1692"),
+                            Id = new Guid("5b440d31-d2a7-4c74-916d-b834ff45e1a9"),
                             Name = "Topaz"
                         },
                         new
                         {
-                            Id = new Guid("df995c24-ea11-4a50-a42e-fdb6989d252d"),
+                            Id = new Guid("a353f403-110b-4a3a-9424-c8d291adb0c9"),
                             Name = "Tractor Red"
                         },
                         new
                         {
-                            Id = new Guid("ee874a44-c0b4-42a9-9bc3-608a7a0ba111"),
+                            Id = new Guid("b528ad6f-9e7f-4097-9239-1e806cda4716"),
                             Name = "Trolley Grey"
                         },
                         new
                         {
-                            Id = new Guid("fd913478-2bd8-4f3e-9f3f-74114b11bccf"),
+                            Id = new Guid("cc4a0b1c-4b36-4953-a5d4-0ad5adc36e10"),
                             Name = "Tropical Rain Forest"
                         },
                         new
                         {
-                            Id = new Guid("94a68e65-f0a2-4476-b03a-46af3d850b75"),
+                            Id = new Guid("4a39e66d-858b-4581-afde-82205937951d"),
                             Name = "Tropical Violet"
                         },
                         new
                         {
-                            Id = new Guid("fd8d32b2-61e9-4185-9679-1037c9116c39"),
+                            Id = new Guid("408b4506-120e-4c63-be4d-3f5c74d924c7"),
                             Name = "True Blue"
                         },
                         new
                         {
-                            Id = new Guid("b048f02e-ea5b-42cb-b2d9-5bddf0eb6061"),
+                            Id = new Guid("fd17a306-54b8-48ed-9d02-a7dfaf4b2fb0"),
                             Name = "Tufts Blue"
                         },
                         new
                         {
-                            Id = new Guid("8ab4f3c8-cd96-4088-83eb-cc8a24a4fd81"),
+                            Id = new Guid("cc616d01-eee6-48d8-afd1-7e9c41c9f682"),
                             Name = "Tulip"
                         },
                         new
                         {
-                            Id = new Guid("38461167-44ad-4d77-afc0-e4ca9e2a470f"),
+                            Id = new Guid("b84a3970-32ce-43cd-9cb3-692a6acedc27"),
                             Name = "Tumbleweed"
                         },
                         new
                         {
-                            Id = new Guid("7030be15-1461-44d2-9b45-2ff47ecbc10b"),
+                            Id = new Guid("8fd95a6d-9361-43e2-b4fe-02f4bf647863"),
                             Name = "Turkish Rose"
                         },
                         new
                         {
-                            Id = new Guid("5585ec76-28b9-4015-8d44-8d06d8aaa6c8"),
+                            Id = new Guid("1d09d177-39a5-4d98-b7b2-6d013c0e645a"),
                             Name = "Turquoise"
                         },
                         new
                         {
-                            Id = new Guid("a76d4015-f7fb-4028-8148-a0cf519471ba"),
+                            Id = new Guid("3fa181aa-a741-40c4-858c-fbc26468f065"),
                             Name = "Turquoise Blue"
                         },
                         new
                         {
-                            Id = new Guid("6ead4883-ad28-407f-8134-29a0a3920a8b"),
+                            Id = new Guid("0214c15f-bc83-4e2d-92dc-073f430dd142"),
                             Name = "Turquoise Green"
                         },
                         new
                         {
-                            Id = new Guid("c5541246-2ef7-417c-ad7d-aa9b04b723b8"),
+                            Id = new Guid("79af353c-fe56-431d-9314-74f8cea91af8"),
                             Name = "Turtle Green"
                         },
                         new
                         {
-                            Id = new Guid("f84ee26c-1a0e-47fe-ab4c-6835aa316e77"),
+                            Id = new Guid("d11e4aaf-14c8-4b89-92b8-a3bcbc8220aa"),
                             Name = "Tuscan"
                         },
                         new
                         {
-                            Id = new Guid("ce44bb1c-4321-4d44-a26f-86564e2e08d1"),
+                            Id = new Guid("5f67d7a3-8466-475c-a043-14ece7e0b9d1"),
                             Name = "Tuscan Brown"
                         },
                         new
                         {
-                            Id = new Guid("7c496d2a-8ea9-4ec1-a971-34b9f6aa19de"),
+                            Id = new Guid("e6fc2ce5-db58-43a2-bb28-c77826c13fa0"),
                             Name = "Tuscan Red"
                         },
                         new
                         {
-                            Id = new Guid("8aa52306-66f7-47fb-aab9-ad2c59523237"),
+                            Id = new Guid("f8b34603-2d5a-442a-bf0e-e7823a0be819"),
                             Name = "Tuscan Tan"
                         },
                         new
                         {
-                            Id = new Guid("a7c3baed-f5a5-44da-a42f-2a15eb60327a"),
+                            Id = new Guid("8c01dfe4-eeeb-427a-80ac-1f6220cf104d"),
                             Name = "Tuscany"
                         },
                         new
                         {
-                            Id = new Guid("30479bd8-e18f-49a9-b92c-d0c4a81ede45"),
+                            Id = new Guid("857f6b7b-af35-4ea6-afc0-5c4ee591d01b"),
                             Name = "Twilight Lavender"
                         },
                         new
                         {
-                            Id = new Guid("aac1e668-1897-4a03-946e-b78a7c25f303"),
+                            Id = new Guid("5b364b6f-2bd2-4f3a-b008-cc085197bb86"),
                             Name = "Tyrian Purple"
                         },
                         new
                         {
-                            Id = new Guid("31488c5b-b08e-473d-90fe-006de1e9fc5a"),
+                            Id = new Guid("e9f58c1a-beda-45ff-ad6f-4a17dcbbac2e"),
                             Name = "UA Blue"
                         },
                         new
                         {
-                            Id = new Guid("bb669612-6cf6-4d0b-b177-de74e893adc2"),
+                            Id = new Guid("cd1d4c51-4966-4093-abf2-466bf145c5f9"),
                             Name = "UA Red"
                         },
                         new
                         {
-                            Id = new Guid("8d4c7f8c-03c3-4072-83b0-2212fcd1e6da"),
+                            Id = new Guid("5eb0a1be-a0d8-4dcd-9d36-dc82b06b8199"),
                             Name = "Ube"
                         },
                         new
                         {
-                            Id = new Guid("11d81def-47c9-4f89-bd15-a7aeaafea610"),
+                            Id = new Guid("8adb6776-d0db-4e12-9dc0-5a2067b3f477"),
                             Name = "UCLA Blue"
                         },
                         new
                         {
-                            Id = new Guid("eebf214f-2251-4f90-be2b-c3cb16dcc749"),
+                            Id = new Guid("03e364aa-8e3b-4d39-b055-431503f7561a"),
                             Name = "UCLA Gold"
                         },
                         new
                         {
-                            Id = new Guid("91715689-cc75-46a5-b80f-cc5ef1168b16"),
+                            Id = new Guid("dcd5badb-8c60-4b42-a3d9-9181e8d55778"),
                             Name = "UFO Green"
                         },
                         new
                         {
-                            Id = new Guid("80412b8e-8984-4d79-86b3-0d978b7f930a"),
+                            Id = new Guid("0f12779a-7a12-4c60-9ee5-40621999a24b"),
                             Name = "Ultramarine"
                         },
                         new
                         {
-                            Id = new Guid("90810192-4f54-43fa-9296-163fb45b143b"),
+                            Id = new Guid("2818cd8f-7e2c-4a65-9973-d9b86cf5db49"),
                             Name = "Ultramarine Blue"
                         },
                         new
                         {
-                            Id = new Guid("02fb0331-08d2-4596-a897-ce6b3e954998"),
+                            Id = new Guid("c4f1a3fc-897e-4ec4-b979-0e00d45495bd"),
                             Name = "Ultra Pink"
                         },
                         new
                         {
-                            Id = new Guid("1b98634c-1302-4a24-bc80-7f9c8afc1dd8"),
+                            Id = new Guid("498c70d4-5d01-424c-a9e4-79bf3ffaf9ec"),
                             Name = "Ultra Red"
                         },
                         new
                         {
-                            Id = new Guid("513d7a65-eedc-456f-bdcd-948d34d94b94"),
+                            Id = new Guid("07e807df-c4a7-4ea9-8a3c-fea69e3ce09e"),
                             Name = "Umber"
                         },
                         new
                         {
-                            Id = new Guid("5df7080e-e458-4db5-925f-c17ded22100d"),
+                            Id = new Guid("67250448-5b0d-4bf4-a453-d86386a5e581"),
                             Name = "Unbleached Silk"
                         },
                         new
                         {
-                            Id = new Guid("e1ec67e7-0029-406e-ac67-e26e5cbce07d"),
+                            Id = new Guid("88a11131-99b7-497c-b577-084f6eded177"),
                             Name = "United Nations Blue"
                         },
                         new
                         {
-                            Id = new Guid("4d794bc0-4e2a-4eec-83a9-ffb05bba3788"),
+                            Id = new Guid("f0aaf072-438e-423c-a9c2-fcf76eb2558c"),
                             Name = "University Of California Gold"
                         },
                         new
                         {
-                            Id = new Guid("dd8ccb78-e13c-4134-885f-dcc85ec34870"),
+                            Id = new Guid("9bafe624-da49-4724-99bb-a02be02be140"),
                             Name = "Unmellow Yellow"
                         },
                         new
                         {
-                            Id = new Guid("9e83ed07-d122-4cf4-8ffa-692b6730fe0d"),
+                            Id = new Guid("7a36e77b-78f4-4271-8a49-d9e0b91ad250"),
                             Name = "UP Forest Green"
                         },
                         new
                         {
-                            Id = new Guid("9250a80f-09b8-4b46-9fd5-c5aebe7dfb9c"),
+                            Id = new Guid("54f403fe-a183-45de-8cdd-3bce9811e5f5"),
                             Name = "UP Maroon"
                         },
                         new
                         {
-                            Id = new Guid("bd2d4d0e-0179-4abf-8c7d-ea797dfc5dba"),
+                            Id = new Guid("e936b0c7-ac87-4c07-b4e0-ef2001604aa3"),
                             Name = "Upsdell Red"
                         },
                         new
                         {
-                            Id = new Guid("e0a80c3b-22af-49fa-94bc-b3af6ee65e43"),
+                            Id = new Guid("8da478e9-a7c5-4d4a-8979-e403b30a2eca"),
                             Name = "Urobilin"
                         },
                         new
                         {
-                            Id = new Guid("3315e0e6-7fdd-4bae-8e0f-cd14f2a058f2"),
+                            Id = new Guid("9379f727-cb3b-4e4b-a9d2-746e9eb5c40a"),
                             Name = "USAFA Blue"
                         },
                         new
                         {
-                            Id = new Guid("795242ee-39ac-44d6-928e-3ff8f19c4592"),
+                            Id = new Guid("4033c3a0-6d90-41f6-94b6-1e67cd64ea6c"),
                             Name = "USC Cardinal"
                         },
                         new
                         {
-                            Id = new Guid("5b3a7b39-cb9a-4179-9a5a-530d88e2130c"),
+                            Id = new Guid("ed19bff5-e81e-4e78-a916-2bd6b47d3d47"),
                             Name = "USC Gold"
                         },
                         new
                         {
-                            Id = new Guid("474bf903-b9c1-4d87-a46d-c7f98ac47cf2"),
+                            Id = new Guid("3b7fc3c3-aa68-4400-bed8-e4f9114a8b13"),
                             Name = "University Of Tennessee Orange"
                         },
                         new
                         {
-                            Id = new Guid("53ac4b2a-9255-41d9-958b-55a3c7bb79b3"),
+                            Id = new Guid("60558965-e88e-4349-8264-c65c572139d6"),
                             Name = "Utah Crimson"
                         },
                         new
                         {
-                            Id = new Guid("5db6831e-8981-4a67-8d93-04fb8de851fb"),
+                            Id = new Guid("375e4c89-36e9-4724-ab09-c6d167964cd9"),
                             Name = "Van Dyke Brown"
                         },
                         new
                         {
-                            Id = new Guid("b2760351-5a29-4891-b919-546255b00fd7"),
+                            Id = new Guid("8a82e959-1da3-425e-965d-1affb15b8c66"),
                             Name = "Vanilla"
                         },
                         new
                         {
-                            Id = new Guid("76a091fa-5a05-4a8c-82da-182542fc446d"),
+                            Id = new Guid("ffce1df1-d4b9-4d0a-a25f-f5694555ca62"),
                             Name = "Vanilla Ice"
                         },
                         new
                         {
-                            Id = new Guid("32395722-5f73-4d3a-b26b-cfc708a1cd38"),
+                            Id = new Guid("8b4f9651-b887-4122-a1cd-9b2ef872b23e"),
                             Name = "Vegas Gold"
                         },
                         new
                         {
-                            Id = new Guid("22cff81d-f54e-41b9-aa34-29bf7d50a138"),
+                            Id = new Guid("ace7e552-8e60-4b2e-bc51-d54c3482b96b"),
                             Name = "Venetian Red"
                         },
                         new
                         {
-                            Id = new Guid("752ef5b9-b399-47b7-969d-1e8bd8adeec4"),
+                            Id = new Guid("3e101de8-1ad6-4763-a665-234e1c5856d2"),
                             Name = "Verdigris"
                         },
                         new
                         {
-                            Id = new Guid("bb03d77e-766a-4e77-97e4-3031903dfc19"),
+                            Id = new Guid("5d2c03a8-2bc0-4d07-a47b-6df1ba74bbc5"),
                             Name = "Vermilion"
                         },
                         new
                         {
-                            Id = new Guid("d5271da6-64a6-4e3c-8b5a-fc65c0b772e0"),
+                            Id = new Guid("f63c3b82-05ea-41fb-824a-804f1dd19d86"),
                             Name = "Veronica"
                         },
                         new
                         {
-                            Id = new Guid("1e0810c8-854b-4d11-a5e6-7974bf0383e9"),
+                            Id = new Guid("c7c5b570-0d9b-43a1-bc98-b282d4e215bf"),
                             Name = "Very Light Azure"
                         },
                         new
                         {
-                            Id = new Guid("1b8cd2b9-0976-4696-9964-e6bb86f62495"),
+                            Id = new Guid("0a2dadec-4949-491b-a18c-d12d96ec2e83"),
                             Name = "Very Light Blue"
                         },
                         new
                         {
-                            Id = new Guid("80652a3e-94cd-4add-a264-ab0838cc6842"),
+                            Id = new Guid("a3d3d9b3-b592-468f-a942-159de0e71b37"),
                             Name = "Very Light Malachite Green"
                         },
                         new
                         {
-                            Id = new Guid("1c73311d-d96c-4c5d-be41-5e2c60ae9887"),
+                            Id = new Guid("c69d54c1-fe8a-48fd-82c7-7525c8ff22f7"),
                             Name = "Very Light Tangelo"
                         },
                         new
                         {
-                            Id = new Guid("a1fb5f39-7d73-42b5-a6e9-fddefccd8ba2"),
+                            Id = new Guid("c2325471-2275-48af-8133-f4ae9770c3b5"),
                             Name = "Very Pale Orange"
                         },
                         new
                         {
-                            Id = new Guid("cf5f61cf-a707-4094-96d9-2322f4af465c"),
+                            Id = new Guid("4b435ca2-b5a2-42f5-a165-cdadf6b577f7"),
                             Name = "Very Pale Yellow"
                         },
                         new
                         {
-                            Id = new Guid("3da942c2-cca1-4116-a3fa-36772cd206fd"),
+                            Id = new Guid("166dc965-530f-42a0-82a9-b58708dd558b"),
                             Name = "Violet"
                         },
                         new
                         {
-                            Id = new Guid("d0c95a03-8e8c-4a7a-9374-31a00fedbc27"),
+                            Id = new Guid("6a7067c5-26fc-4213-9cc4-f6dffeafd003"),
                             Name = "Violet (Color Wheel)"
                         },
                         new
                         {
-                            Id = new Guid("7656b19d-8ce7-46f4-a7d1-2c21580194b4"),
+                            Id = new Guid("2d112717-ef38-4e18-8350-731a9e6e9389"),
                             Name = "Violet (RYB)"
                         },
                         new
                         {
-                            Id = new Guid("f18ead83-a84b-4db6-89f2-e9a57f98113c"),
+                            Id = new Guid("16102d59-52cf-4234-93c1-d0c069870753"),
                             Name = "Violet (Web)"
                         },
                         new
                         {
-                            Id = new Guid("941094f3-4e3e-4f85-9390-01dcf2fe8913"),
+                            Id = new Guid("95b6d897-ceff-43f8-9cf0-be83de9afb2e"),
                             Name = "Violet-Blue"
                         },
                         new
                         {
-                            Id = new Guid("f61542e6-58a3-4d44-a08e-b0a09b9e264f"),
+                            Id = new Guid("091df248-c8c8-40f4-814a-5e8c586889cb"),
                             Name = "Violet-Red"
                         },
                         new
                         {
-                            Id = new Guid("006833dc-0468-46bf-b5f3-a2188a9235d0"),
+                            Id = new Guid("65b54580-f9bd-405e-aeb2-b7488a38e864"),
                             Name = "Viridian"
                         },
                         new
                         {
-                            Id = new Guid("a451fbdc-cfa9-45a3-94ed-ff2ea498a012"),
+                            Id = new Guid("a8f4a5a0-8b38-4907-8bfe-1523329efe55"),
                             Name = "Viridian Green"
                         },
                         new
                         {
-                            Id = new Guid("4ef318d4-799a-486c-8938-a5442c9b97d9"),
+                            Id = new Guid("baa8778b-07e2-4612-ac5d-02481bf79911"),
                             Name = "Vista Blue"
                         },
                         new
                         {
-                            Id = new Guid("b247d734-d090-4288-be0c-bbfe839ccd92"),
+                            Id = new Guid("88ec627c-1151-45d2-9f0b-7454d49316cb"),
                             Name = "Vivid Amber"
                         },
                         new
                         {
-                            Id = new Guid("e98d8e3a-305b-49aa-8e11-07579758acf9"),
+                            Id = new Guid("e0a4b3cf-4429-4784-8d82-21c38fe63189"),
                             Name = "Vivid Auburn"
                         },
                         new
                         {
-                            Id = new Guid("3825572d-1aaa-45bf-9b3d-442dd58aa03f"),
+                            Id = new Guid("0bebad35-8cbd-4fe0-b00d-7bbc76a88a99"),
                             Name = "Vivid Burgundy"
                         },
                         new
                         {
-                            Id = new Guid("9d4bba32-d9e3-4d42-ad71-d4b2ae957716"),
+                            Id = new Guid("dff495fd-56ff-42d6-a1d6-8b50b633cd6d"),
                             Name = "Vivid Cerise"
                         },
                         new
                         {
-                            Id = new Guid("21c5a1ae-c9f4-447a-b1cb-cf6fc5767500"),
+                            Id = new Guid("1d087dab-6704-4930-93b0-c298cd7afd66"),
                             Name = "Vivid Cerulean"
                         },
                         new
                         {
-                            Id = new Guid("4b2b817e-92f5-4eab-b14c-f7807c280fcf"),
+                            Id = new Guid("43ed326e-db4a-4fdc-bcb2-99ac582ef887"),
                             Name = "Vivid Crimson"
                         },
                         new
                         {
-                            Id = new Guid("757d3896-84f1-464e-bf84-be3f376fd922"),
+                            Id = new Guid("866e2eea-49b2-47de-aa5b-7867804847aa"),
                             Name = "Vivid Gamboge"
                         },
                         new
                         {
-                            Id = new Guid("4b83e7ee-953e-47e9-9aea-f12fa9f7fc44"),
+                            Id = new Guid("bd785b92-0f2b-4128-824f-d537c3c82920"),
                             Name = "Vivid Lime Green"
                         },
                         new
                         {
-                            Id = new Guid("6347a357-1417-404d-b83d-972c8ca8daec"),
+                            Id = new Guid("23f26ffb-3f79-4e38-abdd-a30aa77a1b77"),
                             Name = "Vivid Malachite"
                         },
                         new
                         {
-                            Id = new Guid("e689e824-08d3-45ee-b830-e5728ae543af"),
+                            Id = new Guid("6d8d2e64-fe33-42bb-9db1-00086a21dc8b"),
                             Name = "Vivid Mulberry"
                         },
                         new
                         {
-                            Id = new Guid("8c250a95-6f33-4d59-a2ed-2f28e6d17d2c"),
+                            Id = new Guid("d2e90660-cff7-438e-b70f-adbc522022e3"),
                             Name = "Vivid Orange"
                         },
                         new
                         {
-                            Id = new Guid("824d2184-ea20-4336-9b51-2880a94bf121"),
+                            Id = new Guid("32380990-55b1-4af9-b1b5-423526931beb"),
                             Name = "Vivid Orange Peel"
                         },
                         new
                         {
-                            Id = new Guid("7e382ca9-3bef-4f1f-836d-46fd2945a9a7"),
+                            Id = new Guid("109a3a42-8511-4436-a771-99b3e14ba406"),
                             Name = "Vivid Orchid"
                         },
                         new
                         {
-                            Id = new Guid("46e83905-7356-4e49-a7b2-358103a8ee49"),
+                            Id = new Guid("9bd508c5-e6c4-4e29-9e4e-c5a0ceffec58"),
                             Name = "Vivid Raspberry"
                         },
                         new
                         {
-                            Id = new Guid("ab8237a3-2ce6-44f7-bb2f-dd1b4070bc82"),
+                            Id = new Guid("37ec8a28-f87f-41a9-b640-36131f3c781b"),
                             Name = "Vivid Red"
                         },
                         new
                         {
-                            Id = new Guid("59d18caa-fdaa-4687-80ae-d3f2274b4c9a"),
+                            Id = new Guid("e3d136b4-995b-4a7e-b826-2ea801020e32"),
                             Name = "Vivid Red-Tangelo"
                         },
                         new
                         {
-                            Id = new Guid("5b820cc4-1496-4c3b-835c-38bd138ad301"),
+                            Id = new Guid("65510060-dfd8-4dcf-a52f-a590460045e1"),
                             Name = "Vivid Sky Blue"
                         },
                         new
                         {
-                            Id = new Guid("c5993263-afca-4b78-a3fc-9650b3121865"),
+                            Id = new Guid("2b6869c1-869d-4da3-a668-c69b6a98fd08"),
                             Name = "Vivid Tangelo"
                         },
                         new
                         {
-                            Id = new Guid("feeadb87-5085-4996-87b8-c2659fbf15e0"),
+                            Id = new Guid("acbcf3e7-680a-40bc-b013-15706b76fbc9"),
                             Name = "Vivid Tangerine"
                         },
                         new
                         {
-                            Id = new Guid("fbef45c8-50a5-4798-a384-3dce49d682e9"),
+                            Id = new Guid("b1f65257-c82b-401b-b564-2643389b0b5f"),
                             Name = "Vivid Vermilion"
                         },
                         new
                         {
-                            Id = new Guid("69d58a2c-e9bc-4da7-a83e-eab50248238f"),
+                            Id = new Guid("d7ef0393-80ad-43ca-8648-b08b10cd2cee"),
                             Name = "Vivid Violet"
                         },
                         new
                         {
-                            Id = new Guid("761b98b8-19ad-4279-965e-988e0f9edfd3"),
+                            Id = new Guid("abf3e32e-a36b-4914-a534-51cd10d3253d"),
                             Name = "Vivid Yellow"
                         },
                         new
                         {
-                            Id = new Guid("288efce4-da95-4f59-85bd-b55b1f7c1a83"),
+                            Id = new Guid("ba4fc481-b61e-498d-aba0-151890daa841"),
                             Name = "Volt"
                         },
                         new
                         {
-                            Id = new Guid("8ba46ae7-19f6-4b64-a489-dc85650f260c"),
+                            Id = new Guid("c2939fdd-b21f-42ec-8fd8-79f5232ab52a"),
                             Name = "Warm Black"
                         },
                         new
                         {
-                            Id = new Guid("70c705f4-af3c-4354-ab60-95d5a8835202"),
+                            Id = new Guid("a232f30d-3f69-4f73-9772-291a37e969a8"),
                             Name = "Waterspout"
                         },
                         new
                         {
-                            Id = new Guid("a2e2650a-4777-4b0c-b1fe-7f002b664d7b"),
+                            Id = new Guid("f178fb0b-a930-455b-80c2-96ad621ae136"),
                             Name = "Weldon Blue"
                         },
                         new
                         {
-                            Id = new Guid("4d866c5a-f0d4-44fe-884e-1b1c274dbb3c"),
+                            Id = new Guid("97314b14-12c2-4885-85f2-fad3e32918ae"),
                             Name = "Wenge"
                         },
                         new
                         {
-                            Id = new Guid("8e06ff93-6661-44eb-8e84-ebc60c9a046e"),
+                            Id = new Guid("127fa0c5-469a-40c0-9718-2683a0354448"),
                             Name = "Wheat"
                         },
                         new
                         {
-                            Id = new Guid("5eab7ed4-2786-4ef5-b53c-84f552acb18e"),
+                            Id = new Guid("f6cd50e3-14bc-413c-b545-4fd0a16fa447"),
                             Name = "White"
                         },
                         new
                         {
-                            Id = new Guid("d78d0f5a-d304-4a1d-8752-c4aa1858f7bd"),
+                            Id = new Guid("1ea8f867-f4af-4e0a-be3c-3b9a20e8cf97"),
                             Name = "White Smoke"
                         },
                         new
                         {
-                            Id = new Guid("0165e6d5-60b7-4b27-9813-c22c6cf5b773"),
+                            Id = new Guid("08b643d1-3b43-4d72-8236-42882f7acf31"),
                             Name = "Wild Blue Yonder"
                         },
                         new
                         {
-                            Id = new Guid("a1d6fd03-de60-4378-9cd2-7c3e7cdeeb6c"),
+                            Id = new Guid("39e80b71-5036-49be-958e-fd72edde035c"),
                             Name = "Wild Orchid"
                         },
                         new
                         {
-                            Id = new Guid("4f224eb9-5e13-457c-8d6f-833139c2738a"),
+                            Id = new Guid("f59d031f-3997-46cf-96af-de9284349207"),
                             Name = "Wild Strawberry"
                         },
                         new
                         {
-                            Id = new Guid("5300c0f6-079f-40df-813f-41fd03cbdc84"),
+                            Id = new Guid("d01e8639-26a2-44f7-9789-a6604cb67bbc"),
                             Name = "Wild Watermelon"
                         },
                         new
                         {
-                            Id = new Guid("ff4493cc-4152-484d-9647-cea85de1a7f2"),
+                            Id = new Guid("118bc320-155e-4a56-9e24-793e40177ff9"),
                             Name = "Willpower Orange"
                         },
                         new
                         {
-                            Id = new Guid("d65923d7-46a3-4e37-ae5c-258afeb1cad9"),
+                            Id = new Guid("6babc86e-f886-490d-887e-f4c37e85baa2"),
                             Name = "Windsor Tan"
                         },
                         new
                         {
-                            Id = new Guid("0ed6c310-2f00-403f-876b-ffbdf305f55e"),
+                            Id = new Guid("72a820c9-8b9f-4d8d-9705-a8eed39fc0ab"),
                             Name = "Wine"
                         },
                         new
                         {
-                            Id = new Guid("8c371b86-9fff-4213-b8a0-8bbcdb2ff274"),
+                            Id = new Guid("a720d758-6be8-4b80-a159-9b406d5b0609"),
                             Name = "Wine Dregs"
                         },
                         new
                         {
-                            Id = new Guid("6f4860dd-c707-4069-abc4-630f484ab1f9"),
+                            Id = new Guid("c5518b5d-9b90-41d8-aec6-b0957febde5d"),
                             Name = "Winter Sky"
                         },
                         new
                         {
-                            Id = new Guid("9dd1f758-e03f-458d-b285-8f6928dabad7"),
+                            Id = new Guid("577f68a3-0454-4dfe-aa21-f7ea17bdf274"),
                             Name = "Winter Wizard"
                         },
                         new
                         {
-                            Id = new Guid("26584b0e-dee1-4f1b-ae13-6b234a014c48"),
+                            Id = new Guid("895f84ab-d9ce-4b84-a65e-fa56e6defe65"),
                             Name = "Wintergreen Dream"
                         },
                         new
                         {
-                            Id = new Guid("5b7264bc-8c4e-4376-949b-57cfad51265a"),
+                            Id = new Guid("3a757be3-774a-4675-b74b-a8a7bf1dd965"),
                             Name = "Wisteria"
                         },
                         new
                         {
-                            Id = new Guid("9524bba6-171d-4b21-96ba-977ddcb24a0c"),
+                            Id = new Guid("464475d7-aa17-4a50-989f-d7ed7e037338"),
                             Name = "Wood Brown"
                         },
                         new
                         {
-                            Id = new Guid("481b7323-c5e5-48b7-a70e-fa824cfbbd3c"),
+                            Id = new Guid("65e24122-cfab-4265-8462-143a44a1d9a1"),
                             Name = "Xanadu"
                         },
                         new
                         {
-                            Id = new Guid("38a93f33-e0ce-4cc3-8012-759412e6b5d5"),
+                            Id = new Guid("a06d924c-085e-4b46-93c0-be880462e182"),
                             Name = "Yale Blue"
                         },
                         new
                         {
-                            Id = new Guid("c109d7f4-6b3e-4fe2-a9db-51944882c6e2"),
+                            Id = new Guid("9df06244-88f5-467a-ac2a-2dd4fda20f8f"),
                             Name = "Yankees Blue"
                         },
                         new
                         {
-                            Id = new Guid("7de704eb-e6e2-417c-a98d-d5aa66f288b2"),
+                            Id = new Guid("d1daa356-5e05-43e1-a501-89bc0aaf43e4"),
                             Name = "Yellow"
                         },
                         new
                         {
-                            Id = new Guid("5aed54df-b475-441b-b15e-3b148508c05e"),
+                            Id = new Guid("4c2cfc99-8596-43be-958f-a78656427916"),
                             Name = "Yellow (Crayola)"
                         },
                         new
                         {
-                            Id = new Guid("a74c47f5-d7ec-4a12-b096-b2a7b959ffb3"),
+                            Id = new Guid("038129fe-9fd8-4a77-8bb8-ccf3a59c6bb7"),
                             Name = "Yellow (Munsell)"
                         },
                         new
                         {
-                            Id = new Guid("1f201906-abce-4daa-98dc-cf034e02b47c"),
+                            Id = new Guid("0d62ce07-e016-47cc-a438-ac8401594edb"),
                             Name = "Yellow (NCS)"
                         },
                         new
                         {
-                            Id = new Guid("10f341a6-d71a-4f06-a761-5914c9d50f79"),
+                            Id = new Guid("889408ed-1648-407b-bd73-640fa8052e6d"),
                             Name = "Yellow (Pantone)"
                         },
                         new
                         {
-                            Id = new Guid("a30a7b3b-e86e-46a2-bd69-c4d18878d6ea"),
+                            Id = new Guid("4410a43a-4619-434b-aeb7-39ea0820f011"),
                             Name = "Yellow (Process)"
                         },
                         new
                         {
-                            Id = new Guid("2274509c-798e-4188-9c09-b7ae5d4999d6"),
+                            Id = new Guid("d13ffcd6-5d15-49f3-bf71-351d29a78279"),
                             Name = "Yellow (RYB)"
                         },
                         new
                         {
-                            Id = new Guid("ba2121fd-8046-452b-bef1-93a582c3c9d1"),
+                            Id = new Guid("a598266c-0cd5-4b28-83dc-a4696746ae32"),
                             Name = "Yellow-Green"
                         },
                         new
                         {
-                            Id = new Guid("5002a996-2cd5-46e2-99fa-0a0d50c527a9"),
+                            Id = new Guid("02e5dec6-7e6d-414c-aac8-77c9b571fff3"),
                             Name = "Yellow Orange"
                         },
                         new
                         {
-                            Id = new Guid("32c89a27-6226-4689-b6dd-16ff7f72a9f2"),
+                            Id = new Guid("55bea4d9-c574-47da-bf88-56a391f3a5c5"),
                             Name = "Yellow Rose"
                         },
                         new
                         {
-                            Id = new Guid("e674af3b-2b07-4954-bb16-e81ad68e19b7"),
+                            Id = new Guid("bc4157b4-61dd-488c-94b6-1955b2dca139"),
                             Name = "Yellow Sunshine"
                         },
                         new
                         {
-                            Id = new Guid("21f3acd5-e014-4de4-8be4-b74d510f22af"),
+                            Id = new Guid("8c9a3f38-3dae-4941-b5f6-2762527d4f7f"),
                             Name = "Zaffre"
                         },
                         new
                         {
-                            Id = new Guid("deccf3f3-8368-4104-8b17-c1f419eea373"),
+                            Id = new Guid("aa981105-a05a-4cc7-bac1-3137366a7e2e"),
                             Name = "Zinnwaldite Brown"
                         },
                         new
                         {
-                            Id = new Guid("45c8dc1a-c3a9-4676-a8fb-581120031a0a"),
+                            Id = new Guid("7b5a17a2-022c-43f3-af82-eb12b1b8cf2b"),
                             Name = "Zomp"
                         });
                 });
@@ -6548,982 +6533,982 @@ namespace Store.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7b0d1515-571d-4ac9-ac2e-9f3e1e4691ee"),
+                            Id = new Guid("756ec903-19e7-4d54-a027-2f542713bb43"),
                             Name = "Afghanistan"
                         },
                         new
                         {
-                            Id = new Guid("6a94091b-af12-404e-b0ee-e41489c0a21d"),
+                            Id = new Guid("0d656599-6b9d-4bee-ad0a-213e41485521"),
                             Name = "Albania"
                         },
                         new
                         {
-                            Id = new Guid("c7026e25-99d8-4c57-90fe-7cbd6a0cf9c7"),
+                            Id = new Guid("725c8f8d-9b44-448d-83d9-6c5ed256a9d6"),
                             Name = "Algeria"
                         },
                         new
                         {
-                            Id = new Guid("80668300-61f2-412f-a35f-ddc07a8a77c7"),
+                            Id = new Guid("ed7333d2-900e-4372-9286-96a3652b7211"),
                             Name = "Andorra"
                         },
                         new
                         {
-                            Id = new Guid("3e3d946b-2198-4607-ac8b-ca2182b2a3fc"),
+                            Id = new Guid("35291d19-b92a-4879-9795-a8aa317c56ca"),
                             Name = "Angola"
                         },
                         new
                         {
-                            Id = new Guid("89651193-a275-45ca-b521-a1454b498caf"),
+                            Id = new Guid("9901ef79-51e3-4ca9-b328-9b09ebb4cbd3"),
                             Name = "Antigua & Deps"
                         },
                         new
                         {
-                            Id = new Guid("f2f07969-21c5-497c-b8d4-97645a9e1674"),
+                            Id = new Guid("be76617c-eca7-495d-a8fe-f0959ded54c1"),
                             Name = "Argentina"
                         },
                         new
                         {
-                            Id = new Guid("d6802350-8ef7-47ed-af1c-7d7e85018500"),
+                            Id = new Guid("2659ec2e-abde-4cc0-a6c1-5d6ff46948b1"),
                             Name = "Armenia"
                         },
                         new
                         {
-                            Id = new Guid("85249d19-ecf3-4888-8bb1-6b1a7113d43a"),
+                            Id = new Guid("0b9284c4-6402-493a-9361-c497d6b86708"),
                             Name = "Australia"
                         },
                         new
                         {
-                            Id = new Guid("fe821a9b-6be1-4a1b-bf33-19be63e9705b"),
+                            Id = new Guid("4c51bc99-5c1e-4010-9c6b-434864d74c9a"),
                             Name = "Austria"
                         },
                         new
                         {
-                            Id = new Guid("2681a8a0-27d8-4098-b8cc-4aa793e51c62"),
+                            Id = new Guid("ce7b8ad7-adee-40d4-a5f0-582a7c44f7a9"),
                             Name = "Azerbaijan"
                         },
                         new
                         {
-                            Id = new Guid("29315398-6a48-42ed-9684-4d829e30f3f8"),
+                            Id = new Guid("8727a5d0-5794-400f-a4f8-2f05175caace"),
                             Name = "Bahamas"
                         },
                         new
                         {
-                            Id = new Guid("d3f47901-da4a-4c3e-98b7-4977bc525910"),
+                            Id = new Guid("ca1e043d-3bb5-41b4-a0ee-527db6b3fa6b"),
                             Name = "Bahrain"
                         },
                         new
                         {
-                            Id = new Guid("357ff190-f487-41fe-9b1a-73b3bd836f71"),
+                            Id = new Guid("8efe73ae-d4cd-4892-ac58-c39f100c09c6"),
                             Name = "Bangladesh"
                         },
                         new
                         {
-                            Id = new Guid("01dedfc2-80f9-4cf6-924f-35fee866758c"),
+                            Id = new Guid("ea99a2b0-1e22-44b8-9fe3-f0fcae5a119c"),
                             Name = "Barbados"
                         },
                         new
                         {
-                            Id = new Guid("341d8f1e-7d71-43b8-aec9-3d1348818793"),
+                            Id = new Guid("4578379f-cb7b-4feb-81eb-267b77b820b9"),
                             Name = "Belarus"
                         },
                         new
                         {
-                            Id = new Guid("bbe2e8f6-9b86-46fb-b5ad-f3b4f7fbfc73"),
+                            Id = new Guid("c7b849d5-e5c4-4c8c-b7c6-7aa4a673fff1"),
                             Name = "Belgium"
                         },
                         new
                         {
-                            Id = new Guid("c0e44af5-97a4-453f-b15b-ba40743b10f8"),
+                            Id = new Guid("68d2d484-a12f-4b53-991a-56cf7b4ccfbe"),
                             Name = "Belize"
                         },
                         new
                         {
-                            Id = new Guid("66a1be97-a0ac-4a12-bb76-f25f2fb6ca8a"),
+                            Id = new Guid("712d9ade-b88a-458b-a672-af80ad30fb9f"),
                             Name = "Benin"
                         },
                         new
                         {
-                            Id = new Guid("c360ca98-1805-4035-bb72-6dd5811925c6"),
+                            Id = new Guid("30c6b8d8-aa51-401d-8d71-82a73190daef"),
                             Name = "Bhutan"
                         },
                         new
                         {
-                            Id = new Guid("36276c6a-4c40-4344-b501-77d1f7918e04"),
+                            Id = new Guid("a89a0bc5-a861-4dc0-9fff-1465f3a30c57"),
                             Name = "Bolivia"
                         },
                         new
                         {
-                            Id = new Guid("56c0a310-dabb-4211-b57e-370cac03c841"),
+                            Id = new Guid("83a066ff-4a7f-4d65-97ac-ee5fbeb17108"),
                             Name = "Bosnia Herzegovina"
                         },
                         new
                         {
-                            Id = new Guid("e559cb0a-2244-44e7-a55d-796a3bcb0281"),
+                            Id = new Guid("9273d2eb-4c9d-4f33-ae1e-ee26ef51e862"),
                             Name = "Botswana"
                         },
                         new
                         {
-                            Id = new Guid("d3bb6285-da3a-464b-a6c9-32dc6d2f7fce"),
+                            Id = new Guid("0a6f0391-0ae7-4f18-b5e1-559ed2bf3210"),
                             Name = "Brazil"
                         },
                         new
                         {
-                            Id = new Guid("a0e6b850-28c2-49b5-b3b2-ea7e8c2ba0c3"),
+                            Id = new Guid("991871ae-2087-41c0-891e-f15534329f59"),
                             Name = "Brunei"
                         },
                         new
                         {
-                            Id = new Guid("03e3cbb7-cfe5-40b2-8c49-b0a2b4ae2dab"),
+                            Id = new Guid("0f4b24ff-2256-4616-b059-36c69572a28a"),
                             Name = "Bulgaria"
                         },
                         new
                         {
-                            Id = new Guid("a90d1f8c-d440-4b42-9b4c-db01427aabb6"),
+                            Id = new Guid("4ad4d024-49b7-478a-8105-96780bdef12a"),
                             Name = "Burkina"
                         },
                         new
                         {
-                            Id = new Guid("3d518829-0309-4f1f-a8c9-cbf4dc7014b9"),
+                            Id = new Guid("195e278e-9d49-47f1-8b33-d354dabc1556"),
                             Name = "Burundi"
                         },
                         new
                         {
-                            Id = new Guid("386133e6-c1bf-4ba9-95ad-6da9221fed0b"),
+                            Id = new Guid("8d4e9021-01b6-4d74-a8a6-c329d295778f"),
                             Name = "Cambodia"
                         },
                         new
                         {
-                            Id = new Guid("e92e656f-035a-4f3e-b61b-7c9621aaac58"),
+                            Id = new Guid("3da66a4e-2f1b-4021-aac5-c600d298745a"),
                             Name = "Cameroon"
                         },
                         new
                         {
-                            Id = new Guid("9400394d-837a-4a1e-ba3c-ab09fa9e7dc0"),
+                            Id = new Guid("c26d3cd6-a834-4a71-a884-2b33f94d2224"),
                             Name = "Canada"
                         },
                         new
                         {
-                            Id = new Guid("b0da6439-7659-4899-881f-748f8774515a"),
+                            Id = new Guid("c7beaaca-9be2-48ea-a890-70a48cb88328"),
                             Name = "Cape Verde"
                         },
                         new
                         {
-                            Id = new Guid("222b5bb3-7178-4173-be1d-4d80fc44e23c"),
+                            Id = new Guid("77a80a00-451a-4a8e-b546-7294b29c7e62"),
                             Name = "Central African Rep"
                         },
                         new
                         {
-                            Id = new Guid("10c94f40-5b72-46c2-9447-339116e22a2a"),
+                            Id = new Guid("ee22c565-0fb2-4f93-ad69-24ceac898acc"),
                             Name = "Chad"
                         },
                         new
                         {
-                            Id = new Guid("c7ef4c0c-578b-4345-a6bf-04616fdce34c"),
+                            Id = new Guid("d37d32ae-8552-4866-a456-cfe34c2039c8"),
                             Name = "Chile"
                         },
                         new
                         {
-                            Id = new Guid("c05166b1-f788-4050-a5a5-39da8a92cc03"),
+                            Id = new Guid("d7e91084-7456-44ea-b099-36bacc88e9a1"),
                             Name = "China"
                         },
                         new
                         {
-                            Id = new Guid("27f3ea69-f43b-4556-aad8-3fdfd3b25261"),
+                            Id = new Guid("5b8765d2-3b2e-4593-ba24-2845ef2fb7cd"),
                             Name = "Colombia"
                         },
                         new
                         {
-                            Id = new Guid("96c6b932-0de5-49ab-b5c9-fc296869a300"),
+                            Id = new Guid("50b4ec21-73f0-4b3f-adaf-f64ca5d4d174"),
                             Name = "Comoros"
                         },
                         new
                         {
-                            Id = new Guid("e1fd8535-2cf6-4a49-b762-70b7fea8c925"),
+                            Id = new Guid("0b2bed53-4b73-4bfd-bfeb-9883d395c4ae"),
                             Name = "Congo"
                         },
                         new
                         {
-                            Id = new Guid("98c037d7-15ae-4639-bd7d-c8c2ceabc3d2"),
+                            Id = new Guid("73a8850f-ee37-4f77-ad67-fb8de1ea9f44"),
                             Name = "Congo {Democratic Rep}"
                         },
                         new
                         {
-                            Id = new Guid("d0e6a453-8c95-4640-9115-aba9b2eedb19"),
+                            Id = new Guid("ed3a48ac-c00e-4bad-b00b-21e3fedc11b8"),
                             Name = "Costa Rica"
                         },
                         new
                         {
-                            Id = new Guid("fa31f091-f64d-4dbe-9b07-9a4fb5c49b70"),
+                            Id = new Guid("2901cec0-b04c-4624-802c-e4a0409c514a"),
                             Name = "Croatia"
                         },
                         new
                         {
-                            Id = new Guid("d2016ea7-adba-4063-b035-d6a874a473fd"),
+                            Id = new Guid("4260b24f-9d84-4b4d-9ab5-deca7ddeb5ed"),
                             Name = "Cuba"
                         },
                         new
                         {
-                            Id = new Guid("7ece5a30-4007-4467-bd1a-bc30417b5a54"),
+                            Id = new Guid("44815169-bc08-4f98-b080-ab29ec0d9350"),
                             Name = "Cyprus"
                         },
                         new
                         {
-                            Id = new Guid("ff67d680-78c8-4b09-933a-e4aeecc11d4f"),
+                            Id = new Guid("d4465912-3e3a-401c-8302-f534215ea5bd"),
                             Name = "Czech Republic"
                         },
                         new
                         {
-                            Id = new Guid("b0c631de-d458-4c6f-aeed-cecde8448bd4"),
+                            Id = new Guid("f841e010-01b5-4fe4-ac5e-d3eb91a3ffbe"),
                             Name = "Denmark"
                         },
                         new
                         {
-                            Id = new Guid("b52f66d7-69be-4837-ae4c-c19aa069f0bb"),
+                            Id = new Guid("6c104792-3f9c-4049-b3dc-358814ff5d51"),
                             Name = "Djibouti"
                         },
                         new
                         {
-                            Id = new Guid("7331cddb-cf3e-4f6d-bd03-20e5fffbf353"),
+                            Id = new Guid("8fb6e6ff-9caa-4795-993b-2cbd3216fe83"),
                             Name = "Dominica"
                         },
                         new
                         {
-                            Id = new Guid("46025b86-0fea-486d-96dc-d66ebd3cebd7"),
+                            Id = new Guid("68e471cd-c498-4d5b-a7b3-e1fdbd14a26a"),
                             Name = "Dominican Republic"
                         },
                         new
                         {
-                            Id = new Guid("cb4a12df-1ae6-45be-8061-f97fcd653122"),
+                            Id = new Guid("4e7114ed-d335-4fa9-9245-250859dcb2a0"),
                             Name = "East Timor"
                         },
                         new
                         {
-                            Id = new Guid("af09db60-d4b8-4785-a24a-edc98d9fe6d8"),
+                            Id = new Guid("162c2239-645e-4d78-b24f-8ade995d5fad"),
                             Name = "Ecuador"
                         },
                         new
                         {
-                            Id = new Guid("b572a32b-4a43-4286-bc03-531751baffb5"),
+                            Id = new Guid("abf09f60-d9af-43ae-b4fe-429291cb1ce1"),
                             Name = "Egypt"
                         },
                         new
                         {
-                            Id = new Guid("23add879-3189-482b-be4b-59d462828042"),
+                            Id = new Guid("2abe9cf2-8e1b-440f-8cdf-17570ee5c3a3"),
                             Name = "El Salvador"
                         },
                         new
                         {
-                            Id = new Guid("300b12ab-a748-492f-98bf-2a345f965d6b"),
+                            Id = new Guid("e126943d-770d-4374-81bc-9e2330641957"),
                             Name = "Equatorial Guinea"
                         },
                         new
                         {
-                            Id = new Guid("01a4eeef-ab2f-434f-a336-afe6a6d7a4d1"),
+                            Id = new Guid("22ac06de-1907-4fb2-9fcb-30e933237b29"),
                             Name = "Eritrea"
                         },
                         new
                         {
-                            Id = new Guid("e2be13fe-113f-4b6b-adef-89a8ac151d03"),
+                            Id = new Guid("bb5d43b8-a74c-419f-a5b2-98c7eed4009a"),
                             Name = "Estonia"
                         },
                         new
                         {
-                            Id = new Guid("a158b858-ba20-4051-b383-fd75a4073d2a"),
+                            Id = new Guid("1944e176-81ce-46d8-8f37-7a53bc19e2bb"),
                             Name = "Ethiopia"
                         },
                         new
                         {
-                            Id = new Guid("88008e45-ed9a-4877-ae7a-b3fb094ca65f"),
+                            Id = new Guid("20f14438-01d8-4f24-af78-758da76c6ecc"),
                             Name = "Fiji"
                         },
                         new
                         {
-                            Id = new Guid("db8754b5-f286-4987-9607-dadd64dee450"),
+                            Id = new Guid("34067cf6-eb8d-4a0b-8c0b-bf9dceca735e"),
                             Name = "Finland"
                         },
                         new
                         {
-                            Id = new Guid("d17ccd06-3396-4096-8cf1-66bac31da7b4"),
+                            Id = new Guid("84671d93-7fe6-48f6-8cd7-28aa5928e4eb"),
                             Name = "France"
                         },
                         new
                         {
-                            Id = new Guid("72b59f02-f6b4-4828-b3c4-55633a8fa683"),
+                            Id = new Guid("b7078d8b-2dc1-4659-b306-7be3bd2586eb"),
                             Name = "Gabon"
                         },
                         new
                         {
-                            Id = new Guid("d2e445a5-47e4-4b9b-bda7-b466f51ea626"),
+                            Id = new Guid("165d5b9c-4f59-4c1b-b8e5-a45f795c1a08"),
                             Name = "Gambia"
                         },
                         new
                         {
-                            Id = new Guid("c60019c0-7dc6-4c9a-9f5d-5f74c3c85422"),
+                            Id = new Guid("96d045a6-5820-4ac3-ad36-e433df3c7de8"),
                             Name = "Georgia"
                         },
                         new
                         {
-                            Id = new Guid("0c73ec0b-a183-47ae-979b-10bf22a088bc"),
+                            Id = new Guid("59c7bf65-9449-4288-b9d6-1035b1e5add5"),
                             Name = "Germany"
                         },
                         new
                         {
-                            Id = new Guid("cc6b0ba4-4e77-49b9-b008-3bfd1568e42f"),
+                            Id = new Guid("f32b54a4-4ac9-482a-aa5d-5aa154ee5151"),
                             Name = "Ghana"
                         },
                         new
                         {
-                            Id = new Guid("01d9d4c0-0391-43e6-9fcd-1f790cb10352"),
+                            Id = new Guid("9f011fe7-fb0f-4423-92d3-2e5843e65a15"),
                             Name = "Greece"
                         },
                         new
                         {
-                            Id = new Guid("3d92faca-704f-4f95-b795-992b5bb78dcd"),
+                            Id = new Guid("6735bbd1-2d32-44d2-a533-279b90e87d0f"),
                             Name = "Grenada"
                         },
                         new
                         {
-                            Id = new Guid("fda7dc09-1751-4763-b6d8-8753dd110e0e"),
+                            Id = new Guid("1a1ab91b-8b29-4df0-9657-2d374bbd3e45"),
                             Name = "Guatemala"
                         },
                         new
                         {
-                            Id = new Guid("4bd4305e-4463-4f99-92a5-5b849d8fef4c"),
+                            Id = new Guid("fd2ac447-4288-44e6-be42-97d41703fe1d"),
                             Name = "Guinea"
                         },
                         new
                         {
-                            Id = new Guid("4249b2e1-7a5e-4ef9-9de1-2b7dd374f834"),
+                            Id = new Guid("bded9dc9-ff55-43cc-b15e-50df7bb3732a"),
                             Name = "Guinea-Bissau"
                         },
                         new
                         {
-                            Id = new Guid("3e5f6e17-72c4-49d7-aaa0-331c681b845b"),
+                            Id = new Guid("b141335a-0ff7-4829-a0f4-200585755344"),
                             Name = "Guyana"
                         },
                         new
                         {
-                            Id = new Guid("73a0517f-b03b-4b8f-b677-f713125905a6"),
+                            Id = new Guid("6a23a535-b9cd-4260-8b4b-4500cfdbb49e"),
                             Name = "Haiti"
                         },
                         new
                         {
-                            Id = new Guid("31977ab1-75f2-44cd-a58d-672387c259cd"),
+                            Id = new Guid("0e634bf1-1bf3-4801-af3e-5710e20edbcd"),
                             Name = "Honduras"
                         },
                         new
                         {
-                            Id = new Guid("8f5188a8-5253-4c22-97e5-49f446868c06"),
+                            Id = new Guid("04c33786-28f2-42ae-a58e-dbd28866d7fa"),
                             Name = "Hungary"
                         },
                         new
                         {
-                            Id = new Guid("9f1dada8-9f43-4f45-9e9b-29d9189154e4"),
+                            Id = new Guid("78505b19-9e6d-4867-aa70-9cdac3f81592"),
                             Name = "Iceland"
                         },
                         new
                         {
-                            Id = new Guid("93a22962-c5d2-405d-81e8-e9002a0cfeac"),
+                            Id = new Guid("c946872a-1ace-4fa0-bcba-b77ba0fc66c8"),
                             Name = "India"
                         },
                         new
                         {
-                            Id = new Guid("2a02e7a9-0995-4b18-a650-3306e40ce58a"),
+                            Id = new Guid("20ca48ad-4646-46e2-850d-18fe33e4034e"),
                             Name = "Indonesia"
                         },
                         new
                         {
-                            Id = new Guid("17acf8a0-cc06-4c1b-b115-1a7725d800d4"),
+                            Id = new Guid("393e415e-f462-4b63-bc99-389881145416"),
                             Name = "Iran"
                         },
                         new
                         {
-                            Id = new Guid("b686e4f0-61e7-4f16-a592-d3dda8e4cbfa"),
+                            Id = new Guid("fec2d928-3e2c-496e-8f54-ef26b4e82c89"),
                             Name = "Iraq"
                         },
                         new
                         {
-                            Id = new Guid("31da9d89-7cc1-4f1e-b0e5-b53bda3c4ca7"),
+                            Id = new Guid("1298aaf3-7245-444b-a401-d36f9966b9e6"),
                             Name = "Ireland {Republic}"
                         },
                         new
                         {
-                            Id = new Guid("c9890059-14b3-43ac-8634-6d5ef16eba4f"),
+                            Id = new Guid("d6040d41-460c-4383-b9f8-d7997a1c2e74"),
                             Name = "Israel"
                         },
                         new
                         {
-                            Id = new Guid("f0c1b799-645f-418e-808e-5326abaa3f7c"),
+                            Id = new Guid("6191946d-0f56-482b-bfbd-10de0321fb42"),
                             Name = "Italy"
                         },
                         new
                         {
-                            Id = new Guid("d7ade598-75b0-4d3e-9642-7018bb4037ba"),
+                            Id = new Guid("4c3221b1-4344-4cdd-871b-53ddffe56775"),
                             Name = "Ivory Coast"
                         },
                         new
                         {
-                            Id = new Guid("62131908-ce66-4bef-9f7d-9bef6969c239"),
+                            Id = new Guid("491dfd3a-c3c6-4b4a-976a-e2188bf5bcc8"),
                             Name = "Jamaica"
                         },
                         new
                         {
-                            Id = new Guid("65c1746e-3a98-429e-8b01-b6eae9ee0b89"),
+                            Id = new Guid("bc7fcdee-e539-447f-a381-9737b8471e7d"),
                             Name = "Japan"
                         },
                         new
                         {
-                            Id = new Guid("0ff27063-d4b0-40b1-9589-3b17a5f9e96f"),
+                            Id = new Guid("58711485-2515-45b3-9ac8-4f26902014e9"),
                             Name = "Jordan"
                         },
                         new
                         {
-                            Id = new Guid("9e9701ab-b4c1-457f-8886-86b1c66b5f0f"),
+                            Id = new Guid("74d8ae02-0f21-46b5-a275-3481e73ff257"),
                             Name = "Kazakhstan"
                         },
                         new
                         {
-                            Id = new Guid("7c786c2e-ca8c-478b-8bd3-ccbb73e44a6a"),
+                            Id = new Guid("4355e553-88a6-4d50-9bee-14f64c3edbfe"),
                             Name = "Kenya"
                         },
                         new
                         {
-                            Id = new Guid("1a3ef093-5222-437a-ad08-58d1c83806a6"),
+                            Id = new Guid("c59b732a-4c78-4c12-9e78-7c0223f99785"),
                             Name = "Kiribati"
                         },
                         new
                         {
-                            Id = new Guid("bb757962-6814-4954-b6a6-a23c5a66b169"),
+                            Id = new Guid("08cfab7d-e2c7-49c3-b1bc-9d8ef2ae77b5"),
                             Name = "Korea North"
                         },
                         new
                         {
-                            Id = new Guid("c638606c-78df-4fff-8d03-9ab4086edc53"),
+                            Id = new Guid("d9ed18d5-7cd9-45c9-836e-4566d616c8cc"),
                             Name = "Korea South"
                         },
                         new
                         {
-                            Id = new Guid("978c086a-6d86-422e-aedb-bd1622cbe36a"),
+                            Id = new Guid("ea4dad20-2551-4fc9-b1e6-f1b05ea18a20"),
                             Name = "Kosovo"
                         },
                         new
                         {
-                            Id = new Guid("e91d34a3-29ef-460c-bb7d-a86d19e53462"),
+                            Id = new Guid("787d931e-2d8d-4419-be63-1a77043ded9e"),
                             Name = "Kuwait"
                         },
                         new
                         {
-                            Id = new Guid("20cd6fd5-cf2c-481a-a7df-5ca78357b016"),
+                            Id = new Guid("62eb477f-b6d3-4543-a99c-3f1e63f56f72"),
                             Name = "Kyrgyzstan"
                         },
                         new
                         {
-                            Id = new Guid("c7b4bc97-2859-41ed-9ab2-beb823a9fd7e"),
+                            Id = new Guid("e096a929-dc3b-458e-a520-d1a6f1418431"),
                             Name = "Laos"
                         },
                         new
                         {
-                            Id = new Guid("99081812-2c4b-4092-a1e0-7d520ab60a59"),
+                            Id = new Guid("609297e6-81bd-420d-a534-88f3a11badfb"),
                             Name = "Latvia"
                         },
                         new
                         {
-                            Id = new Guid("26be284b-7d96-4136-a710-59042724a7a6"),
+                            Id = new Guid("e1e10a66-d45e-4c79-891c-cbee46ca0283"),
                             Name = "Lebanon"
                         },
                         new
                         {
-                            Id = new Guid("dbc72fe6-a6a7-4f73-bfef-7ed394da52f6"),
+                            Id = new Guid("2611b55c-b895-4cb3-a275-86ad32408169"),
                             Name = "Lesotho"
                         },
                         new
                         {
-                            Id = new Guid("e43a7f21-9e47-4897-b450-eebc01e548bf"),
+                            Id = new Guid("6a5a2a58-7bf5-4f5c-9da7-9f1987d26946"),
                             Name = "Liberia"
                         },
                         new
                         {
-                            Id = new Guid("f232ea93-4c0e-4919-b75e-d93e0e793858"),
+                            Id = new Guid("c2665174-9f9c-4f43-9004-34840129f35c"),
                             Name = "Libya"
                         },
                         new
                         {
-                            Id = new Guid("d6166919-0ceb-4d6b-923d-1087e4ef8917"),
+                            Id = new Guid("aa3a3aa4-c0ac-49d6-acae-c14d3d48914b"),
                             Name = "Liechtenstein"
                         },
                         new
                         {
-                            Id = new Guid("b87b0547-fe5f-4449-9dde-e01ae0af553c"),
+                            Id = new Guid("a018d69a-89e9-42b8-b8f7-27501c0fc6b9"),
                             Name = "Lithuania"
                         },
                         new
                         {
-                            Id = new Guid("97eb13b5-6fb4-4a40-96d2-a602015559da"),
+                            Id = new Guid("3e7c07d9-bb21-4eb3-8f9e-678d74fc3062"),
                             Name = "Luxembourg"
                         },
                         new
                         {
-                            Id = new Guid("abc4c37a-c75b-4242-a98e-b6ea493c6a2c"),
+                            Id = new Guid("7b65e755-9adb-48d7-9cf9-10d67fd5c8fd"),
                             Name = "Macedonia"
                         },
                         new
                         {
-                            Id = new Guid("1991386c-8183-47e0-bd88-4e7d07684928"),
+                            Id = new Guid("46fd9092-16bd-430c-9f7b-007fdd6cb963"),
                             Name = "Madagascar"
                         },
                         new
                         {
-                            Id = new Guid("9818c23e-6725-4e69-881b-417e1f849735"),
+                            Id = new Guid("be277649-f863-4ec5-8858-37edb6d80f5a"),
                             Name = "Malawi"
                         },
                         new
                         {
-                            Id = new Guid("ed08af46-030d-4a5a-9d23-375a7bada6f8"),
+                            Id = new Guid("06bd7145-9bee-4e64-82e8-f2f453aa421a"),
                             Name = "Malaysia"
                         },
                         new
                         {
-                            Id = new Guid("2467cac3-ee99-4cc7-9347-c939933a9008"),
+                            Id = new Guid("8fb8908e-927c-4f8d-886d-c18557f8756b"),
                             Name = "Maldives"
                         },
                         new
                         {
-                            Id = new Guid("0668b49b-c5f6-4654-8137-b6e4fbdef85a"),
+                            Id = new Guid("9d57b54e-4988-4f27-8a74-75f38cd4aeac"),
                             Name = "Mali"
                         },
                         new
                         {
-                            Id = new Guid("e7a2e0da-3065-4e3b-b1ac-6751375f2d59"),
+                            Id = new Guid("dc3202c3-fd85-4efa-8578-258ef90d8f86"),
                             Name = "Malta"
                         },
                         new
                         {
-                            Id = new Guid("3358f5dc-fc35-434a-9a4d-5168e4f5e6ef"),
+                            Id = new Guid("012a178c-6dd2-4551-8c72-8c766062d8fd"),
                             Name = "Marshall Islands"
                         },
                         new
                         {
-                            Id = new Guid("9d6e61cc-15eb-4bf9-90e2-214ffa9cc5e6"),
+                            Id = new Guid("c9c62ea8-6c4e-4c96-af6e-4547fa16133d"),
                             Name = "Mauritania"
                         },
                         new
                         {
-                            Id = new Guid("42143a8b-3eb8-43e6-8412-52a6e0e6c7d2"),
+                            Id = new Guid("61ee3fd9-6974-4177-b84d-b81aaf91707e"),
                             Name = "Mauritius"
                         },
                         new
                         {
-                            Id = new Guid("249fc815-61d4-4c51-8f47-93e83be6542d"),
+                            Id = new Guid("d576cdea-7e04-41dd-a466-cf756d18d9c6"),
                             Name = "Mexico"
                         },
                         new
                         {
-                            Id = new Guid("b6c7e554-e2b7-46bc-8992-92093d5d2118"),
+                            Id = new Guid("5431a541-b40e-4269-a040-123315a03e5a"),
                             Name = "Micronesia"
                         },
                         new
                         {
-                            Id = new Guid("228b4ef7-ba63-4770-8e22-74dcadd661d2"),
+                            Id = new Guid("1dbc2f82-4904-4f1d-b305-add806a14665"),
                             Name = "Moldova"
                         },
                         new
                         {
-                            Id = new Guid("2cb9c3d8-6bb7-42ae-8687-12bb20ea4ced"),
+                            Id = new Guid("c8910eef-82be-42f3-bb7f-4b8e8847b818"),
                             Name = "Monaco"
                         },
                         new
                         {
-                            Id = new Guid("b9039e7c-94b0-4f00-b167-c2a314acda8c"),
+                            Id = new Guid("7ec946b2-356a-4e5e-9f36-ed1b90f41e0b"),
                             Name = "Mongolia"
                         },
                         new
                         {
-                            Id = new Guid("025800b8-8ed9-4587-8b70-5e7b644dd2ed"),
+                            Id = new Guid("a5a5a626-179b-4a29-8de4-84a6dc398570"),
                             Name = "Montenegro"
                         },
                         new
                         {
-                            Id = new Guid("359340c4-42ec-43f9-887a-1f76f9eb565b"),
+                            Id = new Guid("b5a43404-74ff-4d12-b3c7-fbea6b0b1a18"),
                             Name = "Morocco"
                         },
                         new
                         {
-                            Id = new Guid("b8be26b9-d49e-4f71-b7ba-7447c93f49eb"),
+                            Id = new Guid("1a0a1e34-2e6f-4415-9744-155bb4c1024e"),
                             Name = "Mozambique"
                         },
                         new
                         {
-                            Id = new Guid("5cafdda9-af9b-4d9a-a36a-d562a2c05f24"),
+                            Id = new Guid("11e6479b-effe-49dc-82c7-94e45949418c"),
                             Name = "Myanmar, {Burma}"
                         },
                         new
                         {
-                            Id = new Guid("dd39b77e-5af5-48c5-8777-111b123c0358"),
+                            Id = new Guid("39b870b3-c5bd-4e04-8ec2-f302532ba61d"),
                             Name = "Namibia"
                         },
                         new
                         {
-                            Id = new Guid("cdbf20f4-b675-48ec-a560-758226196297"),
+                            Id = new Guid("4ae76072-626c-413b-864e-f6dc6f031547"),
                             Name = "Nauru"
                         },
                         new
                         {
-                            Id = new Guid("c552a78f-19f9-4c1a-9e08-56e3ca46acd7"),
+                            Id = new Guid("0e3262a9-1219-43ff-b7d2-afcd16d90c73"),
                             Name = "Nepal"
                         },
                         new
                         {
-                            Id = new Guid("1b1ba7fb-c147-4608-a58f-2c502031c176"),
+                            Id = new Guid("51120501-4708-43c4-9235-40f960c3d9f5"),
                             Name = "Netherlands"
                         },
                         new
                         {
-                            Id = new Guid("ddad3a84-db8f-4deb-8b4f-6c026dccd5bf"),
+                            Id = new Guid("aac52447-c9e7-4a5d-a789-090165b863ff"),
                             Name = "New Zealand"
                         },
                         new
                         {
-                            Id = new Guid("a0a27b0a-0b48-4208-9ef7-9074ad17b69c"),
+                            Id = new Guid("043f6f9f-d2b2-468e-a0c9-8e905871be36"),
                             Name = "Nicaragua"
                         },
                         new
                         {
-                            Id = new Guid("3ec86171-e0be-4f04-a8dc-5db881540741"),
+                            Id = new Guid("70e7c919-5f6d-4d63-82fc-6dbb1062c67c"),
                             Name = "Niger"
                         },
                         new
                         {
-                            Id = new Guid("935e10ad-ae4f-440f-8701-31a0a9114813"),
+                            Id = new Guid("3a2f8331-06b6-4b5f-996b-e62507ff4a6b"),
                             Name = "Nigeria"
                         },
                         new
                         {
-                            Id = new Guid("a7701ae6-890f-4599-ae8d-80a3a8c27f1a"),
+                            Id = new Guid("532109b5-12c4-4616-9f58-e13570c37ec1"),
                             Name = "Norway"
                         },
                         new
                         {
-                            Id = new Guid("fcbaefe1-f23b-44d1-b043-d59b3a47d047"),
+                            Id = new Guid("f23e0e1a-cd98-4b24-a325-3bc546d125c8"),
                             Name = "Oman"
                         },
                         new
                         {
-                            Id = new Guid("442de855-472b-4d7a-80e0-3a57c532bb67"),
+                            Id = new Guid("3d8e2588-46a8-4e50-b28f-ed48e63da967"),
                             Name = "Pakistan"
                         },
                         new
                         {
-                            Id = new Guid("9fec4907-351c-4e92-a998-0abb6a4f426f"),
+                            Id = new Guid("1a553885-a630-4c49-be9d-777fe3cf570e"),
                             Name = "Palau"
                         },
                         new
                         {
-                            Id = new Guid("c402e0ed-d386-4c3a-bd15-b61b14aef627"),
+                            Id = new Guid("868363be-b51f-4221-a054-fcbde0ec7fb9"),
                             Name = "Panama"
                         },
                         new
                         {
-                            Id = new Guid("dc43360d-f639-4133-af38-0ae96bc45f3d"),
+                            Id = new Guid("b804a898-52f5-4c42-bf08-165343d41806"),
                             Name = "Papua New Guinea"
                         },
                         new
                         {
-                            Id = new Guid("e0b94ab2-472a-4452-a1f4-16f5abeb6196"),
+                            Id = new Guid("759f07d0-975f-4884-abda-96ac3616a395"),
                             Name = "Paraguay"
                         },
                         new
                         {
-                            Id = new Guid("ffbba6bd-45c1-4060-94ba-ec1bae506d63"),
+                            Id = new Guid("f5ba9a6e-dee8-4086-9e98-ff0bd2c63a41"),
                             Name = "Peru"
                         },
                         new
                         {
-                            Id = new Guid("7412994e-1cca-454d-aaf9-b51790a264f8"),
+                            Id = new Guid("eb1762cd-2ac1-4ed8-97f0-f08022252698"),
                             Name = "Philippines"
                         },
                         new
                         {
-                            Id = new Guid("3dca4a35-d2fc-46a8-a1b7-f29461ec12c3"),
+                            Id = new Guid("cdf311b7-b4e7-4fb0-b68c-c0e392ee5237"),
                             Name = "Poland"
                         },
                         new
                         {
-                            Id = new Guid("30110aa9-9cb2-46ec-b359-e8590a8e4c73"),
+                            Id = new Guid("76fd2dc8-b110-4d25-809f-a569b5a2ed0a"),
                             Name = "Portugal"
                         },
                         new
                         {
-                            Id = new Guid("2c4bd944-0e92-442c-a11a-530e80f102c7"),
+                            Id = new Guid("01dabc67-6416-4693-9c40-0eacc97cc0a0"),
                             Name = "Qatar"
                         },
                         new
                         {
-                            Id = new Guid("63c139ff-ad48-43df-9c6e-3d51eb058633"),
+                            Id = new Guid("e92b443a-d6a9-44ff-8539-1047dc52f527"),
                             Name = "Romania"
                         },
                         new
                         {
-                            Id = new Guid("88cc877e-e404-4de0-8e29-573fe0864443"),
+                            Id = new Guid("6a683061-d3f8-4efc-885c-adfac3056be9"),
                             Name = "Russian Federation"
                         },
                         new
                         {
-                            Id = new Guid("aa144003-38e4-4914-83a5-3ba5ea7a91f6"),
+                            Id = new Guid("5181af2b-c814-45b0-8f51-73b29a6ee59f"),
                             Name = "Rwanda"
                         },
                         new
                         {
-                            Id = new Guid("c69ffb33-bf63-4aab-a2ee-58586014a633"),
+                            Id = new Guid("5dce5035-362e-43fb-9814-28e7ce7c4813"),
                             Name = "St Kitts & Nevis"
                         },
                         new
                         {
-                            Id = new Guid("96e7e0dc-c2eb-42e5-baf7-27914af6473f"),
+                            Id = new Guid("094d9359-e4b4-4fe9-b621-0484c44a9c73"),
                             Name = "St Lucia"
                         },
                         new
                         {
-                            Id = new Guid("9d4251c5-2c62-4f90-a656-19c4d4bc10ef"),
+                            Id = new Guid("eb703028-6c7f-4d8b-9e92-306bc0920d21"),
                             Name = "Saint Vincent & the Grenadines"
                         },
                         new
                         {
-                            Id = new Guid("99947f5d-114f-401f-ab7d-7cf45f29fd8a"),
+                            Id = new Guid("050de1be-0db3-472a-9244-dd7ccf0a0257"),
                             Name = "Samoa"
                         },
                         new
                         {
-                            Id = new Guid("b09b1a4c-bd6b-4eb7-b6e7-76cf5e40f5ef"),
+                            Id = new Guid("f881cb92-8b2b-42de-b814-633c5ab9fbea"),
                             Name = "San Marino"
                         },
                         new
                         {
-                            Id = new Guid("043189ae-0830-48aa-a9bc-79a01a6c0bfd"),
+                            Id = new Guid("63f9a715-b50e-4dae-8134-70fc066e5c39"),
                             Name = "Sao Tome & Principe"
                         },
                         new
                         {
-                            Id = new Guid("7992b793-6974-4692-bd37-fee4a88caea4"),
+                            Id = new Guid("d3e1160b-4acd-4c16-8aa4-2d237c1bf8e8"),
                             Name = "Saudi Arabia"
                         },
                         new
                         {
-                            Id = new Guid("6211a398-662b-4f72-b0ac-86282e049173"),
+                            Id = new Guid("2ece1a3d-b1b7-44e4-b44b-1aaaf788f3b2"),
                             Name = "Senegal"
                         },
                         new
                         {
-                            Id = new Guid("1d7fd8c1-57d1-4130-b936-331eda40b459"),
+                            Id = new Guid("4a649a16-03e3-4951-b0f2-5427d8b3fe9c"),
                             Name = "Serbia"
                         },
                         new
                         {
-                            Id = new Guid("e6feba3e-80a5-4dc4-a1c9-02ee1c7a143b"),
+                            Id = new Guid("da0e21c6-0e79-4f72-a0ef-c6a3a680d09c"),
                             Name = "Seychelles"
                         },
                         new
                         {
-                            Id = new Guid("b4773df3-65cf-4088-8c68-938bfae1622e"),
+                            Id = new Guid("16ef187b-213d-4c2d-83a6-e07075a009ac"),
                             Name = "Sierra Leone"
                         },
                         new
                         {
-                            Id = new Guid("940a017a-ef98-4a8c-a296-ee130200f1a2"),
+                            Id = new Guid("dc1ca296-5633-488f-ac55-8bf024b7172f"),
                             Name = "Singapore"
                         },
                         new
                         {
-                            Id = new Guid("233afe3c-8599-4959-a457-7a7ea40b4fec"),
+                            Id = new Guid("ea90f918-7421-4a80-b1e1-532425e6766e"),
                             Name = "Slovakia"
                         },
                         new
                         {
-                            Id = new Guid("d86ed3f7-8055-45fa-b315-7f2b9902443d"),
+                            Id = new Guid("8946cb4b-40af-43a0-9055-d91f396b989b"),
                             Name = "Slovenia"
                         },
                         new
                         {
-                            Id = new Guid("46a77e86-8b93-4a00-aa9e-e140367003d7"),
+                            Id = new Guid("71e3c0bd-85f5-4c99-a939-78a864c68aee"),
                             Name = "Solomon Islands"
                         },
                         new
                         {
-                            Id = new Guid("03d0b656-92e8-46b7-bb56-d63b85ea224e"),
+                            Id = new Guid("228ab87c-0b40-422b-a1c7-12ab317d124c"),
                             Name = "Somalia"
                         },
                         new
                         {
-                            Id = new Guid("5ec20b14-94bb-4aaf-be81-4910263238f5"),
+                            Id = new Guid("a060324b-54f2-4a28-b574-f8d686360f3d"),
                             Name = "South Africa"
                         },
                         new
                         {
-                            Id = new Guid("7f09f846-b4c6-496e-bfa8-d9183538ed92"),
+                            Id = new Guid("ddbc0531-89b1-4f98-90a1-57d58af8d7ac"),
                             Name = "South Sudan"
                         },
                         new
                         {
-                            Id = new Guid("ef9e5ee6-6924-4776-b1a9-1643485b7bad"),
+                            Id = new Guid("31458ed5-2fb1-4ee2-a28b-7c3166c5f13a"),
                             Name = "Spain"
                         },
                         new
                         {
-                            Id = new Guid("8fed4c88-40fa-483d-8600-63ced4cc2104"),
+                            Id = new Guid("84e18865-baeb-4486-b8aa-ad1c7b621ef7"),
                             Name = "Sri Lanka"
                         },
                         new
                         {
-                            Id = new Guid("cd12c5ea-654f-4ad5-aaa3-2ffe2972f570"),
+                            Id = new Guid("9b274197-83be-4d31-9e46-de5b31b532f6"),
                             Name = "Sudan"
                         },
                         new
                         {
-                            Id = new Guid("a3a1a164-94c8-4e0f-893c-7b5a04186f78"),
+                            Id = new Guid("5c20b6dc-eee3-4146-b679-8c6c8b08fbc5"),
                             Name = "Suriname"
                         },
                         new
                         {
-                            Id = new Guid("b4deba69-35d3-4e50-86ca-fc3659ca0aa3"),
+                            Id = new Guid("563f0bf5-1009-48de-93f6-b1920caf7bf2"),
                             Name = "Swaziland"
                         },
                         new
                         {
-                            Id = new Guid("d55dd015-8e51-45b8-b1e5-0269d67bd371"),
+                            Id = new Guid("b265fa41-415b-43f7-b7cb-f6ccbe26391b"),
                             Name = "Sweden"
                         },
                         new
                         {
-                            Id = new Guid("43671cda-e404-40ef-bfe2-174b177a1759"),
+                            Id = new Guid("234d13c3-9e40-49ab-aefc-b730421b230f"),
                             Name = "Switzerland"
                         },
                         new
                         {
-                            Id = new Guid("e1408d71-1208-48e7-ad49-981b14b002df"),
+                            Id = new Guid("b9e1c247-5919-48a5-8b38-8b2b3e36cba1"),
                             Name = "Syria"
                         },
                         new
                         {
-                            Id = new Guid("505631bc-33e3-415e-aa95-379244a7d780"),
+                            Id = new Guid("fe0e423a-0c01-4d53-9be3-bc4378129bf3"),
                             Name = "Taiwan"
                         },
                         new
                         {
-                            Id = new Guid("2f163507-d64f-45c3-b130-f21204ac6438"),
+                            Id = new Guid("a7ee28c5-c244-49fb-aa61-f62b9a7fc0c7"),
                             Name = "Tajikistan"
                         },
                         new
                         {
-                            Id = new Guid("1528998d-99da-4ac9-9196-abf6c240038d"),
+                            Id = new Guid("cf6d85aa-baff-4579-90b0-ae9779402038"),
                             Name = "Tanzania"
                         },
                         new
                         {
-                            Id = new Guid("bb043b49-75df-4013-a408-40a3ac45a45b"),
+                            Id = new Guid("d164f0ae-5cf7-433b-af2e-43308c22af2e"),
                             Name = "Thailand"
                         },
                         new
                         {
-                            Id = new Guid("757010ab-90e2-42f4-b3c1-9667065eb67e"),
+                            Id = new Guid("68e64e6d-4399-4ac4-9f37-68ae93285711"),
                             Name = "Togo"
                         },
                         new
                         {
-                            Id = new Guid("2ef4a497-7357-4875-a5c5-4e9664d1ca6d"),
+                            Id = new Guid("9e57a0d8-ef6d-42d7-9804-c72d58643ec3"),
                             Name = "Tonga"
                         },
                         new
                         {
-                            Id = new Guid("c5575a78-776f-4f43-bd34-5b3359856795"),
+                            Id = new Guid("ef565d35-c7b2-4aac-aa20-bdc90865fc47"),
                             Name = "Trinidad & Tobago"
                         },
                         new
                         {
-                            Id = new Guid("764b176b-c255-449d-a056-ee3d644428a6"),
+                            Id = new Guid("353bafd8-a36c-4aad-a2c1-0e71219553d8"),
                             Name = "Tunisia"
                         },
                         new
                         {
-                            Id = new Guid("3470f683-17f3-4179-a50e-67ddb5be284a"),
+                            Id = new Guid("8380517f-0317-4686-9839-3f06b6b51bcc"),
                             Name = "Turkey"
                         },
                         new
                         {
-                            Id = new Guid("f352d97e-ca2e-4d2a-bdb3-8027d0cbc292"),
+                            Id = new Guid("491a6413-4fc3-4ee1-bc56-74f2b300b15e"),
                             Name = "Turkmenistan"
                         },
                         new
                         {
-                            Id = new Guid("156e9e80-151a-497b-9502-7ad6738a8823"),
+                            Id = new Guid("e4582229-2f2f-452a-9317-3a4c425131e8"),
                             Name = "Tuvalu"
                         },
                         new
                         {
-                            Id = new Guid("29c4465a-3d2a-4813-87cd-72599204d713"),
+                            Id = new Guid("98da8e77-8523-4d5c-b4e6-e0d0b784e1da"),
                             Name = "Uganda"
                         },
                         new
                         {
-                            Id = new Guid("d8203ec5-c937-4039-82d3-209cf6d55308"),
+                            Id = new Guid("244d6649-49a4-4737-ae4a-9b4d3a1d732c"),
                             Name = "Ukraine"
                         },
                         new
                         {
-                            Id = new Guid("5066a49c-bf33-489c-bbea-d0048b6289bf"),
+                            Id = new Guid("52d460b9-c191-4a8a-9662-4e2242a2a620"),
                             Name = "United Arab Emirates"
                         },
                         new
                         {
-                            Id = new Guid("fdd4b41b-a61d-4906-bfee-bfdc2766bf5c"),
+                            Id = new Guid("48e6a011-bbdf-45d1-bac4-ddba74568110"),
                             Name = "United Kingdom"
                         },
                         new
                         {
-                            Id = new Guid("67d027e8-8ec7-4d8d-8c7c-06644773c53c"),
+                            Id = new Guid("5aa45a5c-1903-4633-88e4-11cd13fd6ba0"),
                             Name = "United States"
                         },
                         new
                         {
-                            Id = new Guid("25a9c7c5-ee31-4fde-a682-8e8929053833"),
+                            Id = new Guid("8991902a-b072-4ec6-8828-40391f661443"),
                             Name = "Uruguay"
                         },
                         new
                         {
-                            Id = new Guid("a2e7361c-8588-4e74-8659-220ab0234444"),
+                            Id = new Guid("fdb0e6c8-64c5-4a4b-9beb-053536ab2e38"),
                             Name = "Uzbekistan"
                         },
                         new
                         {
-                            Id = new Guid("b39f5a04-7c01-4bbb-bfe8-5069c5383d3b"),
+                            Id = new Guid("42782d61-791e-4ac7-8c0f-9e8cfaffe1e5"),
                             Name = "Vanuatu"
                         },
                         new
                         {
-                            Id = new Guid("b96db891-ebe7-4f10-bb06-23a1a86e2c70"),
+                            Id = new Guid("3d319e74-05ab-4ac3-bab5-00d387fa9c68"),
                             Name = "Vatican City"
                         },
                         new
                         {
-                            Id = new Guid("4a65ed9d-bbd5-4045-9f02-0bbbe5d82e20"),
+                            Id = new Guid("eb7125d5-3a49-4ce2-8003-e6931fc8e9ce"),
                             Name = "Venezuela"
                         },
                         new
                         {
-                            Id = new Guid("12319ee0-203a-485a-8c78-ea05cd1dc36b"),
+                            Id = new Guid("37a1a711-d146-4d64-8473-d0fd27b281db"),
                             Name = "Vietnam"
                         },
                         new
                         {
-                            Id = new Guid("cb3011d7-10b6-4a8d-bbe4-356eeed68e87"),
+                            Id = new Guid("a614e1d4-b0ee-4101-8a66-bfd00f233a10"),
                             Name = "Yemen"
                         },
                         new
                         {
-                            Id = new Guid("51a5a067-6a91-45d2-a61b-238e8723cf07"),
+                            Id = new Guid("9416424e-5280-4b09-9190-b7a65a79cc89"),
                             Name = "Zambia"
                         },
                         new
                         {
-                            Id = new Guid("84334cb3-c901-4385-8b46-49ba6cc92a11"),
+                            Id = new Guid("f8318a84-7485-4aee-874b-bf5e47aa107e"),
                             Name = "Zimbabwe"
                         });
                 });
@@ -7553,10 +7538,8 @@ namespace Store.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Format")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
+                    b.Property<Guid>("ImageFormatId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Path")
                         .IsRequired()
@@ -7564,7 +7547,27 @@ namespace Store.DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ImageFormatId");
+
                     b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("Store.DAL.Entities.ImageFormat", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Format")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Format")
+                        .IsUnique();
+
+                    b.ToTable("FormatsImage");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.Item", b =>
@@ -7597,6 +7600,9 @@ namespace Store.DAL.Migrations
                     b.Property<Guid>("GenderId")
                         .HasColumnType("uuid");
 
+                    b.Property<Guid>("ItemTypeId")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid>("MainImageId")
                         .HasColumnType("uuid");
 
@@ -7626,12 +7632,38 @@ namespace Store.DAL.Migrations
 
                     b.HasIndex("GenderId");
 
+                    b.HasIndex("ItemTypeId");
+
                     b.HasIndex("MainImageId")
                         .IsUnique();
 
                     b.HasIndex("ManufacturerId");
 
                     b.ToTable("Items");
+                });
+
+            modelBuilder.Entity("Store.DAL.Entities.ItemType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SubItemTypeId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SubItemTypeId");
+
+                    b.HasIndex("Title")
+                        .IsUnique();
+
+                    b.ToTable("ItemTypes");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.Logo", b =>
@@ -7675,7 +7707,7 @@ namespace Store.DAL.Migrations
                     b.ToTable("Manufacturers");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.TypeItem", b =>
+            modelBuilder.Entity("Store.DAL.Entities.SubItemType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -7683,15 +7715,14 @@ namespace Store.DAL.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Title")
                         .IsUnique();
 
-                    b.ToTable("TypeItem");
+                    b.ToTable("SubItemTypes");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.User", b =>
@@ -7763,21 +7794,6 @@ namespace Store.DAL.Migrations
                     b.HasOne("Store.DAL.Entities.Item", null)
                         .WithMany()
                         .HasForeignKey("ItemsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ItemTypeItem", b =>
-                {
-                    b.HasOne("Store.DAL.Entities.Item", null)
-                        .WithMany()
-                        .HasForeignKey("ItemsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Store.DAL.Entities.TypeItem", null)
-                        .WithMany()
-                        .HasForeignKey("TypeItemsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -7874,6 +7890,17 @@ namespace Store.DAL.Migrations
                     b.Navigation("Logo");
                 });
 
+            modelBuilder.Entity("Store.DAL.Entities.Image", b =>
+                {
+                    b.HasOne("Store.DAL.Entities.ImageFormat", "ImageFormat")
+                        .WithMany("Images")
+                        .HasForeignKey("ImageFormatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ImageFormat");
+                });
+
             modelBuilder.Entity("Store.DAL.Entities.Item", b =>
                 {
                     b.HasOne("Store.DAL.Entities.AgeType", "AgeType")
@@ -7906,6 +7933,12 @@ namespace Store.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Store.DAL.Entities.ItemType", "ItemType")
+                        .WithMany("Items")
+                        .HasForeignKey("ItemTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Store.DAL.Entities.Image", "MainImage")
                         .WithOne("MainItemImage")
                         .HasForeignKey("Store.DAL.Entities.Item", "MainImageId")
@@ -7928,9 +7961,22 @@ namespace Store.DAL.Migrations
 
                     b.Navigation("Gender");
 
+                    b.Navigation("ItemType");
+
                     b.Navigation("MainImage");
 
                     b.Navigation("Manufacturer");
+                });
+
+            modelBuilder.Entity("Store.DAL.Entities.ItemType", b =>
+                {
+                    b.HasOne("Store.DAL.Entities.SubItemType", "SubItemType")
+                        .WithMany("ItemTypes")
+                        .HasForeignKey("SubItemTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SubItemType");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.User", b =>
@@ -7976,6 +8022,16 @@ namespace Store.DAL.Migrations
                     b.Navigation("MainItemImage");
                 });
 
+            modelBuilder.Entity("Store.DAL.Entities.ImageFormat", b =>
+                {
+                    b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("Store.DAL.Entities.ItemType", b =>
+                {
+                    b.Navigation("Items");
+                });
+
             modelBuilder.Entity("Store.DAL.Entities.Logo", b =>
                 {
                     b.Navigation("Brand");
@@ -7984,6 +8040,11 @@ namespace Store.DAL.Migrations
             modelBuilder.Entity("Store.DAL.Entities.Manufacturer", b =>
                 {
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("Store.DAL.Entities.SubItemType", b =>
+                {
+                    b.Navigation("ItemTypes");
                 });
 #pragma warning restore 612, 618
         }

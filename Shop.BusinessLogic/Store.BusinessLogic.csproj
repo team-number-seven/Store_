@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Commands\ItemCommands\**" />
+    <EmbeddedResource Remove="Commands\ItemCommands\**" />
+    <None Remove="Commands\ItemCommands\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
@@ -15,10 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Shop.DAL\Store.DAL.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Commands\ItemCommands\" />
   </ItemGroup>
 
 </Project>

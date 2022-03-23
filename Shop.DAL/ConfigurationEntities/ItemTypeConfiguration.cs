@@ -1,15 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class TypeItemConfiguration : IEntityTypeConfiguration<TypeItem>
+    public class ItemTypeConfiguration : IEntityTypeConfiguration<ItemType>
     {
-        public void Configure(EntityTypeBuilder<TypeItem> builder)
+        public void Configure(EntityTypeBuilder<ItemType> builder)
         {
             builder
-                .ToTable("TypeItem")
                 .HasKey(t => t.Id);
 
             builder
@@ -21,11 +25,10 @@ namespace Store.DAL.ConfigurationEntities
                 .IsRequired()
                 .HasMaxLength(50);
 
-
             builder
-                .HasMany(t => t.Items)
-                .WithMany(i => i.TypeItems)
-                .UsingEntity(e => e.ToTable("ItemTypeItem"));
+                .HasOne(t => t.SubItemType)
+                .WithMany(sb => sb.ItemTypes)
+                .HasForeignKey(t => t.SubItemTypeId);
         }
     }
 }

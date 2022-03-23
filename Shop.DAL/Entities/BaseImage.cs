@@ -4,14 +4,11 @@ using Store.DAL.Interfaces;
 
 namespace Store.DAL.Entities
 {
-    public class Image : IBaseEntity
+    public class BaseImage : IBaseEntity
     {
         public string Path { get; set; }
-        public string Format { get; set; }
-
-        public IEnumerable<Item> Items { get; set; }
-
-        public Item MainItemImage { get; set; }
+        public Guid ImageFormatId { get; set; }
+        public ImageFormat ImageFormat { get; set; }
         public Guid Id { get; set; }
     }
 }
