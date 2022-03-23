@@ -6,20 +6,24 @@ import NavBar from "./components/main/nav-bar/nav-bar";
 import Footer from "./components/main/footer/footer";
 import SignUp from "./components/authentication/sign-up/sign-up";
 import SignIn from "./components/authentication/sign-in/sign-in";
-
+import HomePage from "./components/main/home-page/home-page";
 
 
 export default function App() {
 
     return (
         <div className="App">
-            <Routes>
-                <Route path='/sign-up' element={<SignUp/>}/>
-                <Route path='/sign-in' element={<SignIn/>}/>
-            </Routes>
-
             <Header/>
             <NavBar/>
+            <Routes>
+                <Route path='/' element={<HomePage/>}>
+                    <Route path='sign-up' element={<SignUp/>}/>
+                    <Route path='sign-in' element={<SignIn/>}/>
+                </Route>
+                <Route path='men' element={<h1>men</h1>}/>
+                <Route path='women' element={<h1>women</h1>}/>
+                <Route path='kids' element={<h1>kids</h1>}/>
+            </Routes>
             <Footer/>
         </div>
     )

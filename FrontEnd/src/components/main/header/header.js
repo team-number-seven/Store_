@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <header>
             <div id="header-logo">
-                <Link to =''>Home</Link>
+                <Link to ='/'>Home</Link>
             </div>
             <div id="header-authentication">
                 <Link to='/sign-up'>Sign Up</Link>
