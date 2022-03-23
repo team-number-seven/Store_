@@ -7,9 +7,9 @@ export default function NavBar() {
     return (
         <div className="nav-bar">
             <div className="first-filters">
-                <Link to='*'>Men</Link>
-                <Link to='*'>Women</Link>
-                <Link to='*'>Kids</Link>
+                <Link to=''>Men</Link>
+                <Link to=''>Women</Link>
+                <Link to=''>Kids</Link>
             </div>
             <Search/>
         </div>
