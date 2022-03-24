@@ -47,60 +47,66 @@ export default function SignInForm() {
     }
 
     return (
-        <div className="authentication">
-            <div className="authentication-container">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <small>
-                        <Link to='/'>Back</Link>
-                    </small>
-                    <h1>SIGN IN</h1>
-
-                    <div className="form-group">
-                        <label htmlFor="email-input">Email:</label>
-                        <input id="email-input" className="form-control" type="email"
-                               placeholder="Enter your email"
-                               {...register('email', {
-                                   required: {
-                                       value: true,
-                                       message: 'This field cannot be empty',
-                                   },
-                                   pattern: {
-                                       value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                                       message: 'Wrong email'
-                                   }
-                               })}
-                        />
-                        {errors?.email && <small className="input-error">{errors?.email?.message}</small>}
-
+        <div id="sign-in-overlay">
+            <div className="authentication">
+                <div className="authentication-container">
+                    <div className="form-header">
+                        <div className="a-back">
+                            <small>
+                                <Link to='/'>Back</Link>
+                            </small>
+                        </div>
+                        <h1>Sign In</h1>
                     </div>
+                    <div className="form-body">
+                        <form onSubmit={handleSubmit(onSubmit)}>
 
-                    <div className="form-group">
-                        <label htmlFor="password-input">Password:</label>
-                        <input id="password-input" className="form-control" type="password"
-                               placeholder="Enter your password"
-                               {...register('password', {
-                                   required: {
-                                       value: true,
-                                       message: 'This field cannot be empty'
-                                   },
-                                   minLength: {
-                                       value: 6,
-                                       message: 'Password cannot be less than 6 characters'
-                                   }
-                               })}
-                        />
-                        {errors?.password && <small className="input-error">{errors?.password?.message}</small>}
+                            <div className="form-group">
+                                <label htmlFor="email-input">Email:</label>
+                                <input id="email-input" className="form-control" type="email" autoComplete="off"
+                                       placeholder="Enter your email"
+                                       {...register('email', {
+                                           required: {
+                                               value: true,
+                                               message: 'This field cannot be empty',
+                                           },
+                                           pattern: {
+                                               value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                               message: 'Wrong email'
+                                           }
+                                       })}
+                                />
+                                {errors?.email && <small className="input-error">{errors?.email?.message}</small>}
+
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="password-input">Password:</label>
+                                <input id="password-input" className="form-control" type="password" autoComplete="off"
+                                       placeholder="Enter your password"
+                                       {...register('password', {
+                                           required: {
+                                               value: true,
+                                               message: 'This field cannot be empty'
+                                           },
+                                           minLength: {
+                                               value: 6,
+                                               message: 'Password cannot be less than 6 characters'
+                                           }
+                                       })}
+                                />
+                                {errors?.password && <small className="input-error">{errors?.password?.message}</small>}
 
 
+                            </div>
+                            <div className="form-footer">
+                                <button className="btn btn-primary" type="submit" disabled={!isValid}>
+                                    Log in
+                                </button>
+                            </div>
+                        </form>
                     </div>
-
-                    <div className="form-footer">
-                        <button className="btn btn-primary" type="submit" disabled={!isValid}>
-                            Log in
-                        </button>
-                    </div>
-
-                </form>
+                </div>
             </div>
         </div>
     );

@@ -11,6 +11,19 @@ import HomePage from "./components/main/home-page/home-page";
 
 export default function App() {
 
+
+    async function GET() {
+        // let response = await fetch("https://localhost:5001/Gender/GetAllGenders");
+
+        let response = await fetch('http://www.filltext.com/?rows=32&id=%7Bnumber%7C1000%7D&firstName=%7BfirstName%7D&lastName=%7BlastName%7D&email=%7Bemail%7D&phone=%7Bphone%7C(xxx)xxx-xx-xx%7D&address=%7BaddressObject%7D&description=%7Blorem%7C32%7D');
+        if (response.ok) {
+            let json = await response.json();
+            console.log(json);
+        } else {
+            alert("Ошибка HTTP: " + response.status);
+        }
+    }
+
     return (
         <div className="App">
             <Header/>
@@ -24,6 +37,9 @@ export default function App() {
                 <Route path='women' element={<h1>women</h1>}/>
                 <Route path='kids' element={<h1>kids</h1>}/>
             </Routes>
+
+
+            <button className="btn btn-primary" onClick={GET}>Get Countries</button>
             <Footer/>
         </div>
     )
