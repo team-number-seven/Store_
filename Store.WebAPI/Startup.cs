@@ -68,7 +68,8 @@ namespace Store.WebAPI
                 });
 
             services
-                .AddIdentity<User, IdentityRole<Guid>>()
+                .AddIdentityCore<User>()
+                .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<StoreDbContext>();
 
             services.AddAuthorization(options =>

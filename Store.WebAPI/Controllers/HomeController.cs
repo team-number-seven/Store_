@@ -34,7 +34,7 @@ namespace Store.WebAPI.Controllers
         }
 
 
-        //[Authorize(Policy = "Administrator")]
+        [Authorize(Policy = "Administrator")]
         [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> GetAllCountries(QueryAllCountries queryAllCountries)
