@@ -26,7 +26,7 @@ namespace Store.DAL.Interfaces
         DbSet<SecondaryItemImage> SecondaryImages { get; set; }
         DbSet<User> Users { get; set; }
         DbSet<WarehouseItem> WarehouseItems { get; set; }
-        public DbSet<SizeItem> SizeItems { get; set; }
+        public DbSet<SizeTypeItem> SizeTypeItems { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = new());
 

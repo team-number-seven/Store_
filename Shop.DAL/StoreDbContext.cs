@@ -36,7 +36,7 @@ namespace Store.DAL
         public DbSet<Gender> Genders { get; set; }
         public DbSet<SecondaryItemImage> SecondaryImages { get; set; }
         public DbSet<WarehouseItem> WarehouseItems { get; set; }
-        public DbSet<SizeItem> SizeItems { get; set; }
+        public DbSet<SizeTypeItem> SizeTypeItems { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -49,7 +49,6 @@ namespace Store.DAL
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            DbInitializer<StoreDbContext>.InitializeSeedData(builder);
             base.OnModelCreating(builder);
         }
     }

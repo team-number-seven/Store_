@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Store.DAL.Interfaces;
 
 namespace Store.DAL.Entities
 {
-    public class CharacteristicItem:IBaseEntity
+    public class CharacteristicItem : IBaseEntity
     {
-        public Guid Id { get; set; }
-
         public Color Color { get; set; }
         public Guid ColorId { get; set; }
 
-        public SizeItem SizeItem { get; set; }
+        public SizeTypeItem SizeTypeItem { get; set; }
         public Guid SizeItemId { get; set; }
 
         public AgeTypeItem AgeTypeItem { get; set; }
@@ -33,7 +27,6 @@ namespace Store.DAL.Entities
         public Guid ItemTypeId { get; set; }
 
         public Item Item { get; set; }
-
-
+        public Guid Id { get; set; }
     }
 }

@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class UserConfiguration:IEntityTypeConfiguration<User>
+    public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
@@ -20,6 +16,14 @@ namespace Store.DAL.ConfigurationEntities
             builder.Ignore(u => u.LockoutEnabled);
             builder.Ignore(u => u.LockoutEnd);
             builder.Ignore(u => u.TwoFactorEnabled);
+
+            builder
+                .HasIndex(u => u.PhoneNumber)
+                .IsUnique();
+
+            builder
+                .Property(u => u.PhoneNumber)
+                .IsRequired();
 
             builder
                 .Property(u => u.CreateDate)

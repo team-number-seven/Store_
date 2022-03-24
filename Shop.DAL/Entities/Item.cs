@@ -6,7 +6,6 @@ namespace Store.DAL.Entities
 {
     public class Item : IBaseEntity
     {
-        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public uint CountSales { get; set; }
@@ -34,5 +33,6 @@ namespace Store.DAL.Entities
         public IEnumerable<User> BagUsers { get; set; }
 
         public IEnumerable<User> FavoriteUsers { get; set; }
+        public Guid Id { get; set; }
     }
 }

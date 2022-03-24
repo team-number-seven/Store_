@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class ItemConfiguration:IEntityTypeConfiguration<Item>
+    public class ItemConfiguration : IEntityTypeConfiguration<Item>
     {
         public void Configure(EntityTypeBuilder<Item> builder)
         {
@@ -34,8 +29,7 @@ namespace Store.DAL.ConfigurationEntities
                 .Property(i => i.CountItem)
                 .HasDefaultValue(0);
 
-            builder.
-                Property(i => i.CountSales)
+            builder.Property(i => i.CountSales)
                 .HasDefaultValue(0);
 
             builder
@@ -63,7 +57,7 @@ namespace Store.DAL.ConfigurationEntities
                 .WithMany(w => w.Items)
                 .HasForeignKey(i => i.WarehouseItemId);
 
-            
+
             builder
                 .HasMany(i => i.SecondaryItemImages)
                 .WithOne(i => i.Item)

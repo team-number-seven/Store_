@@ -8,7 +8,7 @@
 
         public static ValidationResult Fail(string error)
         {
-            return new() {IsSuccessful = false, Error = error};
+            return new ValidationResult {IsSuccessful = false, Error = error};
         }
     }
 }

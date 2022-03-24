@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class SizeItemConfiguration:IEntityTypeConfiguration<SizeItem>
+    public class SizeItemConfiguration : IEntityTypeConfiguration<SizeTypeItem>
     {
-        public void Configure(EntityTypeBuilder<SizeItem> builder)
+        public void Configure(EntityTypeBuilder<SizeTypeItem> builder)
         {
             builder
                 .ToTable("Sizes")
@@ -33,9 +28,8 @@ namespace Store.DAL.ConfigurationEntities
 
             builder
                 .HasMany(s => s.CharacteristicItems)
-                .WithOne(c => c.SizeItem)
+                .WithOne(c => c.SizeTypeItem)
                 .HasForeignKey(c => c.SizeItemId);
-
         }
     }
 }

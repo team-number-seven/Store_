@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class MainItemImageConfiguration:IEntityTypeConfiguration<MainItemImage>
+    public class MainItemImageConfiguration : IEntityTypeConfiguration<MainItemImage>
     {
         public void Configure(EntityTypeBuilder<MainItemImage> builder)
         {

@@ -14,7 +14,7 @@ namespace Store.BusinessLogic.Commands.GenderCommands.CreateGender
         private readonly IStoreDbContext _context;
         private readonly ILogger<HandlerCreateGender> _logger;
 
-        public HandlerCreateGender(IStoreDbContext context,ILogger<HandlerCreateGender> logger)
+        public HandlerCreateGender(IStoreDbContext context, ILogger<HandlerCreateGender> logger)
         {
             _context = context;
             _logger = logger;

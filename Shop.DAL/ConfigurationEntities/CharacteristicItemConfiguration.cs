@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class CharacteristicItemConfiguration:IEntityTypeConfiguration<CharacteristicItem>
+    public class CharacteristicItemConfiguration : IEntityTypeConfiguration<CharacteristicItem>
     {
         public void Configure(EntityTypeBuilder<CharacteristicItem> builder)
         {
@@ -38,7 +33,7 @@ namespace Store.DAL.ConfigurationEntities
                 .HasForeignKey(c => c.GenderId);
 
             builder
-                .HasOne(c => c.SizeItem)
+                .HasOne(c => c.SizeTypeItem)
                 .WithMany(s => s.CharacteristicItems)
                 .HasForeignKey(c => c.SizeItemId);
 

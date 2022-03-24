@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Store.DAL.Interfaces;
 
 namespace Store.DAL.Entities
 {
-    public class BusinessCharacteristicItem:IBaseEntity
+    public class BusinessCharacteristicItem : IBaseEntity
     {
-        public Guid Id { get; set; }
         public string ArticleNumber { get; set; }
 
         public Country Country { get; set; }
@@ -19,6 +14,6 @@ namespace Store.DAL.Entities
         public Guid ManufacturerId { get; set; }
 
         public Item Item { get; set; }
-
+        public Guid Id { get; set; }
     }
 }
