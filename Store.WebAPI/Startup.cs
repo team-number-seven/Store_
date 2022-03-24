@@ -60,8 +60,8 @@ namespace Store.WebAPI
                         ValidateIssuer = false,
                         ValidateAudience = false,
                         ValidateLifetime = false,
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = Configuration["Jwt:MainPath"],
+                        ValidateIssuerSigningKey = false,
+                        ValidIssuer = Configuration["Jwt:Issuer"],
                         ValidAudience = Configuration["Jwt:Audience"],
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                     };
@@ -112,6 +112,7 @@ namespace Store.WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Store.WebAPI", Version = "v1"});
             });
+            services.AddCors();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -123,11 +124,20 @@ namespace Store.WebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Store.WebAPI v1"));
             }
 
+
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(opt =>
+            {
+                opt.AllowAnyOrigin();
+                opt.AllowAnyHeader();
+                opt.AllowAnyMethod();
+            });
             app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

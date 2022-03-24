@@ -34,31 +34,13 @@ namespace Store.WebAPI.Controllers
         }
 
 
-        [Authorize(Policy = "user")]
+        //[Authorize(Policy = "Administrator")]
         [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> GetAllCountries(QueryAllCountries queryAllCountries)
         {
             var response = await _mediator.Send(queryAllCountries);
             return response is null ? NotFound() : Ok(response);
-        }
-
-        [HttpPost]
-        [Route("[action]")]
-        public async Task<IActionResult> UploadFile(List<IFormFile> files)
-        {
-            var size = files.Sum(f => f.Length);
-            foreach (var file in files)
-                if (file.Length > 0)
-                {
-                    var filePath = Path.Combine(@"D:\Projects\GitHub\Store\Shop.DAL\Images\", file.Name + ".jpg");
-                    using (var stream = System.IO.File.Create(filePath))
-                    {
-                        await file.CopyToAsync(stream);
-                    }
-                }
-
-            return Ok(new {count = files.Count, size});
         }
     }
 }
