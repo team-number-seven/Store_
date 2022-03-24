@@ -1,17 +1,17 @@
-﻿using Store.DAL.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Store.DAL.Interfaces;
 
 namespace Store.DAL.Entities
 {
-    public class ItemType:IBaseEntity
+    public class ItemType : IBaseEntity
     {
-        public Guid Id { get; set; }
         public string Title { get; set; }
 
-        public SubItemType SubItemType { get; set; }
-        public Guid SubItemTypeId { get; set; }
+        public IEnumerable<SubItemType> SubItemTypes { get; set; }
+        public IEnumerable<CharacteristicItem> CharacteristicItems { get; set; }
 
-        public IEnumerable<Item> Items { get; set; }
+        public IEnumerable<SizeTypeItem> SizeItems { get; set; }
+        public Guid Id { get; set; }
     }
 }

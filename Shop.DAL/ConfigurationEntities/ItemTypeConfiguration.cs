@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Store.DAL.ConfigurationEntities
 {
@@ -14,21 +9,31 @@ namespace Store.DAL.ConfigurationEntities
         public void Configure(EntityTypeBuilder<ItemType> builder)
         {
             builder
+                .ToTable("ItemTypes")
                 .HasKey(t => t.Id);
 
             builder
-                .HasIndex(t => t.Title)
+                .HasIndex(c => c.Title)
                 .IsUnique();
 
             builder
-                .Property(t => t.Title)
-                .IsRequired()
-                .HasMaxLength(50);
+                .Property(c => c.Title)
+                .IsRequired();
 
             builder
-                .HasOne(t => t.SubItemType)
-                .WithMany(sb => sb.ItemTypes)
-                .HasForeignKey(t => t.SubItemTypeId);
+                .HasMany(c => c.SubItemTypes)
+                .WithOne(t => t.ItemType)
+                .HasForeignKey(t => t.ItemTypeId);
+
+            builder
+                .HasMany(c => c.SizeItems)
+                .WithOne(s => s.ItemType)
+                .HasForeignKey(s => s.ItemTypeId);
+
+            builder
+                .HasMany(c => c.CharacteristicItems)
+                .WithOne(c => c.ItemType)
+                .HasForeignKey(c => c.ItemTypeId);
         }
     }
 }

@@ -18,12 +18,11 @@ namespace Store.DAL.ConfigurationEntities
 
             builder
                 .Property(c => c.Name)
-                .IsRequired()
-                .HasMaxLength(50)
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder
-                .HasMany(c => c.Items)
+                .HasMany(c => c.CharacteristicItems)
                 .WithOne(i => i.Color)
                 .HasForeignKey(i => i.ColorId);
         }

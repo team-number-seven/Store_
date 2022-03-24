@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
@@ -17,8 +18,17 @@ namespace Store.DAL.ConfigurationEntities
             builder.Ignore(u => u.TwoFactorEnabled);
 
             builder
-                .Property(u => u.CreateDate)
+                .HasIndex(u => u.PhoneNumber)
+                .IsUnique();
+
+            builder
+                .Property(u => u.PhoneNumber)
                 .IsRequired();
+
+            builder
+                .Property(u => u.CreateDate)
+                .IsRequired()
+                .HasDefaultValue(DateTime.Now);
 
             builder
                 .HasOne(u => u.Country)
@@ -28,12 +38,12 @@ namespace Store.DAL.ConfigurationEntities
             builder
                 .HasMany(u => u.BagItems)
                 .WithMany(i => i.BagUsers)
-                .UsingEntity(u => u.ToTable("BagItemUser"));
+                .UsingEntity(u => u.ToTable("BagItemsUser"));
 
             builder
                 .HasMany(u => u.FavoriteItems)
                 .WithMany(i => i.FavoriteUsers)
-                .UsingEntity(u => u.ToTable("FavoriteItemUser"));
+                .UsingEntity(u => u.ToTable("FavoriteItemsUser"));
         }
     }
 }

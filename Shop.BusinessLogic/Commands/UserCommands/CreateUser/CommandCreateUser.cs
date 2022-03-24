@@ -1,5 +1,4 @@
-﻿using System;
-using MediatR;
+﻿using MediatR;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
 

@@ -18,19 +18,18 @@ namespace Store.DAL.ConfigurationEntities
 
             builder
                 .Property(b => b.Title)
-                .IsRequired()
                 .HasMaxLength(50)
                 .IsRequired();
 
             builder
-                .HasMany(b => b.Items)
-                .WithOne(b => b.Brand)
-                .HasForeignKey(b => b.BrandId);
-
-            builder
                 .HasOne(b => b.Logo)
                 .WithOne(l => l.Brand)
-                .HasForeignKey<Brand>(b => b.LogoId);
+                .HasForeignKey<Brand>(l => l.LogoId);
+
+            builder
+                .HasMany(b => b.Items)
+                .WithOne(i => i.Brand)
+                .HasForeignKey(i => i.BrandId);
         }
     }
 }

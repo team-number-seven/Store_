@@ -21,8 +21,9 @@ namespace Store.DAL.ConfigurationEntities
                 .IsRequired();
 
             builder
-                .Property(l => l.Format)
-                .IsRequired();
+                .HasOne(l => l.ImageFormat)
+                .WithMany(f => f.Logos)
+                .HasForeignKey(l => l.ImageFormatId);
 
             builder
                 .HasOne(l => l.Brand)

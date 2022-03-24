@@ -8,19 +8,26 @@ namespace Store.DAL.Interfaces
 {
     public interface IStoreDbContext
     {
-        DbSet<AgeType> AgeTypes { get; set; }
         DbSet<Brand> Brands { get; set; }
+        DbSet<ImageFormat> ImageFormats { get; set; }
+        DbSet<Item> Items { get; set; }
+        DbSet<Logo> Logos { get; set; }
+        DbSet<MainItemImage> MainImages { get; set; }
+        DbSet<AgeTypeItem> AgeTypes { get; set; }
+        DbSet<BusinessCharacteristicItem> BusinessCharacteristicItems { get; set; }
+        DbSet<CharacteristicItem> CharacteristicItems { get; set; }
         DbSet<Color> Colors { get; set; }
         DbSet<Country> Countries { get; set; }
         DbSet<Gender> Genders { get; set; }
-        DbSet<MainItemImage> MainImages { get; set; }
-        DbSet<SecondaryItemImage> SecondaryImages { get;set }
-        DbSet<Item> Items { get; set; }
-        DbSet<Logo> Logos { get; set; }
-        DbSet<Manufacturer> Manufacturers { get; set; }
         DbSet<ItemType> ItemTypes { get; set; }
+        DbSet<Manufacturer> Manufacturers { get; set; }
+        DbSet<SeasonItem> SeasonItems { get; set; }
         DbSet<SubItemType> SubItemTypes { get; set; }
+        DbSet<SecondaryItemImage> SecondaryImages { get; set; }
         DbSet<User> Users { get; set; }
+        DbSet<WarehouseItem> WarehouseItems { get; set; }
+        public DbSet<SizeTypeItem> SizeTypeItems { get; set; }
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = new());
 
         EntityEntry<TEntity> Entry<TEntity>(TEntity entity)

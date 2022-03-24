@@ -9,7 +9,7 @@ namespace Store.DAL.ConfigurationEntities
         public void Configure(EntityTypeBuilder<Country> builder)
         {
             builder
-                .ToTable("Countries")
+                .ToTable("InitializeCountries")
                 .HasKey(c => c.Id);
 
             builder
@@ -18,14 +18,18 @@ namespace Store.DAL.ConfigurationEntities
 
             builder
                 .Property(c => c.Name)
-                .IsRequired()
-                .HasMaxLength(75)
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder
-                .HasMany(c => c.Items)
-                .WithOne(i => i.Country)
-                .HasForeignKey(i => i.CountryId);
+                .HasMany(c => c.Users)
+                .WithOne(u => u.Country)
+                .HasForeignKey(u => u.CountryId);
+
+            builder
+                .HasMany(c => c.BusinessCharacteristicItems)
+                .WithOne(c => c.Country)
+                .HasForeignKey(c => c.CountryId);
         }
     }
 }

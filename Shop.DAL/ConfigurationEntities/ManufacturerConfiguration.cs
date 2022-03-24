@@ -22,9 +22,9 @@ namespace Store.DAL.ConfigurationEntities
                 .IsRequired();
 
             builder
-                .HasMany(m => m.Items)
-                .WithOne(i => i.Manufacturer)
-                .HasForeignKey(m => m.ManufacturerId);
+                .HasMany(m => m.BusinessCharacteristicItem)
+                .WithOne(c => c.Manufacturer)
+                .HasForeignKey(c => c.ManufacturerId);
         }
     }
 }
