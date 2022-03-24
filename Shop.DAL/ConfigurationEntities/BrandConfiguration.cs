@@ -1,10 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class BrandConfiguration : IEntityTypeConfiguration<Brand>
+    public class BrandConfiguration:IEntityTypeConfiguration<Brand>
     {
         public void Configure(EntityTypeBuilder<Brand> builder)
         {
@@ -18,19 +23,18 @@ namespace Store.DAL.ConfigurationEntities
 
             builder
                 .Property(b => b.Title)
-                .IsRequired()
                 .HasMaxLength(50)
                 .IsRequired();
 
             builder
-                .HasMany(b => b.Items)
-                .WithOne(b => b.Brand)
-                .HasForeignKey(b => b.BrandId);
-
-            builder
                 .HasOne(b => b.Logo)
                 .WithOne(l => l.Brand)
-                .HasForeignKey<Brand>(b => b.LogoId);
+                .HasForeignKey<Brand>(l => l.LogoId);
+
+            builder
+                .HasMany(b => b.Items)
+                .WithOne(i => i.Brand)
+                .HasForeignKey(i => i.BrandId);
         }
     }
 }

@@ -1,10 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class ColorConfiguration : IEntityTypeConfiguration<Color>
+    public class ColorConfiguration:IEntityTypeConfiguration<Color>
     {
         public void Configure(EntityTypeBuilder<Color> builder)
         {
@@ -18,12 +23,11 @@ namespace Store.DAL.ConfigurationEntities
 
             builder
                 .Property(c => c.Name)
-                .IsRequired()
-                .HasMaxLength(50)
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder
-                .HasMany(c => c.Items)
+                .HasMany(c => c.CharacteristicItems)
                 .WithOne(i => i.Color)
                 .HasForeignKey(i => i.ColorId);
         }

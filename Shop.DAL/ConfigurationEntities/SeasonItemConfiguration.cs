@@ -1,25 +1,35 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Store.DAL.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class SeasonItemConfiguration : IEntityTypeConfiguration<SeasonItem>
+    public class SeasonItemConfiguration:IEntityTypeConfiguration<SeasonItem>
     {
         public void Configure(EntityTypeBuilder<SeasonItem> builder)
         {
-            builder.HasKey(s => s.Id);
+            builder
+                .ToTable("SeasonTypes")
+                .HasKey(s => s.Id);
 
-            builder.HasIndex(s => s.Title).IsUnique();
+            builder
+                .HasIndex(s => s.Title)
+                .IsUnique();
 
-            builder.Property(s => s.Title).IsRequired();
+            builder
+                .Property(s => s.Title)
+                .HasMaxLength(75)
+                .IsRequired();
 
-            builder.HasMany(s=>s.Items).WithOne(i=>i.sea)
+            builder
+                .HasMany(s => s.CharacteristicItems)
+                .WithOne(c => c.SeasonItem)
+                .HasForeignKey(c => c.SeasonItemId);
         }
     }
 }

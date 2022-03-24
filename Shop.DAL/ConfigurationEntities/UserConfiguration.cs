@@ -1,10 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class UserConfiguration : IEntityTypeConfiguration<User>
+    public class UserConfiguration:IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
@@ -18,7 +23,8 @@ namespace Store.DAL.ConfigurationEntities
 
             builder
                 .Property(u => u.CreateDate)
-                .IsRequired();
+                .IsRequired()
+                .HasDefaultValue(DateTime.Now);
 
             builder
                 .HasOne(u => u.Country)
@@ -28,12 +34,12 @@ namespace Store.DAL.ConfigurationEntities
             builder
                 .HasMany(u => u.BagItems)
                 .WithMany(i => i.BagUsers)
-                .UsingEntity(u => u.ToTable("BagItemUser"));
+                .UsingEntity(u => u.ToTable("BagItemsUser"));
 
             builder
                 .HasMany(u => u.FavoriteItems)
                 .WithMany(i => i.FavoriteUsers)
-                .UsingEntity(u => u.ToTable("FavoriteItemUser"));
+                .UsingEntity(u => u.ToTable("FavoriteItemsUser"));
         }
     }
 }

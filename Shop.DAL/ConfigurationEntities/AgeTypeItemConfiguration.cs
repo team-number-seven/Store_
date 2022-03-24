@@ -9,27 +9,25 @@ using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class GenderConfiguration:IEntityTypeConfiguration<Gender>
+    public class AgeTypeItemConfiguration:IEntityTypeConfiguration<AgeTypeItem>
     {
-        public void Configure(EntityTypeBuilder<Gender> builder)
+        public void Configure(EntityTypeBuilder<AgeTypeItem> builder)
         {
-            builder
-                .ToTable("Genders")
-                .HasKey(g => g.Id);
+            builder.ToTable("AgeTypesItem").HasKey(a => a.Id);
 
             builder
-                .HasIndex(g => g.Title)
+                .HasIndex(a => a.Title)
                 .IsUnique();
 
             builder
-                .Property(g => g.Title)
+                .Property(a => a.Title)
                 .HasMaxLength(50)
                 .IsRequired();
 
             builder
-                .HasMany(g => g.CharacteristicItems)
-                .WithOne(c => c.Gender)
-                .HasForeignKey(c => c.GenderId);
+                .HasMany(a => a.CharacteristicItems)
+                .WithOne(i => i.AgeTypeItem)
+                .HasForeignKey(i => i.AgeTypeItemId);
         }
     }
 }

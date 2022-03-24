@@ -11,7 +11,8 @@ namespace Store.DAL.Entities
     {
         public Guid Id { get; set; }
         public string Format { get; set; }
-
-        public IEnumerable<Image> Images { get; set; }
+        public IEnumerable<MainItemImage> MainItemImages { get; set; }
+        public IEnumerable<SecondaryItemImage> SecondaryItemImage { get; set; }
+        public IEnumerable<Logo> Logos { get; set; }
     }
 }

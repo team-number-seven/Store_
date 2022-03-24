@@ -8,7 +8,7 @@ namespace Store.DAL.Entities
     {
         public string Title { get; set; }
 
-        public IEnumerable<Item> Items { get; set; }
+        public IEnumerable<BusinessCharacteristicItem> BusinessCharacteristicItem { get; set; }
         public Guid Id { get; set; }
     }
 }

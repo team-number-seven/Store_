@@ -1,10 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class ManufacturerConfiguration : IEntityTypeConfiguration<Manufacturer>
+    public class ManufacturerConfiguration:IEntityTypeConfiguration<Manufacturer>
     {
         public void Configure(EntityTypeBuilder<Manufacturer> builder)
         {
@@ -22,9 +27,9 @@ namespace Store.DAL.ConfigurationEntities
                 .IsRequired();
 
             builder
-                .HasMany(m => m.Items)
-                .WithOne(i => i.Manufacturer)
-                .HasForeignKey(m => m.ManufacturerId);
+                .HasMany(m => m.BusinessCharacteristicItem)
+                .WithOne(c => c.Manufacturer)
+                .HasForeignKey(c => c.ManufacturerId);
         }
     }
 }

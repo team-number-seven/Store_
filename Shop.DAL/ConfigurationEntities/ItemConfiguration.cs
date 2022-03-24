@@ -1,10 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class ItemConfiguration : IEntityTypeConfiguration<Item>
+    public class ItemConfiguration:IEntityTypeConfiguration<Item>
     {
         public void Configure(EntityTypeBuilder<Item> builder)
         {
@@ -13,72 +18,66 @@ namespace Store.DAL.ConfigurationEntities
                 .HasKey(i => i.Id);
 
             builder
-                .HasIndex(i => i.ArticleNumber)
+                .HasIndex(i => i.Title)
                 .IsUnique();
 
             builder
                 .Property(i => i.Title)
-                .IsRequired()
-                .HasMaxLength(70);
-
-            builder.Property(i => i.Description);
-
-            builder.Property(i => i.CountItem);
+                .HasMaxLength(50);
 
             builder
-                .HasOne(i => i.Gender)
-                .WithMany(g => g.Items)
-                .HasForeignKey(i => i.GenderId);
+                .Property(i => i.Description)
+                .HasMaxLength(2000)
+                .IsRequired();
+
+            builder
+                .Property(i => i.CountItem)
+                .HasDefaultValue(0);
+
+            builder.
+                Property(i => i.CountSales)
+                .HasDefaultValue(0);
+
+            builder
+                .HasOne(i => i.CharacteristicItem)
+                .WithOne(c => c.Item)
+                .HasForeignKey<Item>(i => i.CharacteristicItemId);
+
+            builder
+                .HasOne(i => i.BusinessCharacteristic)
+                .WithOne(i => i.Item)
+                .HasForeignKey<Item>(i => i.BusinessCharacteristicId);
+
+            builder
+                .HasOne(i => i.MainItemImage)
+                .WithOne(i => i.Item)
+                .HasForeignKey<Item>(i => i.MainItemImageId);
 
             builder
                 .HasOne(i => i.Brand)
                 .WithMany(b => b.Items)
-                .HasForeignKey(i => i.BrandId);
+                .HasForeignKey(b => b.BrandId);
 
             builder
-                .HasOne(i => i.Color)
-                .WithMany(c => c.Items)
-                .HasForeignKey(i => i.ColorId);
+                .HasOne(i => i.WarehouseItem)
+                .WithMany(w => w.Items)
+                .HasForeignKey(i => i.WarehouseItemId);
 
+            
             builder
-                .HasOne(i => i.Country)
-                .WithMany(c => c.Items)
-                .HasForeignKey(i => i.CountryId);
-
-            builder
-                .HasOne(i => i.AgeType)
-                .WithMany(a => a.Items)
-                .HasForeignKey(i => i.AgeTypeId);
-
-            builder
-                .HasOne(i => i.Manufacturer)
-                .WithMany(m => m.Items)
-                .HasForeignKey(i => i.ManufacturerId);
-
-            builder
-                .HasMany(i => i.Images)
-                .WithMany(i => i.Items)
-                .UsingEntity(e => e.ToTable("ImageItem"));
+                .HasMany(i => i.SecondaryItemImages)
+                .WithOne(i => i.Item)
+                .HasForeignKey(i => i.ItemId);
 
             builder
                 .HasMany(i => i.BagUsers)
                 .WithMany(u => u.BagItems)
-                .UsingEntity(u => u.ToTable("BagItemUser"));
+                .UsingEntity(t => t.ToTable("BagItemsUser"));
 
             builder
                 .HasMany(i => i.FavoriteUsers)
                 .WithMany(u => u.FavoriteItems)
-                .UsingEntity(u => u.ToTable("FavoriteItemUser"));
-
-            builder
-                .HasOne(i => i.MainImage)
-                .WithOne(i => i.MainItemImage)
-                .HasForeignKey<Item>(i => i.MainImageId);
-
-            builder
-                .HasOne(i => i.ItemType)
-                .WithMany(t => t.Items)
-                .HasForeignKey(i => i.ItemTypeId);
+                .UsingEntity(t => t.ToTable("FavoriteItemsUser"));
         }
     }
 }

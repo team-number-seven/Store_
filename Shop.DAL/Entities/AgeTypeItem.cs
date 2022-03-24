@@ -4,11 +4,11 @@ using Store.DAL.Interfaces;
 
 namespace Store.DAL.Entities
 {
-    public class AgeType : IBaseEntity
+    public class AgeTypeItem : IBaseEntity
     {
         public string Title { get; set; }
 
-        public IEnumerable<Item> Items { get; set; }
+        public IEnumerable<CharacteristicItem> CharacteristicItems { get; set; }
         public Guid Id { get; set; }
     }
 }

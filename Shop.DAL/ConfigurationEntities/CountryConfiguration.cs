@@ -1,10 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.DAL.Entities;
 
 namespace Store.DAL.ConfigurationEntities
 {
-    public class CountryConfiguration : IEntityTypeConfiguration<Country>
+    public class CountryConfiguration:IEntityTypeConfiguration<Country>
     {
         public void Configure(EntityTypeBuilder<Country> builder)
         {
@@ -18,14 +23,18 @@ namespace Store.DAL.ConfigurationEntities
 
             builder
                 .Property(c => c.Name)
-                .IsRequired()
-                .HasMaxLength(75)
+                .HasMaxLength(100)
                 .IsRequired();
 
             builder
-                .HasMany(c => c.Items)
-                .WithOne(i => i.Country)
-                .HasForeignKey(i => i.CountryId);
+                .HasMany(c => c.Users)
+                .WithOne(u => u.Country)
+                .HasForeignKey(u => u.CountryId);
+
+            builder
+                .HasMany(c => c.BusinessCharacteristicItems)
+                .WithOne(c => c.Country)
+                .HasForeignKey(c => c.CountryId);
         }
     }
 }

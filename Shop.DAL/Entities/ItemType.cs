@@ -1,6 +1,9 @@
-﻿using Store.DAL.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Store.DAL.Interfaces;
 
 namespace Store.DAL.Entities
 {
@@ -9,9 +12,10 @@ namespace Store.DAL.Entities
         public Guid Id { get; set; }
         public string Title { get; set; }
 
-        public SubItemType SubItemType { get; set; }
-        public Guid SubItemTypeId { get; set; }
+        public IEnumerable<SubItemType> SubItemTypes { get; set; }
+        public IEnumerable<CharacteristicItem> CharacteristicItems { get; set; }
 
-        public IEnumerable<Item> Items { get; set; }
+        public IEnumerable<SizeItem> SizeItems { get; set; }
+
     }
 }

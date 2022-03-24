@@ -7,7 +7,7 @@ namespace Store.DAL.Entities
     public class Gender : IBaseEntity
     {
         public string Title { get; set; }
-        public IEnumerable<Item> Items { get; set; }
+        public IEnumerable<CharacteristicItem> CharacteristicItems { get; set; }
         public Guid Id { get; set; }
     }
 }
