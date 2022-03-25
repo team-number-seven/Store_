@@ -16,17 +16,16 @@ namespace Store.WebAPI.Controllers
         private readonly IStoreDbContext _context;
         private readonly IJWTService _jwtService;
         private readonly IMediator _mediator;
+        private readonly IPasswordHasher<User> _passwordHasher;
         private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _userSignInManager;
 
-        public UserController(UserManager<User> userManager, IJWTService jwtService,
-            SignInManager<User> userSignInManager, IStoreDbContext context, IMediator mediator)
+        public UserController(UserManager<User> userManager, IJWTService jwtService, IStoreDbContext context, IMediator mediator,IPasswordHasher<User> passwordHasher)
         {
             _userManager = userManager;
             _jwtService = jwtService;
-            _userSignInManager = userSignInManager;
             _context = context;
             _mediator = mediator;
+            _passwordHasher = passwordHasher;
         }
 
         [HttpPost]
@@ -38,10 +37,11 @@ namespace Store.WebAPI.Controllers
             if (user is null)
                 return BadRequest(new {message = "Username or password is incorrect"});
 
-            var passwordHash = _userManager.PasswordHasher.HashPassword(user, userLogin.Password);
 
-            var result = await _userSignInManager.PasswordSignInAsync(user, userLogin.Password, true, false);
-            if (result.Succeeded)
+            var result =
+                _userManager.PasswordHasher.VerifyHashedPassword(user, user.PasswordHash, userLogin.Password);
+            //var result = await _userSignInManager.PasswordSignInAsync(user, userLogin.Password, false, false);
+            if (result == PasswordVerificationResult.Success)
             {
                 await _context.Entry(user).Reference(c => c.Country).LoadAsync();
                 return Ok(_jwtService.GenerateJwtToken(user));

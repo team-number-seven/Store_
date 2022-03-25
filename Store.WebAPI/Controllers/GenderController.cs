@@ -8,7 +8,7 @@ using Store.BusinessLogic.Queries.GenderQueries.GetGenderById;
 
 namespace Store.WebAPI.Controllers
 {
-    [Authorize(Policy = "Manager")]
+    [Authorize(Policy = "Administrator")]
     [Route("[controller]")]
     [Controller]
     public class GenderController : Controller
