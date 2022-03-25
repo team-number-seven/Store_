@@ -101,7 +101,7 @@ export default function SignInForm() {
                             </div>
                             <div className="form-footer">
                                 <button className="btn btn-primary" type="submit" disabled={!isValid}>
-                                    Log in
+                                    Sign in
                                 </button>
                             </div>
                         </form>
