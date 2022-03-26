@@ -36,11 +36,8 @@ namespace Store.WebAPI.Controllers
 
             if (user is null)
                 return BadRequest(new {message = "Username or password is incorrect"});
-
-
             var result =
                 _userManager.PasswordHasher.VerifyHashedPassword(user, user.PasswordHash, userLogin.Password);
-            //var result = await _userSignInManager.PasswordSignInAsync(user, userLogin.Password, false, false);
             if (result == PasswordVerificationResult.Success)
             {
                 await _context.Entry(user).Reference(c => c.Country).LoadAsync();

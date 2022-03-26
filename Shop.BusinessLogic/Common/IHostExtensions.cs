@@ -9,7 +9,7 @@ using Store.DAL;
 using Store.DAL.Entities;
 using Store.DAL.SeedDataStoreDb;
 
-namespace Store.WebAPI
+namespace Store.BusinessLogic.Common
 {
     public static class IHostExtensions
     {
@@ -21,7 +21,7 @@ namespace Store.WebAPI
                 var context = services.GetRequiredService<StoreDbContext>();
                 if (await DbInitializer.Initialize(context) is false)
                 {
-                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    var logger = services.GetRequiredService<ILogger<IHost>>();
                     logger.LogWarning("An error occurred while seeding the database.");
                     return;
                 }

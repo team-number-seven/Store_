@@ -173,5 +173,6 @@ namespace Store.DAL.SeedDataStoreDb
             await context.Genders.AddRangeAsync(genders);
             await context.SaveChangesAsync();
         }
+
     }
 }
