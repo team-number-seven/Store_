@@ -22,7 +22,7 @@ namespace Store.WebAPI.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> GetAllColors([FromBody] QueryGetAllColors colors)
+        public async Task<IActionResult> GetAllColors([FromQuery] QueryGetAllColors colors)
         {
             _logger.LogInformation($"[{DateTime.Now}]The GetAllColors method is called");
             var response = await _mediator.Send(colors);

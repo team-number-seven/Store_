@@ -14,14 +14,22 @@ export default function App() {
 
 
     async function GET() {
-        // let response = await fetch("https://localhost:5001/Gender/GetAllGenders");
-        let response = await fetch('http://www.filltext.com/?rows=32&id=%7Bnumber%7C1000%7D&firstName=%7BfirstName%7D&lastName=%7BlastName%7D&email=%7Bemail%7D&phone=%7Bphone%7C(xxx)xxx-xx-xx%7D&address=%7BaddressObject%7D&description=%7Blorem%7C32%7D');
+            let response = await fetch("https://localhost:5001/Store/Color/GetAllColors", {
+                method : 'GET',
+                headers: {
+                   'Date':'Sat, 26 Mar 2022 18:00:14 GMT',
+                  'Content-Type': 'application/json; charset=utf-8',
+                  'Server' : 'Kestrel',
+                  'Transfer-Encoding':'chunked'
+                },
+              });
         if (response.ok) {
             let json = await response.json();
             console.log(json);
         } else {
             alert("Ошибка HTTP: " + response.status);
         }
+
     }
 
     return (
