@@ -16,6 +16,8 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
 
         public async Task<ValidationResult> Validate(CommandCreateUser request)
         {
+            if(request.User is null)
+                return ValidationResult.Fail(MessageHelperForValidator.NullMessage);
             var resultEmail = await _userManager.FindByEmailAsync(request.User.Email);
             if (resultEmail is not null)
                 return ValidationResult.Fail("A user with such an email has already been registered");

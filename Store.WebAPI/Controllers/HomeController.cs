@@ -28,17 +28,17 @@ namespace Store.WebAPI.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> Create(CommandCreateUser command)
+        public async Task<IActionResult> Create(CommandCreateUser request)
         {
-            return Ok(await _mediator.Send(command));
+            return Ok(await _mediator.Send(request));
         }
 
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> GetAllCountries(QueryGetAllCountries queryGetAllCountries)
+        public async Task<IActionResult> GetAllCountries(QueryGetAllCountries request)
         {
-            var response = await _mediator.Send(queryGetAllCountries);
+            var response = await _mediator.Send(request);
             return response is null ? NotFound() : Ok(response);
         }
     }

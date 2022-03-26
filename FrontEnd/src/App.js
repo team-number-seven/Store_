@@ -14,15 +14,20 @@ export default function App() {
 
 
     async function GET() {
-            let response = await fetch("https://localhost:5001/Store/Color/GetAllColors", {
-                method : 'GET',
+        let user = {
+            "user":
+            {
+                "Email":"pavell.urusov@gmail.com",
+                "Password":"Pavel20000301"
+            }
+        };
+            let response = await fetch("https://localhost:5001/Store/User/Login", {
+                method : 'POST',
                 headers: {
-                   'Date':'Sat, 26 Mar 2022 18:00:14 GMT',
                   'Content-Type': 'application/json; charset=utf-8',
-                  'Server' : 'Kestrel',
-                  'Transfer-Encoding':'chunked'
-                },
-              });
+                    'Email':'pavell.urusov@gmail.com',
+                     'Password':'Pavel20000301'}
+                });
         if (response.ok) {
             let json = await response.json();
             console.log(json);

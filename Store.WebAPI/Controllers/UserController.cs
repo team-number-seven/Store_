@@ -1,14 +1,10 @@
 ﻿using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
-using Store.BusinessLogic.Common.DataTransferObjects;
-using Store.BusinessLogic.Common.Interfaces;
-using Store.BusinessLogic.Common.UserModels;
+using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Queries.UserQueries.LoginUser;
-using Store.DAL.Entities;
-using Store.DAL.Interfaces;
 
 namespace Store.WebAPI.Controllers
 {
@@ -17,25 +13,28 @@ namespace Store.WebAPI.Controllers
     public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(IMediator mediator)
+        public UserController(IMediator mediator,ILogger<UserController> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> Login([FromBody]QueryLoginUser userLogin)
+        public async Task<IActionResult> Login([FromHeader]QueryLoginUser request)
         {
-            var response = await _mediator.Send(userLogin);
+            var response = await _mediator.Send(request);
             return StatusCode((int)response.StatusCode, response);
         }
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> Create(CommandCreateUser command)
+        public async Task<IActionResult> Create([FromHeader]CommandCreateUser request)
         {
-            return Ok(await _mediator.Send(command));
+            var response = await _mediator.Send(request);
+            return StatusCode((int)response.StatusCode, response);
         }
     }
 }   

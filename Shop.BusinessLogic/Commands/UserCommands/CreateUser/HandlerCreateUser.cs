@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -53,7 +54,7 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
             await _userManager.AddToRoleAsync(user, "user");
             await _context.SaveChangesAsync(cancellationToken);
             _logger.LogInformation($"[{DateTime.Now}]User was created successfully");
-            return new ResponseCreateUser(user.Id);
+            return new ResponseCreateUser(user.Id){StatusCode = HttpStatusCode.Created};
         }
     }
 }

@@ -20,6 +20,8 @@ namespace Store.BusinessLogic.Queries.UserQueries.LoginUser
 
         public async Task<ValidationResult> Validate(QueryLoginUser request)
         {
+            if(request.User is null)
+                return ValidationResult.Fail(MessageHelperForValidator.NullMessage);
             var user = await _userManager.FindByEmailAsync(request.User.Email);
             if(user is null)
                 return ValidationResult.Fail("Username or password is incorrect");
