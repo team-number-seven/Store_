@@ -11,33 +11,27 @@
     top: 0;
     overflow: hidden;
 }
-
 .authentication-container {
     width: 25vw;
     background-color: var(--main-bg-color);
 
 }
-
 .a-back {
     width: 100%;
     display: flex;
     justify-content: right;
     align-items: center;
 }
-
 .a-back small{
     margin: 0 1.5rem -1rem 0;
 }
-
-
 #sign-up-overlay .authentication-container {
     height: 87vh;
 }
 
 #sign-in-overlay .authentication-container {
-    height: 40vh;
+    height: 43vh;
 }
-
 .form-header {
     height: 10vh;
     width: 100%;
@@ -77,55 +71,17 @@ form {
 
 }
 
-
-form label {
-    margin-bottom: 0.2rem;
-    color: var(--input-text-color);
-}
-
 .form-group {
     width: 100%;
     height: 9vh;
     margin-bottom: 1rem;
 }
 
-.form-group input {
-    height: 1.8rem;
-    border-radius: unset;
-    border: none;
+
+
+form label {
+    margin-bottom: 0.2rem;
     color: var(--input-text-color);
-    border-bottom: 0.1rem solid var(--input-text-color);
-    background-color: unset;
-}
-
-.form-group input::placeholder {
-    color: var(--input-text-color);
-}
-
-
-.form-group input:focus {
-    color: var(--main-text-color);
-    border-bottom: 0.1rem solid var(--main-text-color);
-
-
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 43%, rgba(255,255,255,0) 100%);
-
-    -webkit-box-shadow: 0 5px 5px -5px rgba(34, 60, 80, 0.6);
-    -moz-box-shadow: 0 5px 5px -5px rgba(34, 60, 80, 0.6);
-    box-shadow: 0 5px 5px -5px rgba(34, 60, 80, 0.6);
-
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, background .15s ease-in-out;
-}
-
-.form-group input:focus::placeholder {
-    color: var(--main-text-color);
-}
-
-
-.form-group select {
-    border-radius: unset;
-    height: 4vh;
 }
 
 .input-error {
@@ -152,33 +108,9 @@ form label {
     font-size: 1rem;
 }
 
-
-.form-group select {
-    height: 1.8rem;
-    border-radius: unset;
-    border: none;
-    color: var(--input-text-color);
-    border-bottom: 0.1rem solid var(--input-text-color);
-    background-color: unset;
+.form-footer button{
+    width: 100%;
 }
 
-.form-group select::placeholder {
-    color: var(--input-text-color);
-}
 
-.form-group select:focus {
-    color: var(--main-text-color);
-    border-bottom: 0.1rem solid var(--main-text-color);
-    background-color: unset;
-
-    -webkit-box-shadow: 0 5px 5px -5px rgba(34, 60, 80, 0.6);
-    -moz-box-shadow: 0 5px 5px -5px rgba(34, 60, 80, 0.6);
-    box-shadow: 0 5px 5px -5px rgba(34, 60, 80, 0.6);
-
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
-.form-group select:focus::placeholder {
-    color: var(--main-text-color);
-}
 
