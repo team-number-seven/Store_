@@ -3,5 +3,5 @@ using Store.BusinessLogic.Common.DataTransferObjects;
 
 namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
 {
-    public record ResponseCountryById(CountryDTO Country) : ResponseBase;
+    public record ResponseGetCountryById(CountryDTO Country) : ResponseBase;
 }

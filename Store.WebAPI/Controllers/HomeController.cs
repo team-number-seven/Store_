@@ -14,9 +14,9 @@ namespace Store.WebAPI.Controllers
     /// <summary>
     ///     TEST CONTROLLER
     /// </summary>
-    [Controller]
+    [ApiController]
     [Route("Store/[controller]")]
-    public class HomeController : Controller
+    public class HomeController : ControllerBase
     {
         private readonly IMediator _mediator;
 
@@ -34,12 +34,11 @@ namespace Store.WebAPI.Controllers
         }
 
 
-        [Authorize(Policy = "Administrator")]
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> GetAllCountries(QueryAllCountries queryAllCountries)
+        public async Task<IActionResult> GetAllCountries(QueryGetAllCountries queryGetAllCountries)
         {
-            var response = await _mediator.Send(queryAllCountries);
+            var response = await _mediator.Send(queryGetAllCountries);
             return response is null ? NotFound() : Ok(response);
         }
     }

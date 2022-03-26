@@ -11,20 +11,20 @@ using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
 {
-    public class HandlerCountryById : IRequestHandler<QueryCountryById, ResponseBase>
+    public class HandlerGetCountryById : IRequestHandler<QueryGetCountryById, ResponseBase>
     {
         private readonly IStoreDbContext _context;
-        private readonly ILogger<HandlerCountryById> _logger;
+        private readonly ILogger<HandlerGetCountryById> _logger;
         private readonly IMapper _mapper;
 
-        public HandlerCountryById(IStoreDbContext context, IMapper mapper, ILogger<HandlerCountryById> logger)
+        public HandlerGetCountryById(IStoreDbContext context, IMapper mapper, ILogger<HandlerGetCountryById> logger)
         {
             _context = context;
             _mapper = mapper;
             _logger = logger;
         }
 
-        public async Task<ResponseBase> Handle(QueryCountryById request, CancellationToken cancellationToken)
+        public async Task<ResponseBase> Handle(QueryGetCountryById request, CancellationToken cancellationToken)
         {
             var country = await _context.Countries.FindAsync(request.Id);
 
@@ -35,7 +35,7 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
             }
 
             _logger.LogInformation($"[{DateTime.Now}] Country by id found successfully");
-            return new ResponseCountryById(_mapper.Map<CountryDTO>(country));
+            return new ResponseGetCountryById(_mapper.Map<CountryDTO>(country));
         }
     }
 }

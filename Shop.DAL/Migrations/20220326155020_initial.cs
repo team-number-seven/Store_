@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Store.DAL.Migrations
 {
-    public partial class init : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -39,7 +39,7 @@ namespace Store.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false)
+                    Title = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -174,7 +174,7 @@ namespace Store.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreateDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false, defaultValue: new DateTime(2022, 3, 24, 17, 55, 30, 52, DateTimeKind.Local).AddTicks(5140)),
+                    CreateDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false, defaultValue: new DateTime(2022, 3, 26, 18, 50, 20, 468, DateTimeKind.Local).AddTicks(2498)),
                     CountryId = table.Column<Guid>(type: "uuid", nullable: false),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -693,9 +693,9 @@ namespace Store.DAL.Migrations
                 column: "SubTypeItemId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Colors_Name",
+                name: "IX_Colors_Title",
                 table: "Colors",
-                column: "Name",
+                column: "Title",
                 unique: true);
 
             migrationBuilder.CreateIndex(

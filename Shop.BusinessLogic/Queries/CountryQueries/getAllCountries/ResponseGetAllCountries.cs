@@ -4,5 +4,5 @@ using Store.BusinessLogic.Common.DataTransferObjects;
 
 namespace Store.BusinessLogic.Queries.CountryQueries.GetAllCountries
 {
-    public record ResponseAllCountries(IList<CountryDTO> Countries) : ResponseBase;
+    public record ResponseGetAllCountries(IList<CountryDTO> Countries) : ResponseBase;
 }

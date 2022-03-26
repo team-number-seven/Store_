@@ -10,8 +10,8 @@ namespace Store.WebAPI.Controllers
 {
     [Authorize(Policy = "Administrator")]
     [Route("[controller]")]
-    [Controller]
-    public class GenderController : Controller
+    [ApiController]
+    public class GenderController : ControllerBase
     {
         private readonly IMediator _mediator;
 

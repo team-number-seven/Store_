@@ -3,48 +3,32 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
+using Store.BusinessLogic.Common.DataTransferObjects;
 using Store.BusinessLogic.Common.Interfaces;
 using Store.BusinessLogic.Common.UserModels;
+using Store.BusinessLogic.Queries.UserQueries.LoginUser;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.WebAPI.Controllers
 {
-    [Route("[controller]")]
-    public class UserController : Controller
+    [Route("Store/[controller]")]
+    [ApiController]
+    public class UserController : ControllerBase
     {
-        private readonly IStoreDbContext _context;
-        private readonly IJWTService _jwtService;
         private readonly IMediator _mediator;
-        private readonly IPasswordHasher<User> _passwordHasher;
-        private readonly UserManager<User> _userManager;
 
-        public UserController(UserManager<User> userManager, IJWTService jwtService, IStoreDbContext context, IMediator mediator,IPasswordHasher<User> passwordHasher)
+        public UserController(IMediator mediator)
         {
-            _userManager = userManager;
-            _jwtService = jwtService;
-            _context = context;
             _mediator = mediator;
-            _passwordHasher = passwordHasher;
         }
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> Login(UserLogin userLogin)
+        public async Task<IActionResult> Login([FromBody]QueryLoginUser userLogin)
         {
-            var user = await _userManager.FindByEmailAsync(userLogin.Email);
-
-            if (user is null)
-                return BadRequest(new {message = "Username or password is incorrect"});
-            var result =
-                _userManager.PasswordHasher.VerifyHashedPassword(user, user.PasswordHash, userLogin.Password);
-            if (result == PasswordVerificationResult.Success)
-            {
-                await _context.Entry(user).Reference(c => c.Country).LoadAsync();
-                return Ok(_jwtService.GenerateJwtToken(user));
-            }
-
-            return BadRequest(new {message = "Username or password is incorrect"});
+            var response = await _mediator.Send(userLogin);
+            return StatusCode((int)response.StatusCode, response);
         }
 
         [HttpPost]
@@ -54,4 +38,4 @@ namespace Store.WebAPI.Controllers
             return Ok(await _mediator.Send(command));
         }
     }
-}
+}   

@@ -12,23 +12,23 @@ using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.CountryQueries.GetAllCountries
 {
-    public class HandlerAllCountries : IRequestHandler<QueryAllCountries, ResponseBase>
+    public class HandlerGetAllCountries : IRequestHandler<QueryGetAllCountries, ResponseBase>
     {
         private readonly IStoreDbContext _context;
-        private readonly ILogger<HandlerAllCountries> _logger;
+        private readonly ILogger<HandlerGetAllCountries> _logger;
         private readonly IMapper _mapper;
 
-        public HandlerAllCountries(IStoreDbContext context, ILogger<HandlerAllCountries> logger, IMapper mapper)
+        public HandlerGetAllCountries(IStoreDbContext context, ILogger<HandlerGetAllCountries> logger, IMapper mapper)
         {
             _context = context;
             _logger = logger;
             _mapper = mapper;
         }
 
-        public async Task<ResponseBase> Handle(QueryAllCountries request, CancellationToken cancellationToken)
+        public async Task<ResponseBase> Handle(QueryGetAllCountries request, CancellationToken cancellationToken)
         {
             var countries = await _context.Countries.ToListAsync(cancellationToken);
-            var response = new ResponseAllCountries(new List<CountryDTO>());
+            var response = new ResponseGetAllCountries(new List<CountryDTO>());
             var task = new Task(() =>
             {
                 foreach (var c in countries)
@@ -36,9 +36,8 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetAllCountries
             });
 
             task.Start();
-            _logger.LogInformation($"[{DateTime.Now}]Get countries is successful for {typeof(HandlerAllCountries)}");
             task.Wait(cancellationToken);
-
+            _logger.LogInformation($"[{DateTime.Now}]Get countries is successful for {typeof(HandlerGetAllCountries)}");
             return response;
         }
     }

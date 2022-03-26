@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Store.WebAPI.Controllers
 {
     [Route("[controller]")]
-    public class RoleController : Controller
+    [ApiController]
+    public class RoleController : ControllerBase
     {
         private readonly RoleManager<IdentityRole<Guid>> _roleManager;
 

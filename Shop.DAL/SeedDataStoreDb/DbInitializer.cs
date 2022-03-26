@@ -36,7 +36,7 @@ namespace Store.DAL.SeedDataStoreDb
             {
                 string name;
                 while ((name = await reader.ReadLineAsync()) is not null)
-                    colors.Add(new Color {Id = Guid.NewGuid(), Name = name});
+                    colors.Add(new Color {Id = Guid.NewGuid(), Title = name});
             }
 
             await context.Colors.AddRangeAsync(colors);

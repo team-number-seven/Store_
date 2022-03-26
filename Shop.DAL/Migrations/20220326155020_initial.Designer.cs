@@ -10,8 +10,8 @@ using Store.DAL;
 namespace Store.DAL.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20220324145530_init")]
-    partial class init
+    [Migration("20220326155020_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -304,14 +304,14 @@ namespace Store.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
+                    b.HasIndex("Title")
                         .IsUnique();
 
                     b.ToTable("Colors");
@@ -634,7 +634,7 @@ namespace Store.DAL.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp without time zone")
-                        .HasDefaultValue(new DateTime(2022, 3, 24, 17, 55, 30, 52, DateTimeKind.Local).AddTicks(5140));
+                        .HasDefaultValue(new DateTime(2022, 3, 26, 18, 50, 20, 468, DateTimeKind.Local).AddTicks(2498));
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)

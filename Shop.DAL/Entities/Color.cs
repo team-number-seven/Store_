@@ -6,7 +6,7 @@ namespace Store.DAL.Entities
 {
     public class Color : IBaseEntity
     {
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         public IEnumerable<CharacteristicItem> CharacteristicItems { get; set; }
         public Guid Id { get; set; }
