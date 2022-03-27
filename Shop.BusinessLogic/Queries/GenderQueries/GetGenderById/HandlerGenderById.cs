@@ -26,7 +26,7 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetGenderById
 
         public async Task<ResponseBase> Handle(QueryGenderById request, CancellationToken cancellationToken)
         {
-            var gender = await _context.Genders.FindAsync(request.Id);
+            var gender = await _context.Genders.FindAsync(Guid.Parse(request.Id));
             if (gender is null)
             {
                 _logger.LogInformation($"${DateTime.Now} Gender by id not found");

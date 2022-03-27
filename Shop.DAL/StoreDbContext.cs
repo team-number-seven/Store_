@@ -22,7 +22,6 @@ namespace Store.DAL
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ImageFormat> ImageFormats { get; set; }
         public DbSet<Item> Items { get; set; }
-        public DbSet<Logo> Logos { get; set; }
         public DbSet<ItemType> ItemTypes { get; set; }
         public DbSet<Manufacturer> Manufacturers { get; set; }
         public DbSet<SeasonItem> SeasonItems { get; set; }

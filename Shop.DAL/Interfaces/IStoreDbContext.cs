@@ -11,7 +11,6 @@ namespace Store.DAL.Interfaces
         DbSet<Brand> Brands { get; set; }
         DbSet<ImageFormat> ImageFormats { get; set; }
         DbSet<Item> Items { get; set; }
-        DbSet<Logo> Logos { get; set; }
         DbSet<MainItemImage> MainImages { get; set; }
         DbSet<AgeTypeItem> AgeTypes { get; set; }
         DbSet<BusinessCharacteristicItem> BusinessCharacteristicItems { get; set; }

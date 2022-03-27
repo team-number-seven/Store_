@@ -30,7 +30,7 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
 
         public async Task<ResponseBase> Handle(CommandCreateUser request, CancellationToken cancellationToken)
         {
-            var country = await _context.Countries.FindAsync(request.User.CountryId);
+            var country = await _context.Countries.FindAsync(Guid.Parse(request.User.CountryId));//add to check try
             var users = new List<User>();
 
             var user = new User

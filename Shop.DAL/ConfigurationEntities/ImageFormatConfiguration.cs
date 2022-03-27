@@ -29,11 +29,6 @@ namespace Store.DAL.ConfigurationEntities
                 .HasMany(f => f.SecondaryItemImage)
                 .WithOne(i => i.ImageFormat)
                 .HasForeignKey(i => i.ImageFormatId);
-
-            builder
-                .HasMany(f => f.Logos)
-                .WithOne(l => l.ImageFormat)
-                .HasForeignKey(l => l.ImageFormatId);
         }
     }
 }

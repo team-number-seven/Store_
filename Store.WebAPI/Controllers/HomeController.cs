@@ -41,5 +41,20 @@ namespace Store.WebAPI.Controllers
             var response = await _mediator.Send(request);
             return response is null ? NotFound() : Ok(response);
         }
+
+
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> UploadFile(IFormFile file)
+        {
+            string name = file.Name;
+            string type = "." + file.ContentType.Split("/").Last();
+            using (var stream = System.IO.File.Create(@"D:\Projects\GitHub\Store\Shop.DAL\Images\" + name + type))
+            {
+                await file.CopyToAsync(stream);
+            }
+            return Ok();
+        }
     }
 }

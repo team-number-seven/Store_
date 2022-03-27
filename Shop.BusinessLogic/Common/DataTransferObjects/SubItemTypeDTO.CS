@@ -11,13 +11,13 @@ namespace Store.BusinessLogic.Common.DataTransferObjects
 {
     public class SubItemTypeDTO:IMapWith<SubItemType>
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string Title { get; set; }
 
         public void Mapping(Profile profile)
         {
             profile.CreateMap<SubItemType, SubItemTypeDTO>()
-                .ForMember(dto => dto.Id, opt => opt.MapFrom(s => s.Id))
+                .ForMember(dto => dto.Id, opt => opt.MapFrom(s => s.Id.ToString()))
                 .ForMember(dto => dto.Title, opt => opt.MapFrom(s => s.Title));
         }
     }

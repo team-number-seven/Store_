@@ -22,11 +22,6 @@ namespace Store.DAL.ConfigurationEntities
                 .IsRequired();
 
             builder
-                .HasOne(b => b.Logo)
-                .WithOne(l => l.Brand)
-                .HasForeignKey<Brand>(l => l.LogoId);
-
-            builder
                 .HasMany(b => b.Items)
                 .WithOne(i => i.Brand)
                 .HasForeignKey(i => i.BrandId);
