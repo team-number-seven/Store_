@@ -9,7 +9,9 @@ namespace Store.BusinessLogic.Common
 {
     public static class MHFL//MessageHelperForLogger)))
     {
-        public static string Time => DateTime.Now.ToString("G");
-        public static string Done(string type,string code) => $"[{Time}]{type} executed with the code {code}";
+        public static string Time => $"[{DateTime.Now:G}]";
+        public static string Done(string methodName) => $"{Time}The {methodName} method done";
+        public static string Done(string methodName,string id) => $"{Time}The {methodName} method done with userId[{id}]";
+        public static string ObjectIsNullOrEmptyMessage => "The object cannot be null";
     }
 }

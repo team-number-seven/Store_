@@ -53,7 +53,7 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
             await _userManager.CreateAsync(user);
             await _userManager.AddToRoleAsync(user, "user");
             await _context.SaveChangesAsync(cancellationToken);
-            _logger.LogInformation($"[{DateTime.Now}]User was created successfully");
+            _logger.LogInformation(MHFL.Done("Handle",user.Id.ToString()));
             return new ResponseCreateUser(user.Id){StatusCode = HttpStatusCode.Created};
         }
     }

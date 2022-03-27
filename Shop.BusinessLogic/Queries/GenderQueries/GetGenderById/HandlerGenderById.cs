@@ -33,7 +33,7 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetGenderById
                 return new ResponseBase("Gender not found", HttpStatusCode.NotFound);
             }
 
-            _logger.LogInformation($"${DateTime.Now} Gender by id found successfully");
+            _logger.LogInformation(MHFL.Done("Handle"));
             return new ResponseGenderById(_mapper.Map<GenderDTO>(gender));
         }
     }

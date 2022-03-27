@@ -37,7 +37,7 @@ namespace Store.BusinessLogic.Queries.SizeTypeItemQueries.GetAllSizeTypeItems
             });
             task.Start();
             task.Wait(cancellationToken);
-            _logger.LogInformation($"[{DateTime.Now}]Get all sizes is successful for {typeof(HandlerGetAllSizesTypeItems)}");
+            _logger.LogInformation(MHFL.Done("Handle"));
             return response;
         }
     }

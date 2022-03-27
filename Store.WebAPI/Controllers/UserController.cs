@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Security.Claims;
+using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -26,6 +27,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> Login([FromHeader]QueryLoginUser request)
         {
             var response = await _mediator.Send(request);
+            _logger.LogInformation($"{MHFL.Done("Login")}");
             return StatusCode((int)response.StatusCode, response);
         }
 
@@ -34,6 +36,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> Create([FromHeader]CommandCreateUser request)
         {
             var response = await _mediator.Send(request);
+            _logger.LogInformation($"{MHFL.Done("Create")}");
             return StatusCode((int)response.StatusCode, response);
         }
     }

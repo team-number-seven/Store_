@@ -37,7 +37,7 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetAllCountries
 
             task.Start();
             task.Wait(cancellationToken);
-            _logger.LogInformation($"[{DateTime.Now}]Get countries is successful for {typeof(HandlerGetAllCountries)}");
+            _logger.LogInformation(MHFL.Done("Handle"));
             return response;
         }
     }

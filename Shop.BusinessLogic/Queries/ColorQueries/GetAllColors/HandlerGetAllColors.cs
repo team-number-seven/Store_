@@ -37,7 +37,7 @@ namespace Store.BusinessLogic.Queries.ColorQueries.GetAllColors
 
             task.Start();
             task.Wait(cancellationToken);
-            _logger.LogInformation(MHFL.Done(typeof(HandlerGetAllColors).ToString(),response.StatusCode.ToString()));
+            _logger.LogInformation(MHFL.Done("Handle"));
             return response;
         }
     }

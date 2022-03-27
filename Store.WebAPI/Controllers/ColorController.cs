@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Queries.ColorQueries.GetAllColors;
 
 namespace Store.WebAPI.Controllers
@@ -24,10 +26,11 @@ namespace Store.WebAPI.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> GetAllColors([FromQuery] QueryGetAllColors request)
+        public async Task<IActionResult> GetAllColors([FromBody] QueryGetAllColors request)
         {
-            _logger.LogInformation($"[{DateTime.Now}]The GetAllColors method is called");
+           
             var response = await _mediator.Send(request);
+            _logger.LogInformation($"{MHFL.Done("GetAllColors", User?.FindFirstValue("Id"))}");
             return StatusCode((int) response.StatusCode, response);
         }
     }

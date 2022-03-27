@@ -37,7 +37,7 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetAllGenders
             });
 
             task.Start();
-            _logger.LogInformation($"[{DateTime.Now}]Get genders is successful for {typeof(HandlerAllGenders)}");
+            _logger.LogInformation(MHFL.Done("Handle"));
             task.Wait(cancellationToken);
 
             return response;

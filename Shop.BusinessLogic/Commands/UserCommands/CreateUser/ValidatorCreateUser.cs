@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Validation;
 using Store.DAL.Entities;
 
@@ -17,7 +18,7 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
         public async Task<ValidationResult> Validate(CommandCreateUser request)
         {
             if(request.User is null)
-                return ValidationResult.Fail(MessageHelperForValidator.NullMessage);
+                return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
             var resultEmail = await _userManager.FindByEmailAsync(request.User.Email);
             if (resultEmail is not null)
                 return ValidationResult.Fail("A user with such an email has already been registered");

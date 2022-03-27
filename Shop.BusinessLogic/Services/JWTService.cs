@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -30,6 +30,7 @@ namespace Store.BusinessLogic.Services
             var userRoles = _userManager.GetRolesAsync(user);
             var claims = new List<Claim>
             {
+                new("Id",user.Id.ToString()),
                 new(ClaimTypes.Country, user.Country.Name),
                 new(ClaimTypes.Email, user.Email),
                 new(ClaimTypes.Name, user.UserName)
@@ -43,5 +44,6 @@ namespace Store.BusinessLogic.Services
                 signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
     }
 }
