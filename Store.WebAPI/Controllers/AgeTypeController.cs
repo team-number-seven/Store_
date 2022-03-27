@@ -5,29 +5,30 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Queries.SizeTypeItemQueries.GetAllSizeTypeItems;
+using Store.BusinessLogic.Queries.AgeTypeItemQueries.GetAllAgeTypeItem;
 
 namespace Store.WebAPI.Controllers
 {
     [Authorize(Policy = "Manager")]
     [Route("Store/[controller]")]
     [ApiController]
-    public class SizeTypeItemController : ControllerBase
+    public class AgeTypeController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger<SizeTypeItemController> _logger;
+        private readonly ILogger<AgeTypeController> _logger;
 
-        public SizeTypeItemController(IMediator mediator,ILogger<SizeTypeItemController> logger)
+        public AgeTypeController(IMediator mediator,ILogger<AgeTypeController> logger)
         {
             _mediator = mediator;
             _logger = logger;
         }
-        [HttpGet]
+
         [Route("[action]")]
-        public async Task<IActionResult> GetAllSizes()
+        [HttpGet]
+        public async Task<IActionResult> GetAllAgeTypeItem()
         {
-            var response = await _mediator.Send(new QueryGetAllSizesTypeItems());
-            _logger.LogInformation(MHFL.Done("GetAllSizes", User.FindFirstValue("Id")));
+            var response = await _mediator.Send(new QueryGetAllAgeTypeItem());
+            _logger.LogInformation(MHFL.Done("GetAllTypesItem",User.FindFirstValue("id")));
             return StatusCode((int) response.StatusCode, response);
         }
     }

@@ -36,9 +36,9 @@ namespace Store.WebAPI.Controllers
 
         [Route("[action]")]
         [HttpGet]
-        public async Task<IActionResult> GetAllGenders(QueryAllGenders request)
+        public async Task<IActionResult> GetAllGenders()
         {
-            var response = await _mediator.Send(request);
+            var response = await _mediator.Send(new QueryAllGenders());
             _logger.LogInformation(MHFL.Done("GetAllGenders", User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
@@ -48,7 +48,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetGender(QueryGenderById request)
         {
             var response = await _mediator.Send(request);
-            _logger.LogInformation(MHFL.Done("GetGender", User?.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("GetGender", User.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
     }

@@ -26,11 +26,11 @@ namespace Store.WebAPI.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> GetAllColors([FromBody] QueryGetAllColors request)
+        public async Task<IActionResult> GetAllColors()
         {
            
-            var response = await _mediator.Send(request);
-            _logger.LogInformation($"{MHFL.Done("GetAllColors", User?.FindFirstValue("Id"))}");
+            var response = await _mediator.Send(new QueryGetAllColors());
+            _logger.LogInformation($"{MHFL.Done("GetAllColors", User.FindFirstValue("Id"))}");
             return StatusCode((int) response.StatusCode, response);
         }
     }
