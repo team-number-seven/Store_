@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
 using Store.BusinessLogic.Behaviours;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
 using Store.BusinessLogic.Common.Interfaces;
@@ -29,7 +24,6 @@ namespace Store.BusinessLogic.Common
     {
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration Configuration)
         {
-
             services.AddDbContext<StoreDbContext>(opt =>
                 opt.UseNpgsql(Configuration.GetConnectionString("StoreConnection")));
 
@@ -38,7 +32,7 @@ namespace Store.BusinessLogic.Common
                 .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<StoreDbContext>()
                 .AddDefaultTokenProviders();
-            
+
 
             services.Configure<IdentityOptions>(options =>
             {

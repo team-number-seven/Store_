@@ -4,5 +4,5 @@ using Store.BusinessLogic.Common;
 
 namespace Store.BusinessLogic.Queries.GenderQueries.GetGenderById
 {
-    public record QueryGenderById(string Id) : IRequest<ResponseBase>;
+    public record QueryGenderById(Guid Id) : IRequest<ResponseBase>;
 }

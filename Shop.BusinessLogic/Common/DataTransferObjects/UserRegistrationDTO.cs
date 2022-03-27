@@ -1,23 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Store.BusinessLogic.Common.DataTransferObjects
 {
     public class UserRegistrationDTO
     {
-        [FromHeader]
-        public string UserName { get; set; }
-        [FromHeader]
+        [FromHeader] public string UserName { get; set; }
 
-        public string Email { get; set; }
-        [FromHeader]
+        [FromHeader] public string Email { get; set; }
 
-        public string Password { get; set; }
-        [FromHeader]
+        [FromHeader] public string Password { get; set; }
 
-        public string CountryId { get; set; }
-        [FromHeader]
+        [FromHeader] public Guid CountryId { get; set; }
 
-        public string PhoneNumber { get; set; }
+        [FromHeader] public string PhoneNumber { get; set; }
     }
 }

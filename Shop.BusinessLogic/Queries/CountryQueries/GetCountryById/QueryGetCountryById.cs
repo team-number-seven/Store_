@@ -4,5 +4,5 @@ using Store.BusinessLogic.Common;
 
 namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
 {
-    public record QueryGetCountryById(string Id) : IRequest<ResponseBase>;
+    public record QueryGetCountryById(Guid Id) : IRequest<ResponseBase>;
 }

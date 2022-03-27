@@ -17,7 +17,7 @@ namespace Store.BusinessLogic.Commands.GenderCommands.CreateGender
 
         public async Task<ValidationResult> Validate(CommandCreateGender request)
         {
-            if(string.IsNullOrEmpty(request.Title))
+            if (string.IsNullOrEmpty(request.Title))
                 return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
             var result = await _context.Genders.FirstOrDefaultAsync(g => g.Title == request.Title);
             if (result is not null)

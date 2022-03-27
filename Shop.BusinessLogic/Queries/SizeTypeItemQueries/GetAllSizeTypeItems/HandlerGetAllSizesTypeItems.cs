@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -14,18 +11,20 @@ using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.SizeTypeItemQueries.GetAllSizeTypeItems
 {
-    public class HandlerGetAllSizesTypeItems: IRequestHandler<QueryGetAllSizesTypeItems,ResponseBase>
+    public class HandlerGetAllSizesTypeItems : IRequestHandler<QueryGetAllSizesTypeItems, ResponseBase>
     {
         private readonly IStoreDbContext _context;
-        private readonly IMapper _mapper;
         private readonly ILogger<HandlerGetAllSizesTypeItems> _logger;
+        private readonly IMapper _mapper;
 
-        public HandlerGetAllSizesTypeItems(IStoreDbContext context,IMapper mapper,ILogger<HandlerGetAllSizesTypeItems> logger)
+        public HandlerGetAllSizesTypeItems(IStoreDbContext context, IMapper mapper,
+            ILogger<HandlerGetAllSizesTypeItems> logger)
         {
             _context = context;
             _mapper = mapper;
             _logger = logger;
         }
+
         public async Task<ResponseBase> Handle(QueryGetAllSizesTypeItems request, CancellationToken cancellationToken)
         {
             var sizes = await _context.SizeTypeItems.ToListAsync(cancellationToken);

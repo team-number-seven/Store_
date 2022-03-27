@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -16,8 +13,8 @@ namespace Store.BusinessLogic.Commands.ManufacturerCommands.CreateManufacturer
     public class HandlerCreateManufacturer : IRequestHandler<CommandCreateManufacturer, ResponseBase>
     {
         private readonly IStoreDbContext _context;
-        private readonly IMapper _mapper;
         private readonly ILogger<HandlerCreateManufacturer> _logger;
+        private readonly IMapper _mapper;
 
         public HandlerCreateManufacturer(IStoreDbContext context, IMapper mapper,
             ILogger<HandlerCreateManufacturer> logger)

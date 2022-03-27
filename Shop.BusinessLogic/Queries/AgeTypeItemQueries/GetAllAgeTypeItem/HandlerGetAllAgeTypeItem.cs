@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -10,23 +7,24 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
-using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.AgeTypeItemQueries.GetAllAgeTypeItem
 {
-    public class HandlerGetAllAgeTypeItem:IRequestHandler<QueryGetAllAgeTypeItem,ResponseBase>
+    public class HandlerGetAllAgeTypeItem : IRequestHandler<QueryGetAllAgeTypeItem, ResponseBase>
     {
         private readonly IStoreDbContext _context;
-        private readonly IMapper _mapper;
         private readonly ILogger<HandlerGetAllAgeTypeItem> _logger;
+        private readonly IMapper _mapper;
 
-        public HandlerGetAllAgeTypeItem(IStoreDbContext context, IMapper mapper,ILogger<HandlerGetAllAgeTypeItem> logger)
+        public HandlerGetAllAgeTypeItem(IStoreDbContext context, IMapper mapper,
+            ILogger<HandlerGetAllAgeTypeItem> logger)
         {
             _context = context;
             _mapper = mapper;
             _logger = logger;
         }
+
         public async Task<ResponseBase> Handle(QueryGetAllAgeTypeItem request, CancellationToken cancellationToken)
         {
             var ageItemTypes = await _context.AgeTypes.ToListAsync(cancellationToken);
