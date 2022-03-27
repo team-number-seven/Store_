@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -14,18 +11,19 @@ using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.SeasonItemQueries.GetAllSeasonItem
 {
-    public class HandlerGetAllSeasonItem:IRequestHandler<QueryGetAllSeasonItem,ResponseBase>
+    public class HandlerGetAllSeasonItem : IRequestHandler<QueryGetAllSeasonItem, ResponseBase>
     {
         private readonly IStoreDbContext _context;
-        private readonly IMapper _mapper;
         private readonly ILogger<HandlerGetAllSeasonItem> _logger;
+        private readonly IMapper _mapper;
 
-        public HandlerGetAllSeasonItem(IStoreDbContext context,IMapper mapper,ILogger<HandlerGetAllSeasonItem> logger)
+        public HandlerGetAllSeasonItem(IStoreDbContext context, IMapper mapper, ILogger<HandlerGetAllSeasonItem> logger)
         {
             _context = context;
             _mapper = mapper;
             _logger = logger;
         }
+
         public async Task<ResponseBase> Handle(QueryGetAllSeasonItem request, CancellationToken cancellationToken)
         {
             var seasonsItem = await _context.SeasonItems.ToListAsync(cancellationToken);

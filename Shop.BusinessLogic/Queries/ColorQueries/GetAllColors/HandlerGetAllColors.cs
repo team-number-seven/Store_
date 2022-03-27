@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -15,8 +14,8 @@ namespace Store.BusinessLogic.Queries.ColorQueries.GetAllColors
     public class HandlerGetAllColors : IRequestHandler<QueryGetAllColors, ResponseBase>
     {
         private readonly IStoreDbContext _context;
-        private readonly IMapper _mapper;
         private readonly ILogger<HandlerGetAllColors> _logger;
+        private readonly IMapper _mapper;
 
         public HandlerGetAllColors(IStoreDbContext context, IMapper mapper, ILogger<HandlerGetAllColors> logger)
         {

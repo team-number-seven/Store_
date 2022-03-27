@@ -30,9 +30,8 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
 
         public async Task<ResponseBase> Handle(CommandCreateUser request, CancellationToken cancellationToken)
         {
-            var country = await _context.Countries.FindAsync(Guid.Parse(request.User.CountryId));//add to check try
+            var country = await _context.Countries.FindAsync(request.User.CountryId); //add to check try
             var users = new List<User>();
-
             var user = new User
             {
                 UserName = request.User.UserName,
@@ -53,8 +52,8 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
             await _userManager.CreateAsync(user);
             await _userManager.AddToRoleAsync(user, "user");
             await _context.SaveChangesAsync(cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handle",user.Id.ToString()));
-            return new ResponseCreateUser(user.Id){StatusCode = HttpStatusCode.Created};
+            _logger.LogInformation(MHFL.Done("Handle", user.Id.ToString()));
+            return new ResponseCreateUser(user.Id) {StatusCode = HttpStatusCode.Created};
         }
     }
 }

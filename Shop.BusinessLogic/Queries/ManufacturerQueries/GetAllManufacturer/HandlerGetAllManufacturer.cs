@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -14,18 +11,20 @@ using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.ManufacturerQueries.GetAllManufacturer
 {
-    public class HandlerGetAllManufacturer:IRequestHandler<QueryGetAllManufacturer,ResponseBase>
+    public class HandlerGetAllManufacturer : IRequestHandler<QueryGetAllManufacturer, ResponseBase>
     {
         private readonly IStoreDbContext _context;
         private readonly ILogger<HandlerGetAllManufacturer> _logger;
         private readonly IMapper _mapper;
 
-        public HandlerGetAllManufacturer(IStoreDbContext context,ILogger<HandlerGetAllManufacturer> logger,IMapper mapper)
+        public HandlerGetAllManufacturer(IStoreDbContext context, ILogger<HandlerGetAllManufacturer> logger,
+            IMapper mapper)
         {
             _context = context;
             _logger = logger;
             _mapper = mapper;
         }
+
         public async Task<ResponseBase> Handle(QueryGetAllManufacturer request, CancellationToken cancellationToken)
         {
             var manufacturers = await _context.Manufacturers.ToListAsync(cancellationToken);

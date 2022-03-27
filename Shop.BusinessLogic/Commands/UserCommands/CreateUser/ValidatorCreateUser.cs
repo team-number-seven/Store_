@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Validation;
@@ -17,7 +18,9 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
 
         public async Task<ValidationResult> Validate(CommandCreateUser request)
         {
-            if(request.User is null)
+            if (request.User is null)
+                return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
+            if (request.User.CountryId == Guid.Empty)
                 return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
             var resultEmail = await _userManager.FindByEmailAsync(request.User.Email);
             if (resultEmail is not null)
