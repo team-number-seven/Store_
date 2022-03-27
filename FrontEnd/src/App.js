@@ -14,20 +14,12 @@ export default function App() {
 
 
     async function GET() {
-        let user = {
-            "user":
-            {
-                "Email":"pavell.urusov@gmail.com",
-                "Password":"Pavel20000301"
+        let response = await fetch("https://localhost:5001/Store/Gender/CreateGender", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
             }
-        };
-            let response = await fetch("https://localhost:5001/Store/User/Login", {
-                method : 'POST',
-                headers: {
-                  'Content-Type': 'application/json; charset=utf-8',
-                    'Email':'pavell.urusov@gmail.com',
-                     'Password':'Pavel20000301'}
-                });
+        });
         if (response.ok) {
             let json = await response.json();
             console.log(json);

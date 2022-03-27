@@ -17,7 +17,7 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
 
         public async Task<ValidationResult> Validate(QueryGetCountryById request)
         {
-            if (Guid.Empty == Guid.Parse(request.Id))
+            if (Guid.Empty == request.Id)
                 return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
             var country = await _context.Countries.FindAsync(request.Id);
             if (country is null)
