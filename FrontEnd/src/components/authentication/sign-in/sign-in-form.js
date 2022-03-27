@@ -90,8 +90,8 @@ export default function SignInForm() {
                                                message: 'This field cannot be empty'
                                            },
                                            minLength: {
-                                               value: 6,
-                                               message: 'Password cannot be less than 6 characters'
+                                               value: 8,
+                                               message: 'Password cannot be less than 8 characters'
                                            }
                                        })}
                                 />

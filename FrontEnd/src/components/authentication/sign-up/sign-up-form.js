@@ -13,6 +13,27 @@ const UserSignUp = {
     PhoneNumber: undefined,
 }
 
+async function userSignUpPost(){
+    let response = await fetch("https://localhost:5001/Store/User/Create", {
+        method : 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+            'UserName':UserSignUp.UserName,
+            'Email':UserSignUp.Email,
+            'Password':UserSignUp.Password,
+            'CountryId': UserSignUp.CountryId,
+            'PhoneNumber': UserSignUp.PhoneNumber
+        }
+    });
+    if (response.ok) {
+        let json = await response.json();
+        console.log(json);
+    } else {
+        console.log(response);
+        alert("Ошибка HTTP: " + response.status);
+    }
+}
+
 export default function SignUpForm(props) {
 
     const PostUserSignUp = (formData) => {
@@ -26,10 +47,7 @@ export default function SignUpForm(props) {
         UserSignUp.CountryId = props.Countries.find(country => country.Name === searchTerm).Id;
 
         console.log(UserSignUp);
-
-        // отправить UserSignUp
-
-        reset();
+        userSignUpPost().then();
     }
 
 
@@ -119,8 +137,8 @@ export default function SignUpForm(props) {
                                                message: 'This field cannot be empty'
                                            },
                                            minLength: {
-                                               value: 6,
-                                               message: 'Password cannot be less than 6 characters'
+                                               value: 8,
+                                               message: 'Password cannot be less than 8 characters'
                                            }
                                        })}
                                 />
