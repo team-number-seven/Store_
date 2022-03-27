@@ -6,19 +6,19 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Queries.SeasonItemQueries.GetAllSeasonItem;
+using Store.BusinessLogic.Queries.CountryQueries.GetAllCountries;
 
 namespace Store.WebAPI.Controllers
 {
     [AllowAnonymous]
     [Route("Store/[controller]")]
     [ApiController]
-    public class SeasonItemController : ControllerBase
+    public class CountryController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger<SeasonItemController> _logger;
+        private readonly ILogger<CountryController> _logger;
 
-        public SeasonItemController(IMediator mediator,ILogger<SeasonItemController> logger)
+        public CountryController(IMediator mediator,ILogger<CountryController> logger)
         {
             _mediator = mediator;
             _logger = logger;
@@ -26,11 +26,12 @@ namespace Store.WebAPI.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> GetAllSeasonItem()
+        public async Task<IActionResult> GetAllCountries()
         {
-            var response = await _mediator.Send(new QueryGetAllSeasonItem());
-            _logger.LogInformation(MHFL.Done("GetAllSeasonItem",User?.FindFirstValue("Id")));
+            var response = await _mediator.Send(new QueryGetAllCountries());
+            _logger.LogInformation(MHFL.Done("GetAllCountries",User?.FindFirstValue("id")));
             return StatusCode((int) response.StatusCode, response);
         }
+
     }
 }

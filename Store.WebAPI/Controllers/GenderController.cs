@@ -48,7 +48,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetGender(QueryGenderById request)
         {
             var response = await _mediator.Send(request);
-            _logger.LogInformation(MHFL.Done("GetGender", User.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("GetGender", User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
     }

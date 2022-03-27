@@ -30,7 +30,7 @@ namespace Store.WebAPI.Controllers
         {
            
             var response = await _mediator.Send(new QueryGetAllColors());
-            _logger.LogInformation($"{MHFL.Done("GetAllColors", User.FindFirstValue("Id"))}");
+            _logger.LogInformation($"{MHFL.Done("GetAllColors", User?.FindFirstValue("Id"))}");
             return StatusCode((int) response.StatusCode, response);
         }
     }

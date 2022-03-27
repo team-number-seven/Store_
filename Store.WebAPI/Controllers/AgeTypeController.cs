@@ -28,7 +28,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllAgeTypeItem()
         {
             var response = await _mediator.Send(new QueryGetAllAgeTypeItem());
-            _logger.LogInformation(MHFL.Done("GetAllTypesItem",User.FindFirstValue("id")));
+            _logger.LogInformation(MHFL.Done("GetAllTypesItem",User?.FindFirstValue("id")));
             return StatusCode((int) response.StatusCode, response);
         }
     }

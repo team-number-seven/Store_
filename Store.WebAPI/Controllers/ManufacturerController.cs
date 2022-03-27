@@ -30,7 +30,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> Create([FromBody] CommandCreateManufacturer manufacturer)
         {
             var response = await _mediator.Send(manufacturer);
-            _logger.LogInformation(MHFL.Done("Create",User.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("Create",User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
         [HttpGet]
@@ -38,7 +38,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllManufacturer()
         {
             var response = await _mediator.Send(new QueryGetAllManufacturer());
-            _logger.LogInformation(MHFL.Done("GetAllManufacturer", User.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("GetAllManufacturer", User?.FindFirstValue("Id")));
             return StatusCode((int)response.StatusCode, response);
         }
     }
