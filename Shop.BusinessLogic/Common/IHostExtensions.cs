@@ -42,8 +42,8 @@ namespace Store.BusinessLogic.Common
                 var rolesPath = mainPath + configuration["Initialize:RolesPath"];
                 var ageTypesItemPath = mainPath + configuration["Initialize:AgeTypesItemPath"];
                 var seasonItemsPath = mainPath + configuration["Initialize:SeasonItemsPath"];
-                var itemTypeName1 = mainPath + configuration["Initialize:ItemTypeName_1"];
-                var itemTypeName2 = mainPath + configuration["Initialize:ItemTypeName_2"];
+                var itemTypeName1 = configuration["Initialize:ItemTypeName_1"];
+                var itemTypeName2 = configuration["Initialize:ItemTypeName_2"];
                 var gendersPath = mainPath + configuration["Initialize:GendersPath"];
 
                 await DbInitializer.InitializeCountries(context, countriesPath);
