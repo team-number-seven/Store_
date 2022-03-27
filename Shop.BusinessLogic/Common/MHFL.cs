@@ -13,5 +13,6 @@ namespace Store.BusinessLogic.Common
         public static string Done(string methodName) => $"{Time}The {methodName} method done";
         public static string Done(string methodName,string id) => $"{Time}The {methodName} method done with userId[{id}]";
         public static string ObjectIsNullOrEmptyMessage => "The object cannot be null";
+        public static string ObjectExists(string nameObject) => $"The {nameObject} already exists";
     }
 }

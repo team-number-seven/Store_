@@ -9,7 +9,7 @@ using Store.BusinessLogic.Queries.SizeTypeItemQueries.GetAllSizeTypeItems;
 
 namespace Store.WebAPI.Controllers
 {
-    [Authorize(Policy = "Manager")]
+    [AllowAnonymous]
     [Route("Store/[controller]")]
     [ApiController]
     public class SizeTypeItemController : ControllerBase

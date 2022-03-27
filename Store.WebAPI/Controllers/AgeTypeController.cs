@@ -9,7 +9,7 @@ using Store.BusinessLogic.Queries.AgeTypeItemQueries.GetAllAgeTypeItem;
 
 namespace Store.WebAPI.Controllers
 {
-    [Authorize(Policy = "Manager")]
+    [AllowAnonymous]
     [Route("Store/[controller]")]
     [ApiController]
     public class AgeTypeController : ControllerBase

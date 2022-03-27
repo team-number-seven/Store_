@@ -10,7 +10,7 @@ using Store.BusinessLogic.Queries.SeasonItemQueries.GetAllSeasonItem;
 
 namespace Store.WebAPI.Controllers
 {
-    [Authorize(Policy = "Manager")]
+    [AllowAnonymous]
     [Route("Store/[controller]")]
     [ApiController]
     public class SeasonItemController : ControllerBase

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Store.WebAPI.Controllers
 {
-    [Route("[controller]")]
+    [Authorize(Policy = "Administrator")]
+    [Route("Store/[controller]")]
     [ApiController]
     public class RoleController : ControllerBase
     {

@@ -11,8 +11,8 @@ using Store.BusinessLogic.Queries.GenderQueries.GetGenderById;
 
 namespace Store.WebAPI.Controllers
 {
-    [Authorize(Policy = "Manager")]
-    [Route("[controller]")]
+    [Authorize(Policy = "Administrator")]
+    [Route("Store/[controller]")]
     [ApiController]
     public class GenderController : ControllerBase
     {
@@ -33,7 +33,7 @@ namespace Store.WebAPI.Controllers
             _logger.LogInformation(MHFL.Done("CreateGender", User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
-
+        [AllowAnonymous]
         [Route("[action]")]
         [HttpGet]
         public async Task<IActionResult> GetAllGenders()

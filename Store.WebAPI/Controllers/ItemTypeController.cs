@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
@@ -9,6 +9,7 @@ using Store.BusinessLogic.Queries.ItemTypeQueries.GetAllTypeAndSubType;
 
 namespace Store.WebAPI.Controllers
 {
+    [AllowAnonymous]
     [Route("Store/[controller]")]
     [ApiController]
     public class ItemTypeController : ControllerBase

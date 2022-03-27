@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
@@ -9,6 +10,7 @@ using Store.BusinessLogic.Queries.UserQueries.LoginUser;
 
 namespace Store.WebAPI.Controllers
 {
+    [AllowAnonymous]
     [Route("Store/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
