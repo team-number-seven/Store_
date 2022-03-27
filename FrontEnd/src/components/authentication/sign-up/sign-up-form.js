@@ -13,7 +13,7 @@ const UserSignUp = {
     PhoneNumber: undefined,
 }
 
-async function userSignUpPost(){
+async function userSignUpPOST(){
     let response = await fetch("https://localhost:5001/Store/User/Create", {
         method : 'POST',
         headers: {
@@ -36,7 +36,7 @@ async function userSignUpPost(){
 
 export default function SignUpForm(props) {
 
-    const PostUserSignUp = (formData) => {
+    const initUserSignUp = (formData) => {
 
         UserSignUp.UserName = formData.userName;
         UserSignUp.Email = formData.email;
@@ -45,9 +45,6 @@ export default function SignUpForm(props) {
 
         let searchTerm = formData.country;
         UserSignUp.CountryId = props.Countries.find(country => country.Name === searchTerm).Id;
-
-        console.log(UserSignUp);
-        userSignUpPost().then();
     }
 
 
@@ -78,7 +75,8 @@ export default function SignUpForm(props) {
             }
         }
 
-        PostUserSignUp(formData);
+        initUserSignUp(formData);
+        userSignUpPOST().then();
     }
 
 

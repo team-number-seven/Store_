@@ -8,16 +8,28 @@ const UserSignIn = {
     Password: undefined,
 }
 
+async function userSignInPOST(){
+    let response = await fetch("https://localhost:5001/Store/User/Login", {
+        method : 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+            'Email':UserSignIn.Email,
+            'Password':UserSignIn.Password}
+    });
+    if (response.ok) {
+        let json = await response.json();
+        console.log(json);
+    } else {
+        let json = await response.json();
+        alert(json.errorMessage);
+    }
+}
+
 export default function SignInForm() {
 
-    const PostUserSignIn = (formData) => {
+    const initSignIn = (formData) => {
         UserSignIn.Email = formData.email;
         UserSignIn.Password = formData.password;
-
-        console.log(UserSignIn);
-        //отправить UserSignIn
-
-        reset();
     }
 
     const {
@@ -42,7 +54,8 @@ export default function SignInForm() {
             }
         }
 
-        PostUserSignIn(formData);
+        initSignIn(formData);
+        userSignInPOST().then();
 
     }
 
