@@ -25,7 +25,7 @@ namespace Store.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("[action]")]
+        [Route("Get")]
         public async Task<IActionResult> GetAllColors()
         {
            

@@ -22,6 +22,11 @@ namespace Store.DAL.ConfigurationEntities
                 .IsRequired();
 
             builder
+                .HasOne(b => b.Country)
+                .WithMany(c => c.Brands)
+                .HasForeignKey(b => b.CountryId);
+
+            builder
                 .HasMany(b => b.Items)
                 .WithOne(i => i.Brand)
                 .HasForeignKey(i => i.BrandId);

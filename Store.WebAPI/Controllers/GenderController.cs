@@ -25,7 +25,8 @@ namespace Store.WebAPI.Controllers
             _logger = logger;
         }
 
-        [Route("[action]")]
+
+        [Route("CreateUser")]
         [HttpPost]
         public async Task<IActionResult> CreateGender(CommandCreateGender request)
         {
@@ -34,7 +35,7 @@ namespace Store.WebAPI.Controllers
             return StatusCode((int) response.StatusCode, response);
         }
         [AllowAnonymous]
-        [Route("[action]")]
+        [Route("Get")]
         [HttpGet]
         public async Task<IActionResult> GetAllGenders()
         {
@@ -43,12 +44,12 @@ namespace Store.WebAPI.Controllers
             return StatusCode((int) response.StatusCode, response);
         }
 
-        [Route("[action]")]
+        [Route("Get")]
         [HttpGet]
-        public async Task<IActionResult> GetGender(QueryGenderById request)
+        public async Task<IActionResult> GetGenderById(QueryGenderById request)
         {
             var response = await _mediator.Send(request);
-            _logger.LogInformation(MHFL.Done("GetGender", User?.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("GetGenderById", User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
     }

@@ -24,8 +24,9 @@ namespace Store.WebAPI.Controllers
             _logger = logger;
         }
 
+        
         [HttpPost]
-        [Route("[action]")]
+        [Route("SignIn")]
         public async Task<IActionResult> Login([FromHeader]QueryLoginUser request)
         {
             var response = await _mediator.Send(request);
@@ -34,11 +35,11 @@ namespace Store.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("[action]")]
-        public async Task<IActionResult> Create([FromHeader]CommandCreateUser request)
+        [Route("SignUp")]
+        public async Task<IActionResult> CreateUser([FromHeader]CommandCreateUser request)
         {
             var response = await _mediator.Send(request);
-            _logger.LogInformation($"{MHFL.Done("Create")}");
+            _logger.LogInformation($"{MHFL.Done("CreateUser")}");
             return StatusCode((int)response.StatusCode, response);
         }
     }

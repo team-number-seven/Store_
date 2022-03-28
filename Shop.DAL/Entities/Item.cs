@@ -34,5 +34,6 @@ namespace Store.DAL.Entities
 
         public IEnumerable<User> FavoriteUsers { get; set; }
         public Guid Id { get; set; }
+        
     }
 }

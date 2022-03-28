@@ -23,7 +23,7 @@ namespace Store.WebAPI.Controllers
             _logger = logger;
         }
         [HttpGet]
-        [Route("[action]")]
+        [Route("Get")]
         public async Task<IActionResult> GetAllSizes()
         {
             var response = await _mediator.Send(new QueryGetAllSizesTypeItems());
