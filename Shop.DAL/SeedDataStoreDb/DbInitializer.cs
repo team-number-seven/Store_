@@ -191,6 +191,5 @@ namespace Store.DAL.SeedDataStoreDb
                 await context.SaveChangesAsync();
             }
         }
-
     }
 }

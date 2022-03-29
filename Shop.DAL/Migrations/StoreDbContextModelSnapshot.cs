@@ -391,7 +391,7 @@ namespace Store.DAL.Migrations
                         .HasColumnType("bigint")
                         .HasDefaultValue(0L);
 
-                    b.Property<long>("CountSales")
+                    b.Property<long>("NumberOfSales")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasDefaultValue(0L);
@@ -537,7 +537,7 @@ namespace Store.DAL.Migrations
                     b.ToTable("SeasonTypes");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.SecondaryItemImage", b =>
+            modelBuilder.Entity("Store.DAL.Entities.ItemImage", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -926,10 +926,10 @@ namespace Store.DAL.Migrations
                     b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.SecondaryItemImage", b =>
+            modelBuilder.Entity("Store.DAL.Entities.ItemImage", b =>
                 {
                     b.HasOne("Store.DAL.Entities.ImageFormat", "ImageFormat")
-                        .WithMany("SecondaryItemImage")
+                        .WithMany("ItemImage")
                         .HasForeignKey("ImageFormatId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1021,7 +1021,7 @@ namespace Store.DAL.Migrations
 
                     b.Navigation("MainItemImages");
 
-                    b.Navigation("SecondaryItemImage");
+                    b.Navigation("ItemImage");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.Item", b =>

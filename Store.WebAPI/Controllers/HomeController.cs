@@ -6,7 +6,9 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Store.BusinessLogic.Commands.ItemCommands.ItemCreate;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
+using Store.BusinessLogic.Common.DataTransferObjects;
 using Store.BusinessLogic.Queries.CountryQueries.GetAllCountries;
 
 namespace Store.WebAPI.Controllers
@@ -55,6 +57,14 @@ namespace Store.WebAPI.Controllers
                 await file.CopyToAsync(stream);
             }
             return Ok();
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> Tesst([FromForm]ItemCreateDTO item)
+        {
+            var response = await _mediator.Send(new CommandCreateItem(item));
+            return StatusCode((int) response.StatusCode, response);
         }
     }
 }

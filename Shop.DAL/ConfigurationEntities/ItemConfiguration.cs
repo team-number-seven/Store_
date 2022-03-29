@@ -17,8 +17,20 @@ namespace Store.DAL.ConfigurationEntities
                 .IsUnique();
 
             builder
+                .HasIndex(i => i.ArticleNumber)
+                .IsUnique();
+
+            builder
+                .Property(i => i.ArticleNumber)
+                .IsRequired();
+
+            builder
                 .Property(i => i.Title)
                 .HasMaxLength(50);
+
+            builder
+                .Property(i => i.Price)
+                .IsRequired();
 
             builder
                 .Property(i => i.Description)
@@ -29,7 +41,7 @@ namespace Store.DAL.ConfigurationEntities
                 .Property(i => i.CountItem)
                 .HasDefaultValue(0);
 
-            builder.Property(i => i.CountSales)
+            builder.Property(i => i.NumberOfSales)
                 .HasDefaultValue(0);
 
             builder
@@ -38,28 +50,13 @@ namespace Store.DAL.ConfigurationEntities
                 .HasForeignKey<Item>(i => i.CharacteristicItemId);
 
             builder
-                .HasOne(i => i.BusinessCharacteristic)
-                .WithOne(i => i.Item)
-                .HasForeignKey<Item>(i => i.BusinessCharacteristicId);
-
-            builder
-                .HasOne(i => i.MainItemImage)
-                .WithOne(i => i.Item)
-                .HasForeignKey<Item>(i => i.MainItemImageId);
-
-            builder
                 .HasOne(i => i.Brand)
                 .WithMany(b => b.Items)
                 .HasForeignKey(b => b.BrandId);
 
-            builder
-                .HasOne(i => i.WarehouseItem)
-                .WithMany(w => w.Items)
-                .HasForeignKey(i => i.WarehouseItemId);
-
 
             builder
-                .HasMany(i => i.SecondaryItemImages)
+                .HasMany(i => i.Images)
                 .WithOne(i => i.Item)
                 .HasForeignKey(i => i.ItemId);
 

@@ -21,12 +21,7 @@ namespace Store.DAL.ConfigurationEntities
                 .HasMaxLength(15);
 
             builder
-                .HasMany(f => f.MainItemImages)
-                .WithOne(i => i.ImageFormat)
-                .HasForeignKey(i => i.ImageFormatId);
-
-            builder
-                .HasMany(f => f.SecondaryItemImage)
+                .HasMany(f => f.Images)
                 .WithOne(i => i.ImageFormat)
                 .HasForeignKey(i => i.ImageFormatId);
         }
