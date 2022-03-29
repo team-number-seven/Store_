@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Store.BusinessLogic.Common.Mappings;
+using Store.DAL.Entities;
+using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Common.DataTransferObjects
 {
     public class ItemCreateDTO
     {
+
         [FromHeader] public string Title { get; set; }
 
         [FromHeader] public string Description { get; set; }

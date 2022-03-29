@@ -55,7 +55,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                     await _context.ImageFormats.FirstOrDefaultAsync(f => f.Format == image.GetImageFormat(),
                         cancellationToken);
                 var guid = Guid.NewGuid();
-                var path = _mainPath + guid + format;
+                var path = _mainPath + guid + format.Format;
                 using (var stream = File.Create(path))
                 {
                     await image.CopyToAsync(stream, cancellationToken);
