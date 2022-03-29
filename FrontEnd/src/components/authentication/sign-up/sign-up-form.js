@@ -5,47 +5,21 @@ import {Link} from "react-router-dom";
 import "../authentication.css";
 import CountryList from "../../services/country-list/country-list";
 
-const UserSignUp = {
-    UserName: undefined,
-    Email: undefined,
-    Password: undefined,
-    CountryId: undefined,
-    PhoneNumber: undefined,
-}
-
-async function userSignUpPOST(){
-    let response = await fetch("https://localhost:5001/Store/User/SignUp", {
-        method : 'POST',
-        headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-            'UserName':UserSignUp.UserName,
-            'Email':UserSignUp.Email,
-            'Password':UserSignUp.Password,
-            'CountryId': UserSignUp.CountryId,
-            'PhoneNumber': UserSignUp.PhoneNumber
-        }
-    });
-    if (response.ok) {
-        let json = await response.json();
-        console.log(json);
-    } else {
-        console.log(response);
-        alert("Ошибка HTTP: " + response.status);
-    }
-}
 
 export default function SignUpForm(props) {
+    const {onSignUp} = props;
 
-    const initUserSignUp = (formData) => {
 
-        UserSignUp.UserName = formData.userName;
-        UserSignUp.Email = formData.email;
-        UserSignUp.Password = formData.password;
-        UserSignUp.PhoneNumber = formData.phoneNumber;
+    const initUserSignUp = (user, formData) => {
+        user.UserName = formData.userName;
+        user.Email = formData.email;
+        user.Password = formData.password;
+        user.PhoneNumber = formData.phoneNumber;
 
         let searchTerm = formData.country;
-        UserSignUp.CountryId = props.Countries.find(country => country.Name === searchTerm).Id;
+        user.CountryId = props.Countries.find(country => country.Name === searchTerm).Id;
     }
+
 
 
     const {
@@ -74,9 +48,9 @@ export default function SignUpForm(props) {
                 }
             }
         }
-
-        initUserSignUp(formData);
-        userSignUpPOST().then();
+        const User = {}
+        initUserSignUp(User, formData);
+        onSignUp(User);
     }
 
 
@@ -193,7 +167,8 @@ export default function SignUpForm(props) {
                             </div>
 
                             <div className="form-footer">
-                                <button className="btn btn-primary" type="submit" disabled={!isValid}>
+                                <button className="btn btn-primary" type="submit"
+                                        disabled={!isValid}>
                                     Sign Up
                                 </button>
                             </div>

@@ -3,33 +3,14 @@ import {useForm} from "react-hook-form";
 import "../authentication.css";
 import {Link} from "react-router-dom";
 
-const UserSignIn = {
-    Email: undefined,
-    Password: undefined,
-}
 
-async function userSignInPOST(){
-    let response = await fetch("https://localhost:5001/Store/User/SignIn", {
-        method : 'POST',
-        headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-            'Email':UserSignIn.Email,
-            'Password':UserSignIn.Password}
-    });
-    if (response.ok) {
-        let json = await response.json();
-        console.log(json);
-    } else {
-        let json = await response.json();
-        alert(json.errorMessage);
-    }
-}
+export default function SignInForm(props) {
 
-export default function SignInForm() {
+    const {onSignIn} = props;
 
-    const initSignIn = (formData) => {
-        UserSignIn.Email = formData.email;
-        UserSignIn.Password = formData.password;
+    const initSignIn = (user, formData) => {
+        user.Email = formData.email;
+        user.Password = formData.password;
     }
 
     const {
@@ -42,6 +23,7 @@ export default function SignInForm() {
     });
 
     const onSubmit = (data) => {
+
         const formData = {
             email: undefined,
             password: undefined,
@@ -53,10 +35,9 @@ export default function SignInForm() {
                 }
             }
         }
-
-        initSignIn(formData);
-        userSignInPOST().then();
-
+        const User = {};
+        initSignIn(User, formData);
+        onSignIn(User);
     }
 
     return (
