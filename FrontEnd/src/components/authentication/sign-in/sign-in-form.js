@@ -9,7 +9,7 @@ const UserSignIn = {
 }
 
 async function userSignInPOST(){
-    let response = await fetch("https://localhost:5001/Store/User/Login", {
+    let response = await fetch("https://localhost:5001/Store/User/SignIn", {
         method : 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
