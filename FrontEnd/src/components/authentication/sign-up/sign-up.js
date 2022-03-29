@@ -10,12 +10,12 @@ class Country {
 }
 
 let CountryList = [];
+
 async function countriesGET() {
-    let response = await fetch('https://localhost:5001/Store/Country/getAllCountries');
+    let response = await fetch('https://localhost:5001/Store/Country/Get');
 
     if (response.ok) {
         let json = await response.json();
-        console.log(json);
         let data = json.countries;
 
         CountryList = data.map((country) => {
@@ -33,17 +33,20 @@ async function countriesGET() {
 export default class SignUp extends React.Component {
     constructor() {
         super();
-        this.state = {};
-        countriesGET().then();
+        this.state ={};
+        countriesGET().then(() => {
+                this.setState({countries: CountryList});
+            }
+        );
     }
-
 
 
     render() {
-
-        return (
-            <SignUpForm Countries={CountryList}/>
-        )
+        if (this.state.countries) {
+            return (<SignUpForm Countries={this.state.countries}/>)
+        }
+        return null;
     }
+
 
 }

@@ -14,7 +14,7 @@ const UserSignUp = {
 }
 
 async function userSignUpPOST(){
-    let response = await fetch("https://localhost:5001/Store/User/Create", {
+    let response = await fetch("https://localhost:5001/Store/User/SignUp", {
         method : 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8',
