@@ -45,6 +45,7 @@ namespace Store.BusinessLogic.Common
                 var itemTypeName1 = configuration["Initialize:ItemTypeName_1"];
                 var itemTypeName2 = configuration["Initialize:ItemTypeName_2"];
                 var gendersPath = mainPath + configuration["Initialize:GendersPath"];
+                var brandsPath = mainPath + configuration["Initialize:BrandsPath"];
 
                 await DbInitializer.InitializeCountries(context, countriesPath);
                 await DbInitializer.InitializeAgeTypesItem(context, ageTypesItemPath);
@@ -58,6 +59,7 @@ namespace Store.BusinessLogic.Common
                 await DbInitializer.InitializeSeasonItems(context, seasonItemsPath);
                 await DbInitializer.InitializeUsers(userManager, passwordHasher, context);
                 await DbInitializer.InitializeGenders(context, gendersPath);
+                await DbInitializer.InitializeBrands(context, brandsPath);
             }
         }
     }

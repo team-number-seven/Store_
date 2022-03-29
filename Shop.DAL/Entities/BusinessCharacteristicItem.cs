@@ -7,9 +7,6 @@ namespace Store.DAL.Entities
     {
         public string ArticleNumber { get; set; }
 
-        public Country Country { get; set; }
-        public Guid CountryId { get; set; }
-
         public Manufacturer Manufacturer { get; set; }
         public Guid ManufacturerId { get; set; }
 

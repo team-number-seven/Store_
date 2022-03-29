@@ -26,15 +26,15 @@ namespace Store.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("[action]")]
+        [Route("CreateUser")]
         public async Task<IActionResult> Create([FromBody] CommandCreateManufacturer manufacturer)
         {
             var response = await _mediator.Send(manufacturer);
-            _logger.LogInformation(MHFL.Done("Create",User?.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("CreateUser",User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
         [HttpGet]
-        [Route("[action]")]
+        [Route("Get")]
         public async Task<IActionResult> GetAllManufacturer()
         {
             var response = await _mediator.Send(new QueryGetAllManufacturer());

@@ -23,7 +23,7 @@ namespace Store.WebAPI.Controllers
             _logger = logger;
         }
 
-        [Route("[action]")]
+        [Route("Get")]
         [HttpGet]
         public async Task<IActionResult> GetAllAgeTypeItem()
         {

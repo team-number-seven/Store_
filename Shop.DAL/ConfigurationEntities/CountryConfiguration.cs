@@ -27,7 +27,7 @@ namespace Store.DAL.ConfigurationEntities
                 .HasForeignKey(u => u.CountryId);
 
             builder
-                .HasMany(c => c.BusinessCharacteristicItems)
+                .HasMany(c => c.Brands)
                 .WithOne(c => c.Country)
                 .HasForeignKey(c => c.CountryId);
         }

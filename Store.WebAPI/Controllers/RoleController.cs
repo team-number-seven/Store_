@@ -19,7 +19,7 @@ namespace Store.WebAPI.Controllers
         }
 
         [HttpPost]
-        [Route("[action]")]
+        [Route("CreateUser")]
         public async Task<IActionResult> Create(string name)
         {
             if (!string.IsNullOrEmpty(name))
