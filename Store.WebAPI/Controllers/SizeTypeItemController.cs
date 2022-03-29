@@ -14,14 +14,15 @@ namespace Store.WebAPI.Controllers
     [ApiController]
     public class SizeTypeItemController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<SizeTypeItemController> _logger;
+        private readonly IMediator _mediator;
 
-        public SizeTypeItemController(IMediator mediator,ILogger<SizeTypeItemController> logger)
+        public SizeTypeItemController(IMediator mediator, ILogger<SizeTypeItemController> logger)
         {
             _mediator = mediator;
             _logger = logger;
         }
+
         [HttpGet]
         [Route("Get")]
         public async Task<IActionResult> GetAllSizes()

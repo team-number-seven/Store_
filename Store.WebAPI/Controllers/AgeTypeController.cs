@@ -14,10 +14,10 @@ namespace Store.WebAPI.Controllers
     [ApiController]
     public class AgeTypeController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<AgeTypeController> _logger;
+        private readonly IMediator _mediator;
 
-        public AgeTypeController(IMediator mediator,ILogger<AgeTypeController> logger)
+        public AgeTypeController(IMediator mediator, ILogger<AgeTypeController> logger)
         {
             _mediator = mediator;
             _logger = logger;
@@ -28,7 +28,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllAgeTypeItem()
         {
             var response = await _mediator.Send(new QueryGetAllAgeTypeItem());
-            _logger.LogInformation(MHFL.Done("GetAllTypesItem",User?.FindFirstValue("id")));
+            _logger.LogInformation(MHFL.Done("GetAllTypesItem", User?.FindFirstValue("id")));
             return StatusCode((int) response.StatusCode, response);
         }
     }

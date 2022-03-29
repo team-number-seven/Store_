@@ -23,7 +23,7 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
         private readonly UserManager<User> _userManager;
 
         public HandlerCreateUser(IStoreDbContext context, UserManager<User> userManager,
-            IPasswordHasher<User> userHasher, ILogger<HandlerCreateUser> logger,IMediator mediator)
+            IPasswordHasher<User> userHasher, ILogger<HandlerCreateUser> logger, IMediator mediator)
         {
             _context = context;
             _userManager = userManager;
@@ -38,14 +38,14 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
             ResponseGetCountryById country = new(new CountryDTO());
             try
             {
-                country = (ResponseGetCountryById)await _mediator.Send(new QueryGetCountryById(request.User.CountryId));
-                
-
+                country = (ResponseGetCountryById) await _mediator.Send(
+                    new QueryGetCountryById(request.User.CountryId));
             }
             catch
             {
                 _logger.LogInformation("kek");
             }
+
             var countryy = await _context.Countries.FindAsync(country.Country.Id);
             var users = new List<User>();
             var user = new User

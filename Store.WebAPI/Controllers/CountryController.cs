@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
@@ -15,10 +14,10 @@ namespace Store.WebAPI.Controllers
     [ApiController]
     public class CountryController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<CountryController> _logger;
+        private readonly IMediator _mediator;
 
-        public CountryController(IMediator mediator,ILogger<CountryController> logger)
+        public CountryController(IMediator mediator, ILogger<CountryController> logger)
         {
             _mediator = mediator;
             _logger = logger;
@@ -29,9 +28,8 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllCountries()
         {
             var response = await _mediator.Send(new QueryGetAllCountries());
-            _logger.LogInformation(MHFL.Done("GetAllCountries",User?.FindFirstValue("id")));
+            _logger.LogInformation(MHFL.Done("GetAllCountries", User?.FindFirstValue("id")));
             return StatusCode((int) response.StatusCode, response);
         }
-
     }
 }

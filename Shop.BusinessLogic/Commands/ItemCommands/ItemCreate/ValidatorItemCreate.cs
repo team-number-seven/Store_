@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Globalization;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.Extensions;
 using Store.BusinessLogic.Validation;
@@ -25,7 +22,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
         {
             var item = request.Item;
             uint temp = 0;
-            decimal tempDecimal = 0m;
+            var tempDecimal = 0m;
             if (item is null) return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("Item"));
             if (item.AgeTypeItemId == Guid.Empty)
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("AgeTypeId"));
@@ -47,8 +44,9 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("ArticleNumber"));
             if (string.IsNullOrEmpty(item.CountItem))
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("CountItem"));
-            if(string.IsNullOrEmpty(item.Price) || decimal.TryParse(item.Price,out tempDecimal))
-                return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("tempDecimal"));
+            if (string.IsNullOrEmpty(item.Price) || decimal.TryParse(item.Price, NumberStyles.AllowDecimalPoint,
+                    CultureInfo.InvariantCulture, out tempDecimal))
+                return ValidationResult.Fail("Invalid Format Price");
             if (string.IsNullOrEmpty(item.Title))
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("Title"));
             if (item.Images is null || item.Images.Count is 0)
@@ -67,14 +65,14 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                 return ValidationResult.Fail(MHFL.NotFount("SizeTypeItemId"));
             if (await _context.SubItemTypes.FindAsync(item.SubItemTypeId) is null)
                 return ValidationResult.Fail(MHFL.NotFount("SubItemTypeId"));
-            if (await _context.Items.FirstOrDefaultAsync(i=>i.ArticleNumber == item.ArticleNumber) is not null)
+            if (await _context.Items.FirstOrDefaultAsync(i => i.ArticleNumber == item.ArticleNumber) is not null)
                 return ValidationResult.Fail("ArticleNumber is already exist");
-            if(UInt32.TryParse(item.CountItem,out temp) is false)
+            if (uint.TryParse(item.CountItem, NumberStyles.Integer, CultureInfo.InvariantCulture, out temp) is false)
                 return ValidationResult.Fail("CountItem must be a uint type");
             foreach (var image in item.Images)
             {
                 var format = image.GetImageFormat();
-                if(await _context.ImageFormats.FirstOrDefaultAsync(f=>f.Format == image.GetImageFormat()) is null)
+                if (await _context.ImageFormats.FirstOrDefaultAsync(f => f.Format == image.GetImageFormat()) is null)
                     return ValidationResult.Fail("Invalid image format");
             }
 

@@ -6,7 +6,11 @@ namespace Store.BusinessLogic.Common
     {
         public static string Time => $"[{DateTime.Now:G}]";
         public static string ObjectIsNullOrEmptyMessage => "The object cannot be null";
-        public static string NameObjectIsNullOrEmptyMessage (string Name) => $"The {Name} cannot be null";
+
+        public static string NameObjectIsNullOrEmptyMessage(string Name)
+        {
+            return $"The {Name} cannot be null";
+        }
 
         public static string Done(string methodName)
         {
@@ -23,6 +27,9 @@ namespace Store.BusinessLogic.Common
             return $"The {nameObject} already exists";
         }
 
-        public static string NotFount(string name) => $"The {name} not found";
+        public static string NotFount(string name)
+        {
+            return $"The {name} not found";
+        }
     }
 }

@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
@@ -15,10 +14,10 @@ namespace Store.WebAPI.Controllers
     [ApiController]
     public class SeasonItemController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<SeasonItemController> _logger;
+        private readonly IMediator _mediator;
 
-        public SeasonItemController(IMediator mediator,ILogger<SeasonItemController> logger)
+        public SeasonItemController(IMediator mediator, ILogger<SeasonItemController> logger)
         {
             _mediator = mediator;
             _logger = logger;
@@ -29,7 +28,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllSeasonItem()
         {
             var response = await _mediator.Send(new QueryGetAllSeasonItem());
-            _logger.LogInformation(MHFL.Done("GetAllSeasonItem",User?.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("GetAllSeasonItem", User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
     }
