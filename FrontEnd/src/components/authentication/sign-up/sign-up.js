@@ -36,29 +36,7 @@ const UserSignUpPattern = {
     Password: undefined,
     CountryId: undefined,
     PhoneNumber: undefined,
-}
-
-async function userSignUpPOST(user) {
-
-    let response = await fetch("https://localhost:5001/Store/User/SignUp", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-            'UserName': user.UserName,
-            'Email': user.Email,
-            'Password': user.Password,
-            'CountryId': user.CountryId,
-            'PhoneNumber': user.PhoneNumber
-        }
-    });
-    if (response.ok) {
-        let json = await response.json();
-        console.log(json);
-        console.log(response);
-    } else {
-        console.log(response);
-        alert("Ошибка HTTP: " + response.status);
-    }
+    Id: undefined,
 }
 
 
@@ -68,13 +46,13 @@ export default class SignUp extends React.Component {
         super(props);
 
         this.state = {
-            User: UserSignUpPattern
+            SignUpUser: UserSignUpPattern
         }
 
         this.updateUser = this.updateUser.bind(this);
         this.onSignUpHandler = this.onSignUpHandler.bind(this);
         // eslint-disable-next-line no-func-assign
-        userSignUpPOST = userSignUpPOST.bind(this);
+        this.userSignUpPOST = this.userSignUpPOST.bind(this);
 
         countriesGET().then(() => {
                 this.setState({countries: CountryList});
@@ -82,13 +60,43 @@ export default class SignUp extends React.Component {
         );
     }
 
+    async userSignUpPOST(user) {
+
+        let response = await fetch("https://localhost:5001/Store/User/SignUp", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset=utf-8',
+                'UserName': user.UserName,
+                'Email': user.Email,
+                'Password': user.Password,
+                'CountryId': user.CountryId,
+                'PhoneNumber': user.PhoneNumber
+            }
+        });
+        if (response.ok) {
+            let json = await response.json();
+            console.log(json);
+            return json.id;
+
+        } else {
+            console.log(response);
+            alert("Ошибка HTTP: " + response.status);
+        }
+    }
+
     updateUser = (user) => {
-        this.setState({User: user});
+        this.setState({SignUpUser: user});
     }
 
     onSignUpHandler = (user) => {
         this.updateUser(user);
-        userSignUpPOST(user).then();
+        this.userSignUpPOST(user).then((id) => {
+                user.Id = id;
+                this.updateUser(user);
+                this.props.successSignUp(user);
+            }
+        );
+
     }
 
     render() {
