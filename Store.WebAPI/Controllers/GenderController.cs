@@ -16,10 +16,10 @@ namespace Store.WebAPI.Controllers
     [ApiController]
     public class GenderController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<GenderController> _logger;
+        private readonly IMediator _mediator;
 
-        public GenderController(IMediator mediator,ILogger<GenderController> logger)
+        public GenderController(IMediator mediator, ILogger<GenderController> logger)
         {
             _mediator = mediator;
             _logger = logger;
@@ -34,6 +34,7 @@ namespace Store.WebAPI.Controllers
             _logger.LogInformation(MHFL.Done("CreateGender", User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
+
         [AllowAnonymous]
         [Route("Get")]
         [HttpGet]

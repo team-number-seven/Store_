@@ -14,10 +14,10 @@ namespace Store.WebAPI.Controllers
     [ApiController]
     public class ItemTypeController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<ItemTypeController> _logger;
+        private readonly IMediator _mediator;
 
-        public ItemTypeController(IMediator mediator,ILogger<ItemTypeController> logger)
+        public ItemTypeController(IMediator mediator, ILogger<ItemTypeController> logger)
         {
             _mediator = mediator;
             _logger = logger;
@@ -28,7 +28,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllItemTypeAndSubType()
         {
             var response = await _mediator.Send(new QueryGetAllTypeAndSubType());
-            _logger.LogInformation(MHFL.Done("GetAllItemTypeAndSubType",User?.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("GetAllItemTypeAndSubType", User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
     }

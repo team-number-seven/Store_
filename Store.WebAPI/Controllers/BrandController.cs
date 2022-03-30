@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -16,12 +12,12 @@ namespace Store.WebAPI.Controllers
     [ApiController]
     [Route("Store/[controller]")]
     [AllowAnonymous]
-    public class BrandController:ControllerBase
+    public class BrandController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<BrandController> _logger;
+        private readonly IMediator _mediator;
 
-        public BrandController(IMediator mediator,ILogger<BrandController> logger)
+        public BrandController(IMediator mediator, ILogger<BrandController> logger)
         {
             _mediator = mediator;
             _logger = logger;
@@ -32,7 +28,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllBrands()
         {
             var response = await _mediator.Send(new QueryGetAllBrands());
-            _logger.LogInformation(MHFL.Done("GetAllGenders",User?.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("GetAllGenders", User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
     }

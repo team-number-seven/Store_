@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -14,18 +11,19 @@ using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.BrandQueries.GetAllBrands
 {
-    public class HandlerGetAllBrands:IRequestHandler<QueryGetAllBrands,ResponseBase>
+    public class HandlerGetAllBrands : IRequestHandler<QueryGetAllBrands, ResponseBase>
     {
         private readonly IStoreDbContext _context;
         private readonly ILogger<HandlerGetAllBrands> _logger;
         private readonly IMapper _mapper;
 
-        public HandlerGetAllBrands(IStoreDbContext context,ILogger<HandlerGetAllBrands> logger,IMapper mapper)
+        public HandlerGetAllBrands(IStoreDbContext context, ILogger<HandlerGetAllBrands> logger, IMapper mapper)
         {
             _context = context;
             _logger = logger;
             _mapper = mapper;
         }
+
         public async Task<ResponseBase> Handle(QueryGetAllBrands request, CancellationToken cancellationToken)
         {
             var brands = await _context.Brands.ToListAsync(cancellationToken);

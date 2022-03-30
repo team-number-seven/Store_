@@ -183,14 +183,13 @@ namespace Store.DAL.SeedDataStoreDb
                 while ((brand = await reader.ReadLineAsync()) is not null)
                 {
                     var brandAndCountry = brand.Split("|");
-                    var country  = await context.Countries.FirstOrDefaultAsync(c => c.Name == brandAndCountry[1]);
-                    brands.Add(new Brand{Country = country,CountryId = country.Id,Title = brandAndCountry[0]});
+                    var country = await context.Countries.FirstOrDefaultAsync(c => c.Name == brandAndCountry[1]);
+                    brands.Add(new Brand {Country = country, CountryId = country.Id, Title = brandAndCountry[0]});
                 }
 
                 await context.Brands.AddRangeAsync(brands);
                 await context.SaveChangesAsync();
             }
         }
-
     }
 }

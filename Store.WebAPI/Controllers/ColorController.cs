@@ -1,5 +1,4 @@
-﻿using System;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -15,10 +14,10 @@ namespace Store.WebAPI.Controllers
     [ApiController]
     public class ColorController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<ColorController> _logger;
+        private readonly IMediator _mediator;
 
-        public ColorController(IMediator mediator,ILogger<ColorController> logger)
+        public ColorController(IMediator mediator, ILogger<ColorController> logger)
         {
             _mediator = mediator;
             _logger = logger;
@@ -28,7 +27,6 @@ namespace Store.WebAPI.Controllers
         [Route("Get")]
         public async Task<IActionResult> GetAllColors()
         {
-           
             var response = await _mediator.Send(new QueryGetAllColors());
             _logger.LogInformation($"{MHFL.Done("GetAllColors", User?.FindFirstValue("Id"))}");
             return StatusCode((int) response.StatusCode, response);
