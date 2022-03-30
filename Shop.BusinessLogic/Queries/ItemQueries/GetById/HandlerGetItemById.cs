@@ -53,5 +53,6 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetById
             _logger.LogInformation(MHFL.Done("Handler"));
             return new ResponseGetItemById(result);
         }
+
     }
 }
