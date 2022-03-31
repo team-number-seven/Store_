@@ -20,15 +20,14 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
     {
         private readonly IStoreDbContext _context;
         private readonly ILogger<HandlerItemCreate> _logger;
-        private readonly string _mainPath;
-        private readonly Brand _brand;
-        private readonly Color _color;
-        private readonly SizeTypeItem _sizeTypeItem;
-        private readonly AgeTypeItem _ageTypeItem;
-        private readonly SeasonItem _seasonItem;
-        private readonly Gender _gender;
-        private readonly ItemType _itemType;
-        private readonly SubItemType _subItemType;
+        private Brand _brand;
+        private Color _color;
+        private SizeTypeItem _sizeTypeItem;
+        private AgeTypeItem _ageTypeItem;
+        private SeasonItem _seasonItem;
+        private Gender _gender;
+        private ItemType _itemType;
+        private SubItemType _subItemType;
 
 
         public HandlerItemCreate(IStoreDbContext context, ILogger<HandlerItemCreate> logger)
@@ -40,6 +39,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
         public async Task<ResponseBase> Handle(CommandCreateItem request, CancellationToken cancellationToken)
         {
             var dto = request.Item;
+            var newItem = new Item();
             await FindAndLoadReferenceEntities(dto, _brand, _color, _sizeTypeItem, _ageTypeItem, _seasonItem,
                 _gender, _itemType, _subItemType);
             var price = decimal.Parse(dto.Price, NumberStyles.Any, CultureInfo.InvariantCulture);
@@ -48,9 +48,9 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             var characteristic = new CharacteristicItem
             {
                 Color = _color, SizeTypeItem = _sizeTypeItem, AgeTypeItem = _ageTypeItem, SeasonItem = _seasonItem,
-                Gender = _gender, ItemType = _itemType, SubItemType = _subItemType, Id = Guid.NewGuid()
+                Gender = _gender, ItemType = _itemType, SubItemType = _subItemType, Id = Guid.NewGuid(),Item = newItem
             };
-            var newItem = new Item
+            newItem = new Item
             {
                 Id = Guid.NewGuid(),
                 Title = dto.Title,
@@ -74,14 +74,14 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             SizeTypeItem sizeTypeItem, AgeTypeItem ageTypeItem, SeasonItem seasonItem, Gender gender, ItemType itemType,
             SubItemType subItemType)
         {
-            brand = await _context.Brands.FindAsync(dto.BrandId);
-            color = await _context.Colors.FindAsync(dto.ColorId);
-            sizeTypeItem = await _context.SizeTypeItems.FindAsync(dto.SizeTypeItemId);
-            ageTypeItem = await _context.AgeTypes.FindAsync(dto.AgeTypeItemId);
-            seasonItem = await _context.SeasonItems.FindAsync(dto.SeasonItemId);
-            gender = await _context.Genders.FindAsync(dto.GenderId);
-            itemType = await _context.ItemTypes.FindAsync(dto.ItemTypeId);
-            subItemType = await _context.SubItemTypes.FindAsync(dto.SubItemTypeId);
+            _brand = await _context.Brands.FindAsync(dto.BrandId);
+            _color = await _context.Colors.FindAsync(dto.ColorId);
+            _sizeTypeItem = await _context.SizeTypeItems.FindAsync(dto.SizeTypeItemId);
+            _ageTypeItem = await _context.AgeTypes.FindAsync(dto.AgeTypeItemId);
+            _seasonItem = await _context.SeasonItems.FindAsync(dto.SeasonItemId);
+            _gender = await _context.Genders.FindAsync(dto.GenderId);
+            _itemType = await _context.ItemTypes.FindAsync(dto.ItemTypeId);
+            _subItemType = await _context.SubItemTypes.FindAsync(dto.SubItemTypeId);
         }
     }
 }
