@@ -49,8 +49,6 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                 return ValidationResult.Fail("Invalid Format Price");
             if (string.IsNullOrEmpty(item.Title))
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("Title"));
-            if (item.Images is null || item.Images.Count is 0)
-                return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("MainImage"));
             if (await _context.AgeTypes.FindAsync(item.AgeTypeItemId) is null)
                 return ValidationResult.Fail(MHFL.NotFount("AgeTypeItemId"));
             if (await _context.Brands.FindAsync(item.BrandId) is null)
@@ -69,12 +67,6 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                 return ValidationResult.Fail("ArticleNumber is already exist");
             if (uint.TryParse(item.CountItem, NumberStyles.Integer, CultureInfo.InvariantCulture, out temp) is false)
                 return ValidationResult.Fail("CountItem must be a uint type");
-            foreach (var image in item.Images)
-            {
-                var format = image.GetImageFormat();
-                if (await _context.ImageFormats.FirstOrDefaultAsync(f => f.Format == image.GetImageFormat()) is null)
-                    return ValidationResult.Fail("Invalid image format");
-            }
 
             return ValidationResult.Success;
         }
