@@ -28,7 +28,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects
         public string Gender { get; set; }
         public string Type { get; set; }
         public string SubType { get; set; }
-        public IList<ImageDTO> Images { get; set; } = new List<ImageDTO>();
+        public IList<Guid> ImagesId { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -45,19 +45,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects
                 .ForMember(dto => dto.Gender, opt => opt.MapFrom(s => s.CharacteristicItem.Gender.Title))
                 .ForMember(dto => dto.Type, opt => opt.MapFrom(s => s.CharacteristicItem.ItemType.Title))
                 .ForMember(dto => dto.SubType, opt => opt.MapFrom(s => s.CharacteristicItem.SubItemType.Title))
-                .ForMember(dto => dto.Images, opt => opt.Ignore());
-        }
-
-        public static async Task<ImageDTO> CreateFileAsync(ItemImage image)
-        {
-            using (var stream = File.OpenRead(image.Path))
-            {
-                var format = image.Path.Split(".").Last();
-                var filename = image.Id + "." + format;
-                byte[] bytes = new byte[stream.Length];
-                await stream.ReadAsync(bytes, 0, bytes.Length);
-                return new ImageDTO {Bytes = bytes, FileName = filename,Length = bytes.Length};
-            }
+                .ForMember(dto => dto.ImagesId, opt => opt.MapFrom(s=>s.Images.Select(x=> x.Id)));
         }
     }
 }

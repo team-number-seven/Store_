@@ -19,9 +19,8 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetGenderById
         {
             if (request.Id == Guid.Empty)
                 return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
-            var result = await _context.Genders.FindAsync(request.Id);
-            if (result is null)
-                return ValidationResult.Fail("Gender not found");
+            if (await _context.Genders.FindAsync(request.Id) is null)
+                return ValidationResult.Fail(MHFL.NotFount("Gender"));
             return ValidationResult.Success;
         }
     }

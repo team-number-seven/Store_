@@ -19,9 +19,8 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
         {
             if (Guid.Empty == request.Id)
                 return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
-            var country = await _context.Countries.FindAsync(request.Id);
-            if (country is null)
-                return ValidationResult.Fail("Country not found");
+            if (await _context.Countries.FindAsync(request.Id) is null)
+                return ValidationResult.Fail(MHFL.NotFount("Country"));
             return ValidationResult.Success;
         }
     }

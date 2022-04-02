@@ -33,8 +33,7 @@ namespace Store.BusinessLogic.Queries.SeasonItemQueries.GetAllSeasonItem
                 foreach (var season in seasonsItem)
                     response.Seasons.Add(_mapper.Map<SeasonItemDTO>(season));
             });
-            task.Start();
-            task.Wait(cancellationToken);
+            task.Start(); task.Wait(cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
             return response;
         }

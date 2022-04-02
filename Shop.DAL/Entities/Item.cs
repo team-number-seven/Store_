@@ -14,17 +14,17 @@ namespace Store.DAL.Entities
         public uint CountItem { get; set; }
 
 
-        public CharacteristicItem CharacteristicItem { get; set; }
+        public virtual CharacteristicItem CharacteristicItem { get; set; }
         public Guid CharacteristicItemId { get; set; }
 
-        public Brand Brand { get; set; }
+        public virtual Brand Brand { get; set; }
         public Guid BrandId { get; set; }
 
-        public IEnumerable<ItemImage> Images { get; set; }
+        public virtual IEnumerable<ItemImage> Images { get; set; }
 
-        public IEnumerable<User> BagUsers { get; set; }
+        public virtual IEnumerable<User> BagUsers { get; set; }
 
-        public IEnumerable<User> FavoriteUsers { get; set; }
+        public virtual IEnumerable<User> FavoriteUsers { get; set; }
         public Guid Id { get; set; }
     }
 }

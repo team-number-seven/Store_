@@ -7,7 +7,7 @@ namespace Store.DAL.Entities
     public class ImageFormat : IBaseEntity
     {
         public string Format { get; set; }
-        public IEnumerable<ItemImage> Images { get; set; }
+        public virtual IEnumerable<ItemImage> Images { get; set; }
         public Guid Id { get; set; }
     }
 }

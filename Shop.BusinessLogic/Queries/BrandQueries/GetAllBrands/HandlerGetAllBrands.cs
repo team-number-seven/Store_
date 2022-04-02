@@ -33,8 +33,7 @@ namespace Store.BusinessLogic.Queries.BrandQueries.GetAllBrands
                 foreach (var brand in brands)
                     response.Brands.Add(_mapper.Map<BrandDTO>(brand));
             });
-            task.Start();
-            task.Wait(cancellationToken);
+            task.Start(); task.Wait(cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
             return response;
         }

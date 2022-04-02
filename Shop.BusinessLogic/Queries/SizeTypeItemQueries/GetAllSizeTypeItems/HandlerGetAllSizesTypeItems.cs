@@ -34,8 +34,7 @@ namespace Store.BusinessLogic.Queries.SizeTypeItemQueries.GetAllSizeTypeItems
                 foreach (var size in sizes)
                     response.Sizes.Add(_mapper.Map<SizeTypeItemDTO>(size));
             });
-            task.Start();
-            task.Wait(cancellationToken);
+            task.Start();task.Wait(cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
             return response;
         }

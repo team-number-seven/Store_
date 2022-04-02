@@ -59,3 +59,5 @@ namespace Store.BusinessLogic.Commands.ImageCommand
         }
     }
 }
+
+

@@ -7,7 +7,7 @@ namespace Store.DAL.Entities
     {
         public string Path { get; set; }
         public Guid ImageFormatId { get; set; }
-        public ImageFormat ImageFormat { get; set; }
+        public virtual ImageFormat ImageFormat { get; set; }
         public Guid Id { get; set; }
     }
 }

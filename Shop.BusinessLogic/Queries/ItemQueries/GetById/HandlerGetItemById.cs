@@ -34,22 +34,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetById
         public async Task<ResponseBase> Handle(QueryGetItemById request, CancellationToken cancellationToken)
         {
             var item = await _context.Items.FindAsync(request.Id);
-            await _context.Entry(item).Reference(i => i.CharacteristicItem).LoadAsync(cancellationToken);
-            await _context.Entry(item.CharacteristicItem).Reference(i => i.ItemType).LoadAsync(cancellationToken);
-            await _context.Entry(item.CharacteristicItem).Reference(i => i.Gender).LoadAsync(cancellationToken);
-            await _context.Entry(item.CharacteristicItem).Reference(i => i.AgeTypeItem).LoadAsync(cancellationToken);
-            await _context.Entry(item.CharacteristicItem).Reference(i => i.Color).LoadAsync(cancellationToken);
-            await _context.Entry(item.CharacteristicItem).Reference(i => i.SeasonItem).LoadAsync(cancellationToken);
-            await _context.Entry(item.CharacteristicItem).Reference(i => i.SizeTypeItem).LoadAsync(cancellationToken);
-            await _context.Entry(item.CharacteristicItem).Reference(i => i.SubItemType).LoadAsync(cancellationToken);
-            await _context.Entry(item.CharacteristicItem).Reference(i => i.SeasonItem).LoadAsync(cancellationToken);
-            await _context.Entry(item).Reference(i => i.Brand).LoadAsync(cancellationToken);
-            await _context.Entry(item).Collection(i => i.Images).LoadAsync(cancellationToken);
-
             var result = _mapper.Map<ItemDTO>(item);
-            foreach (var image in item.Images)
-                result.Images.Add(await ItemDTO.CreateFileAsync(image));
-
             _logger.LogInformation(MHFL.Done("Handler"));
             return new ResponseGetItemById(result);
         }

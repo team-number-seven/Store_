@@ -8,10 +8,10 @@ namespace Store.DAL.Entities
     {
         public string Title { get; set; }
 
-        public IEnumerable<SubItemType> SubItemTypes { get; set; }
-        public IEnumerable<CharacteristicItem> CharacteristicItems { get; set; }
+        public virtual IEnumerable<SubItemType> SubItemTypes { get; set; }
+        public virtual IEnumerable<CharacteristicItem> CharacteristicItems { get; set; }
 
-        public IEnumerable<SizeTypeItem> SizeItems { get; set; }
+        public virtual IEnumerable<SizeTypeItem> SizeItems { get; set; }
         public Guid Id { get; set; }
     }
 }

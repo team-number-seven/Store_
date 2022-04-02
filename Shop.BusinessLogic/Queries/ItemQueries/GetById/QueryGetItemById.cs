@@ -9,5 +9,5 @@ using Store.BusinessLogic.Common;
 
 namespace Store.BusinessLogic.Queries.ItemQueries.GetById
 {
-    public record QueryGetItemById([FromBody]Guid Id) : IRequest<ResponseBase>;
+    public record QueryGetItemById(Guid Id) : IRequest<ResponseBase>;
 }

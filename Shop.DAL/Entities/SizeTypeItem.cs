@@ -9,9 +9,9 @@ namespace Store.DAL.Entities
 
         public string Size { get; set; }
 
-        public IEnumerable<CharacteristicItem> CharacteristicItems { get; set; }
+        public virtual IEnumerable<CharacteristicItem> CharacteristicItems { get; set; }
 
-        public ItemType ItemType { get; set; }
+        public virtual ItemType ItemType { get; set; }
         public Guid ItemTypeId { get; set; }
     }
 }

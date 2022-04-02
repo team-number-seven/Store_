@@ -9,11 +9,11 @@ namespace Store.DAL.Entities
     {
         public DateTime CreateDate { get; set; }
 
-        public Country Country { get; set; }
+        public virtual Country Country { get; set; }
         public Guid CountryId { get; set; }
 
-        public IEnumerable<Item> BagItems { get; set; }
+        public virtual IEnumerable<Item> BagItems { get; set; }
 
-        public IEnumerable<Item> FavoriteItems { get; set; }
+        public virtual IEnumerable<Item> FavoriteItems { get; set; }
     }
 }

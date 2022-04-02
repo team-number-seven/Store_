@@ -34,8 +34,7 @@ namespace Store.BusinessLogic.Queries.ColorQueries.GetAllColors
                     response.Colors.Add(_mapper.Map<ColorDTO>(c));
             });
 
-            task.Start();
-            task.Wait(cancellationToken);
+            task.Start(); task.Wait(cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
             return response;
         }

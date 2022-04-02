@@ -35,10 +35,8 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetAllGenders
                     response.Genders.Add(_mapper.Map<GenderDTO>(c));
             });
 
-            task.Start();
+            task.Start(); task.Wait(cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
-            task.Wait(cancellationToken);
-
             return response;
         }
     }

@@ -34,8 +34,7 @@ namespace Store.BusinessLogic.Queries.AgeTypeItemQueries.GetAllAgeTypeItem
                 foreach (var type in ageItemTypes)
                     response.Types.Add(_mapper.Map<AgeTypeItemDTO>(type));
             });
-            task.Start();
-            task.Wait(cancellationToken);
+            task.Start(); task.Wait(cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
             return response;
         }

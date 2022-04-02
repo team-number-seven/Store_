@@ -27,15 +27,14 @@ namespace Store.BusinessLogic.Queries.ItemTypeQueries.GetAllTypeAndSubType
 
         public async Task<ResponseBase> Handle(QueryGetAllTypeAndSubType request, CancellationToken cancellationToken)
         {
-            var types = await _context.ItemTypes.Include(x => x.SubItemTypes).ToListAsync(cancellationToken);
+            var types = await _context.ItemTypes.ToListAsync(cancellationToken);
             var response = new ResponseGetAllTypeAndSubType(new List<ItemTypeAndSubTypeDTO>());
             var task = new Task(() =>
             {
                 foreach (var type in types)
                     response.TypeAndSubItem.Add(_mapper.Map<ItemTypeAndSubTypeDTO>(type));
             });
-            task.Start();
-            task.Wait(cancellationToken);
+            task.Start(); task.Wait(cancellationToken);
             _logger.LogInformation(MHFL.Done("Handler"));
             return response;
         }

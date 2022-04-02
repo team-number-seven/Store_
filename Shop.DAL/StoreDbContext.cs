@@ -35,7 +35,7 @@ namespace Store.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(
+            optionsBuilder.UseLazyLoadingProxies().UseNpgsql(
                 "Host=localhost;Port=5555;Database=testStore;Username=postgres;Password=admin"); //the test will be deleted in the future
             base.OnConfiguring(optionsBuilder);
         }

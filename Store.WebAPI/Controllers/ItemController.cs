@@ -28,7 +28,7 @@ namespace Store.WebAPI.Controllers
 
         [Route("Create")]
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ItemCreateDTO request)
+        public async Task<IActionResult> Create([FromForm] ItemCreateDTO request)
         {
             var response = await _mediator.Send(new CommandCreateItem(request));
             _logger.LogInformation(MHFL.Done("Create",User.FindFirstValue("Id")));
@@ -48,7 +48,7 @@ namespace Store.WebAPI.Controllers
         [AllowAnonymous]
         [Route("GetById")]
         [HttpGet]
-        public async Task<IActionResult> GetById([FromBody]QueryGetItemById request)
+        public async Task<IActionResult> GetById([FromQuery]QueryGetItemById request)
         {
             var response = await _mediator.Send(request);
             _logger.LogInformation(MHFL.Done("GetByID",User?.FindFirstValue("Id")));
