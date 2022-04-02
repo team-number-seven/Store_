@@ -36,6 +36,6 @@ namespace Store.BusinessLogic.Common.DataTransferObjects
         public Guid ItemTypeId { get; set; }
 
         public Guid SubItemTypeId { get; set; }
-        public IEnumerable<IFormFile> Files { get; set; }
+        public IList<IFormFile> Files { get; set; }
     }
 }

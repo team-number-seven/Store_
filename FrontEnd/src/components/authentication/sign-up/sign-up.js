@@ -12,20 +12,6 @@ class Country {
 let CountryList = [];
 
 async function countriesGET() {
-    let response = await fetch('https://localhost:5001/Store/Country/Get');
-
-    if (response.ok) {
-        let json = await response.json();
-        let data = json.countries;
-
-        CountryList = data.map((country) => {
-            if (country) return new Country(country.id, country.name);
-            else throw new Error('Failed to operate countries');
-        });
-
-    } else {
-        alert("Ошибка HTTP: " + response.status);
-    }
 
 
 }

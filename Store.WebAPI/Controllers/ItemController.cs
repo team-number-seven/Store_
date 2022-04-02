@@ -26,12 +26,13 @@ namespace Store.WebAPI.Controllers
             _logger = logger;
         }
 
+        [AllowAnonymous]
         [Route("Create")]
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] ItemCreateDTO request)
+        public async Task<IActionResult> Create([FromForm]ItemCreateDTO request)
         {
             var response = await _mediator.Send(new CommandCreateItem(request));
-            _logger.LogInformation(MHFL.Done("Create",User.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("Create",User.FindFirstValue("Ida")));
             return StatusCode((int) response.StatusCode, response);
         }
 

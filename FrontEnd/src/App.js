@@ -7,6 +7,7 @@ import Footer from "./components/main/footer/footer";
 import SignUp from "./components/authentication/sign-up/sign-up";
 import SignIn from "./components/authentication/sign-in/sign-in";
 import HomePage from "./components/main/home-page/home-page";
+import { FileUpload } from "./components/fileupload";
 
 
 const USER_Pattern = {
@@ -102,6 +103,7 @@ export default class App extends React.Component {
 
                 <button className="btn btn-primary">Get Countries</button>
                 <Footer/>
+                <FileUpload></FileUpload>
             </div>
         )
     }
