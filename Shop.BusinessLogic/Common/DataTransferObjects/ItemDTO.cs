@@ -28,7 +28,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects
         public string Gender { get; set; }
         public string Type { get; set; }
         public string SubType { get; set; }
-        public IList<Guid> ImagesId { get; set; }
+        public IList<FileContentResult> Images { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -45,7 +45,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects
                 .ForMember(dto => dto.Gender, opt => opt.MapFrom(s => s.CharacteristicItem.Gender.Title))
                 .ForMember(dto => dto.Type, opt => opt.MapFrom(s => s.CharacteristicItem.ItemType.Title))
                 .ForMember(dto => dto.SubType, opt => opt.MapFrom(s => s.CharacteristicItem.SubItemType.Title))
-                .ForMember(dto => dto.ImagesId, opt => opt.MapFrom(s=>s.Images.Select(x=> x.Id)));
+                .ForMember(dto => dto.Images, opt => opt.Ignore());
         }
     }
 }
