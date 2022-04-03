@@ -103,7 +103,7 @@ export default class App extends React.Component {
 
                 <button className="btn btn-primary">Get Countries</button>
                 <Footer/>
-                <FileUpload></FileUpload>
+                <FileUpload/>
             </div>
         )
     }
