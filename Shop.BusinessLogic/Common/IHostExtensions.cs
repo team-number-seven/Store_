@@ -27,7 +27,7 @@ namespace Store.BusinessLogic.Common
                 }
 
                 var userManager = services.GetRequiredService<UserManager<User>>();
-                var rolesManager = services.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
+                var rolesManager = services.GetRequiredService<RoleManager<Role>>();
                 var passwordHasher = services.GetRequiredService<IPasswordHasher<User>>();
                 var configuration = services.GetRequiredService<IConfiguration>();
 

@@ -3,12 +3,13 @@ using System.Reflection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.DAL
 {
-    public class StoreDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>, IStoreDbContext
+    public class StoreDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>, IStoreDbContext
     {
         public StoreDbContext()
         {
@@ -18,6 +19,13 @@ namespace Store.DAL
             : base(options)
         {
         }
+
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<UserClaim> UserClaims { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<UserLogin> UserLogins { get; set; }
+        public DbSet<RoleClaim> RoleClaims { get; set; }
+        public DbSet<UserToken> Tokens { get; set; }
 
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ImageFormat> ImageFormats { get; set; }
@@ -42,9 +50,15 @@ namespace Store.DAL
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            builder.Entity<Role>().ToTable("Roles");
+            builder.Entity<UserRole>().ToTable("UserRoles");
+            builder.Entity<UserClaim>().ToTable("UserClaims");
+            builder.Entity<UserLogin>().ToTable("UserLogins");
+            builder.Entity<RoleClaim>().ToTable("RoleClaims");
+            builder.Entity<UserToken>().ToTable("UserTokens");
         }
     }
 }

@@ -99,13 +99,13 @@ namespace Store.DAL.SeedDataStoreDb
             await context.SaveChangesAsync();
         }
 
-        public static async Task InitializeRoles(RoleManager<IdentityRole<Guid>> roleManager, string pathTxt)
+        public static async Task InitializeRoles(RoleManager<Role> roleManager, string pathTxt)
         {
             using (var reader = new StreamReader(pathTxt))
             {
                 string role;
                 while ((role = await reader.ReadLineAsync()) is not null)
-                    await roleManager.CreateAsync(new IdentityRole<Guid>(role));
+                    await roleManager.CreateAsync(new Role{Name = role});
             }
         }
 
