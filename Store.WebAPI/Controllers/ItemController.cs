@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.ItemCommands.ItemCreate;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Queries.ItemQueries.GetByFilter;
 using Store.BusinessLogic.Queries.ItemQueries.GetById;
 
 namespace Store.WebAPI.Controllers
@@ -32,18 +33,18 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> Create([FromForm]ItemCreateDTO request)
         {
             var response = await _mediator.Send(new CommandCreateItem(request));
-            _logger.LogInformation(MHFL.Done("Create",User.FindFirstValue("Ida")));
+            _logger.LogInformation(MHFL.Done("Create",User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
 
         [AllowAnonymous]
-        [Route("Get")]
+        [Route("GetByFilter")]
         [HttpGet]
-        public async Task<IActionResult> GetQuery([FromQuery])
+        public async Task<IActionResult> GetItemByQuery([FromQuery] ItemFilterQueryDTO request)
         {
-
-
-            return Ok();
+            var response = await _mediator.Send(new QueryItemFilter(request));
+            _logger.LogInformation(MHFL.Done("GetItemByQuery", User?.FindFirstValue("Id")));
+            return StatusCode((int)response.StatusCode, response);
         }
 
         [AllowAnonymous]

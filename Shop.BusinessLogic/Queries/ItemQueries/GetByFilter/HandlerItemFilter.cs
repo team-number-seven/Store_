@@ -39,7 +39,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
         {
             var query = request.Query;
             var priceIsTryParse = decimal.TryParse(query.Price, NumberStyles.Any, CultureInfo.InvariantCulture,out var price);
-            IQueryable<Item> items = _context.Items;
+            IQueryable<Item> items = _context.Items.AsQueryable();
 
             items = items.FilterByAge(query.AgeTypeId);
             if (priceIsTryParse)
@@ -54,6 +54,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
 
             var responseDtos = new List<ItemQueryResponseDTO>();
             var filteredItems = await items.ToListAsync(cancellationToken);
+
             var task = new Task(() =>
             {
                 foreach (var item in filteredItems)
@@ -61,15 +62,14 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
                     var dto = _mapper.Map<ItemQueryResponseDTO>(item);
                     var maiImage = item.Images.First();
                     dto.Image = new FileContentResult(File.ReadAllBytes(maiImage.Path), maiImage.ImageFormat.Format);
-                    responseDtos.Add(new ItemQueryResponseDTO{});
+                    responseDtos.Add(dto);
                 }
             });
             task.Start();
             task.Wait(cancellationToken);
+            _logger.LogInformation(MHFL.Done("Handle"));
 
-
-
-            throw new NotImplementedException();
+            return new ResponseItemFilter(responseDtos);
         }
     }
 }

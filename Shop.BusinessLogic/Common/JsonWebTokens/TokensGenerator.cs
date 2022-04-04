@@ -22,14 +22,14 @@ namespace Store.BusinessLogic.Common.JsonWebTokens
         private readonly ILogger<TokensGenerator> _logger;
         private readonly IStoreDbContext _context;
         private readonly TokenValidationParameters _accessTokenParameters;
-        private readonly DataProtectionTokenProviderOptions _refreshTokenParameters;
-        public TokensGenerator(UserManager<User> userManager, TokenValidationConfiguration tokenPaConfiguration,
-            ILogger<TokensGenerator> logger,IStoreDbContext context)
+
+        public TokensGenerator(UserManager<User> userManager, TokenValidationConfiguration tokenConfiguration,
+            ILogger<TokensGenerator> logger, IStoreDbContext context)
         {
             _userManager = userManager;
             _logger = logger;
             _context = context;
-            _accessTokenParameters = tokenPaConfiguration.AccessTokenParameters;
+            _accessTokenParameters = tokenConfiguration.AccessTokenParameters;
         }
 
         public async Task<AccessToken> GenerateAccessTokenAsync(User user)
@@ -56,7 +56,8 @@ namespace Store.BusinessLogic.Common.JsonWebTokens
             if (token.Payload.Exp is not null)
             {
                 _logger.LogInformation(MHFL.Done("GenerateAccessTokenAsync", user.Id.ToString()));
-                return new AccessToken(new JwtSecurityTokenHandler().WriteToken(token), token.Payload.Exp.Value.ToString());
+                return new AccessToken(new JwtSecurityTokenHandler().WriteToken(token),
+                    token.Payload.Exp.Value.ToString());
             }
 
             _logger.LogCritical("TokensGenerator.GenerateAccessTokenAsync() generate token.Payload.Exp == null");
@@ -66,8 +67,8 @@ namespace Store.BusinessLogic.Common.JsonWebTokens
         public async Task<RefreshToken> GenerateRefreshToken(User user)
         {
             var token = await _userManager.GenerateUserTokenAsync(user, "Default", "RefreshToken");
-            var expires = ((DateTimeOffset)DateTime.Now.AddDays(60)).ToUnixTimeSeconds().ToString();
-            return new RefreshToken(token,expires);
+            var expires = ((DateTimeOffset) DateTime.Now.AddDays(60)).ToUnixTimeSeconds().ToString();
+            return new RefreshToken(token, expires);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             var dto = request.Item;
             var price = decimal.Parse(dto.Price, NumberStyles.Any, CultureInfo.InvariantCulture);
             var countItem = uint.Parse(dto.CountItem);
-            var characteristic = await CreateCharacteristicItemAsync(dto,cancellationToken);
+            var characteristic = await CreateCharacteristicItemAsync(dto);
             var images = await CreateImagesItemAsync(dto, cancellationToken);
             var newItem = new Item
             {
@@ -48,7 +48,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                 CountItem = countItem,
                 Price = price,
                 CharacteristicItem = characteristic,
-                Brand = await _context.Brands.FindAsync(dto.BrandId,cancellationToken),
+                Brand = await _context.Brands.FindAsync(dto.BrandId),
                 Images = images
             };
             await _context.Images.AddRangeAsync(images, cancellationToken);
@@ -80,15 +80,15 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             return images;
         }
 
-        private async Task<CharacteristicItem> CreateCharacteristicItemAsync(ItemCreateDTO dto,CancellationToken cancellationToken = new())
+        private async Task<CharacteristicItem> CreateCharacteristicItemAsync(ItemCreateDTO dto)
         {
-            var color = await _context.Colors.FindAsync(dto.ColorId,cancellationToken);
-            var sizeTypeItem = await _context.SizeTypeItems.FindAsync(dto.SizeTypeItemId, cancellationToken);
-            var ageTypeItem = await _context.AgeTypes.FindAsync(dto.AgeTypeItemId, cancellationToken);
-            var seasonItem = await _context.SeasonItems.FindAsync(dto.SeasonItemId, cancellationToken);
-            var gender = await _context.Genders.FindAsync(dto.GenderId, cancellationToken);
-            var itemType = await _context.ItemTypes.FindAsync(dto.ItemTypeId, cancellationToken);
-            var subItemType = await _context.SubItemTypes.FindAsync(dto.SubItemTypeId, cancellationToken);
+            var color = await _context.Colors.FindAsync(dto.ColorId);
+            var sizeTypeItem = await _context.SizeTypeItems.FindAsync(dto.SizeTypeItemId);
+            var ageTypeItem = await _context.AgeTypes.FindAsync(dto.AgeTypeItemId);
+            var seasonItem = await _context.SeasonItems.FindAsync(dto.SeasonItemId);
+            var gender = await _context.Genders.FindAsync(dto.GenderId);
+            var itemType = await _context.ItemTypes.FindAsync(dto.ItemTypeId);
+            var subItemType = await _context.SubItemTypes.FindAsync(dto.SubItemTypeId);
 
             return new CharacteristicItem
             {
