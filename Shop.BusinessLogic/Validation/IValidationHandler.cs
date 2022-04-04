@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 
 namespace Store.BusinessLogic.Validation
 {
@@ -8,6 +9,6 @@ namespace Store.BusinessLogic.Validation
 
     public interface IValidationHandler<T> : IValidationHandler
     {
-        Task<ValidationResult> Validate(T request);
+        Task<ValidationResult> Validate(T request, CancellationToken cancellationToken);
     }
 }

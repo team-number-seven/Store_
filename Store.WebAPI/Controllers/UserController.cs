@@ -50,7 +50,7 @@ namespace Store.WebAPI.Controllers
         {
             var response = await _mediator.Send(request);
             _logger.LogInformation($"{MHFL.Done("RefreshToken")}");
-            return StatusCode((int)response.StatusCode, response);
+            return StatusCode((int) response.StatusCode, response);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -27,17 +28,19 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetAllGenders
 
         public async Task<ResponseBase> Handle(QueryAllGenders request, CancellationToken cancellationToken)
         {
-            IList<Gender> genders = await _context.Genders.ToListAsync(cancellationToken);
-            var response = new ResponseAllGenders(new List<GenderDTO>());
-            var task = new Task(() =>
-            {
-                foreach (var c in genders)
-                    response.Genders.Add(_mapper.Map<GenderDTO>(c));
-            });
-
-            task.Start(); task.Wait(cancellationToken);
+            var genders = await _context.Genders.ToListAsync(cancellationToken);
+            var gendersDto = await CreateGendersDtoAsync(genders, cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
-            return response;
+            return new ResponseGetAllGenders(gendersDto);
+        }
+
+        private async Task<List<GenderDto>> CreateGendersDtoAsync(IReadOnlyCollection<Gender> genders,
+            CancellationToken cancellationToken)
+        {
+            var gendersDto = new List<GenderDto>();
+            await Task.Run(() => { gendersDto.AddRange(genders.Select(c => _mapper.Map<GenderDto>(c))); },
+                cancellationToken);
+            return gendersDto;
         }
     }
 }

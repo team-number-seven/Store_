@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Castle.Core.Internal;
 using Store.BusinessLogic.Common;
@@ -20,7 +18,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
             _context = context;
         }
 
-        public async Task<ValidationResult> Validate(QueryItemFilter request)
+        public async Task<ValidationResult> Validate(QueryItemFilter request, CancellationToken cancellationToken)
         {
             var query = request.Query;
 
@@ -61,11 +59,16 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
                 foreach (var id in query.SubItemTypesId)
                     if (await _context.SubItemTypes.FindAsync(id) is null)
                         return ValidationResult.Fail(MHFL.NotFount($"SubItemTypesId[{id}]"));
+            if (string.IsNullOrEmpty(query.MinPrice) is false)
+                if (decimal.TryParse(query.MinPrice, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture,
+                        out var minPrice) is false)
+                    return ValidationResult.Fail("Invalid MinPrice");
 
-            if (string.IsNullOrEmpty(query.Price)) return ValidationResult.Success;
-            var result = decimal.TryParse(query.Price, NumberStyles.Any, CultureInfo.InvariantCulture, out var price);
+            if (string.IsNullOrEmpty(query.MaxPrice)) return ValidationResult.Success;
+            var result = decimal.TryParse(query.MaxPrice, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture,
+                out var maxPrice);
 
-            return result is false ? ValidationResult.Fail("Invalid Price") : ValidationResult.Success;
+            return result is false ? ValidationResult.Fail("Invalid MaxPrice") : ValidationResult.Success;
         }
     }
 }

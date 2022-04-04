@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Store.BusinessLogic.Common.DataTransferObjects
 {
-    public class UserRegistrationDTO
+    public class UserRegistrationDto
     {
         [FromHeader] public string UserName { get; set; }
 

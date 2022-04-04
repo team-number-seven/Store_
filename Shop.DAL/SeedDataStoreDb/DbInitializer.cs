@@ -105,7 +105,7 @@ namespace Store.DAL.SeedDataStoreDb
             {
                 string role;
                 while ((role = await reader.ReadLineAsync()) is not null)
-                    await roleManager.CreateAsync(new Role{Name = role});
+                    await roleManager.CreateAsync(new Role {Name = role});
             }
         }
 

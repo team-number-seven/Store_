@@ -4,5 +4,5 @@ using Store.BusinessLogic.Common.DataTransferObjects;
 
 namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
 {
-    public record CommandCreateUser(UserRegistrationDTO User) : IRequest<ResponseBase>;
+    public record CommandCreateUser(UserRegistrationDto User) : IRequest<ResponseBase>;
 }

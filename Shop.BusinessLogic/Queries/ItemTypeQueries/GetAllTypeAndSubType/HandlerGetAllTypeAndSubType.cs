@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.ItemTypeQueries.GetAllTypeAndSubType
@@ -28,15 +30,22 @@ namespace Store.BusinessLogic.Queries.ItemTypeQueries.GetAllTypeAndSubType
         public async Task<ResponseBase> Handle(QueryGetAllTypeAndSubType request, CancellationToken cancellationToken)
         {
             var types = await _context.ItemTypes.ToListAsync(cancellationToken);
-            var response = new ResponseGetAllTypeAndSubType(new List<ItemTypeAndSubTypeDTO>());
-            var task = new Task(() =>
-            {
-                foreach (var type in types)
-                    response.TypeAndSubItem.Add(_mapper.Map<ItemTypeAndSubTypeDTO>(type));
-            });
-            task.Start(); task.Wait(cancellationToken);
+            var itemTypesAndSubTypesDto = await CreateItemTypeAndSubTypeDtoAsync(types, cancellationToken);
             _logger.LogInformation(MHFL.Done("Handler"));
-            return response;
+            return new ResponseGetAllTypeAndSubType(itemTypesAndSubTypesDto);
+        }
+
+        private async Task<List<ItemTypeAndSubTypeDto>> CreateItemTypeAndSubTypeDtoAsync(
+            IReadOnlyCollection<ItemType> itemTypes, CancellationToken cancellationToken)
+        {
+            var itemTypesAndSubTypesDto = new List<ItemTypeAndSubTypeDto>();
+            await Task.Run(
+                () =>
+                {
+                    itemTypesAndSubTypesDto.AddRange(itemTypes.Select(type =>
+                        _mapper.Map<ItemTypeAndSubTypeDto>(type)));
+                }, cancellationToken);
+            return itemTypesAndSubTypesDto;
         }
     }
 }

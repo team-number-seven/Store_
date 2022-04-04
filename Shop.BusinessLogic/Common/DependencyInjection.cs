@@ -1,13 +1,10 @@
-﻿using System;
-using System.Security.Claims;
-using System.Text;
+﻿using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 using Store.BusinessLogic.Behaviours;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
 using Store.BusinessLogic.Common.JsonWebTokens;
@@ -35,8 +32,7 @@ namespace Store.BusinessLogic.Common
                 .AddDefaultTokenProviders();
 
 
-            services.AddTransient(typeof(ITokensGenerator), (typeof(TokensGenerator)));
-
+            services.AddTransient(typeof(ITokensGenerator), typeof(TokensGenerator));
 
 
             services.Configure<IdentityOptions>(options =>

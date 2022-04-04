@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.BrandQueries.GetAllBrands
@@ -27,15 +29,18 @@ namespace Store.BusinessLogic.Queries.BrandQueries.GetAllBrands
         public async Task<ResponseBase> Handle(QueryGetAllBrands request, CancellationToken cancellationToken)
         {
             var brands = await _context.Brands.ToListAsync(cancellationToken);
-            var response = new ResponseGetAllBrands(new List<BrandDTO>());
-            var task = new Task(() =>
-            {
-                foreach (var brand in brands)
-                    response.Brands.Add(_mapper.Map<BrandDTO>(brand));
-            });
-            task.Start(); task.Wait(cancellationToken);
+            var brandsDto = await CreateBrandsDtoAsync(brands, cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
-            return response;
+            return new ResponseGetAllBrands(brandsDto);
+        }
+
+        private async Task<List<BrandDto>> CreateBrandsDtoAsync(IReadOnlyCollection<Brand> brands,
+            CancellationToken cancellationToken)
+        {
+            var brandsDto = new List<BrandDto>();
+            await Task.Run(() => { brandsDto.AddRange(brands.Select(brand => _mapper.Map<BrandDto>(brand))); },
+                cancellationToken);
+            return brandsDto;
         }
     }
 }

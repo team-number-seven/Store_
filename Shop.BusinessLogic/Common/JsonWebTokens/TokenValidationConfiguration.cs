@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Store.BusinessLogic.Common.JsonWebTokens.Interfaces;
 
 namespace Store.BusinessLogic.Common.JsonWebTokens
 {
@@ -18,7 +12,8 @@ namespace Store.BusinessLogic.Common.JsonWebTokens
         {
             _configuration = configuration;
         }
-        public TokenValidationParameters AccessTokenParameters => new TokenValidationParameters
+
+        public TokenValidationParameters AccessTokenParameters => new()
         {
             ValidateIssuer = false,
             ValidateAudience = false,

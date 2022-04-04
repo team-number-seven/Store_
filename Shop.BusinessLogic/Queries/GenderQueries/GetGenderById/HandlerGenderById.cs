@@ -1,6 +1,4 @@
-﻿using System;
-using System.Net;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
@@ -28,7 +26,7 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetGenderById
         {
             var gender = await _context.Genders.FindAsync(request.Id);
             _logger.LogInformation(MHFL.Done("Handle"));
-            return new ResponseGenderById(_mapper.Map<GenderDTO>(gender));
+            return new ResponseGenderById(_mapper.Map<GenderDto>(gender));
         }
     }
 }

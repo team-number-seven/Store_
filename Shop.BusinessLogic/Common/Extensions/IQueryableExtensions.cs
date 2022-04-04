@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.IdentityModel.Tokens;
 using Store.DAL.Entities;
-using Guid = System.Guid;
 
 namespace Store.BusinessLogic.Common.Extensions
 {
@@ -12,7 +12,7 @@ namespace Store.BusinessLogic.Common.Extensions
         {
             return gendersId.IsNullOrEmpty()
                 ? items
-                : gendersId.Aggregate(items, (current, id) => current.Where(i => i.CharacteristicItem.ItemTypeId == id));
+                : items.Where(i => gendersId.Contains(i.CharacteristicItem.GenderId));
         }
 
         public static IQueryable<Item> FilterByAge(this IQueryable<Item> items, Guid ageTypeId)
@@ -26,50 +26,52 @@ namespace Store.BusinessLogic.Common.Extensions
         {
             return brandsId.IsNullOrEmpty()
                 ? items
-                : brandsId.Aggregate(items, (current, id) => current.Where(i => i.BrandId == id));
+                : items.Where(i => brandsId.Contains(i.BrandId));
         }
 
         public static IQueryable<Item> FilterByColors(this IQueryable<Item> items, IList<Guid> colorsId)
         {
             return colorsId.IsNullOrEmpty()
                 ? items
-                : colorsId.Aggregate(items, (current, id) => current.Where(i => i.CharacteristicItem.ColorId == id));
+                : items.Where(i => colorsId.Contains(i.CharacteristicItem.ColorId));
         }
 
         public static IQueryable<Item> FilterByItemType(this IQueryable<Item> items, IList<Guid> typesId)
         {
             return typesId.IsNullOrEmpty()
                 ? items
-                : typesId.Aggregate(items, (current, id) => current.Where(i => i.CharacteristicItem.ItemTypeId == id));
+                : items.Where(i => typesId.Contains(i.CharacteristicItem.ItemTypeId));
         }
 
         public static IQueryable<Item> FilterBySubTypes(this IQueryable<Item> items, IList<Guid> subTypesId)
         {
             return subTypesId.IsNullOrEmpty()
                 ? items
-                : subTypesId.Aggregate(items,
-                    (current, id) => current.Where(i => i.CharacteristicItem.SubTypeItemId == id));
+                : items.Where(i => subTypesId.Contains(i.CharacteristicItem.SubTypeItemId));
         }
 
         public static IQueryable<Item> FilterBySeason(this IQueryable<Item> items, IList<Guid> seasonsId)
         {
             return seasonsId.IsNullOrEmpty()
                 ? items
-                : seasonsId.Aggregate(items,
-                    (current, id) => current.Where(i => i.CharacteristicItem.SeasonItemId == id));
+                : items.Where(i => seasonsId.Contains(i.CharacteristicItem.SeasonItemId));
         }
 
-        public static IQueryable<Item> FilterByPrice(this IQueryable<Item> items, decimal price)
+        public static IQueryable<Item> FilterByMaxPrice(this IQueryable<Item> items, decimal price)
         {
-            items = items.Where(i => i.Price <= price);
-            return items;
+            return items.Where(i => i.Price <= price);
+        }
+
+        public static IQueryable<Item> FilterByMinPrice(this IQueryable<Item> items, decimal price)
+        {
+            return items.Where(i => i.Price >= price);
         }
 
         public static IQueryable<Item> FilterBySize(this IQueryable<Item> items, IList<Guid> sizesId)
         {
             return sizesId.IsNullOrEmpty()
                 ? items
-                : sizesId.Aggregate(items, (current, id) => current.Where(i => i.CharacteristicItem.SizeItemId == id));
+                : items.Where(i => sizesId.Contains(i.CharacteristicItem.SizeItemId));
         }
     }
 }

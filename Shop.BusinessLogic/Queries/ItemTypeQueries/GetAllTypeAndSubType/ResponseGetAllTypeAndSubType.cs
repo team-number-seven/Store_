@@ -4,5 +4,5 @@ using Store.BusinessLogic.Common.DataTransferObjects;
 
 namespace Store.BusinessLogic.Queries.ItemTypeQueries.GetAllTypeAndSubType
 {
-    public record ResponseGetAllTypeAndSubType(IList<ItemTypeAndSubTypeDTO> TypeAndSubItem) : ResponseBase;
+    public record ResponseGetAllTypeAndSubType(IList<ItemTypeAndSubTypeDto> TypeAndSubItem) : ResponseBase;
 }

@@ -36,7 +36,7 @@ namespace Store.BusinessLogic.Behaviours
                 return await next();
             }
 
-            var result = await _validationHandler.Validate(request);
+            var result = await _validationHandler.Validate(request, cancellationToken);
             if (!result.IsSuccessful)
             {
                 _logger.LogWarning($"{MHFL.Time}Validation failed for {requestName}. Error: {result.Error}");

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Validation;
@@ -15,7 +16,7 @@ namespace Store.BusinessLogic.Queries.UserQueries.LoginUser
             _userManager = userManager;
         }
 
-        public async Task<ValidationResult> Validate(QueryLoginUser request)
+        public async Task<ValidationResult> Validate(QueryLoginUser request, CancellationToken cancellationToken)
         {
             if (request.User is null)
                 return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);

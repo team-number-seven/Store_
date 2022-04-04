@@ -4,5 +4,5 @@ using Store.BusinessLogic.Common.DataTransferObjects;
 
 namespace Store.BusinessLogic.Queries.SizeTypeItemQueries.GetAllSizeTypeItems
 {
-    public record ResponseGetAllSizesTypeItems(IList<SizeTypeItemDTO> Sizes) : ResponseBase;
+    public record ResponseGetAllSizesTypeItems(IList<SizeTypeItemDto> Sizes) : ResponseBase;
 }

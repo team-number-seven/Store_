@@ -7,8 +7,6 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
-using Store.BusinessLogic.Queries.CountryQueries.GetCountryById;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 

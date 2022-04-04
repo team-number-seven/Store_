@@ -13,9 +13,9 @@ namespace Store.BusinessLogic.Queries.UserQueries.LoginUser
 {
     public class HandlerLoginUser : IRequestHandler<QueryLoginUser, ResponseBase>
     {
+        private readonly IStoreDbContext _context;
         private readonly ILogger<HandlerLoginUser> _logger;
         private readonly ITokensGenerator _tokensGenerator;
-        private readonly IStoreDbContext _context;
         private readonly UserManager<User> _userManager;
 
         public HandlerLoginUser(UserManager<User> userManager, IStoreDbContext context,
@@ -30,10 +30,10 @@ namespace Store.BusinessLogic.Queries.UserQueries.LoginUser
         public async Task<ResponseBase> Handle(QueryLoginUser request, CancellationToken cancellationToken)
         {
             var user = await _userManager.FindByEmailAsync(request.User.Email);
-            var accessToken = await _tokensGenerator.GenerateAccessTokenAsync(user);
-            var refreshToken = await _tokensGenerator.GenerateRefreshToken(user);
+            var accessToken = await _tokensGenerator.GenerateAccessTokenAsync(user, cancellationToken);
+            var refreshToken = await _tokensGenerator.GenerateRefreshToken(user, cancellationToken);
             await _userManager.SetAuthenticationTokenAsync(user, "Default", "RefreshToken", refreshToken.Token);
-            var token = await _context.Tokens.FirstOrDefaultAsync(t => t.UserId == user.Id,cancellationToken);
+            var token = await _context.Tokens.FirstOrDefaultAsync(t => t.UserId == user.Id, cancellationToken);
             token.Expire = refreshToken.Expires;
             _context.Tokens.Update(token);
             await _context.SaveChangesAsync(cancellationToken);

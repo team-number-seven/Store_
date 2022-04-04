@@ -19,12 +19,12 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
     public class HandlerItemCreate : IRequestHandler<CommandCreateItem, ResponseBase>
     {
         private readonly IStoreDbContext _context;
-        private readonly ILogger<HandlerItemCreate> _logger;
         private readonly string _imagePath;
+        private readonly ILogger<HandlerItemCreate> _logger;
 
 
-
-        public HandlerItemCreate(IStoreDbContext context, ILogger<HandlerItemCreate> logger,IConfiguration configuration)
+        public HandlerItemCreate(IStoreDbContext context, ILogger<HandlerItemCreate> logger,
+            IConfiguration configuration)
         {
             _context = context;
             _logger = logger;
@@ -59,7 +59,8 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             return new ResponseItemCreate(newItem.Id);
         }
 
-        private async Task<IList<ItemImage>> CreateImagesItemAsync(ItemCreateDTO dto, CancellationToken cancellationToken = new())
+        private async Task<IList<ItemImage>> CreateImagesItemAsync(ItemCreateDto dto,
+            CancellationToken cancellationToken = new())
         {
             var images = new List<ItemImage>();
             foreach (var image in dto.Files)
@@ -74,13 +75,13 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                     await image.CopyToAsync(stream, cancellationToken);
                 }
 
-                images.Add(new ItemImage { Id = guid, ImageFormat = format, Path = path});
+                images.Add(new ItemImage {Id = guid, ImageFormat = format, Path = path});
             }
 
             return images;
         }
 
-        private async Task<CharacteristicItem> CreateCharacteristicItemAsync(ItemCreateDTO dto)
+        private async Task<CharacteristicItem> CreateCharacteristicItemAsync(ItemCreateDto dto)
         {
             var color = await _context.Colors.FindAsync(dto.ColorId);
             var sizeTypeItem = await _context.SizeTypeItems.FindAsync(dto.SizeTypeItemId);

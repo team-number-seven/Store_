@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.CountryQueries.GetAllCountries
@@ -27,17 +29,18 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetAllCountries
         public async Task<ResponseBase> Handle(QueryGetAllCountries request, CancellationToken cancellationToken)
         {
             var countries = await _context.Countries.ToListAsync(cancellationToken);
-            var response = new ResponseGetAllCountries(new List<CountryDTO>());
-            var task = new Task(() =>
-            {
-                foreach (var c in countries)
-                    response.Countries.Add(_mapper.Map<CountryDTO>(c));
-            });
-
-            task.Start();
-            task.Wait(cancellationToken);
+            var countriesDto = await CreateCountriesDtoAsync(countries, cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
-            return response;
+            return new ResponseGetAllCountries(countriesDto);
+        }
+
+        private async Task<List<CountryDto>> CreateCountriesDtoAsync(IReadOnlyCollection<Country> countries,
+            CancellationToken cancellationToken)
+        {
+            var countriesDto = new List<CountryDto>();
+            await Task.Run(() => { countriesDto.AddRange(countries.Select(c => _mapper.Map<CountryDto>(c))); },
+                cancellationToken);
+            return countriesDto;
         }
     }
 }

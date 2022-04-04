@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Reflection;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure;
+using Store.DAL.ConfigurationEntities;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.DAL
 {
-    public class StoreDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>, IStoreDbContext
+    public class StoreDbContext :
+        IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>, IStoreDbContext
     {
         public StoreDbContext()
         {
@@ -20,11 +20,11 @@ namespace Store.DAL
         {
         }
 
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<UserClaim> UserClaims { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }
-        public DbSet<UserLogin> UserLogins { get; set; }
-        public DbSet<RoleClaim> RoleClaims { get; set; }
+        public override DbSet<Role> Roles { get; set; }
+        public override DbSet<UserClaim> UserClaims { get; set; }
+        public override DbSet<UserRole> UserRoles { get; set; }
+        public override DbSet<UserLogin> UserLogins { get; set; }
+        public override DbSet<RoleClaim> RoleClaims { get; set; }
         public DbSet<UserToken> Tokens { get; set; }
 
         public DbSet<Brand> Brands { get; set; }
@@ -50,15 +50,9 @@ namespace Store.DAL
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
             base.OnModelCreating(builder);
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            builder.Entity<Role>().ToTable("Roles");
-            builder.Entity<UserRole>().ToTable("UserRoles");
-            builder.Entity<UserClaim>().ToTable("UserClaims");
-            builder.Entity<UserLogin>().ToTable("UserLogins");
-            builder.Entity<RoleClaim>().ToTable("RoleClaims");
-            builder.Entity<UserToken>().ToTable("UserTokens");
+            IdentityEntitiesConfiguration.EntitiesConfiguration(builder);
         }
     }
 }

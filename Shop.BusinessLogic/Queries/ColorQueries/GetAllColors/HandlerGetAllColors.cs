@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.ColorQueries.GetAllColors
@@ -27,16 +29,18 @@ namespace Store.BusinessLogic.Queries.ColorQueries.GetAllColors
         public async Task<ResponseBase> Handle(QueryGetAllColors request, CancellationToken cancellationToken)
         {
             var colors = await _context.Colors.ToListAsync(cancellationToken);
-            var response = new ResponseGetAllColors(new List<ColorDTO>());
-            var task = new Task(() =>
-            {
-                foreach (var c in colors)
-                    response.Colors.Add(_mapper.Map<ColorDTO>(c));
-            });
-
-            task.Start(); task.Wait(cancellationToken);
+            var colorsDto = await CreateColorsDtoAsync(colors, cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
-            return response;
+            return new ResponseGetAllColors(colorsDto);
+        }
+
+        private async Task<List<ColorDto>> CreateColorsDtoAsync(IReadOnlyCollection<Color> colors,
+            CancellationToken cancellationToken)
+        {
+            var colorsDto = new List<ColorDto>();
+            await Task.Run(() => { colorsDto.AddRange(colors.Select(c => _mapper.Map<ColorDto>(c))); },
+                cancellationToken);
+            return colorsDto;
         }
     }
 }

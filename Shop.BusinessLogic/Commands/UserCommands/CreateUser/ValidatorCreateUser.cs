@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Store.BusinessLogic.Common;
@@ -10,22 +11,22 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
 {
     public class ValidatorCreateUser : IValidationHandler<CommandCreateUser>
     {
-        private readonly UserManager<User> _userManager;
         private readonly IStoreDbContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public ValidatorCreateUser(UserManager<User> userManager,IStoreDbContext context)
+        public ValidatorCreateUser(UserManager<User> userManager, IStoreDbContext context)
         {
             _userManager = userManager;
             _context = context;
         }
 
-        public async Task<ValidationResult> Validate(CommandCreateUser request)
+        public async Task<ValidationResult> Validate(CommandCreateUser request, CancellationToken cancellationToken)
         {
             if (request.User is null)
                 return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
             if (request.User.CountryId == Guid.Empty)
                 return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
-            if(await _context.Countries.FindAsync(request.User.CountryId) is null)
+            if (await _context.Countries.FindAsync(request.User.CountryId) is null)
                 return ValidationResult.Fail(MHFL.NotFount("Country"));
             var resultEmail = await _userManager.FindByEmailAsync(request.User.Email);
             if (resultEmail is not null)

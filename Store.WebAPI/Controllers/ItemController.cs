@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.ItemCommands.ItemCreate;
@@ -18,10 +17,10 @@ namespace Store.WebAPI.Controllers
     [ApiController]
     public class ItemController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<ItemController> _logger;
+        private readonly IMediator _mediator;
 
-        public ItemController(IMediator mediator,ILogger<ItemController> logger)
+        public ItemController(IMediator mediator, ILogger<ItemController> logger)
         {
             _mediator = mediator;
             _logger = logger;
@@ -30,32 +29,31 @@ namespace Store.WebAPI.Controllers
         [AllowAnonymous]
         [Route("Create")]
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm]ItemCreateDTO request)
+        public async Task<IActionResult> Create([FromForm] ItemCreateDto request)
         {
             var response = await _mediator.Send(new CommandCreateItem(request));
-            _logger.LogInformation(MHFL.Done("Create",User?.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("Create", User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
 
         [AllowAnonymous]
         [Route("GetByFilter")]
         [HttpGet]
-        public async Task<IActionResult> GetItemByQuery([FromQuery] ItemFilterQueryDTO request)
+        public async Task<IActionResult> GetItemByQuery([FromQuery] ItemFilterQueryDto request)
         {
             var response = await _mediator.Send(new QueryItemFilter(request));
             _logger.LogInformation(MHFL.Done("GetItemByQuery", User?.FindFirstValue("Id")));
-            return StatusCode((int)response.StatusCode, response);
+            return StatusCode((int) response.StatusCode, response);
         }
 
         [AllowAnonymous]
         [Route("GetById")]
         [HttpGet]
-        public async Task<IActionResult> GetById([FromQuery]QueryGetItemById request)
+        public async Task<IActionResult> GetById([FromQuery] QueryGetItemById request)
         {
             var response = await _mediator.Send(request);
-            _logger.LogInformation(MHFL.Done("GetByID",User?.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("GetByID", User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
-
     }
 }

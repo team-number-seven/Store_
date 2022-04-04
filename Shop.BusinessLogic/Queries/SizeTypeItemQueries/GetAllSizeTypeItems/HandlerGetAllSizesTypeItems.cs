@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.SizeTypeItemQueries.GetAllSizeTypeItems
@@ -28,15 +30,19 @@ namespace Store.BusinessLogic.Queries.SizeTypeItemQueries.GetAllSizeTypeItems
         public async Task<ResponseBase> Handle(QueryGetAllSizesTypeItems request, CancellationToken cancellationToken)
         {
             var sizes = await _context.SizeTypeItems.ToListAsync(cancellationToken);
-            var response = new ResponseGetAllSizesTypeItems(new List<SizeTypeItemDTO>());
-            var task = new Task(() =>
-            {
-                foreach (var size in sizes)
-                    response.Sizes.Add(_mapper.Map<SizeTypeItemDTO>(size));
-            });
-            task.Start();task.Wait(cancellationToken);
+            var sizesTypeItemDto = await CreateSizesTypeItemDtoAsync(sizes, cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
-            return response;
+            return new ResponseGetAllSizesTypeItems(sizesTypeItemDto);
+        }
+
+        private async Task<List<SizeTypeItemDto>> CreateSizesTypeItemDtoAsync(
+            IReadOnlyCollection<SizeTypeItem> sizesItems, CancellationToken cancellationToken)
+        {
+            var sizesTypeItemDto = new List<SizeTypeItemDto>();
+            await Task.Run(
+                () => { sizesTypeItemDto.AddRange(sizesItems.Select(size => _mapper.Map<SizeTypeItemDto>(size))); },
+                cancellationToken);
+            return sizesTypeItemDto;
         }
     }
 }

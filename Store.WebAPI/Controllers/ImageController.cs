@@ -1,7 +1,6 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.ImageCommand;
@@ -15,10 +14,10 @@ namespace Store.WebAPI.Controllers
     [ApiController]
     public class ImageController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly ILogger<ImageController> _logger;
+        private readonly IMediator _mediator;
 
-        public ImageController(IMediator mediator,ILogger<ImageController> logger)
+        public ImageController(IMediator mediator, ILogger<ImageController> logger)
         {
             _mediator = mediator;
             _logger = logger;
@@ -26,11 +25,11 @@ namespace Store.WebAPI.Controllers
 
         [Route("[action]")]
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm]ImageCreateDTO request)
+        public async Task<IActionResult> Create([FromForm] ImageCreateDto request)
         {
             var item = await _mediator.Send(new QueryGetItemById(request.ItemId)) as ResponseGetItemById;
             var response = await _mediator.Send(new CreateImageCommand(request));
-            _logger.LogInformation(MHFL.Done("Create",User?.FindFirstValue("Id")));
+            _logger.LogInformation(MHFL.Done("Create", User?.FindFirstValue("Id")));
             return StatusCode((int) response.StatusCode, response);
         }
     }

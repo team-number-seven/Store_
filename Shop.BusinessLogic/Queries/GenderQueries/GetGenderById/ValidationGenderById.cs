@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Validation;
@@ -15,7 +16,7 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetGenderById
             _context = context;
         }
 
-        public async Task<ValidationResult> Validate(QueryGenderById request)
+        public async Task<ValidationResult> Validate(QueryGenderById request, CancellationToken cancellationToken)
         {
             if (request.Id == Guid.Empty)
                 return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);

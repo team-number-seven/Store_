@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Store.BusinessLogic.Commands.ItemCommands.ItemCreate;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
@@ -44,7 +41,7 @@ namespace Store.WebAPI.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> Tesst([FromForm] ItemCreateDTO item)
+        public async Task<IActionResult> Tesst([FromForm] ItemCreateDto item)
         {
             var response = await _mediator.Send(new CommandCreateItem(item));
             return StatusCode((int) response.StatusCode, response);

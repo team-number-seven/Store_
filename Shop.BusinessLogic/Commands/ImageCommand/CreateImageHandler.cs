@@ -13,19 +13,20 @@ using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Commands.ImageCommand
 {
-    public class CreateImageHandler:IRequestHandler<CreateImageCommand,ResponseBase>
+    public class CreateImageHandler : IRequestHandler<CreateImageCommand, ResponseBase>
     {
-        private readonly ILogger<CreateImageHandler> _logger;
         private readonly IStoreDbContext _context;
+        private readonly ILogger<CreateImageHandler> _logger;
         private readonly string _mainPath;
 
-        public CreateImageHandler(IStoreDbContext context,ILogger<CreateImageHandler> logger,IConfiguration configuration)
+        public CreateImageHandler(IStoreDbContext context, ILogger<CreateImageHandler> logger,
+            IConfiguration configuration)
         {
             _logger = logger;
             _context = context;
             _mainPath = configuration["ImagesPath"];
-
         }
+
         public async Task<ResponseBase> Handle(CreateImageCommand request, CancellationToken cancellationToken)
         {
             _logger.LogInformation(MHFL.Done("Start Handler"));
@@ -55,9 +56,7 @@ namespace Store.BusinessLogic.Commands.ImageCommand
             await _context.Images.AddRangeAsync(images, cancellationToken);
             _logger.LogInformation(MHFL.Done("End Handler"));
 
-            return new CreateImageResponse(images.Select(x=>x.Id).ToList());
+            return new CreateImageResponse(images.Select(x => x.Id).ToList());
         }
     }
 }
-
-

@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
@@ -28,7 +23,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
         private readonly ILogger<HandlerItemFilter> _logger;
         private readonly IMapper _mapper;
 
-        public HandlerItemFilter(IStoreDbContext context, ILogger<HandlerItemFilter> logger,IMapper mapper)
+        public HandlerItemFilter(IStoreDbContext context, ILogger<HandlerItemFilter> logger, IMapper mapper)
         {
             _context = context;
             _logger = logger;
@@ -37,39 +32,53 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
 
         public async Task<ResponseBase> Handle(QueryItemFilter request, CancellationToken cancellationToken)
         {
-            var query = request.Query;
-            var priceIsTryParse = decimal.TryParse(query.Price, NumberStyles.Any, CultureInfo.InvariantCulture,out var price);
-            IQueryable<Item> items = _context.Items.AsQueryable();
-
-            items = items.FilterByAge(query.AgeTypeId);
-            if (priceIsTryParse)
-                items = items.FilterByPrice(price);
-            items = items.FilterByGender(query.GendersId);
-            items = items.FilterByBrands(query.BrandsId);
-            items = items.FilterBySeason(query.SeasonsId);
-            items = items.FilterByItemType(query.ItemTypesId);
-            items = items.FilterBySubTypes(query.SubItemTypesId);
-            items = items.FilterBySize(query.SizesId);
-            items = items.FilterByColors(query.ColorsId);
-
-            var responseDtos = new List<ItemQueryResponseDTO>();
-            var filteredItems = await items.ToListAsync(cancellationToken);
-
-            var task = new Task(() =>
-            {
-                foreach (var item in filteredItems)
-                {
-                    var dto = _mapper.Map<ItemQueryResponseDTO>(item);
-                    var maiImage = item.Images.First();
-                    dto.Image = new FileContentResult(File.ReadAllBytes(maiImage.Path), maiImage.ImageFormat.Format);
-                    responseDtos.Add(dto);
-                }
-            });
-            task.Start();
-            task.Wait(cancellationToken);
+            var filteredItems = await FilterItemsAsync(_context.Items.AsQueryable(), request.Query, cancellationToken);
+            var itemsDto = await CreateItemsDtoAsync(filteredItems, cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
+            return new ResponseItemFilter(itemsDto);
+        }
 
-            return new ResponseItemFilter(responseDtos);
+        private async Task<List<ItemQueryResponseDto>> CreateItemsDtoAsync(List<Item> items,
+            CancellationToken cancellationToken)
+        {
+            var itemsDto = new List<ItemQueryResponseDto>();
+            await Task.Run(async () =>
+            {
+                foreach (var item in items)
+                {
+                    var dto = _mapper.Map<ItemQueryResponseDto>(item);
+                    var mainImage = item.Images.First();
+                    dto.Image = new FileContentResult(await File.ReadAllBytesAsync(mainImage.Path, cancellationToken),
+                        mainImage.ImageFormat.Format);
+                    itemsDto.Add(dto);
+                }
+            }, cancellationToken);
+            return itemsDto;
+        }
+
+        private async Task<List<Item>> FilterItemsAsync(IQueryable<Item> items, ItemFilterQueryDto query,
+            CancellationToken cancellationToken)
+        {
+            await Task.Run(() =>
+            {
+                var maxPriceTryParse = decimal.TryParse(query.MaxPrice, NumberStyles.AllowDecimalPoint,
+                    CultureInfo.InvariantCulture, out var maxPrice);
+                var minPriceTryParse = decimal.TryParse(query.MinPrice, NumberStyles.AllowDecimalPoint,
+                    CultureInfo.InvariantCulture, out var minPrice);
+                items = items.FilterByAge(query.AgeTypeId);
+                if (maxPriceTryParse)
+                    items = items.FilterByMaxPrice(maxPrice);
+                if (minPriceTryParse)
+                    items = items.FilterByMinPrice(minPrice);
+                items = items.FilterByGender(query.GendersId);
+                items = items.FilterByBrands(query.BrandsId);
+                items = items.FilterBySeason(query.SeasonsId);
+                items = items.FilterByItemType(query.ItemTypesId);
+                items = items.FilterBySubTypes(query.SubItemTypesId);
+                items = items.FilterBySize(query.SizesId);
+                items = items.FilterByColors(query.ColorsId);
+            }, cancellationToken);
+            return await items.ToListAsync(cancellationToken);
         }
     }
 }
