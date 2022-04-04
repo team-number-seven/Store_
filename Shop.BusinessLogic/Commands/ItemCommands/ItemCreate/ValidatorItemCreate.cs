@@ -31,7 +31,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             if (item.ColorId == Guid.Empty)
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("ColorId"));
             if (item.GenderId == Guid.Empty)
-                return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("GenderId"));
+                return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("GendersId"));
             if (item.ItemTypeId == Guid.Empty)
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("ItemTypeId"));
             if (item.SeasonItemId == Guid.Empty)

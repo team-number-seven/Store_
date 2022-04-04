@@ -42,28 +42,6 @@ namespace Store.WebAPI.Controllers
             return response is null ? NotFound() : Ok(response);
         }
 
-
-        [HttpPost]
-        [Route("[action]")]
-        public async Task<IActionResult> UploadFile(IFormFile file)
-        {
-            return Ok();
-        }
-
-
-        [HttpGet]
-        [Route("Image")]
-        public async Task<IActionResult> ImageTest()
-        {
-            Response.Headers.Add("___test", "___pavel");
-            var file_path = @"C:\Users\Pavel\Desktop\ga.jpeg";
-            var file_type = "image/jpeg";
-            var file_name = "test.jpeg";
-            byte[] mas = System.IO.File.ReadAllBytes(file_path);
-            IList<FileContentResult> list = new List<FileContentResult> { new FileContentResult(mas,file_type)};
-            return Ok(list);
-        }
-
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> Tesst([FromForm] ItemCreateDTO item)

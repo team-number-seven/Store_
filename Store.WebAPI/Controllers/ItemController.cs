@@ -39,7 +39,7 @@ namespace Store.WebAPI.Controllers
         [AllowAnonymous]
         [Route("Get")]
         [HttpGet]
-        public async Task<IActionResult> GetQuery(IFormFile file)
+        public async Task<IActionResult> GetQuery([FromQuery])
         {
 
 
