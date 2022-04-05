@@ -29,6 +29,7 @@ namespace Store.BusinessLogic.Common
                 .AddIdentityCore<User>()
                 .AddRoles<Role>()
                 .AddEntityFrameworkStores<StoreDbContext>()
+                .AddSignInManager<CustomerSignInManager>()
                 .AddDefaultTokenProviders();
 
 
@@ -76,7 +77,7 @@ namespace Store.BusinessLogic.Common
                 .AddJwtBearer(options =>
                 {
                     options.TokenValidationParameters = tokenValidationConfig.AccessTokenParameters;
-                });
+                }).AddCookie("Identity.Application");
 
 
             services.AddAutoMapper(config =>
