@@ -6,12 +6,24 @@ import {KidsPage} from "../common/components/_pages/kids-page/kids-page";
 import {SignIn} from "../common/components/sign-in/sign-in";
 import {SignUp} from "../common/components/sign-up/sign-in";
 
-export const MainRoutes = () => {
+export const MainRoutes = ({USER, userAuth}) => {
+
+
+
+    const userToMainRoutesHandler = (User) => {
+        userAuth(User);
+    }
+
     return (
         <Routes>
             <Route path={'/'} element={<HomePage/>}>
-                <Route path={'sign-up'} element={<SignUp/>}/>
-                <Route path={'sign-in'} element={<SignIn/>}/>
+                <Route path={'sign-up'}
+                       element={
+                           <SignUp USER={USER} userToMainRoutes={userToMainRoutesHandler}/>
+                       }/>
+                <Route path={'sign-in'} element={
+                    <SignIn USER={USER} userToMainRoutes={userToMainRoutesHandler}/>
+                }/>
             </Route>
             <Route path={'men'} element={<MenPage/>}/>
             <Route path={'women'} element={<WomenPage/>}/>

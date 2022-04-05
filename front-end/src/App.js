@@ -5,36 +5,24 @@ import {ItemCreateForm} from "./modules/common/components/item-create-form/item-
 import {Footer} from "./modules/common/components/footer/footer";
 import {MainRoutes} from "./modules/routes/main-routes";
 
-let user = {
-    Id: 123,
-    UserName: 'Name',
-    Email: undefined,
-    Country: undefined,
-    Role: undefined,
-
-    Favourites: undefined,
-    Cart: undefined,
-
-    AccessToken: undefined,
-    RefreshToken: undefined,
-}
 
 export default function App() {
     const [userExist, setUserExist] = useState(false);
+    const [user, setUser] = useState({});
 
-    const onUpdatedUser_handler = (USER)=>{
-        user = USER;
+    const userAuthHandler = (User) => {
+        debugger;
+        setUser(User);
+        setUserExist(true);
     }
 
     return (
         <>
-
             {/* eslint-disable-next-line react/jsx-pascal-case */}
-            {userExist ? <_User USER={user} onUpdatedUser={onUpdatedUser_handler} /> : <></>}
-            <button onClick={(e)=>{setUserExist(true)}} >Click</button>
+            {userExist ? <_User USER={user}/> : <></>}
 
             <Header/>
-            <MainRoutes USER={user} />
+            <MainRoutes USER={user} userAuth={userAuthHandler}/>
             <ItemCreateForm/>
             <Footer/>
         </>

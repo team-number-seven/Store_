@@ -30,6 +30,8 @@ export default class SignIn extends React.Component {
                 'Password': user.Password
             }
         });
+
+
         if (response.ok) {
             let json = {};
             json.token = undefined;
@@ -65,18 +67,21 @@ export default class SignIn extends React.Component {
 
     onSignInHandler = (user) => {
         this.updateUser(user);
-        this.userSignInPOST(user).then(({Id, Role, Country, UserName, Email, AccessToken}) => {
+        this.userSignInPOST(user)
+            .then(({Id, Role, Country, UserName, Email, AccessToken}) => {
 
-            user.Id = Id;
-            user.Role = Role;
-            user.Country = Country;
-            user.UserName = UserName;
-            user.Email = Email;
-            user.AccessToken = AccessToken;
+                user.Id = Id;
+                user.Role = Role;
+                user.Country = Country;
+                user.UserName = UserName;
+                user.Email = Email;
+                user.AccessToken = AccessToken;
 
-            this.updateUser(user);
-            this.props.successSignIn(user);
-        });
+                this.updateUser(user);
+                this.props.successSignIn(user);
+            }).then(
+
+        )
     }
 
     render() {
