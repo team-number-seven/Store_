@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.AgeTypeItemQueries.GetAllAgeTypeItem
@@ -28,15 +30,19 @@ namespace Store.BusinessLogic.Queries.AgeTypeItemQueries.GetAllAgeTypeItem
         public async Task<ResponseBase> Handle(QueryGetAllAgeTypeItem request, CancellationToken cancellationToken)
         {
             var ageItemTypes = await _context.AgeTypes.ToListAsync(cancellationToken);
-            var response = new ResponseGetAllAgeTypeItem(new List<AgeTypeItemDTO>());
-            var task = new Task(() =>
-            {
-                foreach (var type in ageItemTypes)
-                    response.Types.Add(_mapper.Map<AgeTypeItemDTO>(type));
-            });
-            task.Start(); task.Wait(cancellationToken);
+            var ageTypesItemDto = await CreateAgeTypeItemDtoAsync(ageItemTypes, cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
-            return response;
+            return new ResponseGetAllAgeTypeItem(ageTypesItemDto);
+        }
+
+        private async Task<List<AgeTypeItemDto>> CreateAgeTypeItemDtoAsync(
+            IReadOnlyCollection<AgeTypeItem> ageTypeItems,
+            CancellationToken cancellationToken)
+        {
+            var dtos = new List<AgeTypeItemDto>();
+            await Task.Run(() => { dtos.AddRange(ageTypeItems.Select(type => _mapper.Map<AgeTypeItemDto>(type))); },
+                cancellationToken);
+            return dtos;
         }
     }
 }

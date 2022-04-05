@@ -5,14 +5,14 @@ using Store.DAL.Entities;
 
 namespace Store.BusinessLogic.Common.DataTransferObjects
 {
-    public class SizeTypeItemDTO : IMapWith<SizeTypeItem>
+    public class SizeTypeItemDto : IMapWith<SizeTypeItem>
     {
         public Guid Id { get; set; }
         public string Size { get; set; }
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<SizeTypeItem, SizeTypeItemDTO>()
+            profile.CreateMap<SizeTypeItem, SizeTypeItemDto>()
                 .ForMember(dto => dto.Id, opt => opt.MapFrom(s => s.Id))
                 .ForMember(dto => dto.Size, opt => opt.MapFrom(s => s.Size));
         }

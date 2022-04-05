@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.Extensions;
 using Store.BusinessLogic.Validation;
 using Store.DAL.Interfaces;
 
@@ -18,11 +18,9 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             _context = context;
         }
 
-        public async Task<ValidationResult> Validate(CommandCreateItem request)
+        public async Task<ValidationResult> Validate(CommandCreateItem request, CancellationToken cancellationToken)
         {
             var item = request.Item;
-            uint temp = 0;
-            var tempDecimal = 0m;
             if (item is null) return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("Item"));
             if (item.AgeTypeItemId == Guid.Empty)
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("AgeTypeId"));
@@ -31,7 +29,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             if (item.ColorId == Guid.Empty)
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("ColorId"));
             if (item.GenderId == Guid.Empty)
-                return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("GenderId"));
+                return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("GendersId"));
             if (item.ItemTypeId == Guid.Empty)
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("ItemTypeId"));
             if (item.SeasonItemId == Guid.Empty)
@@ -44,8 +42,8 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("ArticleNumber"));
             if (string.IsNullOrEmpty(item.CountItem))
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("CountItem"));
-            if (string.IsNullOrEmpty(item.Price) || decimal.TryParse(item.Price, NumberStyles.AllowDecimalPoint,
-                    CultureInfo.InvariantCulture, out tempDecimal))
+            if (string.IsNullOrEmpty(item.Price) || !decimal.TryParse(item.Price, NumberStyles.AllowDecimalPoint,
+                    CultureInfo.InvariantCulture, out _))
                 return ValidationResult.Fail("Invalid Format Price");
             if (string.IsNullOrEmpty(item.Title))
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("Title"));
@@ -63,9 +61,10 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                 return ValidationResult.Fail(MHFL.NotFount("SizeTypeItemId"));
             if (await _context.SubItemTypes.FindAsync(item.SubItemTypeId) is null)
                 return ValidationResult.Fail(MHFL.NotFount("SubItemTypeId"));
-            if (await _context.Items.FirstOrDefaultAsync(i => i.ArticleNumber == item.ArticleNumber) is not null)
+            if (await _context.Items.FirstOrDefaultAsync(i => i.ArticleNumber == item.ArticleNumber, cancellationToken)
+                is not null)
                 return ValidationResult.Fail("ArticleNumber is already exist");
-            if (uint.TryParse(item.CountItem, NumberStyles.Integer, CultureInfo.InvariantCulture, out temp) is false)
+            if (uint.TryParse(item.CountItem, NumberStyles.Integer, CultureInfo.InvariantCulture, out _) is false)
                 return ValidationResult.Fail("CountItem must be a uint type");
 
             return ValidationResult.Success;

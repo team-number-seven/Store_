@@ -4,5 +4,5 @@ using Store.BusinessLogic.Common.DataTransferObjects;
 
 namespace Store.BusinessLogic.Queries.ColorQueries.GetAllColors
 {
-    public record ResponseGetAllColors(IList<ColorDTO> Colors) : ResponseBase;
+    public record ResponseGetAllColors(IList<ColorDto> Colors) : ResponseBase;
 }

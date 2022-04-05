@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
-using Store.BusinessLogic.Queries.GenderQueries.GetGenderById;
-using Store.DAL;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
@@ -36,23 +29,25 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetById
         public async Task<ResponseBase> Handle(QueryGetItemById request, CancellationToken cancellationToken)
         {
             var item = await _context.Items.FindAsync(request.Id);
-            var result = _mapper.Map<ItemDTO>(item);
-            result.Images = await LoadImagesAsync(item);
+            var result = _mapper.Map<ItemDto>(item);
+            result.Images = await LoadImagesAsync(item, cancellationToken);
             _logger.LogInformation(MHFL.Done("Handler"));
             return new ResponseGetItemById(result);
         }
 
-        private async Task<IList<FileContentResult>> LoadImagesAsync(Item item)
+        private async Task<IList<FileContentResult>> LoadImagesAsync(Item item, CancellationToken cancellationToken)
         {
             var imageList = new List<FileContentResult>();
-            foreach (var image in item.Images)
+            await Task.Run(async () =>
             {
-                var file = new FileContentResult(await File.ReadAllBytesAsync(image.Path), image.ImageFormat.Format);
-                imageList.Add(file);
-            }
-
+                foreach (var image in item.Images)
+                {
+                    var file = new FileContentResult(await File.ReadAllBytesAsync(image.Path, cancellationToken),
+                        image.ImageFormat.Format);
+                    imageList.Add(file);
+                }
+            }, cancellationToken);
             return imageList;
         }
-
     }
 }

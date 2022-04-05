@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Store.DAL.Entities;
 
 namespace Store.DAL.Interfaces
@@ -22,10 +21,13 @@ namespace Store.DAL.Interfaces
         DbSet<ItemImage> Images { get; set; }
         DbSet<User> Users { get; set; }
         public DbSet<SizeTypeItem> SizeTypeItems { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<UserClaim> UserClaims { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<UserLogin> UserLogins { get; set; }
+        public DbSet<RoleClaim> RoleClaims { get; set; }
+        public DbSet<UserToken> Tokens { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = new());
-
-        EntityEntry<TEntity> Entry<TEntity>(TEntity entity)
-            where TEntity : class;
     }
 }

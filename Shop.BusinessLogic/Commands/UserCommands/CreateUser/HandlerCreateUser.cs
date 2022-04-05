@@ -7,8 +7,6 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
-using Store.BusinessLogic.Queries.CountryQueries.GetCountryById;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
@@ -34,19 +32,7 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
 
         public async Task<ResponseBase> Handle(CommandCreateUser request, CancellationToken cancellationToken)
         {
-            //var country = await _context.Countries.FindAsync(request.User.CountryId); //add to check try
-            ResponseGetCountryById country = new(new CountryDTO());
-            try
-            {
-                country = (ResponseGetCountryById) await _mediator.Send(
-                    new QueryGetCountryById(request.User.CountryId));
-            }
-            catch
-            {
-                _logger.LogInformation("kek");
-            }
-
-            var countryy = await _context.Countries.FindAsync(country.Country.Id);
+            var country = await _context.Countries.FindAsync(request.User.CountryId);
             var users = new List<User>();
             var user = new User
             {
@@ -54,8 +40,8 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
                 NormalizedUserName = _userManager.NormalizeName(request.User.UserName),
                 Email = request.User.Email,
                 NormalizedEmail = _userManager.NormalizeEmail(request.User.Email),
-                Country = countryy,
-                CountryId = countryy.Id,
+                Country = country,
+                CountryId = country.Id,
                 PhoneNumber = request.User.PhoneNumber,
                 CreateDate = DateTime.Now
             };
@@ -63,8 +49,8 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
             user.PasswordHash = _userHasher.HashPassword(user, request.User.Password);
 
             users.Add(user);
-            countryy.Users = users;
-            _context.Countries.Update(countryy);
+            country.Users = users;
+            _context.Countries.Update(country);
             await _userManager.CreateAsync(user);
             await _userManager.AddToRoleAsync(user, "user");
             await _context.SaveChangesAsync(cancellationToken);

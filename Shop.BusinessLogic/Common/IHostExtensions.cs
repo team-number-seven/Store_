@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,7 +26,7 @@ namespace Store.BusinessLogic.Common
                 }
 
                 var userManager = services.GetRequiredService<UserManager<User>>();
-                var rolesManager = services.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
+                var rolesManager = services.GetRequiredService<RoleManager<Role>>();
                 var passwordHasher = services.GetRequiredService<IPasswordHasher<User>>();
                 var configuration = services.GetRequiredService<IConfiguration>();
 

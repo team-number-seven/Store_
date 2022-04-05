@@ -4,5 +4,5 @@ using Store.BusinessLogic.Common.DataTransferObjects;
 
 namespace Store.BusinessLogic.Queries.SeasonItemQueries.GetAllSeasonItem
 {
-    public record ResponseGetAllSeasonItem(IList<SeasonItemDTO> Seasons) : ResponseBase;
+    public record ResponseGetAllSeasonItem(IList<SeasonItemDto> Seasons) : ResponseBase;
 }

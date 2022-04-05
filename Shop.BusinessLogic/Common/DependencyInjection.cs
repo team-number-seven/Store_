@@ -1,18 +1,15 @@
-﻿using System;
-using System.Security.Claims;
-using System.Text;
+﻿using System.Security.Claims;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 using Store.BusinessLogic.Behaviours;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
-using Store.BusinessLogic.Common.Interfaces;
+using Store.BusinessLogic.Common.JsonWebTokens;
+using Store.BusinessLogic.Common.JsonWebTokens.Interfaces;
 using Store.BusinessLogic.Common.Mappings;
-using Store.BusinessLogic.Services;
 using Store.BusinessLogic.Validation;
 using Store.DAL;
 using Store.DAL.Entities;
@@ -24,14 +21,19 @@ namespace Store.BusinessLogic.Common
     {
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration Configuration)
         {
+            var tokenValidationConfig = new TokenValidationConfiguration(Configuration);
             services.AddDbContext<StoreDbContext>(opt =>
                 opt.UseNpgsql(Configuration.GetConnectionString("StoreConnection")));
 
             services
                 .AddIdentityCore<User>()
-                .AddRoles<IdentityRole<Guid>>()
+                .AddRoles<Role>()
                 .AddEntityFrameworkStores<StoreDbContext>()
+                .AddSignInManager<CustomerSignInManager>()
                 .AddDefaultTokenProviders();
+
+
+            services.AddTransient(typeof(ITokensGenerator), typeof(TokensGenerator));
 
 
             services.Configure<IdentityOptions>(options =>
@@ -74,17 +76,8 @@ namespace Store.BusinessLogic.Common
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = false,
-                        ValidateAudience = false,
-                        ValidateLifetime = false,
-                        ValidateIssuerSigningKey = false,
-                        ValidIssuer = Configuration["Jwt:Issuer"],
-                        ValidAudience = Configuration["Jwt:Audience"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
-                    };
-                });
+                    options.TokenValidationParameters = tokenValidationConfig.AccessTokenParameters;
+                }).AddCookie("Identity.Application");
 
 
             services.AddAutoMapper(config =>
@@ -96,8 +89,7 @@ namespace Store.BusinessLogic.Common
             services.AddValidators();
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
-            services.AddTransient<IJWTService, JWTService>();
-
+            services.AddSingleton<TokenValidationConfiguration>();
             services.AddControllers();
             services.AddCors();
 

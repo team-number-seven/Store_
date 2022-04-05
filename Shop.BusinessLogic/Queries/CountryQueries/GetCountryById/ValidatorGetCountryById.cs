@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Validation;
@@ -15,7 +16,7 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
             _context = context;
         }
 
-        public async Task<ValidationResult> Validate(QueryGetCountryById request)
+        public async Task<ValidationResult> Validate(QueryGetCountryById request, CancellationToken cancellationToken)
         {
             if (Guid.Empty == request.Id)
                 return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);

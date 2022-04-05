@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Validation;
@@ -15,11 +16,11 @@ namespace Store.BusinessLogic.Commands.GenderCommands.CreateGender
             _context = context;
         }
 
-        public async Task<ValidationResult> Validate(CommandCreateGender request)
+        public async Task<ValidationResult> Validate(CommandCreateGender request, CancellationToken cancellationToken)
         {
             if (string.IsNullOrEmpty(request.Title))
                 return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
-            var result = await _context.Genders.FirstOrDefaultAsync(g => g.Title == request.Title);
+            var result = await _context.Genders.FirstOrDefaultAsync(g => g.Title == request.Title, cancellationToken);
             if (result is not null)
                 return ValidationResult.Fail("This gender already exists");
             return ValidationResult.Success;

@@ -4,7 +4,7 @@ using Store.DAL.Entities;
 
 namespace Store.BusinessLogic.Common.DataTransferObjects
 {
-    public class UserLoginDTO : IMapWith<User>
+    public class UserLoginDto : IMapWith<User>
     {
         [FromHeader] public string Email { get; set; }
 

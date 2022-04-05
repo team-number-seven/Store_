@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.SeasonItemQueries.GetAllSeasonItem
@@ -27,15 +29,19 @@ namespace Store.BusinessLogic.Queries.SeasonItemQueries.GetAllSeasonItem
         public async Task<ResponseBase> Handle(QueryGetAllSeasonItem request, CancellationToken cancellationToken)
         {
             var seasonsItem = await _context.SeasonItems.ToListAsync(cancellationToken);
-            var response = new ResponseGetAllSeasonItem(new List<SeasonItemDTO>());
-            var task = new Task(() =>
-            {
-                foreach (var season in seasonsItem)
-                    response.Seasons.Add(_mapper.Map<SeasonItemDTO>(season));
-            });
-            task.Start(); task.Wait(cancellationToken);
+            var seasonsItemDto = await CreateSeasonItemDtoAsync(seasonsItem, cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle"));
-            return response;
+            return new ResponseGetAllSeasonItem(seasonsItemDto);
+        }
+
+        public async Task<List<SeasonItemDto>> CreateSeasonItemDtoAsync(IReadOnlyCollection<SeasonItem> seasonsItem,
+            CancellationToken cancellationToken)
+        {
+            var seasonsItemDto = new List<SeasonItemDto>();
+            await Task.Run(
+                () => { seasonsItemDto.AddRange(seasonsItem.Select(season => _mapper.Map<SeasonItemDto>(season))); },
+                cancellationToken);
+            return seasonsItemDto;
         }
     }
 }

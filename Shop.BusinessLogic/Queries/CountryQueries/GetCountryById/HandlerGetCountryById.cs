@@ -26,7 +26,7 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
         {
             var country = await _context.Countries.FindAsync(request.Id);
             _logger.LogInformation(MHFL.Done("Handle"));
-            return new ResponseGetCountryById(_mapper.Map<CountryDTO>(country));
+            return new ResponseGetCountryById(_mapper.Map<CountryDto>(country));
         }
     }
 }

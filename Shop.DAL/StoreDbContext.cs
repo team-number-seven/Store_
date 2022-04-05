@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Reflection;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Store.DAL.ConfigurationEntities;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
 namespace Store.DAL
 {
-    public class StoreDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>, IStoreDbContext
+    public class StoreDbContext :
+        IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>, IStoreDbContext
     {
         public StoreDbContext()
         {
@@ -18,6 +19,13 @@ namespace Store.DAL
             : base(options)
         {
         }
+
+        public override DbSet<Role> Roles { get; set; }
+        public override DbSet<UserClaim> UserClaims { get; set; }
+        public override DbSet<UserRole> UserRoles { get; set; }
+        public override DbSet<UserLogin> UserLogins { get; set; }
+        public override DbSet<RoleClaim> RoleClaims { get; set; }
+        public DbSet<UserToken> Tokens { get; set; }
 
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ImageFormat> ImageFormats { get; set; }
@@ -42,9 +50,9 @@ namespace Store.DAL
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
             base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            IdentityEntitiesConfiguration.EntitiesConfiguration(builder);
         }
     }
 }

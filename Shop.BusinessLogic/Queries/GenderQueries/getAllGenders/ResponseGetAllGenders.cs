@@ -4,5 +4,5 @@ using Store.BusinessLogic.Common.DataTransferObjects;
 
 namespace Store.BusinessLogic.Queries.GenderQueries.GetAllGenders
 {
-    public record ResponseAllGenders(IList<GenderDTO> Genders) : ResponseBase;
+    public record ResponseGetAllGenders(IList<GenderDto> Genders) : ResponseBase;
 }

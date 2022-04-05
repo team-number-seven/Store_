@@ -22,4 +22,9 @@
     <ProjectReference Include="..\Shop.DAL\Store.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\Interfaces\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

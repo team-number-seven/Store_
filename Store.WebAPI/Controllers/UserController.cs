@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Queries.UserQueries.LoginUser;
+using Store.BusinessLogic.Queries.UserQueries.RefreshTokens;
 
 namespace Store.WebAPI.Controllers
 {
@@ -39,6 +40,16 @@ namespace Store.WebAPI.Controllers
         {
             var response = await _mediator.Send(request);
             _logger.LogInformation($"{MHFL.Done("CreateUser")}");
+            return StatusCode((int) response.StatusCode, response);
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("RefreshToken")]
+        public async Task<IActionResult> RefreshToken([FromBody] QueryRefreshTokens request)
+        {
+            var response = await _mediator.Send(request);
+            _logger.LogInformation($"{MHFL.Done("RefreshToken")}");
             return StatusCode((int) response.StatusCode, response);
         }
     }
