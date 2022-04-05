@@ -15,5 +15,6 @@ namespace Store.BusinessLogic.Common.DataTransferObjects
         public List<Guid> GendersId { get; set; }
         public List<Guid> ItemTypesId { get; set; }
         public List<Guid> SubItemTypesId { get; set; }
+        public int GetCountItems { get; set; }
     }
 }

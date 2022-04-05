@@ -42,9 +42,9 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("ArticleNumber"));
             if (string.IsNullOrEmpty(item.CountItem))
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("CountItem"));
-            if (string.IsNullOrEmpty(item.Price) || decimal.TryParse(item.Price, NumberStyles.AllowDecimalPoint,
+            if (string.IsNullOrEmpty(item.Price) || !decimal.TryParse(item.Price, NumberStyles.AllowDecimalPoint,
                     CultureInfo.InvariantCulture, out _))
-                return ValidationResult.Fail("Invalid Format MaxPrice");
+                return ValidationResult.Fail("Invalid Format Price");
             if (string.IsNullOrEmpty(item.Title))
                 return ValidationResult.Fail(MHFL.NameObjectIsNullOrEmptyMessage("Title"));
             if (await _context.AgeTypes.FindAsync(item.AgeTypeItemId) is null)

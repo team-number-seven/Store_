@@ -59,6 +59,8 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
         private async Task<List<Item>> FilterItemsAsync(IQueryable<Item> items, ItemFilterQueryDto query,
             CancellationToken cancellationToken)
         {
+            if (query.GetCountItems <= 0)
+                return new List<Item>();
             await Task.Run(() =>
             {
                 var maxPriceTryParse = decimal.TryParse(query.MaxPrice, NumberStyles.AllowDecimalPoint,
@@ -77,6 +79,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
                 items = items.FilterBySubTypes(query.SubItemTypesId);
                 items = items.FilterBySize(query.SizesId);
                 items = items.FilterByColors(query.ColorsId);
+                items = items.Take(query.GetCountItems);
             }, cancellationToken);
             return await items.ToListAsync(cancellationToken);
         }
