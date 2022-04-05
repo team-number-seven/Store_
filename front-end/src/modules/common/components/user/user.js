@@ -1,8 +1,6 @@
 
-export const _User = ({USER}) => {
+export const User = ({USER}) => {
     const User = USER;
-    debugger;
-
     return (
         <>
         </>
