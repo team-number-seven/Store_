@@ -40,7 +40,7 @@ namespace Store.WebAPI
             app.UseRouting();
             app.UseCors(opt =>
             {
-                opt.WithOrigins("http://localhost:3000/");
+                opt.WithOrigins("http://localhost:3000");
                 opt.AllowAnyHeader();
                 opt.AllowAnyMethod();
             });
