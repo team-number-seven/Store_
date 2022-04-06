@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -32,15 +33,15 @@ namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
             CancellationToken cancellationToken)
         {
             var user = await _context.Users.FindAsync(request.UserId);
-            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var uriCreate = $"https://localhost:5001/Store/Home/VerifyEmail?userId={user.Id}&code={token}";
+            var urlAccept =
+                $"https://localhost:5001/Store/Home/VerifyEmail?userId={request.UserId}&tokenConfirmation={request.AcceptToken}";
             string myString =
                 await File.ReadAllTextAsync(
-                    @"D:\Projects\GitHub\Store\Shop.BusinessLogic\Common\HTML\EmailConfirmation.html", cancellationToken);
-            var body = myString.Replace("CONFRIMQUERY", uriCreate);
+                    @"D:\projects\Store\Shop.BusinessLogic\Common\HTML\EmailConfirmation.html", cancellationToken);
+            var body = myString.Replace("CONFRIMQUERY", urlAccept);
             await _emailService.SendEmailAsync("pavell.urusov8@gmail.com", user.UserName, "Email confirmation", body);
-
             return new ResponseSendConfirmationByEmail(user.Id);
         }
+        public as
     }
 }

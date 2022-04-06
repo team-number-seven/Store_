@@ -8,5 +8,5 @@ using Store.BusinessLogic.Common;
 
 namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
 {
-    public record QuerySendConfirmationByEmail(Guid UserId) : IRequest<ResponseBase>;
+    public record QuerySendConfirmationByEmail(Guid UserId,string AcceptToken) : IRequest<ResponseBase>;
 }

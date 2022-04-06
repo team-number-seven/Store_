@@ -13,10 +13,12 @@ using MimeKit;
 using Store.BusinessLogic.Commands.ItemCommands.ItemCreate;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
 using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.Extensions;
 using Store.BusinessLogic.Queries.CountryQueries.GetAllCountries;
 using Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail;
 using Store.BusinessLogic.Services.EmailService;
 using Store.DAL.Entities;
+using System.IO;
 
 namespace Store.WebAPI.Controllers
 {
@@ -60,20 +62,24 @@ namespace Store.WebAPI.Controllers
         [Route("[action]")]
         public async Task<IActionResult> google()
         {
-            var response = await _mediator.Send(new QuerySendConfirmationByEmail(Guid.Parse("cf5c47b2-9000-4124-8232-d5ff6597d2d2")));
+            var userId = "6142dea4-91e4-4c34-b873-d37ab8b75be3";
+            var tokenConfirmation = await _userManager.GenerateEmailConfirmationTokenAsync(userId);
+
+            var response = await _mediator.Send(new QuerySendConfirmationByEmail(Guid.Parse(userId),tokenConfirmation));
+
             return Ok();
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("[action]")]
         [AllowAnonymous]
-        public async Task<IActionResult> VerifyEmail([FromQuery]string userId, [FromQuery]string code)
+        public async Task<IActionResult> VerifyEmail(string userId, string tokenConfirmation)
         {
             var user = await _userManager.FindByIdAsync(userId);
 
             if (user == null) return BadRequest();
 
-            var result = await _userManager.ConfirmEmailAsync(user, code);
+            var result = await _userManager.ConfirmEmailAsync(user, tokenConfirmation);
 
             if (result.Succeeded)
             {
