@@ -26,6 +26,8 @@ namespace Store.BusinessLogic.Queries.UserQueries.LoginUser
             var user = await _userManager.FindByEmailAsync(request.User.Email);
             if (user is null)
                 return ValidationResult.Fail("Username or password is incorrect");
+            if(user.EmailConfirmed is false)
+                return ValidationResult.Fail("Confirm email");
             var signInResult = await _signInManager.PasswordSignInAsync(user, request.User.Password);
             return signInResult.Succeeded
                 ? ValidationResult.Success

@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Store.BusinessLogic.Common;
 using MailKit;
+using Store.BusinessLogic.Common.Options;
 using Store.BusinessLogic.Services.AuthGoogle;
 using Store.BusinessLogic.Services.EmailService;
 
@@ -24,6 +25,8 @@ namespace Store.WebAPI
             services.AddServices(Configuration);
             services.Configure<EmailConfigure>(Configuration.GetSection("Email"));
             services.Configure<GoogleConfiguration>(Configuration.GetSection("Google"));
+            services.Configure<MessageConfirmOrDeclineToEmail>(
+                Configuration.GetSection("MessageConfirmOrDeclineToEmail"));
             services.AddScoped(typeof(IEmailService), typeof(EmailService));
             services.AddScoped(typeof(IAuthGoogleService), typeof(AuthGoogleService));
         }

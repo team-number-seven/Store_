@@ -62,11 +62,18 @@ namespace Store.WebAPI.Controllers
         [Route("[action]")]
         public async Task<IActionResult> google()
         {
-            var userId = "6142dea4-91e4-4c34-b873-d37ab8b75be3";
-            var tokenConfirmation = await _userManager.GenerateEmailConfirmationTokenAsync(userId);
+            var userId = "cf5c47b2-9000-4124-8232-d5ff6597d2d2";
+            string tokenConfirmation = await _userManager.GenerateEmailConfirmationTokenAsync(userId);
 
-            var response = await _mediator.Send(new QuerySendConfirmationByEmail(Guid.Parse(userId),tokenConfirmation));
 
+            var url = Url.Action(nameof(VerifyEmail), "Home", new {userId = userId, tokenConfirmation = tokenConfirmation},
+                Request.Scheme, Request.Host.ToString());
+            var d = Request.Scheme;
+            var k = Request.Host.ToString();
+            
+            var urlAccept =
+                $@"https://localhost:5001/Store/Home/VerifyEmail?userId={userId}&tokenConfirmation={tokenConfirmation}";
+            await _emailService.SendEmailAsync("pavell.urusov8@gmail.com", "pavel", "confirm", urlAccept + "  \n" + url);
             return Ok();
         }
 
@@ -75,10 +82,8 @@ namespace Store.WebAPI.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> VerifyEmail(string userId, string tokenConfirmation)
         {
-            var user = await _userManager.FindByIdAsync(userId);
-
+            var user = await _userManager.FindByIdAsync("cf5c47b2-9000-4124-8232-d5ff6597d2d2");
             if (user == null) return BadRequest();
-
             var result = await _userManager.ConfirmEmailAsync(user, tokenConfirmation);
 
             if (result.Succeeded)
