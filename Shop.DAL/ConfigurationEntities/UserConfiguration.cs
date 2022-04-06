@@ -12,7 +12,6 @@ namespace Store.DAL.ConfigurationEntities
             builder.ToTable("Users").HasKey(u => u.Id);
 
             builder.Ignore(u => u.AccessFailedCount);
-            builder.Ignore(u => u.EmailConfirmed);
             builder.Ignore(u => u.LockoutEnabled);
             builder.Ignore(u => u.LockoutEnd);
             builder.Ignore(u => u.TwoFactorEnabled);

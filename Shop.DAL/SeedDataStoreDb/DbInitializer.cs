@@ -124,7 +124,8 @@ namespace Store.DAL.SeedDataStoreDb
                 NormalizedUserName = userManager.NormalizeName("Pavel"),
                 PhoneNumber = "+375333226602",
                 Country = country,
-                CountryId = country.Id
+                CountryId = country.Id,
+                EmailConfirmed = true
             };
             var admin2 = new User
             {
@@ -134,7 +135,8 @@ namespace Store.DAL.SeedDataStoreDb
                 NormalizedUserName = userManager.NormalizeName("Sergei"),
                 PhoneNumber = "+375336212291",
                 Country = country,
-                CountryId = country.Id
+                CountryId = country.Id,
+                EmailConfirmed = true
             };
 
             admin1.PasswordHash = passwordHasher.HashPassword(admin1, admin1Password);

@@ -4,6 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Store.BusinessLogic.Common;
+using MailKit;
+using Store.BusinessLogic.Services.AuthGoogle;
+using Store.BusinessLogic.Services.EmailService;
 
 namespace Store.WebAPI
 {
@@ -19,6 +22,10 @@ namespace Store.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddServices(Configuration);
+            services.Configure<EmailConfigure>(Configuration.GetSection("Email"));
+            services.Configure<GoogleConfiguration>(Configuration.GetSection("Google"));
+            services.AddScoped(typeof(IEmailService), typeof(EmailService));
+            services.AddScoped(typeof(IAuthGoogleService), typeof(AuthGoogleService));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

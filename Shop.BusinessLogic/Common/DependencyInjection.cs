@@ -44,7 +44,7 @@ namespace Store.BusinessLogic.Common
                 options.Password.RequireLowercase = false;
                 options.Password.RequireNonAlphanumeric = true;
                 options.Password.RequireUppercase = false;
-                options.SignIn.RequireConfirmedEmail = false;
+                options.SignIn.RequireConfirmedEmail = true;
                 options.SignIn.RequireConfirmedPhoneNumber = false;
             });
 
