@@ -80,7 +80,7 @@ namespace Store.WebAPI.Controllers
             var result = await _userManager.ConfirmEmailAsync(user, tokenConfirmation);
             if (result.Succeeded)//successful
             {
-                return Redirect("http://localhost:3000");
+                return Redirect("http://localhost:3000/email/confirm/success");
             }
             return BadRequest();//the link is not valid
         }

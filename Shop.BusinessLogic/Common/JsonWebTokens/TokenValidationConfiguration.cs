@@ -15,10 +15,10 @@ namespace Store.BusinessLogic.Common.JsonWebTokens
 
         public TokenValidationParameters AccessTokenParameters => new()
         {
-            ValidateIssuer = false,
+            ValidateIssuer = true,
             ValidateAudience = false,
-            ValidateLifetime = false,
-            ValidateIssuerSigningKey = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
             ValidIssuer = _configuration["Jwt:Issuer"],
             ValidAudience = _configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]))
