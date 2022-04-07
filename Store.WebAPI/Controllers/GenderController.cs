@@ -36,7 +36,7 @@ namespace Store.WebAPI.Controllers
         }
 
         [AllowAnonymous]
-        [Route("Get")]
+        [Route("GetAll")]
         [HttpGet]
         public async Task<IActionResult> GetAllGenders()
         {

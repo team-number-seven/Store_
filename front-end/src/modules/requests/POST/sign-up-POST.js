@@ -1,17 +1,19 @@
-
+const CONFIG = require('../../../jsconfig.json');
 export const SignUpPOST = async (user) => {
 
     return new Promise(async (resolve, reject) => {
         debugger;
-        const response = await fetch("https://localhost:5001/Store/User/SignUp", {
+        const response = await fetch(CONFIG["server"] + CONFIG.requests.POST["sign-up"], {
+            mode: CONFIG["requestMode"],
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json; charset=utf-8',
+                'Content-Type': CONFIG["content-type-URL8"],
                 'UserName': user.UserName,
                 'Email': user.Email,
                 'Password': user.Password,
                 'CountryId': user.CountryId,
-                'PhoneNumber': user.PhoneNumber
+                'PhoneNumber': user.PhoneNumber,
+                'Access-Control-Allow-Origin': CONFIG.server,
             }
         });
         if (response.ok) {

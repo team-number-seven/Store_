@@ -1,14 +1,18 @@
 import {JWT_decoder} from "../../utilites/jwt-decoder/jwt-decoder";
+const CONFIG = require('../../../jsconfig.json');
+
 
 
 export const SignInPOST = async (user) => {
     return new Promise(async (resolve, reject) => {
-        const response = await fetch("https://localhost:5001/Store/User/SignIn", {
+        const response = await fetch(CONFIG["server"]+CONFIG.requests.POST["sign-in"], {
+            mode: CONFIG["requestMode"],
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json; charset=utf-8',
+                'Content-Type': CONFIG["content-type-URL8"],
                 'Email': user.Email,
-                'Password': user.Password
+                'Password': user.Password,
+                'Access-Control-Allow-Origin': CONFIG["server"],
             }
         });
         if (response.ok) {

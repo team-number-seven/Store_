@@ -6,6 +6,10 @@ import {KidsPage} from "../common/components/pages/kids-page/kids-page";
 import {SignIn} from "../common/components/sign-in/sign-in";
 import {SignUp} from "../common/components/sign-up/sign-up";
 import {ProfilePage} from "../common/components/pages/profile-page/profile-page";
+import {ItemCreate} from "../common/components/item-create/item-create";
+import {EmailSuccess} from "../common/components/email/confirm/email-success/email-success";
+import {EmailExist} from "../common/components/email/confirm/email-exist/email-exist";
+import {EmailNotFound} from "../common/components/email/confirm/email-not-found/email-not-found";
 
 
 export const MainRoutes = ({USER, userAuth, auth}) => {
@@ -23,10 +27,12 @@ export const MainRoutes = ({USER, userAuth, auth}) => {
 
                 <Route path={'/'} element={<HomePage/>}>
                     <Route path={'sign-up'} element={
-                        !auth ? <SignUp USER={USER} userToMainRoutes={userToMainRoutesHandler}/> : <Navigate to={'../'} replace={true}/>
+                        !auth ? <SignUp USER={USER} userToMainRoutes={userToMainRoutesHandler}/> :
+                            <Navigate to={'../'} replace={true}/>
                     }/>
                     <Route path={'sign-in'} element={
-                        !auth ? <SignIn USER={USER} userToMainRoutes={userToMainRoutesHandler}/> : <Navigate to={'../'} replace={true}/>
+                        !auth ? <SignIn USER={USER} userToMainRoutes={userToMainRoutesHandler}/> :
+                            <Navigate to={'../'} replace={true}/>
                     }/>
                 </Route>
                 <Route path={'men'} element={<MenPage/>}/>
@@ -36,6 +42,16 @@ export const MainRoutes = ({USER, userAuth, auth}) => {
                     path={'profile'}
                     element={auth ? <ProfilePage/> : <Navigate to={'../sign-in'} replace={true}/>}
                 />
+                <Route
+                    path={'item-create'}
+                    element={auth ? <ItemCreate/> : <Navigate to={'../sign-in'} replace={true}/>}
+                />
+
+                <Route path={'email/confirm/success'} element={<EmailSuccess/>}/>
+                <Route path={'email/confirm/exist'} element={<EmailExist/>}/>
+                <Route path={'email/confirm/not-found'} element={<EmailNotFound/>}/>
+
+
             </Routes>
         </>
     )

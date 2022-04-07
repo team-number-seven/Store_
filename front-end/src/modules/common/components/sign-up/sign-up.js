@@ -1,4 +1,4 @@
-import {SignUpForm} from "../sign-up-form/sign-up-form";
+import {SignUpForm} from "./sign-up-form/sign-up-form";
 import {SignUpPOST} from "../../../requests/POST/sign-up-POST";
 import {SignInPOST} from "../../../requests/POST/sign-in-POST";
 import {InitUserWithResolve} from "../../../requests/initUserWithResolve";
@@ -10,9 +10,9 @@ export const SignUp = ({userToMainRoutes}) => {
     if (Countries.length === 0) {
         CountriesGET().then((value) => {
             setCountries(value);
+            console.log(value);
         });
     }
-    debugger;
 
     const onSignUpHandler = (user) => {
         SignUpPOST(user).then(

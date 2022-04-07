@@ -6,6 +6,7 @@ export const Header = ({auth}) => {
         {!auth ? <Link to='/sign-up'>Sign Up</Link> : <></>}
         {!auth ? <Link to='/sign-in'>Sign In</Link> : <></>}
         {auth ? <Link to='/profile'>Profile</Link> : <></>}
+        {auth ? <Link to='/item-create'>Create Item</Link> : <></>}
 
     </header>)
 }
