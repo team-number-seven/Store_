@@ -23,9 +23,13 @@ namespace Store.BusinessLogic.Queries.UserQueries.RefreshTokens
         private readonly TokenValidationConfiguration _tokenValidationConfiguration;
         private readonly UserManager<User> _userManager;
 
-        public HandlerRefreshTokens(ITokensGenerator tokensGenerator, ILogger<HandlerRefreshTokens> logger,
-            UserManager<User> userManager, TokenValidationConfiguration tokenValidationConfiguration,
-            IStoreDbContext context)
+        public HandlerRefreshTokens(
+            ITokensGenerator tokensGenerator,
+            ILogger<HandlerRefreshTokens> logger,
+            UserManager<User> userManager,
+            TokenValidationConfiguration tokenValidationConfiguration,
+            IStoreDbContext context
+        )
         {
             _tokensGenerator = tokensGenerator;
             _logger = logger;
@@ -42,15 +46,17 @@ namespace Store.BusinessLogic.Queries.UserQueries.RefreshTokens
             var user = await _userManager.FindByIdAsync(id!.Value);
 
             var accessToken = await _tokensGenerator.GenerateAccessTokenAsync(user, cancellationToken);
-            var refreshToken = await _tokensGenerator.GenerateRefreshToken(user, cancellationToken);
+            var refreshToken = await _tokensGenerator.GenerateRefreshTokenAsync(user, cancellationToken);
             var result = await _userManager.SetUserRefreshTokenAsync(_context, user, refreshToken, "Default");
             if (result is false)
             {
-                _logger.LogInformation(MHFL.NameObjectIsNullOrEmptyMessage("provider or user"));
+                _logger.LogInformation(LoggerMessages.ObjectPropertyIsNullOrEmptyMessage("provider or user"));
+
                 return new ResponseBase("Invalid user or provider", HttpStatusCode.BadRequest);
             }
 
-            _logger.LogInformation(MHFL.Done("Handle", id.ToString()));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle", id.ToString()));
+
             return new ResponseRefreshTokens(accessToken, refreshToken);
         }
     }

@@ -29,7 +29,7 @@ namespace Store.BusinessLogic.Commands.ImageCommand
 
         public async Task<ResponseBase> Handle(CreateImageCommand request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation(MHFL.Done("Start Handler"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Start Handler"));
             var dto = request.Images;
             var item = await _context.Items.FindAsync(dto.ItemId);
             var images = new List<ItemImage>();
@@ -54,7 +54,7 @@ namespace Store.BusinessLogic.Commands.ImageCommand
             task.Start();
             task.Wait(cancellationToken);
             await _context.Images.AddRangeAsync(images, cancellationToken);
-            _logger.LogInformation(MHFL.Done("End Handler"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("End Handler"));
 
             return new CreateImageResponse(images.Select(x => x.Id).ToList());
         }

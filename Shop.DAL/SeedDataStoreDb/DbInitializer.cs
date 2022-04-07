@@ -101,12 +101,10 @@ namespace Store.DAL.SeedDataStoreDb
 
         public static async Task InitializeRoles(RoleManager<Role> roleManager, string pathTxt)
         {
-            using (var reader = new StreamReader(pathTxt))
-            {
-                string role;
-                while ((role = await reader.ReadLineAsync()) is not null)
-                    await roleManager.CreateAsync(new Role {Name = role});
-            }
+            using var reader = new StreamReader(pathTxt);
+            string role;
+            while ((role = await reader.ReadLineAsync()) is not null)
+                await roleManager.CreateAsync(new Role {Name = role});
         }
 
         public static async Task InitializeUsers(UserManager<User> userManager, IPasswordHasher<User> passwordHasher,
@@ -179,19 +177,17 @@ namespace Store.DAL.SeedDataStoreDb
         public static async Task InitializeBrands(StoreDbContext context, string pathTxt)
         {
             var brands = new List<Brand>();
-            using (var reader = new StreamReader(pathTxt))
+            using var reader = new StreamReader(pathTxt);
+            string brand;
+            while ((brand = await reader.ReadLineAsync()) is not null)
             {
-                string brand;
-                while ((brand = await reader.ReadLineAsync()) is not null)
-                {
-                    var brandAndCountry = brand.Split("|");
-                    var country = await context.Countries.FirstOrDefaultAsync(c => c.Name == brandAndCountry[1]);
-                    brands.Add(new Brand {Country = country, CountryId = country.Id, Title = brandAndCountry[0]});
-                }
-
-                await context.Brands.AddRangeAsync(brands);
-                await context.SaveChangesAsync();
+                var brandAndCountry = brand.Split("|");
+                var country = await context.Countries.FirstOrDefaultAsync(c => c.Name == brandAndCountry[1]);
+                brands.Add(new Brand {Country = country, CountryId = country.Id, Title = brandAndCountry[0]});
             }
+
+            await context.Brands.AddRangeAsync(brands);
+            await context.SaveChangesAsync();
         }
     }
 }

@@ -10,8 +10,13 @@ namespace Store.BusinessLogic.Common.Extensions
 {
     public static class UserManagerExtension
     {
-        public static async Task<bool> VerifyUserRefreshTokenAsync(this UserManager<User> userManager,
-            IStoreDbContext context, User user, string refreshToken, string provider)
+        public static async Task<bool> VerifyUserRefreshTokenAsync(
+            this UserManager<User> userManager,
+            IStoreDbContext context, 
+            User user, 
+            string refreshToken, 
+            string provider
+            )
         {
             var userRefreshToken =
                 await context.Tokens.FirstOrDefaultAsync(t => t.UserId == user.Id && t.LoginProvider == provider);
@@ -21,21 +26,27 @@ namespace Store.BusinessLogic.Common.Extensions
             if (userRefreshToken.Value != refreshToken ||
                 long.Parse(userRefreshToken.Expire) < DateTimeOffset.Now.ToUnixTimeSeconds())
                 return false;
+
             return true;
         }
 
         public static async Task<bool> SetUserRefreshTokenAsync(this UserManager<User> userManager,
             IStoreDbContext context,
-            User user, RefreshToken refreshToken, string provider)
+            User user, 
+            RefreshToken refreshToken, 
+            string provider
+            )
         {
             var userRefreshToken =
                 await context.Tokens.FirstOrDefaultAsync(t => t.UserId == user.Id && t.LoginProvider == provider);
             if (userRefreshToken is null)
                 return false;
+
             userRefreshToken.Expire = refreshToken.Expires;
             userRefreshToken.Value = refreshToken.Token;
             context.Tokens.Update(userRefreshToken);
             await context.SaveChangesAsync();
+
             return true;
         }
     }

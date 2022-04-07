@@ -6,7 +6,7 @@ using Store.DAL.Entities;
 
 namespace Store.BusinessLogic.Common.Extensions
 {
-    public static class IQueryableExtensions
+    public static class QueryableExtensions
     {
         public static IQueryable<Item> FilterByGender(this IQueryable<Item> items, IList<Guid> gendersId)
         {

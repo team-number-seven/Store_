@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using MailKit.Net.Smtp;
-using MailKit.Security;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MimeKit;
@@ -50,7 +45,7 @@ namespace Store.BusinessLogic.Services.EmailService
                     await client.DisconnectAsync(true);
                 }
 
-                _logger.LogInformation(MHFL.Done("SendEmailAsync"));
+                _logger.LogInformation(LoggerMessages.DoneMessage("SendEmailAsync"));
             }
             catch (Exception ex)
             {

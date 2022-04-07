@@ -31,7 +31,7 @@ namespace Store.BusinessLogic.Queries.ItemTypeQueries.GetAllTypeAndSubType
         {
             var types = await _context.ItemTypes.ToListAsync(cancellationToken);
             var itemTypesAndSubTypesDto = await CreateItemTypeAndSubTypeDtoAsync(types, cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handler"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handler"));
             return new ResponseGetAllTypeAndSubType(itemTypesAndSubTypesDto);
         }
 

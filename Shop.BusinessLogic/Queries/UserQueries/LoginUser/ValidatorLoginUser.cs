@@ -22,7 +22,7 @@ namespace Store.BusinessLogic.Queries.UserQueries.LoginUser
         public async Task<ValidationResult> Validate(QueryLoginUser request, CancellationToken cancellationToken)
         {
             if (request.User is null)
-                return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
+                return ValidationResult.Fail(LoggerMessages.ObjectIsNullOrEmptyMessage);
             var user = await _userManager.FindByEmailAsync(request.User.Email);
             if (user is null)
                 return ValidationResult.Fail("Username or password is incorrect");

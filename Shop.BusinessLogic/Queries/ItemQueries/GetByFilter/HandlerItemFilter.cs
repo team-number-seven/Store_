@@ -34,7 +34,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
         {
             var filteredItems = await FilterItemsAsync(_context.Items.AsQueryable(), request.Query, cancellationToken);
             var itemsDto = await CreateItemsDtoAsync(filteredItems, cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
             return new ResponseItemFilter(itemsDto);
         }
 

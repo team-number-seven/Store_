@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Security.Policy;
+﻿using System.IO;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Options;
@@ -57,16 +52,19 @@ namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
             var body = await CreateFormAsync(urlConfirm, urlDecline);
 
             await _emailService.SendEmailAsync(user.Email, user.UserName, "Email confirmation", body);
+
             return new ResponseSendConfirmationByEmail(user.Id);
         }
 
         private async Task<string> CreateFormAsync(string urlConfirm,string urlDecline,string pathForm = null)
         {
+            // TODO Magic words
             var htmlForm =
                 new StringBuilder(await File.ReadAllTextAsync(
-                    @"D:\Projects\GitHub\Store\Shop.BusinessLogic\Common\HTML\EmailConfirmation.html"));
+                    @"D:\Repositories\Store\Shop.BusinessLogic\Common\HTML\EmailConfirmation.html"));
             htmlForm.Replace("COFIRMEMAIL", urlConfirm);
             htmlForm.Replace("COFIRMEMAIL", urlConfirm);
+
             return htmlForm.ToString();
 
         }

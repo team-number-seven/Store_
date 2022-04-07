@@ -30,7 +30,8 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetAllCountries
         {
             var countries = await _context.Countries.ToListAsync(cancellationToken);
             var countriesDto = await CreateCountriesDtoAsync(countries, cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+
             return new ResponseGetAllCountries(countriesDto);
         }
 
@@ -40,6 +41,7 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetAllCountries
             var countriesDto = new List<CountryDto>();
             await Task.Run(() => { countriesDto.AddRange(countries.Select(c => _mapper.Map<CountryDto>(c))); },
                 cancellationToken);
+
             return countriesDto;
         }
     }

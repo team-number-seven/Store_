@@ -32,18 +32,18 @@ namespace Store.BusinessLogic.Behaviours
             var requestName = request.GetType();
             if (_validationHandler == null)
             {
-                _logger.LogInformation($"{MHFL.Time}{requestName} does not have a validation handler configured.");
+                _logger.LogInformation($"{LoggerMessages.Time}{requestName} does not have a validation handler configured.");
                 return await next();
             }
 
             var result = await _validationHandler.Validate(request, cancellationToken);
             if (!result.IsSuccessful)
             {
-                _logger.LogWarning($"{MHFL.Time}Validation failed for {requestName}. Error: {result.Error}");
+                _logger.LogWarning($"{LoggerMessages.Time}Validation failed for {requestName}. Error: {result.Error}");
                 return new TResponse {StatusCode = HttpStatusCode.BadRequest, ErrorMessage = result.Error};
             }
 
-            _logger.LogInformation($"{MHFL.Time}Validation successful for {requestName}.");
+            _logger.LogInformation($"{LoggerMessages.Time}Validation successful for {requestName}.");
             return await next();
         }
     }

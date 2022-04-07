@@ -19,8 +19,11 @@ namespace Store.BusinessLogic.Commands.ImageCommand
         public async Task<ValidationResult> Validate(CreateImageCommand request, CancellationToken cancellationToken)
         {
             var dto = request.Images;
+
             if (await _context.Items.FindAsync(dto.ItemId) is null)
-                return ValidationResult.Fail(MHFL.NotFount("Item"));
+                return ValidationResult.Fail(LoggerMessages.NotFoundMessage("Item"));
+
+            // TODO await function
             var task = new Task<ValidationResult>(() =>
             {
                 foreach (var file in dto.Files)
@@ -30,6 +33,7 @@ namespace Store.BusinessLogic.Commands.ImageCommand
             });
             task.Start();
             task.Wait();
+
             return task.Result;
         }
     }

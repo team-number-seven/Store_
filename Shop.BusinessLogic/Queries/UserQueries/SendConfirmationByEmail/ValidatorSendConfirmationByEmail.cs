@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Store.BusinessLogic.Common;
@@ -26,7 +22,7 @@ namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
         public async Task<ValidationResult> Validate(QuerySendConfirmationByEmail request, CancellationToken cancellationToken)
         {
             if (await _context.Users.FindAsync(request.UserId) is null)
-                return ValidationResult.Fail(MHFL.NotFount($"user id[{request.UserId}]"));
+                return ValidationResult.Fail(LoggerMessages.NotFoundMessage($"user id[{request.UserId}]"));
             return ValidationResult.Success;
         }
     }

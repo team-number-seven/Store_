@@ -54,17 +54,20 @@ namespace Store.BusinessLogic.Common.JsonWebTokens
 
             if (token.Payload.Exp is not null)
             {
-                _logger.LogInformation(MHFL.Done("GenerateAccessTokenAsync", user.Id.ToString()));
+                _logger.LogInformation(LoggerMessages.DoneMessage("GenerateAccessTokenAsync", user.Id.ToString()));
+
                 return new AccessToken(new JwtSecurityTokenHandler().WriteToken(token),
                     token.Payload.Exp.Value.ToString());
             }
 
             _logger.LogCritical("TokensGenerator.GenerateAccessTokenAsync() generate token.Payload.Exp == null");
-            throw new ArgumentNullException("token.Payload.Exp can not be null");
+
+            throw new ArgumentNullException($"token. Payload.Exp can't be null");
         }
 
-        public async Task<RefreshToken> GenerateRefreshToken(User user, CancellationToken cancellationToken)
+        public async Task<RefreshToken> GenerateRefreshTokenAsync(User user, CancellationToken cancellationToken)
         {
+            // TODO Token provider
             var token = await _userManager.GenerateUserTokenAsync(user, "Default", "RefreshToken");
             var expires = ((DateTimeOffset) DateTime.Now.AddDays(60)).ToUnixTimeSeconds().ToString();
             return new RefreshToken(token, expires);

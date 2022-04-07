@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Store.BusinessLogic.Common.Extensions
 {
-    public static class IFormFileExtensions
+    public static class FormFileExtensions
     {
         public static string GetImageFormat(this IFormFile file)
         {

@@ -30,7 +30,7 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetAllGenders
         {
             var genders = await _context.Genders.ToListAsync(cancellationToken);
             var gendersDto = await CreateGendersDtoAsync(genders, cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
             return new ResponseGetAllGenders(gendersDto);
         }
 
