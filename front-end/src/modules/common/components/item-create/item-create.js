@@ -9,15 +9,15 @@ import {TypesGET} from "../../../requests/GET/types-GET";
 import {ItemCreateForm} from "./item-create-form/item-create-form";
 
 export const ItemCreate = () => {
-    const [Brands, setBrands] = useState(undefined);
-    const [Colors, setColors] = useState(undefined);
-    const [Sizes, setSizes] = useState(undefined);
-    const [Ages, setAges] = useState(undefined);
-    const [Seasons, setSeasons] = useState(undefined);
-    const [Genders, setGenders] = useState(undefined);
-    const [Types, setTypes] = useState(undefined);
+    const [Brands, setBrands] = useState([]);
+    const [Colors, setColors] = useState([]);
+    const [Sizes, setSizes] = useState([]);
+    const [Ages, setAges] = useState([]);
+    const [Seasons, setSeasons] = useState([]);
+    const [Genders, setGenders] = useState([]);
+    const [Types, setTypes] = useState([]);
 
-    if (typeof Brands === 'undefined') {
+    if (Brands.length === 0) {
         AgesGET().then((value) => {
             setAges(value);
         });
@@ -41,7 +41,11 @@ export const ItemCreate = () => {
         });
     }
 
-    return(
-        <ItemCreateForm/>
+    return (
+        <ItemCreateForm
+            Brands={Brands} Colors={Colors} Sizes={Sizes}
+            Ages={Ages} Seasons={Seasons} Genders={Genders}
+            Types={Types}
+        />
     )
 }

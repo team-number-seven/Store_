@@ -22,7 +22,6 @@ export default function App() {
 
             <Header auth={userExist}/>
             <MainRoutes USER={user} userAuth={userAuthHandler} auth={userExist}/>
-            <ItemCreate/>
             <Footer/>
         </>
     )

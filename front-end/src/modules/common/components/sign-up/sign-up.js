@@ -6,10 +6,11 @@ import {CountriesGET} from "../../../requests/GET/countries-GET";
 import {useState} from "react";
 
 export const SignUp = ({userToMainRoutes}) => {
-    const [Countries, setCountries] = useState(undefined);
-    if (typeof Countries === 'undefined') {
+    const [Countries, setCountries] = useState([]);
+    if (Countries.length === 0) {
         CountriesGET().then((value) => {
             setCountries(value);
+            console.log(value);
         });
     }
 

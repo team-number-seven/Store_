@@ -15,7 +15,6 @@ export const GendersGET = async () => {
             'Access-Control-Allow-Origin': CONFIG["origin"]
         }
     });
-    debugger;
     if (response.ok) {
         let json = await response.json();
         const data = json.genders;
