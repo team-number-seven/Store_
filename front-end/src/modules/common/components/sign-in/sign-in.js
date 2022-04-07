@@ -1,4 +1,4 @@
-import {SignInForm} from "../sign-in-form/sign-in-form";
+import {SignInForm} from "./sign-in-form/sign-in-form";
 import {SignInPOST} from "../../../requests/POST/sign-in-POST";
 import {InitUserWithResolve} from "../../../requests/initUserWithResolve";
 

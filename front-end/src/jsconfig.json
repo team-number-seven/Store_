@@ -1,5 +1,22 @@
 {
-  "origin": "https://localhost:3000",
+  "origin": "http://localhost:3000",
   "server": "https://localhost:5001/Store",
-  "content-type-URL8":"application/json; charset=utf-8"
+  "content-type-URL8": "application/json; charset=utf-8",
+  "requestMode": "cors",
+  "requests": {
+    "POST": {
+      "sign-up": "/User/SignUp",
+      "sign-in": "/User/SignIn"
+    },
+    "GET": {
+      "countries": "/Country/Get",
+      "ages": "/AgeType/Get",
+      "brands": "/Brand/Get",
+      "colors": "/Color/Get",
+      "genders": "/Gender/GetAll",
+      "sizes": "/SizeTypeItem/Get",
+      "seasons": "/SeasonItem/Get",
+      "types": "/ItemType/Get"
+    }
+  }
 }

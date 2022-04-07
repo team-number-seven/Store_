@@ -1,6 +1,6 @@
 import {useForm} from "react-hook-form";
 import {Link} from "react-router-dom";
-import {CountryList} from "../country-list/country-list";
+import {CountryList} from "../../country-list/country-list";
 
 export const SignUpForm = ({onSignUp,Countries})=>{
 

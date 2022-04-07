@@ -1,3 +1,5 @@
+const CONFIG = require('../../../jsconfig.json');
+
 export const CountriesGET = async () => {
 
     class Country {
@@ -7,17 +9,16 @@ export const CountriesGET = async () => {
         }
     }
 
-    const response = await fetch('https://localhost:5001/Store/Country/Get');
-
+    const response = await fetch(CONFIG["server"] + CONFIG.requests.GET["countries"]);
     if (response.ok) {
         let json = await response.json();
         const data = json.countries;
 
-        const Countries = data.map((country) => {
+        let Countries = [];
+        Countries = data.map((country) => {
             if (country) return new Country(country.id, country.name);
             else throw new Error('Failed to operate countries');
         });
-        debugger;
         return Countries;
 
     } else {

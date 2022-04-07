@@ -1,4 +1,4 @@
-import {SignUpForm} from "../sign-up-form/sign-up-form";
+import {SignUpForm} from "./sign-up-form/sign-up-form";
 import {SignUpPOST} from "../../../requests/POST/sign-up-POST";
 import {SignInPOST} from "../../../requests/POST/sign-in-POST";
 import {InitUserWithResolve} from "../../../requests/initUserWithResolve";
@@ -6,13 +6,12 @@ import {CountriesGET} from "../../../requests/GET/countries-GET";
 import {useState} from "react";
 
 export const SignUp = ({userToMainRoutes}) => {
-    const [Countries, setCountries] = useState([]);
-    if (Countries.length === 0) {
+    const [Countries, setCountries] = useState(undefined);
+    if (typeof Countries === 'undefined') {
         CountriesGET().then((value) => {
             setCountries(value);
         });
     }
-    debugger;
 
     const onSignUpHandler = (user) => {
         SignUpPOST(user).then(
