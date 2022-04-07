@@ -1,24 +1,13 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Gmail.v1;
-using MailKit.Net.Smtp;
+﻿using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using MimeKit;
-using Store.BusinessLogic.Commands.ItemCommands.ItemCreate;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
-using Store.BusinessLogic.Common.DataTransferObjects;
 using Store.BusinessLogic.Common.Extensions;
 using Store.BusinessLogic.Queries.CountryQueries.GetAllCountries;
-using Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail;
 using Store.BusinessLogic.Services.EmailService;
 using Store.DAL.Entities;
-using System.IO;
 
 namespace Store.WebAPI.Controllers
 {

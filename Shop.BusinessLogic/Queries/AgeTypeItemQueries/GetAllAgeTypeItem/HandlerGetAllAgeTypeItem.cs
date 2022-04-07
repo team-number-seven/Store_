@@ -31,7 +31,8 @@ namespace Store.BusinessLogic.Queries.AgeTypeItemQueries.GetAllAgeTypeItem
         {
             var ageItemTypes = await _context.AgeTypes.ToListAsync(cancellationToken);
             var ageTypesItemDto = await CreateAgeTypeItemDtoAsync(ageItemTypes, cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+
             return new ResponseGetAllAgeTypeItem(ageTypesItemDto);
         }
 

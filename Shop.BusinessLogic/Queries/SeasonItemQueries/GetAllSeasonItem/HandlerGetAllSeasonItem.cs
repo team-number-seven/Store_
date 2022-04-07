@@ -30,7 +30,8 @@ namespace Store.BusinessLogic.Queries.SeasonItemQueries.GetAllSeasonItem
         {
             var seasonsItem = await _context.SeasonItems.ToListAsync(cancellationToken);
             var seasonsItemDto = await CreateSeasonItemDtoAsync(seasonsItem, cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+
             return new ResponseGetAllSeasonItem(seasonsItemDto);
         }
 
@@ -41,6 +42,7 @@ namespace Store.BusinessLogic.Queries.SeasonItemQueries.GetAllSeasonItem
             await Task.Run(
                 () => { seasonsItemDto.AddRange(seasonsItem.Select(season => _mapper.Map<SeasonItemDto>(season))); },
                 cancellationToken);
+
             return seasonsItemDto;
         }
     }

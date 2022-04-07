@@ -55,7 +55,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             await _context.CharacteristicItems.AddAsync(characteristic, cancellationToken);
             await _context.Items.AddAsync(newItem, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handler"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handler"));
             return new ResponseItemCreate(newItem.Id);
         }
 

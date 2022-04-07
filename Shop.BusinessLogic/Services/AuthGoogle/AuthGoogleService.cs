@@ -31,6 +31,7 @@ namespace Store.BusinessLogic.Services.AuthGoogle
                 ClientSecrets = secrets
             }), _googleOptions.UserId, tokenResponse);
             await userCredential.GetAccessTokenForRequestAsync();
+
             return new SaslMechanismOAuth2(userCredential.UserId, userCredential.Token.AccessToken);
 
         }

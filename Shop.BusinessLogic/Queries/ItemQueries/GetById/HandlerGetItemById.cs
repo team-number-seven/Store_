@@ -31,7 +31,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetById
             var item = await _context.Items.FindAsync(request.Id);
             var result = _mapper.Map<ItemDto>(item);
             result.Images = await LoadImagesAsync(item, cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handler"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handler"));
             return new ResponseGetItemById(result);
         }
 

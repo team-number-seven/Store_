@@ -25,7 +25,7 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
         public async Task<ResponseBase> Handle(QueryGetCountryById request, CancellationToken cancellationToken)
         {
             var country = await _context.Countries.FindAsync(request.Id);
-            _logger.LogInformation(MHFL.Done("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
             return new ResponseGetCountryById(_mapper.Map<CountryDto>(country));
         }
     }

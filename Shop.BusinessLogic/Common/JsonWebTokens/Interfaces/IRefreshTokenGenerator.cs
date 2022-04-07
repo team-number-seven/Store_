@@ -7,6 +7,6 @@ namespace Store.BusinessLogic.Common.JsonWebTokens.Interfaces
 {
     public interface IRefreshTokenGenerator
     {
-        Task<RefreshToken> GenerateRefreshToken(User user, CancellationToken cancellationToken);
+        Task<RefreshToken> GenerateRefreshTokenAsync(User user, CancellationToken cancellationToken);
     }
 }

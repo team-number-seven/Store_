@@ -28,7 +28,8 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllColors()
         {
             var response = await _mediator.Send(new QueryGetAllColors());
-            _logger.LogInformation($"{MHFL.Done("GetAllColors", User?.FindFirstValue("Id"))}");
+            _logger.LogInformation($"{LoggerMessages.DoneMessage("GetAllColors", User?.FindFirstValue("Id"))}");
+
             return StatusCode((int) response.StatusCode, response);
         }
     }

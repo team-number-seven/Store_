@@ -30,7 +30,8 @@ namespace Store.BusinessLogic.Queries.BrandQueries.GetAllBrands
         {
             var brands = await _context.Brands.ToListAsync(cancellationToken);
             var brandsDto = await CreateBrandsDtoAsync(brands, cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+
             return new ResponseGetAllBrands(brandsDto);
         }
 
@@ -40,6 +41,7 @@ namespace Store.BusinessLogic.Queries.BrandQueries.GetAllBrands
             var brandsDto = new List<BrandDto>();
             await Task.Run(() => { brandsDto.AddRange(brands.Select(brand => _mapper.Map<BrandDto>(brand))); },
                 cancellationToken);
+
             return brandsDto;
         }
     }

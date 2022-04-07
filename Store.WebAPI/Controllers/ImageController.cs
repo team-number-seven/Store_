@@ -27,9 +27,11 @@ namespace Store.WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] ImageCreateDto request)
         {
-            var item = await _mediator.Send(new QueryGetItemById(request.ItemId)) as ResponseGetItemById;
+            // TODO
+            _ = await _mediator.Send(new QueryGetItemById(request.ItemId)) as ResponseGetItemById;
             var response = await _mediator.Send(new CreateImageCommand(request));
-            _logger.LogInformation(MHFL.Done("Create", User?.FindFirstValue("Id")));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Create", User?.FindFirstValue("Id")));
+
             return StatusCode((int) response.StatusCode, response);
         }
     }

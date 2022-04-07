@@ -19,9 +19,15 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetGenderById
         public async Task<ValidationResult> Validate(QueryGenderById request, CancellationToken cancellationToken)
         {
             if (request.Id == Guid.Empty)
-                return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
+            {
+                return ValidationResult.Fail(LoggerMessages.ObjectIsNullOrEmptyMessage);
+            }
+
             if (await _context.Genders.FindAsync(request.Id) is null)
-                return ValidationResult.Fail(MHFL.NotFount("Gender"));
+            {
+                return ValidationResult.Fail(LoggerMessages.NotFoundMessage("Gender"));
+            }
+
             return ValidationResult.Success;
         }
     }

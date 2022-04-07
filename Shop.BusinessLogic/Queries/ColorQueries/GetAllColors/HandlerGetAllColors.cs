@@ -30,7 +30,8 @@ namespace Store.BusinessLogic.Queries.ColorQueries.GetAllColors
         {
             var colors = await _context.Colors.ToListAsync(cancellationToken);
             var colorsDto = await CreateColorsDtoAsync(colors, cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+
             return new ResponseGetAllColors(colorsDto);
         }
 
@@ -40,6 +41,7 @@ namespace Store.BusinessLogic.Queries.ColorQueries.GetAllColors
             var colorsDto = new List<ColorDto>();
             await Task.Run(() => { colorsDto.AddRange(colors.Select(c => _mapper.Map<ColorDto>(c))); },
                 cancellationToken);
+
             return colorsDto;
         }
     }

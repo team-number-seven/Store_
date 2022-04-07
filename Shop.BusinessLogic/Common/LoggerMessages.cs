@@ -2,32 +2,33 @@
 
 namespace Store.BusinessLogic.Common
 {
-    public static class MHFL //MessageHelperForLogger)))
+    // Good practice
+    public static class LoggerMessages //MessageHelperForLogger)))
     {
         public static string Time => $"[{DateTime.Now:G}]";
         public static string ObjectIsNullOrEmptyMessage => "The object cannot be null";
 
-        public static string NameObjectIsNullOrEmptyMessage(string Name)
+        public static string ObjectPropertyIsNullOrEmptyMessage(string Name)
         {
             return $"The {Name} cannot be null";
         }
 
-        public static string Done(string methodName)
+        public static string DoneMessage(string methodName)
         {
             return $"{Time}The {methodName} method done";
         }
 
-        public static string Done(string methodName, string id)
+        public static string DoneMessage(string methodName, string id)
         {
             return $"{Time}The {methodName} method done with userId[{id}]";
         }
 
-        public static string ObjectExists(string nameObject)
+        public static string ObjectExistsMessage(string nameObject)
         {
             return $"The {nameObject} already exists";
         }
 
-        public static string NotFount(string name)
+        public static string NotFoundMessage(string name)
         {
             return $"The {name} not found";
         }

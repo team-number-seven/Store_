@@ -19,9 +19,15 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
         public async Task<ValidationResult> Validate(QueryGetCountryById request, CancellationToken cancellationToken)
         {
             if (Guid.Empty == request.Id)
-                return ValidationResult.Fail(MHFL.ObjectIsNullOrEmptyMessage);
+            {
+                return ValidationResult.Fail(LoggerMessages.ObjectIsNullOrEmptyMessage);
+            }
+
             if (await _context.Countries.FindAsync(request.Id) is null)
-                return ValidationResult.Fail(MHFL.NotFount("Country"));
+            {
+                return ValidationResult.Fail(LoggerMessages.NotFoundMessage("Country"));
+            }
+
             return ValidationResult.Success;
         }
     }

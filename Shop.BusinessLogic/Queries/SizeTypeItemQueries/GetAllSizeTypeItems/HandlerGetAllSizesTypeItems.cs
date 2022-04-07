@@ -31,7 +31,8 @@ namespace Store.BusinessLogic.Queries.SizeTypeItemQueries.GetAllSizeTypeItems
         {
             var sizes = await _context.SizeTypeItems.ToListAsync(cancellationToken);
             var sizesTypeItemDto = await CreateSizesTypeItemDtoAsync(sizes, cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+
             return new ResponseGetAllSizesTypeItems(sizesTypeItemDto);
         }
 
@@ -42,6 +43,7 @@ namespace Store.BusinessLogic.Queries.SizeTypeItemQueries.GetAllSizeTypeItems
             await Task.Run(
                 () => { sizesTypeItemDto.AddRange(sizesItems.Select(size => _mapper.Map<SizeTypeItemDto>(size))); },
                 cancellationToken);
+
             return sizesTypeItemDto;
         }
     }

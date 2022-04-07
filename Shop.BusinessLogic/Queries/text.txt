@@ -1,0 +1,3 @@
+﻿GET COUNTRY BY ID QUERY
+
+figurtnie skobki for all

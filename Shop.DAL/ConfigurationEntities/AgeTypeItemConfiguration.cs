@@ -8,6 +8,8 @@ namespace Store.DAL.ConfigurationEntities
     {
         public void Configure(EntityTypeBuilder<AgeTypeItem> builder)
         {
+            // TODO OnDelete
+
             builder.ToTable("AgeTypesItem").HasKey(a => a.Id);
 
             builder

@@ -25,7 +25,7 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetGenderById
         public async Task<ResponseBase> Handle(QueryGenderById request, CancellationToken cancellationToken)
         {
             var gender = await _context.Genders.FindAsync(request.Id);
-            _logger.LogInformation(MHFL.Done("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
             return new ResponseGenderById(_mapper.Map<GenderDto>(gender));
         }
     }

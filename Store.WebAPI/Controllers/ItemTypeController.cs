@@ -28,7 +28,8 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllItemTypeAndSubType()
         {
             var response = await _mediator.Send(new QueryGetAllTypeAndSubType());
-            _logger.LogInformation(MHFL.Done("GetAllItemTypeAndSubType", User?.FindFirstValue("Id")));
+            _logger.LogInformation(LoggerMessages.DoneMessage("GetAllItemTypeAndSubType", User?.FindFirstValue("Id")));
+
             return StatusCode((int) response.StatusCode, response);
         }
     }

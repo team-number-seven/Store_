@@ -32,7 +32,8 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> Create([FromForm] ItemCreateDto request)
         {
             var response = await _mediator.Send(new CommandCreateItem(request));
-            _logger.LogInformation(MHFL.Done("Create", User?.FindFirstValue("Id")));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Create", User?.FindFirstValue("Id")));
+
             return StatusCode((int) response.StatusCode, response);
         }
 
@@ -42,7 +43,8 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetItemByQuery([FromQuery] ItemFilterQueryDto request)
         {
             var response = await _mediator.Send(new QueryItemFilter(request));
-            _logger.LogInformation(MHFL.Done("GetItemByQuery", User?.FindFirstValue("Id")));
+            _logger.LogInformation(LoggerMessages.DoneMessage("GetItemByQuery", User?.FindFirstValue("Id")));
+
             return StatusCode((int) response.StatusCode, response);
         }
 
@@ -52,7 +54,8 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetById([FromQuery] QueryGetItemById request)
         {
             var response = await _mediator.Send(request);
-            _logger.LogInformation(MHFL.Done("GetByID", User?.FindFirstValue("Id")));
+            _logger.LogInformation(LoggerMessages.DoneMessage("GetByID", User?.FindFirstValue("Id")));
+
             return StatusCode((int) response.StatusCode, response);
         }
     }

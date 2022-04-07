@@ -16,18 +16,20 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
     {
         private readonly IStoreDbContext _context;
         private readonly ILogger<HandlerCreateUser> _logger;
-        private readonly IMediator _mediator;
         private readonly IPasswordHasher<User> _userHasher;
         private readonly UserManager<User> _userManager;
 
-        public HandlerCreateUser(IStoreDbContext context, UserManager<User> userManager,
-            IPasswordHasher<User> userHasher, ILogger<HandlerCreateUser> logger, IMediator mediator)
+        public HandlerCreateUser(
+            IStoreDbContext context, 
+            UserManager<User> userManager,
+            IPasswordHasher<User> userHasher, 
+            ILogger<HandlerCreateUser> logger
+            )
         {
             _context = context;
             _userManager = userManager;
             _userHasher = userHasher;
             _logger = logger;
-            _mediator = mediator;
         }
 
         public async Task<ResponseBase> Handle(CommandCreateUser request, CancellationToken cancellationToken)
@@ -51,10 +53,11 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
             users.Add(user);
             country.Users = users;
             _context.Countries.Update(country);
-            var identityResult = await _userManager.CreateAsync(user);
+            await _userManager.CreateAsync(user);
             await _userManager.AddToRoleAsync(user, "user");
             await _context.SaveChangesAsync(cancellationToken);
-            _logger.LogInformation(MHFL.Done("Handle", user.Id.ToString()));
+            _logger.LogInformation(LoggerMessages.DoneMessage("Handle", user.Id.ToString()));
+
             return new ResponseCreateUser(user.Id) {StatusCode = HttpStatusCode.Created};
         }
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -24,7 +23,11 @@ namespace Store.WebAPI.Controllers
         private readonly UserManager<User> _userManager;
         private readonly IMediator _mediator;
 
-        public UserController(IMediator mediator, ILogger<UserController> logger,UserManager<User> userManager)
+        public UserController(
+            IMediator mediator, 
+            ILogger<UserController> logger,
+            UserManager<User> userManager
+            )
         {
             _mediator = mediator;
             _logger = logger;
@@ -37,7 +40,8 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> Login([FromHeader] QueryLoginUser request)
         {
             var response = await _mediator.Send(request);
-            _logger.LogInformation($"{MHFL.Done("Login")}");
+            _logger.LogInformation($"{LoggerMessages.DoneMessage("Login")}");
+
             return StatusCode((int) response.StatusCode, response);
         }
 
@@ -51,7 +55,8 @@ namespace Store.WebAPI.Controllers
                 var userId = ((ResponseCreateUser) response).Id;
                 await _mediator.Send(new QuerySendConfirmationByEmail(userId, Url));
             }
-            _logger.LogInformation($"{MHFL.Done("CreateUser")}");
+            _logger.LogInformation($"{LoggerMessages.DoneMessage("CreateUser")}");
+
             return StatusCode((int) response.StatusCode, response);
         }
 
@@ -61,7 +66,8 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> RefreshToken([FromBody] QueryRefreshTokens request)
         {
             var response = await _mediator.Send(request);
-            _logger.LogInformation($"{MHFL.Done("RefreshToken")}");
+            _logger.LogInformation($"{LoggerMessages.DoneMessage("RefreshToken")}");
+
             return StatusCode((int) response.StatusCode, response);
         }
 

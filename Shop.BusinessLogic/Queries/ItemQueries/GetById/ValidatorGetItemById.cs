@@ -18,7 +18,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetById
         public async Task<ValidationResult> Validate(QueryGetItemById request, CancellationToken cancellationToken)
         {
             return await _context.Items.FindAsync(request.Id) is null
-                ? ValidationResult.Fail(MHFL.NotFount("Item"))
+                ? ValidationResult.Fail(LoggerMessages.NotFoundMessage("Item"))
                 : ValidationResult.Success;
         }
     }

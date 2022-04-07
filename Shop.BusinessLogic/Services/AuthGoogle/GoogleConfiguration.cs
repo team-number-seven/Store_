@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Store.BusinessLogic.Services.AuthGoogle
+﻿namespace Store.BusinessLogic.Services.AuthGoogle
 {
     public class GoogleConfiguration
     {

@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Store.BusinessLogic.Common;
-using MailKit;
 using Store.BusinessLogic.Common.Options;
 using Store.BusinessLogic.Services.AuthGoogle;
 using Store.BusinessLogic.Services.EmailService;
