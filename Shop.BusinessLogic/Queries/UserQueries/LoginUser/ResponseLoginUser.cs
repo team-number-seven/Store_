@@ -1,5 +1,5 @@
 ﻿using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.JsonWebTokens.Tokens;
+using Store.BusinessLogic.Services.JsonWebTokens.Tokens;
 
 namespace Store.BusinessLogic.Queries.UserQueries.LoginUser
 {

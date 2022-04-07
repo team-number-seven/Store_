@@ -3,9 +3,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Store.BusinessLogic.Common.Extensions;
-using Store.BusinessLogic.Common.JsonWebTokens;
+using Store.BusinessLogic.Options;
 using Store.BusinessLogic.Validation;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
@@ -18,17 +19,17 @@ namespace Store.BusinessLogic.Queries.UserQueries.RefreshTokens
         private readonly TokenValidationConfiguration _tokenValidationConfiguration;
         private readonly UserManager<User> _userManager;
 
-        public ValidatorRefreshTokens(TokenValidationConfiguration tokenValidationConfiguration,
+        public ValidatorRefreshTokens(IOptions<TokenValidationConfiguration> tokenValidationConfiguration,
             UserManager<User> userManager, IStoreDbContext context)
         {
-            _tokenValidationConfiguration = tokenValidationConfiguration;
+            _tokenValidationConfiguration = tokenValidationConfiguration.Value;
             _userManager = userManager;
             _context = context;
         }
 
         public async Task<ValidationResult> Validate(QueryRefreshTokens request, CancellationToken cancellationToken)
         {
-            var accessTokenParameters = _tokenValidationConfiguration.AccessTokenParameters;
+            var accessTokenParameters = _tokenValidationConfiguration.CreateTokenValidationParameters();
             var tokenHandler = new JwtSecurityTokenHandler();
 
             var (accessToken, refreshToken) = request;
@@ -42,17 +43,17 @@ namespace Store.BusinessLogic.Queries.UserQueries.RefreshTokens
                 ValidAudience = accessTokenParameters.ValidAudience,
                 IssuerSigningKey = accessTokenParameters.IssuerSigningKey
             });
-            if (!resultAccessToken.IsValid)
-                return ValidationResult.Fail("Invalid token");
+            if (!resultAccessToken.IsValid) return ValidationResult.Fail("Invalid token");
 
             var jwtToken = tokenHandler.ReadJwtToken(accessToken);
             var id = jwtToken.Claims.FirstOrDefault(c => c.Type == "Id");
             var user = await _userManager.FindByIdAsync(id!.Value);
             var resultRefreshToken =
                 await _userManager.VerifyUserRefreshTokenAsync(_context, user, refreshToken, "Default");
-            if (resultRefreshToken is false)
-                return ValidationResult.Fail("Invalid token");
-            return ValidationResult.Success;
+
+            return resultRefreshToken is false
+                ? ValidationResult.Fail("Invalid token")
+                : ValidationResult.Success;
         }
     }
 }

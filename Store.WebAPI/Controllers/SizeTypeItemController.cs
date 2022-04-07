@@ -28,7 +28,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllSizes()
         {
             var response = await _mediator.Send(new QueryGetAllSizesTypeItems());
-            _logger.LogInformation(LoggerMessages.DoneMessage("GetAllSizes", User?.FindFirstValue("Id")));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(GetAllSizes), User?.FindFirstValue("Id")));
 
             return StatusCode((int) response.StatusCode, response);
         }

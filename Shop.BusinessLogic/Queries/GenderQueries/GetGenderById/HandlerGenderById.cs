@@ -4,7 +4,7 @@ using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.Gender;
 using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.GenderQueries.GetGenderById

@@ -7,7 +7,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.Country;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
@@ -30,7 +30,7 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetAllCountries
         {
             var countries = await _context.Countries.ToListAsync(cancellationToken);
             var countriesDto = await CreateCountriesDtoAsync(countries, cancellationToken);
-            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle)));
 
             return new ResponseGetAllCountries(countriesDto);
         }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.AgeType;
 
 namespace Store.BusinessLogic.Queries.AgeTypeItemQueries.GetAllAgeTypeItem
 {

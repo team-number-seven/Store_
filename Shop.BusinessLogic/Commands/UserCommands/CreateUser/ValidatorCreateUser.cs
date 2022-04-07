@@ -22,19 +22,22 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
 
         public async Task<ValidationResult> Validate(CommandCreateUser request, CancellationToken cancellationToken)
         {
-            if (request.User is null)
-                return ValidationResult.Fail(LoggerMessages.ObjectIsNullOrEmptyMessage);
+            if (request.User is null) return ValidationResult.Fail(LoggerMessages.ObjectIsNullOrEmptyMessage);
+
             if (request.User.CountryId == Guid.Empty)
                 return ValidationResult.Fail(LoggerMessages.ObjectIsNullOrEmptyMessage);
+
             if (await _context.Countries.FindAsync(request.User.CountryId) is null)
                 return ValidationResult.Fail(LoggerMessages.NotFoundMessage("Country"));
+
             var resultEmail = await _userManager.FindByEmailAsync(request.User.Email);
             if (resultEmail is not null)
                 return ValidationResult.Fail("A user with such an email has already been registered");
+
             var resultUserName = await _userManager.FindByNameAsync(request.User.UserName);
-            if (resultUserName is not null)
-                return ValidationResult.Fail("A user with such an user has already been registered");
-            return ValidationResult.Success;
+            return resultUserName is not null
+                ? ValidationResult.Fail("A user with such an user has already been registered")
+                : ValidationResult.Success;
         }
     }
 }

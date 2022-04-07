@@ -25,7 +25,8 @@ namespace Store.BusinessLogic.Commands.GenderCommands.CreateGender
             var gender = new Gender {Id = Guid.NewGuid(), Title = request.Title};
             await _context.Genders.AddAsync(gender, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
-            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle)));
+
             return new ResponseCreateGender(gender.Id);
         }
     }

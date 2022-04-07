@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Common\DataTransferObjects\ItemType\" />
     <Folder Include="Common\Interfaces\" />
   </ItemGroup>
 

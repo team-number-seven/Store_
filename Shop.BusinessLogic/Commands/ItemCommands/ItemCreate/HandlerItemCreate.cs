@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.Item;
 using Store.BusinessLogic.Common.Extensions;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
@@ -55,7 +55,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             await _context.CharacteristicItems.AddAsync(characteristic, cancellationToken);
             await _context.Items.AddAsync(newItem, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
-            _logger.LogInformation(LoggerMessages.DoneMessage("Handler"));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle)));
             return new ResponseItemCreate(newItem.Id);
         }
 

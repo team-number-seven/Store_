@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.Extensions;
-using Store.BusinessLogic.Common.JsonWebTokens;
-using Store.BusinessLogic.Common.JsonWebTokens.Interfaces;
+using Store.BusinessLogic.Options;
+using Store.BusinessLogic.Services.JsonWebTokens.Interfaces;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
@@ -27,14 +28,14 @@ namespace Store.BusinessLogic.Queries.UserQueries.RefreshTokens
             ITokensGenerator tokensGenerator,
             ILogger<HandlerRefreshTokens> logger,
             UserManager<User> userManager,
-            TokenValidationConfiguration tokenValidationConfiguration,
+            IOptions<TokenValidationConfiguration> tokenValidationConfiguration,
             IStoreDbContext context
         )
         {
             _tokensGenerator = tokensGenerator;
             _logger = logger;
             _userManager = userManager;
-            _tokenValidationConfiguration = tokenValidationConfiguration;
+            _tokenValidationConfiguration = tokenValidationConfiguration.Value;
             _context = context;
         }
 
@@ -55,7 +56,7 @@ namespace Store.BusinessLogic.Queries.UserQueries.RefreshTokens
                 return new ResponseBase("Invalid user or provider", HttpStatusCode.BadRequest);
             }
 
-            _logger.LogInformation(LoggerMessages.DoneMessage("Handle", id.ToString()));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle), id.ToString()));
 
             return new ResponseRefreshTokens(accessToken, refreshToken);
         }

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.Item;
 using Store.BusinessLogic.Common.Extensions;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
@@ -34,7 +34,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
         {
             var filteredItems = await FilterItemsAsync(_context.Items.AsQueryable(), request.Query, cancellationToken);
             var itemsDto = await CreateItemsDtoAsync(filteredItems, cancellationToken);
-            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle)));
             return new ResponseItemFilter(itemsDto);
         }
 

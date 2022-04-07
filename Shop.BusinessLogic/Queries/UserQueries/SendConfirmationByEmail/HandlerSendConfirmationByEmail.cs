@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.Options;
+using Store.BusinessLogic.Options;
 using Store.BusinessLogic.Services.EmailService;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
@@ -17,17 +18,18 @@ namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
     public class HandlerSendConfirmationByEmail : IRequestHandler<QuerySendConfirmationByEmail, ResponseBase>
     {
         private readonly IEmailService _emailService;
+        private readonly ILogger<HandlerSendConfirmationByEmail> _logger;
+        private readonly ConfirmAndDeclineUrlConfiguration _optionsUrlConfiguration;
         private readonly UserManager<User> _userManager;
-        private readonly IStoreDbContext _context;
-        private readonly MessageConfirmOrDeclineToEmail _optionsUrl;
 
         public HandlerSendConfirmationByEmail(IEmailService emailService, UserManager<User> userManager,
-            IStoreDbContext context, IOptions<MessageConfirmOrDeclineToEmail> optionsUrl)
+            IStoreDbContext context, IOptions<ConfirmAndDeclineUrlConfiguration> optionsUrl,
+            ILogger<HandlerSendConfirmationByEmail> logger)
         {
             _emailService = emailService;
             _userManager = userManager;
-            _context = context;
-            _optionsUrl = optionsUrl.Value;
+            _logger = logger;
+            _optionsUrlConfiguration = optionsUrl.Value;
         }
 
         public async Task<ResponseBase> Handle(QuerySendConfirmationByEmail request,
@@ -38,25 +40,28 @@ namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
 
             var urlConfirm = request.UrlHelper.Action(new UrlActionContext
             {
-                Action = _optionsUrl.ActionConfirm, Controller = _optionsUrl.Controller, Host = _optionsUrl.Host,
-                Protocol = _optionsUrl.Scheme, Values = new {userId = request.UserId, tokenConfirmation = token}
+                Action = _optionsUrlConfiguration.ActionConfirm, Controller = _optionsUrlConfiguration.Controller,
+                Host = _optionsUrlConfiguration.Host,
+                Protocol = _optionsUrlConfiguration.Scheme,
+                Values = new {userId = request.UserId, tokenConfirmation = token}
             });
             var urlDecline = request.UrlHelper.Action(new UrlActionContext
             {
-                Action = _optionsUrl.ActionDecline,
-                Controller = _optionsUrl.Controller,
-                Host = _optionsUrl.Host,
-                Protocol = _optionsUrl.Scheme,
-                Values = new { userId = request.UserId, tokenConfirmation = token }
+                Action = _optionsUrlConfiguration.ActionDecline,
+                Controller = _optionsUrlConfiguration.Controller,
+                Host = _optionsUrlConfiguration.Host,
+                Protocol = _optionsUrlConfiguration.Scheme,
+                Values = new {userId = request.UserId, tokenConfirmation = token}
             });
             var body = await CreateFormAsync(urlConfirm, urlDecline);
 
             await _emailService.SendEmailAsync(user.Email, user.UserName, "Email confirmation", body);
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle), user.Id.ToString()));
 
             return new ResponseSendConfirmationByEmail(user.Id);
         }
 
-        private async Task<string> CreateFormAsync(string urlConfirm,string urlDecline,string pathForm = null)
+        private async Task<string> CreateFormAsync(string urlConfirm, string urlDecline, string pathForm = null)
         {
             // TODO Magic words
             var htmlForm =
@@ -66,9 +71,6 @@ namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
             htmlForm.Replace("COFIRMEMAIL", urlConfirm);
 
             return htmlForm.ToString();
-
         }
-
-
     }
 }

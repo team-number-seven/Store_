@@ -7,7 +7,6 @@ using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.GenderCommands.CreateGender;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Queries.GenderQueries.GetAllGenders;
-using Store.BusinessLogic.Queries.GenderQueries.GetGenderById;
 
 namespace Store.WebAPI.Controllers
 {
@@ -26,12 +25,12 @@ namespace Store.WebAPI.Controllers
         }
 
 
-        [Route("CreateUser")]
+        [Route("Create")]
         [HttpPost]
         public async Task<IActionResult> CreateGender(CommandCreateGender request)
         {
             var response = await _mediator.Send(request);
-            _logger.LogInformation(LoggerMessages.DoneMessage("CreateGender", User?.FindFirstValue("Id")));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(CreateGender), User?.FindFirstValue("Id")));
 
             return StatusCode((int) response.StatusCode, response);
         }
@@ -42,7 +41,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllGenders()
         {
             var response = await _mediator.Send(new QueryAllGenders());
-            _logger.LogInformation(LoggerMessages.DoneMessage("GetAllGenders", User?.FindFirstValue("Id")));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(GetAllGenders), User?.FindFirstValue("Id")));
 
             return StatusCode((int) response.StatusCode, response);
         }

@@ -7,7 +7,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.Color;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
@@ -30,7 +30,7 @@ namespace Store.BusinessLogic.Queries.ColorQueries.GetAllColors
         {
             var colors = await _context.Colors.ToListAsync(cancellationToken);
             var colorsDto = await CreateColorsDtoAsync(colors, cancellationToken);
-            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle)));
 
             return new ResponseGetAllColors(colorsDto);
         }

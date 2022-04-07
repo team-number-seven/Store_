@@ -1,5 +1,5 @@
 ﻿using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.Gender;
 
 namespace Store.BusinessLogic.Queries.GenderQueries.GetGenderById
 {

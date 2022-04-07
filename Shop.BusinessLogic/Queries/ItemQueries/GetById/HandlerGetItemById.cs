@@ -7,7 +7,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.Item;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
@@ -31,7 +31,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetById
             var item = await _context.Items.FindAsync(request.Id);
             var result = _mapper.Map<ItemDto>(item);
             result.Images = await LoadImagesAsync(item, cancellationToken);
-            _logger.LogInformation(LoggerMessages.DoneMessage("Handler"));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle)));
             return new ResponseGetItemById(result);
         }
 

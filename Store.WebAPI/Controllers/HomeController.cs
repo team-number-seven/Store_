@@ -19,16 +19,15 @@ namespace Store.WebAPI.Controllers
     [AllowAnonymous]
     public class HomeController : ControllerBase
     {
-        private readonly IMediator _mediator;
         private readonly IEmailService _emailService;
+        private readonly IMediator _mediator;
         private readonly UserManager<User> _userManager;
 
-        public HomeController(IMediator mediator,IEmailService emailService,UserManager<User> userManager)
+        public HomeController(IMediator mediator, IEmailService emailService, UserManager<User> userManager)
         {
             _mediator = mediator;
             _emailService = emailService;
             _userManager = userManager;
-            return;
         }
 
         [HttpPost]
@@ -52,17 +51,18 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> google()
         {
             var userId = "cf5c47b2-9000-4124-8232-d5ff6597d2d2";
-            string tokenConfirmation = await _userManager.GenerateEmailConfirmationTokenAsync(userId);
+            var tokenConfirmation = await _userManager.GenerateEmailConfirmationTokenAsync(userId);
 
 
-            var url = Url.Action(nameof(VerifyEmail), "Home", new {userId = userId, tokenConfirmation = tokenConfirmation},
+            var url = Url.Action(nameof(VerifyEmail), "Home", new {userId, tokenConfirmation},
                 Request.Scheme, Request.Host.ToString());
             var d = Request.Scheme;
             var k = Request.Host.ToString();
-            
+
             var urlAccept =
                 $@"https://localhost:5001/Store/Home/VerifyEmail?userId={userId}&tokenConfirmation={tokenConfirmation}";
-            await _emailService.SendEmailAsync("pavell.urusov8@gmail.com", "pavel", "confirm", urlAccept + "  \n" + url);
+            await _emailService.SendEmailAsync("pavell.urusov8@gmail.com", "pavel", "confirm",
+                urlAccept + "  \n" + url);
             return Ok();
         }
 
@@ -75,10 +75,7 @@ namespace Store.WebAPI.Controllers
             if (user == null) return BadRequest();
             var result = await _userManager.ConfirmEmailAsync(user, tokenConfirmation);
 
-            if (result.Succeeded)
-            {
-                return Ok("Succeeded");
-            }
+            if (result.Succeeded) return Ok("Succeeded");
 
             return BadRequest();
         }

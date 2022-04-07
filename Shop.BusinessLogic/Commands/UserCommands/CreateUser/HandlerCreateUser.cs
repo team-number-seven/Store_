@@ -20,11 +20,11 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
         private readonly UserManager<User> _userManager;
 
         public HandlerCreateUser(
-            IStoreDbContext context, 
+            IStoreDbContext context,
             UserManager<User> userManager,
-            IPasswordHasher<User> userHasher, 
+            IPasswordHasher<User> userHasher,
             ILogger<HandlerCreateUser> logger
-            )
+        )
         {
             _context = context;
             _userManager = userManager;
@@ -56,7 +56,7 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
             await _userManager.CreateAsync(user);
             await _userManager.AddToRoleAsync(user, "user");
             await _context.SaveChangesAsync(cancellationToken);
-            _logger.LogInformation(LoggerMessages.DoneMessage("Handle", user.Id.ToString()));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle), user.Id.ToString()));
 
             return new ResponseCreateUser(user.Id) {StatusCode = HttpStatusCode.Created};
         }

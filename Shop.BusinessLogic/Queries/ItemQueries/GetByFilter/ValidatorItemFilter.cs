@@ -59,12 +59,14 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
                 foreach (var id in query.SubItemTypesId)
                     if (await _context.SubItemTypes.FindAsync(id) is null)
                         return ValidationResult.Fail(LoggerMessages.NotFoundMessage($"SubItemTypesId[{id}]"));
+
             if (string.IsNullOrEmpty(query.MinPrice) is false)
                 if (decimal.TryParse(query.MinPrice, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture,
                         out var minPrice) is false)
                     return ValidationResult.Fail("Invalid MinPrice");
 
             if (string.IsNullOrEmpty(query.MaxPrice)) return ValidationResult.Success;
+
             var result = decimal.TryParse(query.MaxPrice, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture,
                 out var maxPrice);
 

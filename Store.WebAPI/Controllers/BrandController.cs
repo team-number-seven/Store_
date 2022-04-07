@@ -28,7 +28,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllBrands()
         {
             var response = await _mediator.Send(new QueryGetAllBrands());
-            _logger.LogInformation(LoggerMessages.DoneMessage("GetAllGenders", User?.FindFirstValue("Id")));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(GetAllBrands), User?.FindFirstValue("Id")));
 
             return StatusCode((int) response.StatusCode, response);
         }

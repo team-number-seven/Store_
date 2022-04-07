@@ -32,7 +32,8 @@ namespace Store.BusinessLogic.Behaviours
             var requestName = request.GetType();
             if (_validationHandler == null)
             {
-                _logger.LogInformation($"{LoggerMessages.Time}{requestName} does not have a validation handler configured.");
+                _logger.LogInformation(
+                    $"{LoggerMessages.Time}{requestName} does not have a validation handler configured.");
                 return await next();
             }
 

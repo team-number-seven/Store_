@@ -23,10 +23,9 @@ namespace Store.BusinessLogic.Commands.GenderCommands.CreateGender
 
             var result = await _context.Genders.FirstOrDefaultAsync(g => g.Title == request.Title, cancellationToken);
 
-            if (result is not null)
-                return ValidationResult.Fail("This gender already exists");
-
-            return ValidationResult.Success;
+            return result is not null
+                ? ValidationResult.Fail("This gender already exists")
+                : ValidationResult.Success;
         }
     }
 }

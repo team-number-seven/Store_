@@ -7,7 +7,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.Gender;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
@@ -30,7 +30,7 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetAllGenders
         {
             var genders = await _context.Genders.ToListAsync(cancellationToken);
             var gendersDto = await CreateGendersDtoAsync(genders, cancellationToken);
-            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle)));
             return new ResponseGetAllGenders(gendersDto);
         }
 

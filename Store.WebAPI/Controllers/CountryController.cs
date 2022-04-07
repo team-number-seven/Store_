@@ -28,7 +28,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllCountries()
         {
             var response = await _mediator.Send(new QueryGetAllCountries());
-            _logger.LogInformation(LoggerMessages.DoneMessage("GetAllCountries", User?.FindFirstValue("id")));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(GetAllCountries), User?.FindFirstValue("id")));
 
             return StatusCode((int) response.StatusCode, response);
         }

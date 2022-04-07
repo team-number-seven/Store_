@@ -3,7 +3,7 @@
 namespace Store.BusinessLogic.Common
 {
     // Good practice
-    public static class LoggerMessages //MessageHelperForLogger)))
+    public static class LoggerMessages
     {
         public static string Time => $"[{DateTime.Now:G}]";
         public static string ObjectIsNullOrEmptyMessage => "The object cannot be null";

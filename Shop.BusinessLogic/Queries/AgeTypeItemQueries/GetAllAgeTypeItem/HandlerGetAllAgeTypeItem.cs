@@ -7,7 +7,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.AgeType;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
@@ -31,7 +31,7 @@ namespace Store.BusinessLogic.Queries.AgeTypeItemQueries.GetAllAgeTypeItem
         {
             var ageItemTypes = await _context.AgeTypes.ToListAsync(cancellationToken);
             var ageTypesItemDto = await CreateAgeTypeItemDtoAsync(ageItemTypes, cancellationToken);
-            _logger.LogInformation(LoggerMessages.DoneMessage("Handle"));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle)));
 
             return new ResponseGetAllAgeTypeItem(ageTypesItemDto);
         }

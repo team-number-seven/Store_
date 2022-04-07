@@ -28,7 +28,7 @@ namespace Store.WebAPI.Controllers
         public async Task<IActionResult> GetAllSeasonItem()
         {
             var response = await _mediator.Send(new QueryGetAllSeasonItem());
-            _logger.LogInformation(LoggerMessages.DoneMessage("GetAllSeasonItem", User?.FindFirstValue("Id")));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(GetAllSeasonItem), User?.FindFirstValue("Id")));
 
             return StatusCode((int) response.StatusCode, response);
         }

@@ -7,7 +7,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.ItemTypeAndSubType;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
@@ -31,7 +31,7 @@ namespace Store.BusinessLogic.Queries.ItemTypeQueries.GetAllTypeAndSubType
         {
             var types = await _context.ItemTypes.ToListAsync(cancellationToken);
             var itemTypesAndSubTypesDto = await CreateItemTypeAndSubTypeDtoAsync(types, cancellationToken);
-            _logger.LogInformation(LoggerMessages.DoneMessage("Handler"));
+            _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle)));
             return new ResponseGetAllTypeAndSubType(itemTypesAndSubTypesDto);
         }
 

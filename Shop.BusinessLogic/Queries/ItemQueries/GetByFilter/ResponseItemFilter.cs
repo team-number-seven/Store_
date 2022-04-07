@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
+using Store.BusinessLogic.Common.DataTransferObjects.Item;
 
 namespace Store.BusinessLogic.Queries.ItemQueries.GetByFilter
 {

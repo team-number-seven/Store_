@@ -18,17 +18,11 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetGenderById
 
         public async Task<ValidationResult> Validate(QueryGenderById request, CancellationToken cancellationToken)
         {
-            if (request.Id == Guid.Empty)
-            {
-                return ValidationResult.Fail(LoggerMessages.ObjectIsNullOrEmptyMessage);
-            }
+            if (request.Id == Guid.Empty) return ValidationResult.Fail(LoggerMessages.ObjectIsNullOrEmptyMessage);
 
-            if (await _context.Genders.FindAsync(request.Id) is null)
-            {
-                return ValidationResult.Fail(LoggerMessages.NotFoundMessage("Gender"));
-            }
-
-            return ValidationResult.Success;
+            return await _context.Genders.FindAsync(request.Id) is null
+                ? ValidationResult.Fail(LoggerMessages.NotFoundMessage("Gender"))
+                : ValidationResult.Success;
         }
     }
 }
