@@ -51,7 +51,7 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
             users.Add(user);
             country.Users = users;
             _context.Countries.Update(country);
-            await _userManager.CreateAsync(user);
+            var identityResult = await _userManager.CreateAsync(user);
             await _userManager.AddToRoleAsync(user, "user");
             await _context.SaveChangesAsync(cancellationToken);
             _logger.LogInformation(MHFL.Done("Handle", user.Id.ToString()));

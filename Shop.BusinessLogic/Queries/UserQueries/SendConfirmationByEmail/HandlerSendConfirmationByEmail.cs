@@ -54,9 +54,21 @@ namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
                 Protocol = _optionsUrl.Scheme,
                 Values = new { userId = request.UserId, tokenConfirmation = token }
             });
+            var body = await CreateFormAsync(urlConfirm, urlDecline);
 
-            await _emailService.SendEmailAsync(user.Email, user.UserName, "Email confirmation", urlConfirm + "    \n\n" + urlDecline);
+            await _emailService.SendEmailAsync(user.Email, user.UserName, "Email confirmation", body);
             return new ResponseSendConfirmationByEmail(user.Id);
+        }
+
+        private async Task<string> CreateFormAsync(string urlConfirm,string urlDecline,string pathForm = null)
+        {
+            var htmlForm =
+                new StringBuilder(await File.ReadAllTextAsync(
+                    @"D:\Projects\GitHub\Store\Shop.BusinessLogic\Common\HTML\EmailConfirmation.html"));
+            htmlForm.Replace("COFIRMEMAIL", urlConfirm);
+            htmlForm.Replace("COFIRMEMAIL", urlConfirm);
+            return htmlForm.ToString();
+
         }
 
 
