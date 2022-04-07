@@ -61,7 +61,7 @@ namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
             // TODO Magic words
             var htmlForm =
                 new StringBuilder(await File.ReadAllTextAsync(
-                    @"D:\Projects\GitHub\Store\Shop.BusinessLogic\Common\HTML\EmailConfirmation.html"));
+                    @"D:\Repositories\Store\Shop.BusinessLogic\Common\HTML\EmailConfirmation.html"));
             htmlForm.Replace("COFIRMEMAIL", urlConfirm);
             htmlForm.Replace("COFIRMEMAIL", urlConfirm);
 
