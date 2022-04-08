@@ -68,7 +68,7 @@ namespace Store.DAL.SeedDataStoreDb
                 string size;
                 while ((size = await reader.ReadLineAsync()) is not null)
                     sizesType.Add(new SizeTypeItem
-                        {Id = Guid.NewGuid(), ItemType = itemType, ItemTypeId = itemType.Id, Size = size});
+                        {Id = Guid.NewGuid(), ItemType = itemType, ItemTypeId = itemType.Id, Size = uint.Parse(size)});
             }
 
             using (var reader = new StreamReader(pathTxtSubItemTypes))
