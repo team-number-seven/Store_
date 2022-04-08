@@ -39,9 +39,9 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             var price = decimal.Parse(dto.Price, NumberStyles.Any, CultureInfo.InvariantCulture);
             var images = await CreateImagesItemAsync(dto, cancellationToken);
             var itemCountSize = await CreateItemCountSizeAsync(dto.SizeCountItemsCreateDto);
-            var characteristic = await CreateCharacteristicItemAsync(dto,itemCountSize);
+            var characteristic = await CreateCharacteristicItemAsync(dto, itemCountSize);
 
-            var countItem = itemCountSize.Sum(x => itemCountSize.Count);
+            var countItem = itemCountSize.Aggregate<ItemCountSize, uint>(0, (current, x) => current + x.Count);
 
             var newItem = new Item
             {
@@ -75,7 +75,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
 
                 var guid = Guid.NewGuid();
                 var path = _imagePath + guid + image.GetImageFormat();
-                using (var stream = File.Create(path))
+                await using (var stream = File.Create(path))
                 {
                     await image.CopyToAsync(stream, cancellationToken);
                 }
@@ -86,7 +86,8 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             return images;
         }
 
-        private async Task<CharacteristicItem> CreateCharacteristicItemAsync(ItemCreateDto dto,IList<ItemCountSize> itemCountSize)
+        private async Task<CharacteristicItem> CreateCharacteristicItemAsync(ItemCreateDto dto,
+            IEnumerable<ItemCountSize> itemCountSize)
         {
             var color = await _context.Colors.FindAsync(dto.ColorId);
             var ageTypeItem = await _context.AgeTypes.FindAsync(dto.AgeTypeItemId);
@@ -112,12 +113,17 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             IEnumerable<SizeCountItemCreateDto> sizesDto)
         {
             var itemCountSizes = new List<ItemCountSize>();
-
-            foreach (var dto in sizesDto)
+            await Task.Run(async () =>
             {
-                var itemSize = await _context.SizeTypeItems.FindAsync(dto.SizeId);
-                itemCountSizes.Add(new ItemCountSize {Id = Guid.NewGuid(), SizeTypeItem = itemSize,Count = dto.Count});
-            }
+                foreach (var dto in sizesDto)
+                {
+                    var itemSize = await _context.SizeTypeItems.FindAsync(dto.SizeId);
+                    itemCountSizes.Add(new ItemCountSize
+                    {
+                        Id = Guid.NewGuid(), SizeTypeItem = itemSize, Count = dto.Count
+                    });
+                }
+            });
 
             return itemCountSizes;
         }

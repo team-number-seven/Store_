@@ -8,4 +8,10 @@ namespace Store.BusinessLogic.Common.DataTransferObjects
 
         public uint Count { get; set; }
     }
+
+    public class Test
+    {
+        public string Id { get; set; }
+
+    }
 }
