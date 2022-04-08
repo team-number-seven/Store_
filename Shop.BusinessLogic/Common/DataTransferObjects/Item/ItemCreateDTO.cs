@@ -29,7 +29,6 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
 
         public Guid SubItemTypeId { get; set; }
         public IList<SizeCountItemCreateDto> SizeCountItemsCreateDto { get; set; }
-        [FromForm]public SizeCountItemCreateDto SizeCountItemsCreate { get; set; }
         
         public IList<IFormFile> Files { get; set; }
     }
