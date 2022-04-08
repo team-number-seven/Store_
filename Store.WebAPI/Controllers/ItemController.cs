@@ -1,4 +1,6 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -6,9 +8,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.ItemCommands.ItemCreate;
 using Store.BusinessLogic.Common;
+using Store.BusinessLogic.Common.DataTransferObjects;
 using Store.BusinessLogic.Common.DataTransferObjects.Item;
 using Store.BusinessLogic.Queries.ItemQueries.GetByFilter;
 using Store.BusinessLogic.Queries.ItemQueries.GetById;
+
+/*using Store.BusinessLogic.Queries.ItemQueries.GetByFilter;
+using Store.BusinessLogic.Queries.ItemQueries.GetById;*/
 
 namespace Store.WebAPI.Controllers
 {
@@ -47,7 +53,7 @@ namespace Store.WebAPI.Controllers
 
             return StatusCode((int) response.StatusCode, response);
         }
-
+        
         [AllowAnonymous]
         [Route("GetById")]
         [HttpGet]

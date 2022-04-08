@@ -20,13 +20,14 @@ namespace Store.DAL.Interfaces
         DbSet<SubItemType> SubItemTypes { get; set; }
         DbSet<ItemImage> Images { get; set; }
         DbSet<User> Users { get; set; }
-        public DbSet<SizeTypeItem> SizeTypeItems { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<UserClaim> UserClaims { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }
-        public DbSet<UserLogin> UserLogins { get; set; }
-        public DbSet<RoleClaim> RoleClaims { get; set; }
-        public DbSet<UserToken> Tokens { get; set; }
+        DbSet<ItemCountSize> ItemCountSizes { get; set; }
+        DbSet<SizeTypeItem> SizeTypeItems { get; set; }
+        DbSet<Role> Roles { get; set; }
+        DbSet<UserClaim> UserClaims { get; set; }
+        DbSet<UserRole> UserRoles { get; set; }
+        DbSet<UserLogin> UserLogins { get; set; }
+        DbSet<RoleClaim> RoleClaims { get; set; }
+        DbSet<UserToken> Tokens { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = new());
     }

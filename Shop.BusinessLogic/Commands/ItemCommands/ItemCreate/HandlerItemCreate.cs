@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -9,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
+using Store.BusinessLogic.Common.DataTransferObjects;
 using Store.BusinessLogic.Common.DataTransferObjects.Item;
 using Store.BusinessLogic.Common.Extensions;
 using Store.DAL.Entities;
@@ -35,9 +37,12 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
         {
             var dto = request.Item;
             var price = decimal.Parse(dto.Price, NumberStyles.Any, CultureInfo.InvariantCulture);
-            var countItem = uint.Parse(dto.CountItem);
-            var characteristic = await CreateCharacteristicItemAsync(dto);
             var images = await CreateImagesItemAsync(dto, cancellationToken);
+            var itemCountSize = await CreateItemCountSizeAsync(dto.SizeCountItemsCreateDto);
+            var characteristic = await CreateCharacteristicItemAsync(dto, itemCountSize);
+
+            var countItem = itemCountSize.Aggregate<ItemCountSize, uint>(0, (current, x) => current + x.Count);
+
             var newItem = new Item
             {
                 Id = Guid.NewGuid(),
@@ -70,7 +75,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
 
                 var guid = Guid.NewGuid();
                 var path = _imagePath + guid + image.GetImageFormat();
-                using (var stream = File.Create(path))
+                await using (var stream = File.Create(path))
                 {
                     await image.CopyToAsync(stream, cancellationToken);
                 }
@@ -81,10 +86,10 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             return images;
         }
 
-        private async Task<CharacteristicItem> CreateCharacteristicItemAsync(ItemCreateDto dto)
+        private async Task<CharacteristicItem> CreateCharacteristicItemAsync(ItemCreateDto dto,
+            IEnumerable<ItemCountSize> itemCountSize)
         {
             var color = await _context.Colors.FindAsync(dto.ColorId);
-            var sizeTypeItem = await _context.SizeTypeItems.FindAsync(dto.SizeTypeItemId);
             var ageTypeItem = await _context.AgeTypes.FindAsync(dto.AgeTypeItemId);
             var seasonItem = await _context.SeasonItems.FindAsync(dto.SeasonItemId);
             var gender = await _context.Genders.FindAsync(dto.GenderId);
@@ -94,7 +99,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             return new CharacteristicItem
             {
                 Color = color,
-                SizeTypeItem = sizeTypeItem,
+                ItemCountSizes = itemCountSize,
                 AgeTypeItem = ageTypeItem,
                 SeasonItem = seasonItem,
                 Gender = gender,
@@ -102,6 +107,25 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                 SubItemType = subItemType,
                 Id = Guid.NewGuid()
             };
+        }
+
+        private async Task<IList<ItemCountSize>> CreateItemCountSizeAsync(
+            IEnumerable<SizeCountItemCreateDto> sizesDto)
+        {
+            var itemCountSizes = new List<ItemCountSize>();
+            await Task.Run(async () =>
+            {
+                foreach (var dto in sizesDto)
+                {
+                    var itemSize = await _context.SizeTypeItems.FindAsync(dto.SizeId);
+                    itemCountSizes.Add(new ItemCountSize
+                    {
+                        Id = Guid.NewGuid(), SizeTypeItem = itemSize, Count = dto.Count
+                    });
+                }
+            });
+
+            return itemCountSizes;
         }
     }
 }

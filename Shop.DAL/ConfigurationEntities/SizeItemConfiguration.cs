@@ -13,10 +13,6 @@ namespace Store.DAL.ConfigurationEntities
                 .HasKey(s => s.Id);
 
             builder
-                .HasIndex(s => s.Size)
-                .IsUnique();
-
-            builder
                 .Property(s => s.Size)
                 .HasMaxLength(20)
                 .IsRequired();
@@ -27,9 +23,9 @@ namespace Store.DAL.ConfigurationEntities
                 .HasForeignKey(s => s.ItemTypeId);
 
             builder
-                .HasMany(s => s.CharacteristicItems)
+                .HasMany(s => s.ItemCountSizes)
                 .WithOne(c => c.SizeTypeItem)
-                .HasForeignKey(c => c.SizeItemId);
+                .HasForeignKey(c => c.SizeTypeItemId);
         }
     }
 }

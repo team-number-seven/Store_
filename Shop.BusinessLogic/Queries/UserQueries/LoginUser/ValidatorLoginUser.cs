@@ -27,9 +27,9 @@ namespace Store.BusinessLogic.Queries.UserQueries.LoginUser
             var userDto = request.User;
 
             var result = _validationService.ReferencedObjectsCheckForNull(
-                new ReferencedObjectsCheckForNull(userDto.Email, nameof(userDto.Email)),
-                new ReferencedObjectsCheckForNull(userDto.Password, nameof(userDto.Password)),
-                new ReferencedObjectsCheckForNull(userDto, nameof(userDto)));
+                new ReferencedObjectCheckForNull(userDto.Email, nameof(userDto.Email)),
+                new ReferencedObjectCheckForNull(userDto.Password, nameof(userDto.Password)),
+                new ReferencedObjectCheckForNull(userDto, nameof(userDto)));
 
             if (result.IsSuccessful is false) return result;
             var user = await _userManager.FindByEmailAsync(request.User.Email);
