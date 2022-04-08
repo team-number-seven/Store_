@@ -5,11 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Commands\ItemCommands\**" />
     <Compile Remove="Queries\ItemQueries\**" />
-    <EmbeddedResource Remove="Commands\ItemCommands\**" />
     <EmbeddedResource Remove="Queries\ItemQueries\**" />
-    <None Remove="Commands\ItemCommands\**" />
     <None Remove="Queries\ItemQueries\**" />
   </ItemGroup>
 

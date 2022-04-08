@@ -7,7 +7,7 @@ namespace Store.DAL.Entities
     {
         public Guid Id { get; set; }
 
-        public uint Size { get; set; }
+        public string Size { get; set; }
         public string Standard { get; set; }
 
         public virtual IEnumerable<ItemCountSize> ItemCountSizes { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Store.BusinessLogic.Common.DataTransferObjects.Item
 {
@@ -10,8 +11,6 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
 
         public string Description { get; set; }
 
-        public string CountItem { get; set; }
-
         public string Price { get; set; }
 
         public string ArticleNumber { get; set; }
@@ -19,8 +18,6 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
         public Guid BrandId { get; set; }
 
         public Guid ColorId { get; set; }
-
-        public Guid SizeTypeItemId { get; set; }
 
         public Guid AgeTypeItemId { get; set; }
 
@@ -31,6 +28,9 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
         public Guid ItemTypeId { get; set; }
 
         public Guid SubItemTypeId { get; set; }
+        public IList<SizeCountItemCreateDto> SizeCountItemsCreateDto { get; set; }
+        [FromForm]public SizeCountItemCreateDto SizeCountItemsCreate { get; set; }
+        
         public IList<IFormFile> Files { get; set; }
     }
 }

@@ -13,10 +13,6 @@ namespace Store.DAL.ConfigurationEntities
                 .HasKey(s => s.Id);
 
             builder
-                .HasIndex(s => s.Size)
-                .IsUnique();
-
-            builder
                 .Property(s => s.Size)
                 .HasMaxLength(20)
                 .IsRequired();

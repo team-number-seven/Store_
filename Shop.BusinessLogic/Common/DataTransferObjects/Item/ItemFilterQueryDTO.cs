@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Store.BusinessLogic.Common.DataTransferObjects.Item
 {
+    //TODO FIX FILTER(MB)
     public class ItemFilterQueryDto
     {
         public string MaxPrice { get; set; }

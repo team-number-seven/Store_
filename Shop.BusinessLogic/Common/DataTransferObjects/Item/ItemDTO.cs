@@ -6,6 +6,8 @@ using Store.BusinessLogic.Common.Mappings;
 
 namespace Store.BusinessLogic.Common.DataTransferObjects.Item
 {
+
+    //TODO FIX QUERY
     public class ItemDto : IMapWith<DAL.Entities.Item>
     {
         public Guid Id { get; set; }
@@ -31,7 +33,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
                 .ForMember(dto => dto.ArticleNumber, opt => opt.MapFrom(s => s.ArticleNumber))
                 .ForMember(dto => dto.Brand, opt => opt.MapFrom(s => s.Brand.Title))
                 .ForMember(dto => dto.Color, opt => opt.MapFrom(s => s.CharacteristicItem.Color.Title))
-                .ForMember(dto => dto.Size, opt => opt.MapFrom(s => s.CharacteristicItem.SizeTypeItem.Size))
+                .ForMember(dto => dto.Size, opt => opt.Ignore())//TODO FIX IGNORE
                 .ForMember(dto => dto.AgeType, opt => opt.MapFrom(s => s.CharacteristicItem.AgeTypeItem.Title))
                 .ForMember(dto => dto.Season, opt => opt.MapFrom(s => s.CharacteristicItem.SeasonItem.Title))
                 .ForMember(dto => dto.Gender, opt => opt.MapFrom(s => s.CharacteristicItem.Gender.Title))
