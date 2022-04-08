@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Commands\ItemCommands\**" />
+    <Compile Remove="Queries\ItemQueries\**" />
+    <EmbeddedResource Remove="Commands\ItemCommands\**" />
+    <EmbeddedResource Remove="Queries\ItemQueries\**" />
+    <None Remove="Commands\ItemCommands\**" />
+    <None Remove="Queries\ItemQueries\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Google.Apis.Auth" Version="1.57.0" />

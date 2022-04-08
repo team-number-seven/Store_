@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Store.DAL.Interfaces;
 
 namespace Store.DAL.Entities
@@ -8,8 +9,7 @@ namespace Store.DAL.Entities
         public virtual Color Color { get; set; }
         public Guid ColorId { get; set; }
 
-        public virtual SizeTypeItem SizeTypeItem { get; set; }
-        public Guid SizeItemId { get; set; }
+        public virtual IEnumerable<ItemCountSize> ItemCountSizes { get; set; }
 
         public virtual AgeTypeItem AgeTypeItem { get; set; }
         public Guid AgeTypeItemId { get; set; }

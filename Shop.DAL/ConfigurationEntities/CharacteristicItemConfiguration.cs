@@ -33,9 +33,9 @@ namespace Store.DAL.ConfigurationEntities
                 .HasForeignKey(c => c.GenderId);
 
             builder
-                .HasOne(c => c.SizeTypeItem)
-                .WithMany(s => s.CharacteristicItems)
-                .HasForeignKey(c => c.SizeItemId);
+                .HasMany(c => c.ItemCountSizes)
+                .WithOne(s => s.CharacteristicItem)
+                .HasForeignKey(s => s.CharacteristicItemId);
 
             builder
                 .HasOne(c => c.SubItemType)

@@ -4,6 +4,6 @@ namespace Store.BusinessLogic.Services.Validation
 {
     public interface IValidationService
     {
-        ValidationResult ReferencedObjectsCheckForNull(params ReferencedObjectCheck[] objects);
+        ValidationResult ReferencedObjectsCheckForNull(params ReferencedObjectCheckForNull[] objects);
     }
 }

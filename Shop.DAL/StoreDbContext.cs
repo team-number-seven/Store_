@@ -39,6 +39,7 @@ namespace Store.DAL
         public DbSet<Country> Countries { get; set; }
         public DbSet<Gender> Genders { get; set; }
         public DbSet<ItemImage> Images { get; set; }
+        public DbSet<ItemCountSize> ItemCountSizes { get; set; }
         public DbSet<SizeTypeItem> SizeTypeItems { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
