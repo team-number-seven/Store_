@@ -50,7 +50,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                 ArticleNumber = dto.ArticleNumber,
                 Description = dto.Description,
                 NumberOfSales = 0,
-                CountItem = uint.Parse(countItem.ToString()),
+                CountItem = countItem,
                 Price = price,
                 CharacteristicItem = characteristic,
                 Brand = await _context.Brands.FindAsync(dto.BrandId),

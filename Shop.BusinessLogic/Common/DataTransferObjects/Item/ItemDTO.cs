@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Store.BusinessLogic.Common.Mappings;
 
 namespace Store.BusinessLogic.Common.DataTransferObjects.Item
 {
-
-    //TODO FIX QUERY
     public class ItemDto : IMapWith<DAL.Entities.Item>
     {
         public Guid Id { get; set; }
@@ -16,7 +15,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
         public string ArticleNumber { get; set; }
         public string Brand { get; set; }
         public string Color { get; set; }
-        public string Size { get; set; }
+        public IList<SizeCountItemDto> Sizes { get; set; }
         public string AgeType { get; set; }
         public string Season { get; set; }
         public string Gender { get; set; }
@@ -33,7 +32,9 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
                 .ForMember(dto => dto.ArticleNumber, opt => opt.MapFrom(s => s.ArticleNumber))
                 .ForMember(dto => dto.Brand, opt => opt.MapFrom(s => s.Brand.Title))
                 .ForMember(dto => dto.Color, opt => opt.MapFrom(s => s.CharacteristicItem.Color.Title))
-                .ForMember(dto => dto.Size, opt => opt.Ignore())//TODO FIX IGNORE
+                .ForMember(dto => dto.Sizes,
+                    opt => opt.MapFrom(s => s.CharacteristicItem.ItemCountSizes.Select(x => new SizeCountItemDto
+                        {Count = x.Count, Size = x.SizeTypeItem.Size})))
                 .ForMember(dto => dto.AgeType, opt => opt.MapFrom(s => s.CharacteristicItem.AgeTypeItem.Title))
                 .ForMember(dto => dto.Season, opt => opt.MapFrom(s => s.CharacteristicItem.SeasonItem.Title))
                 .ForMember(dto => dto.Gender, opt => opt.MapFrom(s => s.CharacteristicItem.Gender.Title))

@@ -6,8 +6,7 @@ using Store.DAL.Entities;
 
 namespace Store.BusinessLogic.Common.Extensions
 {
-    //TODO FILTERS
-    /*public static class QueryableExtensions
+    public static class QueryableExtensions
     {
         public static IQueryable<Item> FilterByGender(this IQueryable<Item> items, IList<Guid> gendersId)
         {
@@ -70,9 +69,11 @@ namespace Store.BusinessLogic.Common.Extensions
 
         public static IQueryable<Item> FilterBySize(this IQueryable<Item> items, IList<Guid> sizesId)
         {
-            return sizesId.IsNullOrEmpty()
-                ? items
-                : items.Where(i => sizesId.Contains(i.CharacteristicItem.SizeItemId));
+            if (sizesId.IsNullOrEmpty())
+                return items;
+            return sizesId.Aggregate(items,
+                (current, id) => current.Where(x =>
+                    x.CharacteristicItem.ItemCountSizes.Select(countSize => countSize.SizeTypeItemId).Contains(id)));
         }
-    }*/
+    }
 }

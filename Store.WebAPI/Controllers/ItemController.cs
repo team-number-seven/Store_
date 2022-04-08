@@ -10,6 +10,9 @@ using Store.BusinessLogic.Commands.ItemCommands.ItemCreate;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects;
 using Store.BusinessLogic.Common.DataTransferObjects.Item;
+using Store.BusinessLogic.Queries.ItemQueries.GetByFilter;
+using Store.BusinessLogic.Queries.ItemQueries.GetById;
+
 /*using Store.BusinessLogic.Queries.ItemQueries.GetByFilter;
 using Store.BusinessLogic.Queries.ItemQueries.GetById;*/
 
@@ -34,15 +37,13 @@ namespace Store.WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] ItemCreateDto request)
         {
-            /*request.SizeCountItemsCreateDto = new List<SizeCountItemCreateDto>
-                {new SizeCountItemCreateDto {SizeId = Guid.Parse("04b6b1c0-adad-4214-8bff-229fe720ca58"), Count = 10}};*/
             var response = await _mediator.Send(new CommandCreateItem(request));
             _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Create), User?.FindFirstValue("Id")));
 
             return StatusCode((int) response.StatusCode, response);
         }
 
-        /*[AllowAnonymous]
+        [AllowAnonymous]
         [Route("GetByFilter")]
         [HttpGet]
         public async Task<IActionResult> GetItemByQuery([FromQuery] ItemFilterQueryDto request)
@@ -52,7 +53,7 @@ namespace Store.WebAPI.Controllers
 
             return StatusCode((int) response.StatusCode, response);
         }
-
+        
         [AllowAnonymous]
         [Route("GetById")]
         [HttpGet]
@@ -62,6 +63,6 @@ namespace Store.WebAPI.Controllers
             _logger.LogInformation(LoggerMessages.DoneMessage(nameof(GetById), User?.FindFirstValue("Id")));
 
             return StatusCode((int) response.StatusCode, response);
-        }*/
+        }
     }
 }
