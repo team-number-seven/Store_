@@ -13,8 +13,6 @@ using Store.BusinessLogic.Common.DataTransferObjects.Item;
 using Store.BusinessLogic.Queries.ItemQueries.GetByFilter;
 using Store.BusinessLogic.Queries.ItemQueries.GetById;
 
-/*using Store.BusinessLogic.Queries.ItemQueries.GetByFilter;
-using Store.BusinessLogic.Queries.ItemQueries.GetById;*/
 
 namespace Store.WebAPI.Controllers
 {
