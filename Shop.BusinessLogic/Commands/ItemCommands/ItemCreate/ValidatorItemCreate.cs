@@ -28,6 +28,12 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             if (string.IsNullOrEmpty(item.ArticleNumber))
                 return ValidationResult.Fail(LoggerMessages.ObjectPropertyIsNullOrEmptyMessage("ArticleNumber"));
 
+            if (request.Item.SizeCountItemsCreateDto is null || request.Item.SizeCountItemsCreateDto.Count == 0)
+            {
+                return ValidationResult.Fail(LoggerMessages.ObjectPropertyIsNullOrEmptyMessage("SizeCountItemsCreateDto"));
+
+            }
+
 
             if (string.IsNullOrEmpty(item.Price) || !decimal.TryParse(item.Price, NumberStyles.AllowDecimalPoint,
                     CultureInfo.InvariantCulture, out _))

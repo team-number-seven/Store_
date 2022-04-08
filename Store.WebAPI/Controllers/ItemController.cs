@@ -34,8 +34,8 @@ namespace Store.WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] ItemCreateDto request)
         {
-            request.SizeCountItemsCreateDto = new List<SizeCountItemCreateDto>
-                {new SizeCountItemCreateDto {SizeId = Guid.Parse("04b6b1c0-adad-4214-8bff-229fe720ca58"), Count = 10}};
+            /*request.SizeCountItemsCreateDto = new List<SizeCountItemCreateDto>
+                {new SizeCountItemCreateDto {SizeId = Guid.Parse("04b6b1c0-adad-4214-8bff-229fe720ca58"), Count = 10}};*/
             var response = await _mediator.Send(new CommandCreateItem(request));
             _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Create), User?.FindFirstValue("Id")));
 
