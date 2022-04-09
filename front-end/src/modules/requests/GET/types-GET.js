@@ -19,7 +19,6 @@ export const TypesGET = async () => {
 
 
     const response = await fetch(CONFIG["server"] + CONFIG.requests.GET["types"]);
-
     if (response.ok) {
         let json = await response.json();
         const data = json.typeAndSubItem;
