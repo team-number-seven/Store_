@@ -44,6 +44,12 @@ namespace Store.BusinessLogic.Queries.ItemTypeQueries.GetAllTypesAndSubTypes
                 {
                     itemTypesAndSubTypesDto.AddRange(itemTypes.Select(type =>
                         _mapper.Map<ItemTypeAndSubTypeDto>(type)));
+                    foreach (var t in itemTypesAndSubTypesDto)
+                    {
+                        t.SubItemTypes = t.SubItemTypes.OrderBy(x => x.Title).ToList();
+                    }
+
+
                 }, cancellationToken);
             return itemTypesAndSubTypesDto;
         }
