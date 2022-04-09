@@ -36,15 +36,19 @@ namespace Store.BusinessLogic.Queries.SizeQueries.GetAllSizes
             return new GetAllSizesResponse(sizesTypeItemDto);
         }
 
-        private async Task<IList<SizeDto>> CreateSizesDtoAsync(
+        private async Task<IEnumerable<IGrouping<string,SizeDto>>> CreateSizesDtoAsync(
             IReadOnlyCollection<Size> sizesItems, CancellationToken cancellationToken)
         {
             var sizesTypeItemDto = new List<SizeDto>();
+            IEnumerable<IGrouping<string, SizeDto>> sortedSizes = null;
             await Task.Run(
-                () => { sizesTypeItemDto.AddRange(sizesItems.Select(size => _mapper.Map<SizeDto>(size))); },
+                () =>
+                {
+                    sizesTypeItemDto.AddRange(sizesItems.Select(size => _mapper.Map<SizeDto>(size)));
+                    sortedSizes = sizesTypeItemDto.GroupBy(x=>x.ItemType).ToList();
+                },
                 cancellationToken);
-
-            return sizesTypeItemDto;
+            return sortedSizes;
         }
     }
 }
