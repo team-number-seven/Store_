@@ -10,7 +10,6 @@ export const SignUp = ({userToMainRoutes}) => {
     if (Countries.length === 0) {
         CountriesGET().then((value) => {
             setCountries(value);
-            console.log(value);
         });
     }
 
