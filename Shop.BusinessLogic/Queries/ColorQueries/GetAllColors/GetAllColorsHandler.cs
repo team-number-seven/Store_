@@ -39,7 +39,7 @@ namespace Store.BusinessLogic.Queries.ColorQueries.GetAllColors
             CancellationToken cancellationToken)
         {
             var colorsDto = new List<ColorDto>();
-            await Task.Run(() => { colorsDto.AddRange(colors.Select(c => _mapper.Map<ColorDto>(c))); },
+            await Task.Run(() => { colorsDto.AddRange(colors.Select(c => _mapper.Map<ColorDto>(c)).OrderBy(x=>x.Title)); },
                 cancellationToken);
 
             return colorsDto;

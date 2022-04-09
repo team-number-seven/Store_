@@ -39,7 +39,7 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetAllCountries
             CancellationToken cancellationToken)
         {
             var countriesDto = new List<CountryDto>();
-            await Task.Run(() => { countriesDto.AddRange(countries.Select(c => _mapper.Map<CountryDto>(c))); },
+            await Task.Run(() => { countriesDto.AddRange(countries.Select(c => _mapper.Map<CountryDto>(c)).OrderBy(x=>x.Name)); },
                 cancellationToken);
 
             return countriesDto;

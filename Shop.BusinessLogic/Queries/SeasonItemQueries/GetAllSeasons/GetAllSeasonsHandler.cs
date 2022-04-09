@@ -40,7 +40,7 @@ namespace Store.BusinessLogic.Queries.SeasonItemQueries.GetAllSeasons
         {
             var seasonsItemDto = new List<SeasonDto>();
             await Task.Run(
-                () => { seasonsItemDto.AddRange(seasonsItem.Select(season => _mapper.Map<SeasonDto>(season))); },
+                () => { seasonsItemDto.AddRange(seasonsItem.Select(season => _mapper.Map<SeasonDto>(season)).OrderBy(x=>x.Title)); },
                 cancellationToken);
 
             return seasonsItemDto;

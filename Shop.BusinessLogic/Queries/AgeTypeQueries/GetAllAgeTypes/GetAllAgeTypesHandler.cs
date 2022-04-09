@@ -41,7 +41,7 @@ namespace Store.BusinessLogic.Queries.AgeTypeQueries.GetAllAgeTypes
             CancellationToken cancellationToken)
         {
             var dtos = new List<AgeTypeDto>();
-            await Task.Run(() => { dtos.AddRange(ageTypeItems.Select(type => _mapper.Map<AgeTypeDto>(type))); },
+            await Task.Run(() => { dtos.AddRange(ageTypeItems.Select(type => _mapper.Map<AgeTypeDto>(type)).OrderBy(x=>x.Title)); },
                 cancellationToken);
             return dtos;
         }

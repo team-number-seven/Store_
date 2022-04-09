@@ -38,7 +38,7 @@ namespace Store.BusinessLogic.Queries.GenderQueries.GetAllGenders
             CancellationToken cancellationToken)
         {
             var gendersDto = new List<GenderDto>();
-            await Task.Run(() => { gendersDto.AddRange(genders.Select(c => _mapper.Map<GenderDto>(c))); },
+            await Task.Run(() => { gendersDto.AddRange(genders.Select(c => _mapper.Map<GenderDto>(c)).OrderBy(x=>x.Title)); },
                 cancellationToken);
             return gendersDto;
         }

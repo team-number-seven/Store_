@@ -44,7 +44,7 @@ namespace Store.BusinessLogic.Queries.SizeQueries.GetAllSizes
             await Task.Run(
                 () =>
                 {
-                    sizesTypeItemDto.AddRange(sizesItems.Select(size => _mapper.Map<SizeDto>(size)));
+                    sizesTypeItemDto.AddRange(sizesItems.Select(size => _mapper.Map<SizeDto>(size)).OrderBy(x=>x.Size));
                     sortedSizes = sizesTypeItemDto.GroupBy(x=>x.ItemType).ToList();
                 },
                 cancellationToken);

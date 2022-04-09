@@ -39,7 +39,7 @@ namespace Store.BusinessLogic.Queries.BrandQueries.GetAllBrands
             CancellationToken cancellationToken)
         {
             var brandsDto = new List<BrandDto>();
-            await Task.Run(() => { brandsDto.AddRange(brands.Select(brand => _mapper.Map<BrandDto>(brand))); },
+            await Task.Run(() => { brandsDto.AddRange(brands.Select(brand => _mapper.Map<BrandDto>(brand)).OrderBy(x=>x.Title)); },
                 cancellationToken);
 
             return brandsDto;
