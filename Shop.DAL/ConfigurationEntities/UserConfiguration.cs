@@ -36,8 +36,8 @@ namespace Store.DAL.ConfigurationEntities
 
             builder
                 .HasMany(u => u.BagItems)
-                .WithMany(i => i.BagUsers)
-                .UsingEntity(u => u.ToTable("BagItemsUser"));
+                .WithOne(b => b.User)
+                .HasForeignKey(b => b.UserId);
 
             builder
                 .HasMany(u => u.FavoriteItems)

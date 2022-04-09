@@ -8,7 +8,7 @@ namespace Store.DAL.Entities
         public uint Count { get; set; }
 
         public virtual Size Size { get; set; }
-        public Guid SizeTypeItemId { get; set; }
+        public Guid SizeId { get; set; }
 
         public virtual Characteristic Characteristic { get; set; }
         public Guid CharacteristicItemId { get; set; }

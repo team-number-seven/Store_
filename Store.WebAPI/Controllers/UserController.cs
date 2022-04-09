@@ -1,10 +1,13 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Store.BusinessLogic.Commands.UserCommands.AddItemToBagItems;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Queries.UserQueries.LoginUserQuery;
@@ -104,6 +107,18 @@ namespace Store.WebAPI.Controllers
             }
 
             return BadRequest("Gavno"); //the link is not valid
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> AddItemToBagItems([FromBody] AddItemToBagItemCommand request)
+        {
+            //Guid.TryParse(User!.FindFirstValue("Id"), out var id);
+            request.BagItem.UserId = User!.FindFirstValue("Id");
+            var response = await _mediator.Send(request);
+            _logger.LogInformation($"{LoggerMessages.DoneMessage(nameof(AddItemToBagItems))}");
+
+            return StatusCode((int)response.StatusCode, response);
         }
     }
 }

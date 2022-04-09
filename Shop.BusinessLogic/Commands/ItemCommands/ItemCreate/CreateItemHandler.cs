@@ -117,7 +117,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             {
                 foreach (var dto in sizesDto)
                 {
-                    var itemSize = await _context.SizeTypeItems.FindAsync(dto.SizeId);
+                    var itemSize = await _context.Sizes.FindAsync(dto.SizeId);
                     itemCountSizes.Add(new NumberOfSize
                     {
                         Id = Guid.NewGuid(), Size = itemSize, Count = dto.Count

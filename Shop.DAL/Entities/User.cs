@@ -12,7 +12,7 @@ namespace Store.DAL.Entities
         public virtual Country Country { get; set; }
         public Guid CountryId { get; set; }
 
-        public virtual IEnumerable<Item> BagItems { get; set; }
+        public virtual IEnumerable<BagItem> BagItems { get; set; }
 
         public virtual IEnumerable<Item> FavoriteItems { get; set; }
     }

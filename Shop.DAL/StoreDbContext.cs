@@ -26,6 +26,7 @@ namespace Store.DAL
         public override DbSet<UserLogin> UserLogins { get; set; }
         public override DbSet<RoleClaim> RoleClaims { get; set; }
         public override DbSet<UserToken> UserTokens { get; set; }
+        public DbSet<BagItem> BagItems { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ImageFormat> ImageFormats { get; set; }
         public DbSet<Item> Items { get; set; }
@@ -39,7 +40,7 @@ namespace Store.DAL
         public DbSet<Gender> Genders { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<NumberOfSize> NumberOfSizes { get; set; }
-        public DbSet<Size> SizeTypeItems { get; set; }
+        public DbSet<Size> Sizes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

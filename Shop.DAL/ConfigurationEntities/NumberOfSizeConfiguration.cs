@@ -20,7 +20,7 @@ namespace Store.DAL.ConfigurationEntities
             builder
                 .HasOne(s => s.Size)
                 .WithMany(s => s.ItemCountSizes)
-                .HasForeignKey(s => s.SizeTypeItemId);
+                .HasForeignKey(s => s.SizeId);
         }
     }
 }

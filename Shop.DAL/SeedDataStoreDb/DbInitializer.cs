@@ -81,7 +81,7 @@ namespace Store.DAL.SeedDataStoreDb
             }
 
             await context.ItemTypes.AddAsync(itemType);
-            await context.SizeTypeItems.AddRangeAsync(sizesType);
+            await context.Sizes.AddRangeAsync(sizesType);
             await context.SubTypes.AddRangeAsync(subItemTypes);
             await context.SaveChangesAsync();
         }

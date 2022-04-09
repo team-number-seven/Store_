@@ -13,6 +13,10 @@ namespace Store.DAL.ConfigurationEntities
                 .HasKey(s => s.Id);
 
             builder
+                .Property(s => s.Standard)
+                .HasDefaultValue("EU");
+
+            builder
                 .Property(s => s.Value)
                 .HasMaxLength(20)
                 .IsRequired();
@@ -25,7 +29,11 @@ namespace Store.DAL.ConfigurationEntities
             builder
                 .HasMany(s => s.ItemCountSizes)
                 .WithOne(c => c.Size)
-                .HasForeignKey(c => c.SizeTypeItemId);
+                .HasForeignKey(c => c.SizeId);
+
+            builder.HasMany(s => s.BagItems)
+                .WithOne(b => b.Size)
+                .HasForeignKey(b => b.SizeId);
         }
     }
 }

@@ -52,7 +52,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByItemsFilter
 
             if (query.SizesId.IsNullOrEmpty() is false)
                 foreach (var id in query.SizesId)
-                    if (await _context.SizeTypeItems.FindAsync(id) is null)
+                    if (await _context.Sizes.FindAsync(id) is null)
                         return ValidationResult.Fail(LoggerMessages.NotFoundMessage($"SizeId[{id}]"));
 
             if (query.SubTypesId.IsNullOrEmpty() is false)
