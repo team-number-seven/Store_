@@ -27,7 +27,7 @@ namespace Store.BusinessLogic.DependencyInjection
 
             services.AddCustomAuthorization();
 
-            services.AddMediatR(typeof(CommandCreateUser).Assembly);
+            services.AddMediatR(typeof(CreateUserCommand).Assembly);
 
             services.AddValidators();
 

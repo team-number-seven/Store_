@@ -45,7 +45,7 @@ namespace Store.DAL.ConfigurationEntities
                 .HasDefaultValue(0);
 
             builder
-                .HasOne(i => i.CharacteristicItem)
+                .HasOne(i => i.Characteristic)
                 .WithOne(c => c.Item)
                 .HasForeignKey<Item>(i => i.CharacteristicItemId);
 

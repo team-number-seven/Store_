@@ -3,5 +3,5 @@ using Store.BusinessLogic.Services.JsonWebTokens.Tokens;
 
 namespace Store.BusinessLogic.Queries.UserQueries.RefreshTokens
 {
-    public record ResponseRefreshTokens(AccessToken AccessToken, RefreshToken RefreshToken) : ResponseBase;
+    public record ResponseRefreshTokens(AccessToken AccessToken, RefreshTokenResponse RefreshToken) : ResponseBase;
 }

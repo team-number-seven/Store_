@@ -67,9 +67,11 @@ namespace Store.BusinessLogic.Services.JsonWebTokens
 
         public async Task<RefreshToken> GenerateRefreshTokenAsync(User user, CancellationToken cancellationToken)
         {
-            var token = await _userManager.GenerateUserTokenAsync(user, _userManager.Options.Tokens.AuthenticatorTokenProvider, "RefreshToken");
+            const string provider = "Default";
+            const string purpose = "RefreshToken";
+            var token = await _userManager.GenerateUserTokenAsync(user, provider, purpose);
             var expires = ((DateTimeOffset) DateTime.Now.AddDays(60)).ToUnixTimeSeconds().ToString();
-            return new RefreshToken(token, expires);
+            return new RefreshToken(token, expires, provider, purpose);
         }
     }
 }

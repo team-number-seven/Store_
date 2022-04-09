@@ -9,7 +9,7 @@ using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
 {
-    public class ValidatorCreateUser : IValidationHandler<CommandCreateUser>
+    public class ValidatorCreateUser : IValidationHandler<CreateUserCommand>
     {
         private readonly IStoreDbContext _context;
         private readonly UserManager<User> _userManager;
@@ -20,7 +20,7 @@ namespace Store.BusinessLogic.Commands.UserCommands.CreateUser
             _context = context;
         }
 
-        public async Task<ValidationResult> Validate(CommandCreateUser request, CancellationToken cancellationToken)
+        public async Task<ValidationResult> Validate(CreateUserCommand request, CancellationToken cancellationToken)
         {
             if (request.User is null) return ValidationResult.Fail(LoggerMessages.ObjectIsNullOrEmptyMessage);
 

@@ -11,6 +11,7 @@ using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.Extensions;
 using Store.BusinessLogic.Options;
 using Store.BusinessLogic.Services.JsonWebTokens.Interfaces;
+using Store.BusinessLogic.Services.JsonWebTokens.Tokens;
 using Store.DAL.Entities;
 using Store.DAL.Interfaces;
 
@@ -48,7 +49,7 @@ namespace Store.BusinessLogic.Queries.UserQueries.RefreshTokens
 
             var accessToken = await _tokensGenerator.GenerateAccessTokenAsync(user, cancellationToken);
             var refreshToken = await _tokensGenerator.GenerateRefreshTokenAsync(user, cancellationToken);
-            var result = await _userManager.SetUserRefreshTokenAsync(_context, user, refreshToken, "Default");
+            var result = await _userManager.SetUserRefreshTokenAsync(_context, user, refreshToken);
             if (result is false)
             {
                 _logger.LogInformation(LoggerMessages.ObjectPropertyIsNullOrEmptyMessage("provider or user"));
@@ -58,7 +59,8 @@ namespace Store.BusinessLogic.Queries.UserQueries.RefreshTokens
 
             _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle), id.ToString()));
 
-            return new ResponseRefreshTokens(accessToken, refreshToken);
+            return new ResponseRefreshTokens(accessToken,
+                new RefreshTokenResponse(refreshToken.Token, refreshToken.Expires));
         }
     }
 }

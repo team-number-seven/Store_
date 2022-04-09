@@ -27,7 +27,7 @@ namespace Store.WebAPI.Controllers
         [Route("Get")]
         public async Task<IActionResult> GetAllColors()
         {
-            var response = await _mediator.Send(new QueryGetAllColors());
+            var response = await _mediator.Send(new GetAllColorsQuery());
             _logger.LogInformation($"{LoggerMessages.DoneMessage(nameof(GetAllColors), User?.FindFirstValue("Id"))}");
 
             return StatusCode((int) response.StatusCode, response);

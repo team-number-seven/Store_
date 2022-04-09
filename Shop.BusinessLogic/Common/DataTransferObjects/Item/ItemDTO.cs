@@ -31,15 +31,15 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
                 .ForMember(dto => dto.Description, opt => opt.MapFrom(s => s.Description))
                 .ForMember(dto => dto.ArticleNumber, opt => opt.MapFrom(s => s.ArticleNumber))
                 .ForMember(dto => dto.Brand, opt => opt.MapFrom(s => s.Brand.Title))
-                .ForMember(dto => dto.Color, opt => opt.MapFrom(s => s.CharacteristicItem.Color.Title))
+                .ForMember(dto => dto.Color, opt => opt.MapFrom(s => s.Characteristic.Color.Title))
                 .ForMember(dto => dto.Sizes,
-                    opt => opt.MapFrom(s => s.CharacteristicItem.ItemCountSizes.Select(x => new SizeCountItemDto
-                        {Count = x.Count, Size = x.SizeTypeItem.Size})))
-                .ForMember(dto => dto.AgeType, opt => opt.MapFrom(s => s.CharacteristicItem.AgeTypeItem.Title))
-                .ForMember(dto => dto.Season, opt => opt.MapFrom(s => s.CharacteristicItem.SeasonItem.Title))
-                .ForMember(dto => dto.Gender, opt => opt.MapFrom(s => s.CharacteristicItem.Gender.Title))
-                .ForMember(dto => dto.Type, opt => opt.MapFrom(s => s.CharacteristicItem.ItemType.Title))
-                .ForMember(dto => dto.SubType, opt => opt.MapFrom(s => s.CharacteristicItem.SubItemType.Title))
+                    opt => opt.MapFrom(s => s.Characteristic.ItemCountSizes.Select(x => new SizeCountItemDto
+                        {Count = x.Count, Size = x.Size.Value})))
+                .ForMember(dto => dto.AgeType, opt => opt.MapFrom(s => s.Characteristic.AgeType.Title))
+                .ForMember(dto => dto.Season, opt => opt.MapFrom(s => s.Characteristic.Season.Title))
+                .ForMember(dto => dto.Gender, opt => opt.MapFrom(s => s.Characteristic.Gender.Title))
+                .ForMember(dto => dto.Type, opt => opt.MapFrom(s => s.Characteristic.ItemType.Title))
+                .ForMember(dto => dto.SubType, opt => opt.MapFrom(s => s.Characteristic.SubType.Title))
                 .ForMember(dto => dto.Images, opt => opt.Ignore());
         }
     }

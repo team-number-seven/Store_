@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Store.BusinessLogic.Common;
@@ -17,6 +18,7 @@ namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
 {
     public class HandlerSendConfirmationByEmail : IRequestHandler<QuerySendConfirmationByEmail, ResponseBase>
     {
+        private readonly IConfiguration _configuration;
         private readonly IEmailService _emailService;
         private readonly ILogger<HandlerSendConfirmationByEmail> _logger;
         private readonly ConfirmAndDeclineUrlConfiguration _optionsUrlConfiguration;
@@ -24,11 +26,12 @@ namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
 
         public HandlerSendConfirmationByEmail(IEmailService emailService, UserManager<User> userManager,
             IStoreDbContext context, IOptions<ConfirmAndDeclineUrlConfiguration> optionsUrl,
-            ILogger<HandlerSendConfirmationByEmail> logger)
+            ILogger<HandlerSendConfirmationByEmail> logger, IConfiguration configuration)
         {
             _emailService = emailService;
             _userManager = userManager;
             _logger = logger;
+            _configuration = configuration;
             _optionsUrlConfiguration = optionsUrl.Value;
         }
 
@@ -63,12 +66,11 @@ namespace Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail
 
         private async Task<string> CreateFormAsync(string urlConfirm, string urlDecline, string pathForm = null)
         {
-            // TODO Magic words
             var htmlForm =
-                new StringBuilder(await File.ReadAllTextAsync(
-                    @"D:\Repositories\Store\Shop.BusinessLogic\Common\HTML\EmailConfirmation.html"));
-            htmlForm.Replace("COFIRMEMAIL", urlConfirm);
-            htmlForm.Replace("COFIRMEMAIL", urlConfirm);
+                new StringBuilder(await File.ReadAllTextAsync(_configuration["CurrentDirectory"] +
+                                                              _configuration["EmailHtmlFormMessage:Path"]));
+            htmlForm.Replace(_configuration["EmailHtmlFormMessage:ReplaceConfirm"], urlConfirm);
+            htmlForm.Replace(_configuration["EmailHtmlFormMessage:ReplaceDecline"], urlConfirm);
 
             return htmlForm.ToString();
         }

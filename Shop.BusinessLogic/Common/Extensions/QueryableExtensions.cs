@@ -12,14 +12,14 @@ namespace Store.BusinessLogic.Common.Extensions
         {
             return gendersId.IsNullOrEmpty()
                 ? items
-                : items.Where(i => gendersId.Contains(i.CharacteristicItem.GenderId));
+                : items.Where(i => gendersId.Contains(i.Characteristic.GenderId));
         }
 
         public static IQueryable<Item> FilterByAge(this IQueryable<Item> items, Guid ageTypeId)
         {
             return ageTypeId.Equals(Guid.Empty)
                 ? items
-                : items.Where(i => i.CharacteristicItem.AgeTypeItemId == ageTypeId);
+                : items.Where(i => i.Characteristic.AgeTypeItemId == ageTypeId);
         }
 
         public static IQueryable<Item> FilterByBrands(this IQueryable<Item> items, IList<Guid> brandsId)
@@ -33,28 +33,28 @@ namespace Store.BusinessLogic.Common.Extensions
         {
             return colorsId.IsNullOrEmpty()
                 ? items
-                : items.Where(i => colorsId.Contains(i.CharacteristicItem.ColorId));
+                : items.Where(i => colorsId.Contains(i.Characteristic.ColorId));
         }
 
         public static IQueryable<Item> FilterByItemType(this IQueryable<Item> items, IList<Guid> typesId)
         {
             return typesId.IsNullOrEmpty()
                 ? items
-                : items.Where(i => typesId.Contains(i.CharacteristicItem.ItemTypeId));
+                : items.Where(i => typesId.Contains(i.Characteristic.ItemTypeId));
         }
 
         public static IQueryable<Item> FilterBySubTypes(this IQueryable<Item> items, IList<Guid> subTypesId)
         {
             return subTypesId.IsNullOrEmpty()
                 ? items
-                : items.Where(i => subTypesId.Contains(i.CharacteristicItem.SubTypeItemId));
+                : items.Where(i => subTypesId.Contains(i.Characteristic.SubTypeItemId));
         }
 
         public static IQueryable<Item> FilterBySeason(this IQueryable<Item> items, IList<Guid> seasonsId)
         {
             return seasonsId.IsNullOrEmpty()
                 ? items
-                : items.Where(i => seasonsId.Contains(i.CharacteristicItem.SeasonItemId));
+                : items.Where(i => seasonsId.Contains(i.Characteristic.SeasonItemId));
         }
 
         public static IQueryable<Item> FilterByMaxPrice(this IQueryable<Item> items, decimal price)
@@ -73,7 +73,7 @@ namespace Store.BusinessLogic.Common.Extensions
                 return items;
             return sizesId.Aggregate(items,
                 (current, id) => current.Where(x =>
-                    x.CharacteristicItem.ItemCountSizes.Select(countSize => countSize.SizeTypeItemId).Contains(id)));
+                    x.Characteristic.ItemCountSizes.Select(countSize => countSize.SizeTypeItemId).Contains(id)));
         }
     }
 }

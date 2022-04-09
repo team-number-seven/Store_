@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
+using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.Extensions;
 using Store.BusinessLogic.Queries.CountryQueries.GetAllCountries;
 using Store.BusinessLogic.Services.EmailService;
@@ -14,6 +15,7 @@ namespace Store.WebAPI.Controllers
     /// <summary>
     ///     TEST CONTROLLER
     /// </summary>
+    [Authorize(Policy = nameof(PolicyRoles.Administrator))]
     [ApiController]
     [Route("Store/[controller]")]
     [AllowAnonymous]
@@ -32,7 +34,7 @@ namespace Store.WebAPI.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> Create(CommandCreateUser request)
+        public async Task<IActionResult> Create(CreateUserCommand request)
         {
             return Ok(await _mediator.Send(request));
         }
@@ -40,7 +42,7 @@ namespace Store.WebAPI.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public async Task<IActionResult> GetAllCountries(QueryGetAllCountries request)
+        public async Task<IActionResult> GetAllCountries(GetAllCountriesQuery request)
         {
             var response = await _mediator.Send(request);
             return response is null ? NotFound() : Ok(response);

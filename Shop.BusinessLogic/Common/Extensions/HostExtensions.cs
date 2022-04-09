@@ -29,7 +29,7 @@ namespace Store.BusinessLogic.Common.Extensions
             var passwordHasher = services.GetRequiredService<IPasswordHasher<User>>();
             var configuration = services.GetRequiredService<IConfiguration>();
 
-            var mainPath = configuration["Initialize:MainPath"];
+            var mainPath = configuration["CurrentDirectory"] + configuration["Initialize:MainPath"];
             var countriesPath = mainPath + configuration["Initialize:CountriesPath"];
             var colorsPath = mainPath + configuration["Initialize:ColorsPath"];
             var imageFormatsPath = mainPath + configuration["Initialize:ImageFormatsPath"];
@@ -55,7 +55,7 @@ namespace Store.BusinessLogic.Common.Extensions
                 itemTypeSizes2Path, itemSubTypes2Path);
             await DbInitializer.InitializeRoles(rolesManager, rolesPath);
             await DbInitializer.InitializeSeasonItems(context, seasonItemsPath);
-            await DbInitializer.InitializeUsers(userManager, passwordHasher, context);
+            await DbInitializer.InitializeUsers(userManager, passwordHasher, context, configuration);
             await DbInitializer.InitializeGenders(context, gendersPath);
             await DbInitializer.InitializeBrands(context, brandsPath);
         }

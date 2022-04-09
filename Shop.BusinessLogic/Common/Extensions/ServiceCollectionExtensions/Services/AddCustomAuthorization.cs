@@ -9,22 +9,22 @@ namespace Store.BusinessLogic.Common.Extensions.ServiceCollectionExtensions.Serv
         {
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Administrator",
-                    builder => { builder.RequireClaim(ClaimTypes.Role, "Administrator"); });
+                options.AddPolicy(PolicyRoles.Administrator,
+                    builder => { builder.RequireClaim(ClaimTypes.Role, PolicyRoles.Administrator); });
 
-                options.AddPolicy("User",
+                options.AddPolicy(PolicyRoles.User,
                     builder =>
                     {
                         builder.RequireAssertion(x =>
-                            x.User.HasClaim(ClaimTypes.Role, "User") ||
-                            x.User.HasClaim(ClaimTypes.Role, "Administrator"));
+                            x.User.HasClaim(ClaimTypes.Role, PolicyRoles.User) ||
+                            x.User.HasClaim(ClaimTypes.Role, PolicyRoles.Administrator));
                     });
-                options.AddPolicy("Manager",
+                options.AddPolicy(PolicyRoles.Manager,
                     builder =>
                     {
                         builder.RequireAssertion(x =>
-                            x.User.HasClaim(ClaimTypes.Role, "Manager") ||
-                            x.User.HasClaim(ClaimTypes.Role, "Administrator"));
+                            x.User.HasClaim(ClaimTypes.Role, PolicyRoles.Manager) ||
+                            x.User.HasClaim(ClaimTypes.Role, PolicyRoles.Administrator));
                     });
             });
             return services;

@@ -10,24 +10,24 @@ namespace Store.DAL.Interfaces
         DbSet<Brand> Brands { get; set; }
         DbSet<ImageFormat> ImageFormats { get; set; }
         DbSet<Item> Items { get; set; }
-        DbSet<AgeTypeItem> AgeTypes { get; set; }
-        DbSet<CharacteristicItem> CharacteristicItems { get; set; }
+        DbSet<AgeType> AgeTypes { get; set; }
+        DbSet<Characteristic> Characteristics { get; set; }
         DbSet<Color> Colors { get; set; }
         DbSet<Country> Countries { get; set; }
         DbSet<Gender> Genders { get; set; }
         DbSet<ItemType> ItemTypes { get; set; }
-        DbSet<SeasonItem> SeasonItems { get; set; }
-        DbSet<SubItemType> SubItemTypes { get; set; }
-        DbSet<ItemImage> Images { get; set; }
+        DbSet<Season> Seasons { get; set; }
+        DbSet<SubType> SubTypes { get; set; }
+        DbSet<Image> Images { get; set; }
         DbSet<User> Users { get; set; }
-        DbSet<ItemCountSize> ItemCountSizes { get; set; }
-        DbSet<SizeTypeItem> SizeTypeItems { get; set; }
+        DbSet<NumberOfSize> NumberOfSizes { get; set; }
+        DbSet<Size> SizeTypeItems { get; set; }
         DbSet<Role> Roles { get; set; }
         DbSet<UserClaim> UserClaims { get; set; }
         DbSet<UserRole> UserRoles { get; set; }
         DbSet<UserLogin> UserLogins { get; set; }
         DbSet<RoleClaim> RoleClaims { get; set; }
-        DbSet<UserToken> Tokens { get; set; }
+        DbSet<UserToken> UserTokens { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = new());
     }

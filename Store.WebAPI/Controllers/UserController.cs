@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Queries.UserQueries.LoginUser;
+using Store.BusinessLogic.Queries.UserQueries.LoginUserQuery;
 using Store.BusinessLogic.Queries.UserQueries.RefreshTokens;
 using Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail;
 using Store.DAL.Entities;
 
 namespace Store.WebAPI.Controllers
 {
-    [AllowAnonymous]
+    [Authorize(Policy = nameof(PolicyRoles.User))]
     [Route("Store/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -34,10 +34,10 @@ namespace Store.WebAPI.Controllers
             _userManager = userManager;
         }
 
-
+        [AllowAnonymous]
         [HttpPost]
         [Route("SignIn")]
-        public async Task<IActionResult> Login([FromHeader] QueryLoginUser request)
+        public async Task<IActionResult> Login([FromHeader] LoginUserQuery request)
         {
             var response = await _mediator.Send(request);
             _logger.LogInformation($"{LoggerMessages.DoneMessage(nameof(Login))}");
@@ -45,14 +45,15 @@ namespace Store.WebAPI.Controllers
             return StatusCode((int) response.StatusCode, response);
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("SignUp")]
-        public async Task<IActionResult> CreateUser([FromHeader] CommandCreateUser request)
+        public async Task<IActionResult> CreateUser([FromHeader] CreateUserCommand request)
         {
             var response = await _mediator.Send(request);
             if (response.StatusCode is HttpStatusCode.Created)
             {
-                var userId = ((ResponseCreateUser) response).Id;
+                var userId = ((CreateUserResponse) response).Id;
                 await _mediator.Send(new QuerySendConfirmationByEmail(userId, Url));
             }
 
@@ -61,7 +62,6 @@ namespace Store.WebAPI.Controllers
             return StatusCode((int) response.StatusCode, response);
         }
 
-        [AllowAnonymous]
         [HttpPost]
         [Route("RefreshToken")]
         public async Task<IActionResult> RefreshToken([FromBody] QueryRefreshTokens request)
@@ -72,23 +72,19 @@ namespace Store.WebAPI.Controllers
             return StatusCode((int) response.StatusCode, response);
         }
 
-        [HttpGet]
         [AllowAnonymous]
+        [HttpGet]
         [Route("[action]")]
         public async Task<IActionResult> ConfirmEmail([FromQuery] string userId, [FromQuery] string tokenConfirmation)
         {
             var user = await _userManager.FindByIdAsync(userId);
-            if (user == null) return BadRequest(); //the link is not valid
-            if (user.EmailConfirmed) //already exists
-            {
-                return Redirect("http://localhost:3000");
-                ;
-            }
+            if (user == null) return BadRequest();
+            if (user.EmailConfirmed) return Redirect("http://localhost:3000");
 
             var result = await _userManager.ConfirmEmailAsync(user, tokenConfirmation);
-            if (result.Succeeded) //successful
+            if (result.Succeeded)
                 return Redirect("http://localhost:3000/email/confirm/success");
-            return BadRequest(); //the link is not valid
+            return BadRequest();
         }
 
         [HttpGet]

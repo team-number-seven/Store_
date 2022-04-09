@@ -12,7 +12,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.ItemTypeAndSubType
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public IList<SubItemTypeDto> SubItemTypes { get; set; } = new List<SubItemTypeDto>();
+        public IList<SubTypeDto> SubItemTypes { get; set; } = new List<SubTypeDto>();
 
         public void Mapping(Profile profile)
         {
@@ -21,7 +21,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.ItemTypeAndSubType
                 .ForMember(dto => dto.Title, opt => opt.MapFrom(s => s.Title))
                 .ForMember(dto => dto.SubItemTypes,
                     opt => opt.MapFrom(s =>
-                        s.SubItemTypes.Select(x => new SubItemTypeDto {Id = x.Id, Title = x.Title})));
+                        s.SubItemTypes.Select(x => new SubTypeDto {Id = x.Id, Title = x.Title})));
         }
     }
 }

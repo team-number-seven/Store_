@@ -19,7 +19,7 @@ namespace Store.BusinessLogic.Common.Extensions
         )
         {
             var userRefreshToken =
-                await context.Tokens.FirstOrDefaultAsync(t => t.UserId == user.Id && t.LoginProvider == provider);
+                await context.UserTokens.FirstOrDefaultAsync(t => t.UserId == user.Id && t.LoginProvider == provider);
             var token = long.Parse(userRefreshToken.Expire);
             var now = DateTimeOffset.Now.ToUnixTimeSeconds();
 
@@ -30,19 +30,17 @@ namespace Store.BusinessLogic.Common.Extensions
         public static async Task<bool> SetUserRefreshTokenAsync(this UserManager<User> userManager,
             IStoreDbContext context,
             User user,
-            RefreshToken refreshToken,
-            string provider
-        )
+            RefreshToken refreshToken)
         {
             var userRefreshToken =
-                await context.Tokens.FirstOrDefaultAsync(t => t.UserId == user.Id && t.LoginProvider == provider);
+                await context.UserTokens.FirstOrDefaultAsync(t =>
+                    t.UserId == user.Id && t.LoginProvider == refreshToken.Provider);
             if (userRefreshToken is null)
                 return false;
 
-            var (token, expires) = refreshToken;
-            userRefreshToken.Expire = expires;
-            userRefreshToken.Value = token;
-            context.Tokens.Update(userRefreshToken);
+            userRefreshToken.Expire = refreshToken.Expires;
+            userRefreshToken.Value = refreshToken.Token;
+            context.UserTokens.Update(userRefreshToken);
             await context.SaveChangesAsync();
 
             return true;

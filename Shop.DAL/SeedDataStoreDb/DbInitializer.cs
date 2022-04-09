@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Store.DAL.Entities;
 
 namespace Store.DAL.SeedDataStoreDb
@@ -61,41 +62,41 @@ namespace Store.DAL.SeedDataStoreDb
             string pathTxtSizes, string pathTxtSubItemTypes)
         {
             var itemType = new ItemType {Id = Guid.NewGuid(), Title = typeName};
-            var sizesType = new List<SizeTypeItem>();
-            var subItemTypes = new List<SubItemType>();
+            var sizesType = new List<Size>();
+            var subItemTypes = new List<SubType>();
             using (var reader = new StreamReader(pathTxtSizes))
             {
                 string size;
                 while ((size = await reader.ReadLineAsync()) is not null)
-                    sizesType.Add(new SizeTypeItem
-                        {Id = Guid.NewGuid(), ItemType = itemType, ItemTypeId = itemType.Id, Size = size});
+                    sizesType.Add(new Size
+                        {Id = Guid.NewGuid(), ItemType = itemType, ItemTypeId = itemType.Id, Value = size});
             }
 
             using (var reader = new StreamReader(pathTxtSubItemTypes))
             {
                 string subType;
                 while ((subType = await reader.ReadLineAsync()) is not null)
-                    subItemTypes.Add(new SubItemType
+                    subItemTypes.Add(new SubType
                         {Id = Guid.NewGuid(), ItemType = itemType, ItemTypeId = itemType.Id, Title = subType});
             }
 
             await context.ItemTypes.AddAsync(itemType);
             await context.SizeTypeItems.AddRangeAsync(sizesType);
-            await context.SubItemTypes.AddRangeAsync(subItemTypes);
+            await context.SubTypes.AddRangeAsync(subItemTypes);
             await context.SaveChangesAsync();
         }
 
         public static async Task InitializeSeasonItems(StoreDbContext context, string pathTxt)
         {
-            var seasons = new List<SeasonItem>();
+            var seasons = new List<Season>();
             using (var reader = new StreamReader(pathTxt))
             {
                 string season;
                 while ((season = await reader.ReadLineAsync()) is not null)
-                    seasons.Add(new SeasonItem {Id = Guid.NewGuid(), Title = season});
+                    seasons.Add(new Season {Id = Guid.NewGuid(), Title = season});
             }
 
-            await context.SeasonItems.AddRangeAsync(seasons);
+            await context.Seasons.AddRangeAsync(seasons);
             await context.SaveChangesAsync();
         }
 
@@ -108,52 +109,46 @@ namespace Store.DAL.SeedDataStoreDb
         }
 
         public static async Task InitializeUsers(UserManager<User> userManager, IPasswordHasher<User> passwordHasher,
-            StoreDbContext context)
+            StoreDbContext context, IConfiguration configuration)
         {
-            var country = await context.Countries.FirstOrDefaultAsync(c => c.Name == "Belarus");
-            var admin1Password = "Pavel20000301";
-            var admin2Password = "Sergie20020829";
-
             var admin1 = new User
             {
-                Email = "pavell.urusov@gmail.com",
-                NormalizedEmail = userManager.NormalizeEmail("pavell.urusov@gmail.com"),
-                UserName = "Pavel",
-                NormalizedUserName = userManager.NormalizeName("Pavel"),
-                PhoneNumber = "+375333226602",
-                Country = country,
-                CountryId = country.Id,
+                Email = configuration["Admin1:Email"],
+                NormalizedEmail = userManager.NormalizeEmail(configuration["Admin1:Email"]),
+                UserName = configuration["Admin1:UserName"],
+                NormalizedUserName = userManager.NormalizeName(configuration["Admin1:UserName"]),
+                PhoneNumber = configuration["Admin1:PhoneNumber"],
+                Country = await context.Countries.FirstOrDefaultAsync(c => c.Name == configuration["Admin1:Country"]),
                 EmailConfirmed = true
             };
             var admin2 = new User
             {
-                Email = "sergeimurin29@gmail.com",
-                NormalizedEmail = userManager.NormalizeEmail("sergeimurin29@gmail.com"),
-                UserName = "Sergei",
-                NormalizedUserName = userManager.NormalizeName("Sergei"),
-                PhoneNumber = "+375336212291",
-                Country = country,
-                CountryId = country.Id,
+                Email = configuration["Admin2:Email"],
+                NormalizedEmail = userManager.NormalizeEmail(configuration["Admin2:Email"]),
+                UserName = configuration["Admin2:UserName"],
+                NormalizedUserName = userManager.NormalizeName(configuration["Admin2:UserName"]),
+                PhoneNumber = configuration["Admin2:PhoneNumber"],
+                Country = await context.Countries.FirstOrDefaultAsync(c => c.Name == configuration["Admin2:Country"]),
                 EmailConfirmed = true
             };
 
-            admin1.PasswordHash = passwordHasher.HashPassword(admin1, admin1Password);
-            admin2.PasswordHash = passwordHasher.HashPassword(admin2, admin2Password);
+            admin1.PasswordHash = passwordHasher.HashPassword(admin1, configuration["Admin1:Password"]);
+            admin2.PasswordHash = passwordHasher.HashPassword(admin2, configuration["Admin2:Password"]);
 
             await userManager.CreateAsync(admin1);
             await userManager.CreateAsync(admin2);
-            await userManager.AddToRoleAsync(admin1, "Administrator");
-            await userManager.AddToRoleAsync(admin2, "Administrator");
+            await userManager.AddToRoleAsync(admin1, configuration["Admin1:Role"]);
+            await userManager.AddToRoleAsync(admin2, configuration["Admin2:Role"]);
         }
 
         public static async Task InitializeAgeTypesItem(StoreDbContext context, string pathTxt)
         {
-            var ageTypeItems = new List<AgeTypeItem>();
+            var ageTypeItems = new List<AgeType>();
             using (var reader = new StreamReader(pathTxt))
             {
                 string title;
                 while ((title = await reader.ReadLineAsync()) is not null)
-                    ageTypeItems.Add(new AgeTypeItem {Id = Guid.NewGuid(), Title = title});
+                    ageTypeItems.Add(new AgeType {Id = Guid.NewGuid(), Title = title});
             }
 
             await context.AgeTypes.AddRangeAsync(ageTypeItems);

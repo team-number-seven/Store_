@@ -179,7 +179,7 @@ namespace Store.DAL.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.AgeTypeItem", b =>
+            modelBuilder.Entity("Store.DAL.Entities.AgeType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -252,7 +252,7 @@ namespace Store.DAL.Migrations
                     b.ToTable("BusinessCharacteristicItems");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.CharacteristicItem", b =>
+            modelBuilder.Entity("Store.DAL.Entities.Characteristic", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -295,7 +295,7 @@ namespace Store.DAL.Migrations
 
                     b.HasIndex("SubTypeItemId");
 
-                    b.ToTable("CharacteristicItems");
+                    b.ToTable("Characteristics");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.Color", b =>
@@ -520,7 +520,7 @@ namespace Store.DAL.Migrations
                     b.ToTable("Manufacturers");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.SeasonItem", b =>
+            modelBuilder.Entity("Store.DAL.Entities.Season", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -539,7 +539,7 @@ namespace Store.DAL.Migrations
                     b.ToTable("SeasonTypes");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.ItemImage", b =>
+            modelBuilder.Entity("Store.DAL.Entities.Image", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -567,7 +567,7 @@ namespace Store.DAL.Migrations
                     b.ToTable("SecondaryItemImages");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.SizeTypeItem", b =>
+            modelBuilder.Entity("Store.DAL.Entities.Value", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -579,7 +579,7 @@ namespace Store.DAL.Migrations
                     b.Property<Guid>("ItemTypeId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Size")
+                    b.Property<string>("Value")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("character varying(20)");
@@ -588,13 +588,13 @@ namespace Store.DAL.Migrations
 
                     b.HasIndex("ItemTypeId");
 
-                    b.HasIndex("Size")
+                    b.HasIndex("Value")
                         .IsUnique();
 
                     b.ToTable("Sizes");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.SubItemType", b =>
+            modelBuilder.Entity("Store.DAL.Entities.SubType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -615,7 +615,7 @@ namespace Store.DAL.Migrations
                     b.HasIndex("Title")
                         .IsUnique();
 
-                    b.ToTable("SubItemTypes");
+                    b.ToTable("SubTypes");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.User", b =>
@@ -804,51 +804,51 @@ namespace Store.DAL.Migrations
                     b.Navigation("Manufacturer");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.CharacteristicItem", b =>
+            modelBuilder.Entity("Store.DAL.Entities.Characteristic", b =>
                 {
-                    b.HasOne("Store.DAL.Entities.AgeTypeItem", "AgeTypeItem")
-                        .WithMany("CharacteristicItems")
+                    b.HasOne("Store.DAL.Entities.AgeType", "AgeType")
+                        .WithMany("Characteristics")
                         .HasForeignKey("AgeTypeItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Store.DAL.Entities.Color", "Color")
-                        .WithMany("CharacteristicItems")
+                        .WithMany("Characteristics")
                         .HasForeignKey("ColorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Store.DAL.Entities.Gender", "Gender")
-                        .WithMany("CharacteristicItems")
+                        .WithMany("Characteristics")
                         .HasForeignKey("GenderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Store.DAL.Entities.ItemType", "ItemType")
-                        .WithMany("CharacteristicItems")
+                        .WithMany("Characteristics")
                         .HasForeignKey("ItemTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Store.DAL.Entities.SeasonItem", "SeasonItem")
-                        .WithMany("CharacteristicItems")
+                    b.HasOne("Store.DAL.Entities.Season", "Season")
+                        .WithMany("Characteristics")
                         .HasForeignKey("SeasonItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Store.DAL.Entities.SizeTypeItem", "SizeTypeItem")
-                        .WithMany("CharacteristicItems")
+                    b.HasOne("Store.DAL.Entities.Value", "Value")
+                        .WithMany("Characteristics")
                         .HasForeignKey("SizeItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Store.DAL.Entities.SubItemType", "SubItemType")
-                        .WithMany("CharacteristicItems")
+                    b.HasOne("Store.DAL.Entities.SubType", "SubType")
+                        .WithMany("Characteristics")
                         .HasForeignKey("SubTypeItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AgeTypeItem");
+                    b.Navigation("AgeType");
 
                     b.Navigation("Color");
 
@@ -856,11 +856,11 @@ namespace Store.DAL.Migrations
 
                     b.Navigation("ItemType");
 
-                    b.Navigation("SeasonItem");
+                    b.Navigation("Season");
 
-                    b.Navigation("SizeTypeItem");
+                    b.Navigation("Value");
 
-                    b.Navigation("SubItemType");
+                    b.Navigation("SubType");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.Item", b =>
@@ -877,7 +877,7 @@ namespace Store.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Store.DAL.Entities.CharacteristicItem", "CharacteristicItem")
+                    b.HasOne("Store.DAL.Entities.Characteristic", "Characteristic")
                         .WithOne("Item")
                         .HasForeignKey("Store.DAL.Entities.Item", "CharacteristicItemId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -893,7 +893,7 @@ namespace Store.DAL.Migrations
 
                     b.Navigation("BusinessCharacteristic");
 
-                    b.Navigation("CharacteristicItem");
+                    b.Navigation("Characteristic");
 
                     b.Navigation("WarehouseItem");
                 });
@@ -928,10 +928,10 @@ namespace Store.DAL.Migrations
                     b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.ItemImage", b =>
+            modelBuilder.Entity("Store.DAL.Entities.Image", b =>
                 {
                     b.HasOne("Store.DAL.Entities.ImageFormat", "ImageFormat")
-                        .WithMany("ItemImage")
+                        .WithMany("Image")
                         .HasForeignKey("ImageFormatId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -947,7 +947,7 @@ namespace Store.DAL.Migrations
                     b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.SizeTypeItem", b =>
+            modelBuilder.Entity("Store.DAL.Entities.Value", b =>
                 {
                     b.HasOne("Store.DAL.Entities.ItemType", "ItemType")
                         .WithMany("SizeItems")
@@ -958,10 +958,10 @@ namespace Store.DAL.Migrations
                     b.Navigation("ItemType");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.SubItemType", b =>
+            modelBuilder.Entity("Store.DAL.Entities.SubType", b =>
                 {
                     b.HasOne("Store.DAL.Entities.ItemType", "ItemType")
-                        .WithMany("SubItemTypes")
+                        .WithMany("SubTypes")
                         .HasForeignKey("ItemTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -980,9 +980,9 @@ namespace Store.DAL.Migrations
                     b.Navigation("Country");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.AgeTypeItem", b =>
+            modelBuilder.Entity("Store.DAL.Entities.AgeType", b =>
                 {
-                    b.Navigation("CharacteristicItems");
+                    b.Navigation("Characteristics");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.Brand", b =>
@@ -995,14 +995,14 @@ namespace Store.DAL.Migrations
                     b.Navigation("Item");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.CharacteristicItem", b =>
+            modelBuilder.Entity("Store.DAL.Entities.Characteristic", b =>
                 {
                     b.Navigation("Item");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.Color", b =>
                 {
-                    b.Navigation("CharacteristicItems");
+                    b.Navigation("Characteristics");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.Country", b =>
@@ -1014,7 +1014,7 @@ namespace Store.DAL.Migrations
 
             modelBuilder.Entity("Store.DAL.Entities.Gender", b =>
                 {
-                    b.Navigation("CharacteristicItems");
+                    b.Navigation("Characteristics");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.ImageFormat", b =>
@@ -1023,7 +1023,7 @@ namespace Store.DAL.Migrations
 
                     b.Navigation("MainItemImages");
 
-                    b.Navigation("ItemImage");
+                    b.Navigation("Image");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.Item", b =>
@@ -1035,11 +1035,11 @@ namespace Store.DAL.Migrations
 
             modelBuilder.Entity("Store.DAL.Entities.ItemType", b =>
                 {
-                    b.Navigation("CharacteristicItems");
+                    b.Navigation("Characteristics");
 
                     b.Navigation("SizeItems");
 
-                    b.Navigation("SubItemTypes");
+                    b.Navigation("SubTypes");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.Logo", b =>
@@ -1052,19 +1052,19 @@ namespace Store.DAL.Migrations
                     b.Navigation("BusinessCharacteristicItem");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.SeasonItem", b =>
+            modelBuilder.Entity("Store.DAL.Entities.Season", b =>
                 {
-                    b.Navigation("CharacteristicItems");
+                    b.Navigation("Characteristics");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.SizeTypeItem", b =>
+            modelBuilder.Entity("Store.DAL.Entities.Value", b =>
                 {
-                    b.Navigation("CharacteristicItems");
+                    b.Navigation("Characteristics");
                 });
 
-            modelBuilder.Entity("Store.DAL.Entities.SubItemType", b =>
+            modelBuilder.Entity("Store.DAL.Entities.SubType", b =>
                 {
-                    b.Navigation("CharacteristicItems");
+                    b.Navigation("Characteristics");
                 });
 
             modelBuilder.Entity("Store.DAL.Entities.WarehouseItem", b =>

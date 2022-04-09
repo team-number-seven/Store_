@@ -1,6 +1,9 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events;
@@ -20,6 +23,8 @@ namespace Store.WebAPI
             try
             {
                 var host = CreateHostBuilder(args).UseSerilog().Build();
+                var config = host.Services.GetService<IConfiguration>();
+                config!["CurrentDirectory"] = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, @"..\"));
                 await host.HostConfiguration();
                 await host.RunAsync();
             }

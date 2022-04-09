@@ -9,7 +9,7 @@ namespace Store.DAL.ConfigurationEntities
         public void Configure(EntityTypeBuilder<Country> builder)
         {
             builder
-                .ToTable("InitializeCountries")
+                .ToTable("Countries")
                 .HasKey(c => c.Id);
 
             builder

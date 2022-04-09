@@ -190,7 +190,7 @@ namespace Store.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                "SubItemTypes",
+                "SubTypes",
                 table => new
                 {
                     Id = table.Column<Guid>("uuid", nullable: false),
@@ -340,7 +340,7 @@ namespace Store.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                "CharacteristicItems",
+                "Characteristics",
                 table => new
                 {
                     Id = table.Column<Guid>("uuid", nullable: false),
@@ -394,7 +394,7 @@ namespace Store.DAL.Migrations
                     table.ForeignKey(
                         "FK_CharacteristicItems_SubItemTypes_SubTypeItemId",
                         x => x.SubTypeItemId,
-                        "SubItemTypes",
+                        "SubTypes",
                         "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -432,7 +432,7 @@ namespace Store.DAL.Migrations
                     table.ForeignKey(
                         "FK_Items_CharacteristicItems_CharacteristicItemId",
                         x => x.CharacteristicItemId,
-                        "CharacteristicItems",
+                        "Characteristics",
                         "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -632,37 +632,37 @@ namespace Store.DAL.Migrations
 
             migrationBuilder.CreateIndex(
                 "IX_CharacteristicItems_AgeTypeItemId",
-                "CharacteristicItems",
+                "Characteristics",
                 "AgeTypeItemId");
 
             migrationBuilder.CreateIndex(
                 "IX_CharacteristicItems_ColorId",
-                "CharacteristicItems",
+                "Characteristics",
                 "ColorId");
 
             migrationBuilder.CreateIndex(
                 "IX_CharacteristicItems_GenderId",
-                "CharacteristicItems",
+                "Characteristics",
                 "GenderId");
 
             migrationBuilder.CreateIndex(
                 "IX_CharacteristicItems_ItemTypeId",
-                "CharacteristicItems",
+                "Characteristics",
                 "ItemTypeId");
 
             migrationBuilder.CreateIndex(
                 "IX_CharacteristicItems_SeasonItemId",
-                "CharacteristicItems",
+                "Characteristics",
                 "SeasonItemId");
 
             migrationBuilder.CreateIndex(
                 "IX_CharacteristicItems_SizeItemId",
-                "CharacteristicItems",
+                "Characteristics",
                 "SizeItemId");
 
             migrationBuilder.CreateIndex(
                 "IX_CharacteristicItems_SubTypeItemId",
-                "CharacteristicItems",
+                "Characteristics",
                 "SubTypeItemId");
 
             migrationBuilder.CreateIndex(
@@ -792,17 +792,17 @@ namespace Store.DAL.Migrations
             migrationBuilder.CreateIndex(
                 "IX_Sizes_Size",
                 "Sizes",
-                "Size",
+                "Value",
                 unique: true);
 
             migrationBuilder.CreateIndex(
                 "IX_SubItemTypes_ItemTypeId",
-                "SubItemTypes",
+                "SubTypes",
                 "ItemTypeId");
 
             migrationBuilder.CreateIndex(
                 "IX_SubItemTypes_Title",
-                "SubItemTypes",
+                "SubTypes",
                 "Title",
                 unique: true);
         }
@@ -852,7 +852,7 @@ namespace Store.DAL.Migrations
                 "BusinessCharacteristicItems");
 
             migrationBuilder.DropTable(
-                "CharacteristicItems");
+                "Characteristics");
 
             migrationBuilder.DropTable(
                 "WarehouseItems");
@@ -882,7 +882,7 @@ namespace Store.DAL.Migrations
                 "Sizes");
 
             migrationBuilder.DropTable(
-                "SubItemTypes");
+                "SubTypes");
 
             migrationBuilder.DropTable(
                 "ImageFormats");

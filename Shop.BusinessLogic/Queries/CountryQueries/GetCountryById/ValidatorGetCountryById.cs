@@ -7,7 +7,7 @@ using Store.DAL.Interfaces;
 
 namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
 {
-    public class ValidatorGetCountryById : IValidationHandler<QueryGetCountryById>
+    public class ValidatorGetCountryById : IValidationHandler<GetCountryByIdQuery>
     {
         private readonly IStoreDbContext _context;
 
@@ -16,7 +16,7 @@ namespace Store.BusinessLogic.Queries.CountryQueries.GetCountryById
             _context = context;
         }
 
-        public async Task<ValidationResult> Validate(QueryGetCountryById request, CancellationToken cancellationToken)
+        public async Task<ValidationResult> Validate(GetCountryByIdQuery request, CancellationToken cancellationToken)
         {
             if (Guid.Empty == request.Id) return ValidationResult.Fail(LoggerMessages.ObjectIsNullOrEmptyMessage);
 

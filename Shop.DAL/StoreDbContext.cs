@@ -25,22 +25,21 @@ namespace Store.DAL
         public override DbSet<UserRole> UserRoles { get; set; }
         public override DbSet<UserLogin> UserLogins { get; set; }
         public override DbSet<RoleClaim> RoleClaims { get; set; }
-        public DbSet<UserToken> Tokens { get; set; }
-
+        public override DbSet<UserToken> UserTokens { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ImageFormat> ImageFormats { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<ItemType> ItemTypes { get; set; }
-        public DbSet<SeasonItem> SeasonItems { get; set; }
-        public DbSet<SubItemType> SubItemTypes { get; set; }
-        public DbSet<AgeTypeItem> AgeTypes { get; set; }
-        public DbSet<CharacteristicItem> CharacteristicItems { get; set; }
+        public DbSet<Season> Seasons { get; set; }
+        public DbSet<SubType> SubTypes { get; set; }
+        public DbSet<AgeType> AgeTypes { get; set; }
+        public DbSet<Characteristic> Characteristics { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Gender> Genders { get; set; }
-        public DbSet<ItemImage> Images { get; set; }
-        public DbSet<ItemCountSize> ItemCountSizes { get; set; }
-        public DbSet<SizeTypeItem> SizeTypeItems { get; set; }
+        public DbSet<Image> Images { get; set; }
+        public DbSet<NumberOfSize> NumberOfSizes { get; set; }
+        public DbSet<Size> SizeTypeItems { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

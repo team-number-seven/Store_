@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -8,11 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.ItemCommands.ItemCreate;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Common.DataTransferObjects;
 using Store.BusinessLogic.Common.DataTransferObjects.Item;
-using Store.BusinessLogic.Queries.ItemQueries.GetByFilter;
 using Store.BusinessLogic.Queries.ItemQueries.GetById;
-
+using Store.BusinessLogic.Queries.ItemQueries.GetByItemsFilter;
 
 namespace Store.WebAPI.Controllers
 {
@@ -33,9 +29,9 @@ namespace Store.WebAPI.Controllers
         [AllowAnonymous]
         [Route("Create")]
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] ItemCreateDto request)
+        public async Task<IActionResult> Create([FromForm] CreateItemDto request)
         {
-            var response = await _mediator.Send(new CommandCreateItem(request));
+            var response = await _mediator.Send(new CreateItemCommand(request));
             _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Create), User?.FindFirstValue("Id")));
 
             return StatusCode((int) response.StatusCode, response);
@@ -46,12 +42,12 @@ namespace Store.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetItemByQuery([FromQuery] ItemFilterQueryDto request)
         {
-            var response = await _mediator.Send(new QueryItemFilter(request));
+            var response = await _mediator.Send(new GetItemsByFilterQuery(request));
             _logger.LogInformation(LoggerMessages.DoneMessage(nameof(GetItemByQuery), User?.FindFirstValue("Id")));
 
             return StatusCode((int) response.StatusCode, response);
         }
-        
+
         [AllowAnonymous]
         [Route("GetById")]
         [HttpGet]

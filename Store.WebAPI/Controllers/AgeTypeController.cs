@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Common;
-using Store.BusinessLogic.Queries.AgeTypeItemQueries.GetAllAgeTypeItem;
+using Store.BusinessLogic.Queries.AgeTypeQueries.GetAllAgeTypes;
 
 namespace Store.WebAPI.Controllers
 {
@@ -27,7 +27,7 @@ namespace Store.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllAgeTypeItem()
         {
-            var response = await _mediator.Send(new QueryGetAllAgeTypeItem());
+            var response = await _mediator.Send(new GetAllAgeTypesQuery());
             _logger.LogInformation(LoggerMessages.DoneMessage(nameof(GetAllAgeTypeItem), User?.FindFirstValue("id")));
 
             return StatusCode((int) response.StatusCode, response);

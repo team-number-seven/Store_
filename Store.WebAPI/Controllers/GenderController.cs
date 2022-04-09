@@ -10,7 +10,7 @@ using Store.BusinessLogic.Queries.GenderQueries.GetAllGenders;
 
 namespace Store.WebAPI.Controllers
 {
-    [Authorize(Policy = "Administrator")]
+    [AllowAnonymous]
     [Route("Store/[controller]")]
     [ApiController]
     public class GenderController : ControllerBase
@@ -24,10 +24,10 @@ namespace Store.WebAPI.Controllers
             _logger = logger;
         }
 
-
+        [Authorize(Policy = nameof(PolicyRoles.Administrator))]
         [Route("Create")]
         [HttpPost]
-        public async Task<IActionResult> CreateGender(CommandCreateGender request)
+        public async Task<IActionResult> CreateGender(CreateGenderCommand request)
         {
             var response = await _mediator.Send(request);
             _logger.LogInformation(LoggerMessages.DoneMessage(nameof(CreateGender), User?.FindFirstValue("Id")));
@@ -40,7 +40,7 @@ namespace Store.WebAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllGenders()
         {
-            var response = await _mediator.Send(new QueryAllGenders());
+            var response = await _mediator.Send(new GetAllGendersQuery());
             _logger.LogInformation(LoggerMessages.DoneMessage(nameof(GetAllGenders), User?.FindFirstValue("Id")));
 
             return StatusCode((int) response.StatusCode, response);
