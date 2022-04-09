@@ -14,9 +14,9 @@
       "brands": "/Brand/Get",
       "colors": "/Color/Get",
       "genders": "/Gender/GetAll",
-      "sizes": "/Size/Get",
-      "seasons": "/Season/Get",
-      "types": "/ItemTypeAndSubType/Get"
+      "sizes": "/SizeTypeItem/Get",
+      "seasons": "/SeasonItem/Get",
+      "types": "/ItemType/Get"
     }
   }
 }

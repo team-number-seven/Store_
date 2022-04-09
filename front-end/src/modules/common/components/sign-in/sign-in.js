@@ -7,6 +7,7 @@ export const SignIn = ({userToMainRoutes}) => {
     const SignInHandler = (user) => {
         SignInPOST(user).then(resolve => {
             InitUserWithResolve(resolve, user);
+            console.log(user);
             userToMainRoutes(user);
 
         }, reject => {

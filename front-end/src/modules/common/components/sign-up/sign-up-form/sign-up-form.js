@@ -154,22 +154,10 @@ export const SignUpForm = ({onSignUp,Countries})=>{
                             </div>
                             <div className="form-group">
                                 <label htmlFor="country">Your country:</label>
-                                <select id="country-list"
-                                        className="form-control selectpicker"
-                                        data-live-search="true"
-                                        data-width="fit"
-                                        defaultValue={''}
-                                        {...register('country', {
-                                            required: {
-                                                value: true,
-                                                message: 'This field cannot be empty',
-                                            },
-                                        })}
-                                >
+                                <select id="country-list" className="form-control selectpicker" data-live-search="true"
+                                        data-width="fit" {...register('country')}>
                                     <CountryList Countries={Countries}/>
                                 </select>
-                                {errors?.country &&
-                                    <small className="input-error">{errors?.country?.message}</small>}
                             </div>
 
                             <div className="form-footer">
