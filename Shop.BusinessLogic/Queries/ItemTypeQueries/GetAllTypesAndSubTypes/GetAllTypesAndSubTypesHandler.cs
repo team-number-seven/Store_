@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -38,20 +39,14 @@ namespace Store.BusinessLogic.Queries.ItemTypeQueries.GetAllTypesAndSubTypes
         private async Task<List<ItemTypeAndSubTypeDto>> CreateItemTypeAndSubTypeDtoAsync(
             IReadOnlyCollection<ItemType> itemTypes, CancellationToken cancellationToken)
         {
-            var itemTypesAndSubTypesDto = new List<ItemTypeAndSubTypeDto>();
-            await Task.Run(
-                () =>
-                {
-                    itemTypesAndSubTypesDto.AddRange(itemTypes.Select(type =>
-                        _mapper.Map<ItemTypeAndSubTypeDto>(type)));
-                    foreach (var t in itemTypesAndSubTypesDto)
-                    {
-                        t.SubItemTypes = t.SubItemTypes.OrderBy(x => x.Title).ToList();
-                    }
+            var typesAndSubTypes = new List<ItemTypeAndSubTypeDto>();
+            await Task.Run(() =>
+            {
+                typesAndSubTypes = itemTypes.Select(type => _mapper.Map<ItemTypeAndSubTypeDto>(type)).ToList();
+                typesAndSubTypes.ForEach(x => x.SubItemTypes = x.SubItemTypes.OrderBy(dto => dto.Title).ToList());
+            }, cancellationToken);
 
-
-                }, cancellationToken);
-            return itemTypesAndSubTypesDto;
+            return typesAndSubTypes;
         }
     }
 }
