@@ -17,13 +17,11 @@ namespace Store.BusinessLogic.Queries.UserQueries.GetBagItems
 {
     public class GetBagItemsHandler:IRequestHandler<GetBagItemsQuery,ResponseBase>
     {
-        private readonly IStoreDbContext _context;
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
 
         public GetBagItemsHandler(IStoreDbContext context,UserManager<User> userManager,IMapper mapper)
         {
-            _context = context;
             _userManager = userManager;
             _mapper = mapper;
         }
@@ -31,7 +29,6 @@ namespace Store.BusinessLogic.Queries.UserQueries.GetBagItems
         {
             var user = await _userManager.FindByIdAsync(request.UserId);
             var bagItems = user.BagItems.ToList();
-
             var bagItemsDto = await MappingBagItemsToDtoAsync(bagItems,request.Count,cancellationToken);
 
             return new GetBagItemsResponse(bagItemsDto);
@@ -42,7 +39,7 @@ namespace Store.BusinessLogic.Queries.UserQueries.GetBagItems
             var bagItemsDto = new List<GetBagItemDto>();
             await Task.Run(async () =>
             {
-                for (var i = 0; i < countItem; i++)
+                for (var i = 0; i < countItem && i < bagItems.Count; i++)
                 {
                     var itemDto = _mapper.Map<GetBagItemDto>(bagItems[i]);
                     var image = bagItems[i].Item.Images.First();

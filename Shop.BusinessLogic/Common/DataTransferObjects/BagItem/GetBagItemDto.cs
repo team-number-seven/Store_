@@ -10,6 +10,8 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.BagItem
         public Guid Id { get; set; }
         public decimal Price { get; set; }
         public string Brand { get; set; }
+        public string Standard { get; set; }
+        public string SubType { get; set; }
         public string Size { get; set; }
         public uint Count { get; set; }
         public FileContentResult Image { get; set; }
@@ -22,6 +24,8 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.BagItem
                 .ForMember(dto => dto.Price, opt => opt.MapFrom(b => b.Item.Price))
                 .ForMember(dto => dto.Size, opt => opt.MapFrom(b => b.Size.Value))
                 .ForMember(dto => dto.Id, opt => opt.MapFrom(b => b.Id))
+                .ForMember(dto => dto.Standard, opt => opt.MapFrom(b => b.Size.Standard))
+                .ForMember(dto => dto.SubType, opt => opt.MapFrom(b => b.Item.Characteristic.SubType.Title))
                 .ForMember(dto => dto.Image, opt => opt.Ignore());
         }
     }

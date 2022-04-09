@@ -10,6 +10,8 @@ using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.UserCommands.AddItemToBagItems;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
 using Store.BusinessLogic.Common;
+using Store.BusinessLogic.Common.DataTransferObjects.BagItem;
+using Store.BusinessLogic.Queries.UserQueries.GetBagItems;
 using Store.BusinessLogic.Queries.UserQueries.LoginUserQuery;
 using Store.BusinessLogic.Queries.UserQueries.RefreshTokens;
 using Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail;
@@ -117,6 +119,19 @@ namespace Store.WebAPI.Controllers
             request.BagItem.UserId = User!.FindFirstValue("Id");
             var response = await _mediator.Send(request);
             _logger.LogInformation($"{LoggerMessages.DoneMessage(nameof(AddItemToBagItems))}");
+
+            return StatusCode((int)response.StatusCode, response);
+        }
+
+
+
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> GetBagItems([FromQuery]uint count = 10)
+        {
+            var request = new GetBagItemsQuery(User!.FindFirstValue("id"), count);
+            var response = await _mediator.Send(request);
+            _logger.LogInformation($"{LoggerMessages.DoneMessage(nameof(GetBagItems))}");
 
             return StatusCode((int)response.StatusCode, response);
         }
