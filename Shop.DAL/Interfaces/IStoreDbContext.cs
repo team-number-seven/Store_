@@ -21,7 +21,7 @@ namespace Store.DAL.Interfaces
         DbSet<Image> Images { get; set; }
         DbSet<User> Users { get; set; }
         DbSet<NumberOfSize> NumberOfSizes { get; set; }
-        DbSet<Size> SizeTypeItems { get; set; }
+        DbSet<Size> Sizes { get; set; }
         DbSet<Role> Roles { get; set; }
         DbSet<UserClaim> UserClaims { get; set; }
         DbSet<UserRole> UserRoles { get; set; }

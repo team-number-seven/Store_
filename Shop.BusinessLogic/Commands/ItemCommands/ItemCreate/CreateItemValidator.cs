@@ -85,7 +85,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             var validationResult = await Task.Run(async () =>
             {
                 foreach (var size in sizesCountItemDto)
-                    if (await _context.SizeTypeItems.FindAsync(size.SizeId) is null)
+                    if (await _context.Sizes.FindAsync(size.SizeId) is null)
                         return ValidationResult.Fail(
                             LoggerMessages.NotFoundMessage(nameof(size)));
 

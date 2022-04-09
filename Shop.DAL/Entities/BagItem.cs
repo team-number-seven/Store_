@@ -11,6 +11,7 @@ namespace Store.DAL.Entities
     {
         public Guid Id { get; set; }
 
+        public uint Amount { get; set; }
         public virtual Size Size { get; set; }
         public Guid SizeId { get; set; }
 

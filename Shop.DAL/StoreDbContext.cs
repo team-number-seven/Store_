@@ -40,7 +40,7 @@ namespace Store.DAL
         public DbSet<Gender> Genders { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<NumberOfSize> NumberOfSizes { get; set; }
-        public DbSet<Size> SizeTypeItems { get; set; }
+        public DbSet<Size> Sizes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

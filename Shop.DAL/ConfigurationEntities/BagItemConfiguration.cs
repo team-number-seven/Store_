@@ -16,6 +16,10 @@ namespace Store.DAL.ConfigurationEntities
                 .HasKey(b => b.Id);
 
             builder
+                .Property(b => b.Amount)
+                .IsRequired();
+
+            builder
                 .HasOne(b => b.Item)
                 .WithMany(i => i.BagItems)
                 .HasForeignKey(b => b.ItemId);

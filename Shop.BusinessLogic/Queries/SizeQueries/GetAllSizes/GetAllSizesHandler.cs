@@ -29,7 +29,7 @@ namespace Store.BusinessLogic.Queries.SizeQueries.GetAllSizes
 
         public async Task<ResponseBase> Handle(GetAllSizesQuery request, CancellationToken cancellationToken)
         {
-            var sizes = await _context.SizeTypeItems.ToListAsync(cancellationToken);
+            var sizes = await _context.Sizes.ToListAsync(cancellationToken);
             var sizesTypeItemDto = await CreateSizesDtoAsync(sizes, cancellationToken);
             _logger.LogInformation(LoggerMessages.DoneMessage(nameof(Handle)));
 
