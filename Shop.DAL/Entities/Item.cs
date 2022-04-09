@@ -20,9 +20,11 @@ namespace Store.DAL.Entities
         public virtual Brand Brand { get; set; }
         public Guid BrandId { get; set; }
 
+        public virtual IEnumerable<BagItem> BagItems { get; set; }
+
+
         public virtual IEnumerable<Image> Images { get; set; }
 
-        public virtual IEnumerable<User> BagUsers { get; set; }
 
         public virtual IEnumerable<User> FavoriteUsers { get; set; }
         public Guid Id { get; set; }

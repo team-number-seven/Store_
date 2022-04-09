@@ -73,7 +73,7 @@ namespace Store.BusinessLogic.Common.Extensions
                 return items;
             return sizesId.Aggregate(items,
                 (current, id) => current.Where(x =>
-                    x.Characteristic.ItemCountSizes.Select(countSize => countSize.SizeTypeItemId).Contains(id)));
+                    x.Characteristic.ItemCountSizes.Select(countSize => countSize.SizeId).Contains(id)));
         }
     }
 }

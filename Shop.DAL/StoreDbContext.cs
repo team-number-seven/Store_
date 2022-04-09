@@ -26,6 +26,7 @@ namespace Store.DAL
         public override DbSet<UserLogin> UserLogins { get; set; }
         public override DbSet<RoleClaim> RoleClaims { get; set; }
         public override DbSet<UserToken> UserTokens { get; set; }
+        public DbSet<BagItem> BagItems { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ImageFormat> ImageFormats { get; set; }
         public DbSet<Item> Items { get; set; }

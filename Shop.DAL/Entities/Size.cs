@@ -11,6 +11,7 @@ namespace Store.DAL.Entities
         public string Standard { get; set; }
 
         public virtual IEnumerable<NumberOfSize> ItemCountSizes { get; set; }
+        public virtual IEnumerable<BagItem> BagItems { get; set; }
 
         public virtual ItemType ItemType { get; set; }
         public Guid ItemTypeId { get; set; }
