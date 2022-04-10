@@ -13,6 +13,7 @@ using Store.BusinessLogic.Commands.UserCommands.CreateUser;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects.BagItem;
 using Store.BusinessLogic.Queries.UserQueries.GetBagItems;
+using Store.BusinessLogic.Queries.UserQueries.GetFavoriteItems;
 using Store.BusinessLogic.Queries.UserQueries.LoginUserQuery;
 using Store.BusinessLogic.Queries.UserQueries.RefreshTokens;
 using Store.BusinessLogic.Queries.UserQueries.SendConfirmationByEmail;
@@ -140,11 +141,22 @@ namespace Store.WebAPI.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public async Task<IActionResult> AddItemToFavorite([FromBody] AddItemToFavoriteCommand request)
+        public async Task<IActionResult> AddItemToFavoriteItem([FromBody] AddItemToFavoriteCommand request)
         {
             request.FavoriteItem.UserId = User!.FindFirstValue("Id");
             var response = await _mediator.Send(request);
-            _logger.LogInformation($"{LoggerMessages.DoneMessage(nameof(AddItemToFavorite))}");
+            _logger.LogInformation($"{LoggerMessages.DoneMessage(nameof(AddItemToFavoriteItem))}");
+
+            return StatusCode((int)response.StatusCode, response);
+        }
+
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> GetFavoriteItems([FromQuery] uint count = 10)
+        {
+            var request = new GetFavoriteItemsQuery(User!.FindFirstValue("id"), count);
+            var response = await _mediator.Send(request);
+            _logger.LogInformation($"{LoggerMessages.DoneMessage(nameof(GetFavoriteItems))}");
 
             return StatusCode((int)response.StatusCode, response);
         }
