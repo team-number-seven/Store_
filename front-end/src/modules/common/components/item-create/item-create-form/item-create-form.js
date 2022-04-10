@@ -14,17 +14,7 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
 
     const uploadFile = async (data) => {
         const formData = new FormData(document.querySelector('#item-create-form'));
-        let files = [];
-        debugger;
-        let mainPicture = [];
-        Array.from(data.mainPicture).map((mainPic) => mainPicture.push(mainPic));
-        let pictures = [];
-        Array.from(data.pictures).map((picture) => pictures.push(picture));
 
-
-        files = mainPicture.concat(pictures);
-
-        formData.append('Files', files);
         formData.append('BrandId', Brands.find(brand => brand.Title === data.brand).Id);
         formData.append('ColorId', Colors.find(color => color.Title === data.color).Id);
         formData.append('AgeTypeId', Ages.find(age => age.Title === data.age).Id);
@@ -278,7 +268,7 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
             <input name={'Files'}
                    type={'file'}
                    accept={'image/*'}
-                   {...register('mainPicture', {
+                   {...register('Files', {
                        required: {
                            value: true,
                            message: 'You need to upload the main picture',
@@ -292,7 +282,6 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
                    type={'file'}
                    accept={'image/*'}
                    multiple
-                   {...register('pictures')}
             />
 
 

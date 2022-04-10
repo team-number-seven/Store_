@@ -65,7 +65,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
                 return ValidationResult.Fail("ArticleNumber is already exist");
 
             var resultValidateFilesAsync = await ValidateFilesAsync(item.Files);
-            if (await ValidateFilesAsync(item.Files) != ValidationResult.Success)
+            if (resultValidateFilesAsync != ValidationResult.Success)
                 return resultValidateFilesAsync;
 
             var resultValidateSizeCountItemsCreateDtoAsync =
