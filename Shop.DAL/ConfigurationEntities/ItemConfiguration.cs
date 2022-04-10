@@ -66,9 +66,9 @@ namespace Store.DAL.ConfigurationEntities
                 .HasForeignKey(b => b.ItemId);
 
             builder
-                .HasMany(i => i.FavoriteUsers)
-                .WithMany(u => u.FavoriteItems)
-                .UsingEntity(t => t.ToTable("FavoriteItemsUser"));
+                .HasMany(i => i.FavoriteItems)
+                .WithOne(f => f.Item)
+                .HasForeignKey(f => f.ItemId);
         }
     }
 }

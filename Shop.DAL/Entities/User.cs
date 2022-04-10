@@ -14,6 +14,6 @@ namespace Store.DAL.Entities
 
         public virtual IEnumerable<BagItem> BagItems { get; set; }
 
-        public virtual IEnumerable<Item> FavoriteItems { get; set; }
+        public virtual IEnumerable<FavoriteItem> FavoriteItems { get; set; }
     }
 }

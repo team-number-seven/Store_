@@ -30,6 +30,7 @@ namespace Store.DAL.Interfaces
         DbSet<UserToken> UserTokens { get; set; }
         DbSet<BagItem> BagItems { get; set; }
 
+        DbSet<FavoriteItem> FavoriteItems { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = new());
     }
 }

@@ -27,6 +27,7 @@ namespace Store.DAL
         public override DbSet<RoleClaim> RoleClaims { get; set; }
         public override DbSet<UserToken> UserTokens { get; set; }
         public DbSet<BagItem> BagItems { get; set; }
+        public DbSet<FavoriteItem> FavoriteItems { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ImageFormat> ImageFormats { get; set; }
         public DbSet<Item> Items { get; set; }
@@ -44,7 +45,7 @@ namespace Store.DAL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseLazyLoadingProxies().UseNpgsql();
+            optionsBuilder.UseLazyLoadingProxies().UseNpgsql("Host=localhost;Port=5555;Database=testStore;Username=postgres;Password=admin");
             base.OnConfiguring(optionsBuilder);
         }
 
