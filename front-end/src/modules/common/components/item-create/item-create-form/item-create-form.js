@@ -6,6 +6,7 @@ import {TypeList} from "../../lists/type-list/type-list";
 import {GenderList} from "../../lists/gender-list/gender-list";
 import {SeasonList} from "../../lists/season-list/season-list";
 import {useForm} from "react-hook-form";
+import {useState} from "react";
 
 const uploadFile = async (e) => {
     const formData = new FormData(document.querySelector('#item-create-form'));
@@ -16,8 +17,15 @@ const uploadFile = async (e) => {
     })
 }
 
+
 export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, Ages}) => {
 
+    const [itemType, setItemType] = useState(undefined);
+
+
+    const itemTypeHandler = (e) => {
+        setItemType(e.target.value);
+    }
 
     const {
         formState: {errors, isValid},
@@ -162,15 +170,6 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
             {errors?.age && <small className="input-error">{errors?.age?.message}</small>}
 
 
-            <select id="size-list"
-                    className="form-control selectpicker"
-                    data-live-search="true"
-                    data-width="fit"
-            >
-                <SizeList Sizes={Sizes}/>
-            </select>
-
-
             <select id="type-list"
                     className="form-control selectpicker"
                     data-live-search="true"
@@ -182,10 +181,18 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
                             message: 'This field cannot be empty',
                         },
                     })}
+                    onChange={(e) => itemTypeHandler(e)}
             >
                 <TypeList Types={Types}/>
             </select>
             {errors?.type && <small className="input-error">{errors?.type?.message}</small>}
+
+
+            <div id="size-list"
+                    className=""
+            >
+                <SizeList Sizes={Sizes} itemType={itemType}/>
+            </div>
 
 
             <select id="gender-list"
