@@ -26,7 +26,7 @@ namespace Store.DAL.Entities
         public virtual IEnumerable<Image> Images { get; set; }
 
 
-        public virtual IEnumerable<User> FavoriteUsers { get; set; }
+        public virtual IEnumerable<FavoriteItem> FavoriteItems { get; set; }
         public Guid Id { get; set; }
     }
 }
