@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Store.BusinessLogic.Common;
 
 namespace Store.BusinessLogic.Commands.UserCommands.AddItemToFavorite
 {
-    public class AddItemToFavoriteResponse
-    {
-
-    }
+    public record AddItemToFavoriteResponse(Guid Id) : ResponseBase;
 }

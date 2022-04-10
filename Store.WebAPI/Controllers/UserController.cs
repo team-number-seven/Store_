@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Store.BusinessLogic.Commands.UserCommands.AddItemToBagItems;
+using Store.BusinessLogic.Commands.UserCommands.AddItemToFavorite;
 using Store.BusinessLogic.Commands.UserCommands.CreateUser;
 using Store.BusinessLogic.Common;
 using Store.BusinessLogic.Common.DataTransferObjects.BagItem;
@@ -132,6 +133,18 @@ namespace Store.WebAPI.Controllers
             var request = new GetBagItemsQuery(User!.FindFirstValue("id"), count);
             var response = await _mediator.Send(request);
             _logger.LogInformation($"{LoggerMessages.DoneMessage(nameof(GetBagItems))}");
+
+            return StatusCode((int)response.StatusCode, response);
+        }
+
+
+        [HttpPost]
+        [Route("[action]")]
+        public async Task<IActionResult> AddItemToFavorite([FromBody] AddItemToFavoriteCommand request)
+        {
+            request.FavoriteItem.UserId = User!.FindFirstValue("Id");
+            var response = await _mediator.Send(request);
+            _logger.LogInformation($"{LoggerMessages.DoneMessage(nameof(AddItemToFavorite))}");
 
             return StatusCode((int)response.StatusCode, response);
         }
