@@ -7,8 +7,8 @@ export const SizeList = ({Sizes, itemType}) => {
         key++;
         return (
             <div key={key}>
-                <label htmlFor={size.Size.toString()}>{size.Size}</label>
-                <input type={'number'} id={size.Size.toString()}/>
+                <label htmlFor={`size-${size.Size.toString()}`}>{size.Size}</label>
+                <input type={'number'} id={`size-${size.Size.toString()}`}/>
             </div>
         )
     });

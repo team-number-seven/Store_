@@ -7,18 +7,41 @@ import {GenderList} from "../../lists/gender-list/gender-list";
 import {SeasonList} from "../../lists/season-list/season-list";
 import {useForm} from "react-hook-form";
 import {useState} from "react";
-
-const uploadFile = async (e) => {
-    const formData = new FormData(document.querySelector('#item-create-form'));
-
-    await fetch("https://localhost:5001/Store/Item/Create", {
-        method: "POST",
-        body: formData
-    })
-}
+import {SubTypeList} from "../../lists/sub-type-list/sub-type-list";
 
 
 export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, Ages}) => {
+
+    const uploadFile = async (data) => {
+        const formData = new FormData(document.querySelector('#item-create-form'));
+        let files = [];
+        debugger;
+        let mainPicture = [];
+        Array.from(data.mainPicture).map((mainPic) => mainPicture.push(mainPic));
+        let pictures = [];
+        Array.from(data.pictures).map((picture) => pictures.push(picture));
+
+
+        files = mainPicture.concat(pictures);
+
+        formData.append('Files', files);
+        formData.append('BrandId', Brands.find(brand => brand.Title === data.brand).Id);
+        formData.append('ColorId', Colors.find(color => color.Title === data.color).Id);
+        formData.append('AgeTypeId', Ages.find(age => age.Title === data.age).Id);
+        formData.append('SeasonId', Seasons.find(season => season.Title === data.season).Id);
+        formData.append('GenderId', Genders.find(gender => gender.Title === data.gender).Id);
+        formData.append('ItemTypeId', Types.find(type => type.Title === data.type).Id);
+        formData.append('SubTypeItemId', Types.find(type => type.Title === itemType).subTypes.find(subType => subType.Title === data.subType).Id);
+
+        /*formData.append('SizeCountItemsCreateDto[0][SizeId]', '1');
+        formData.append('SizeCountItemsCreateDto[0][Count]', '1');*/
+
+
+        await fetch("https://localhost:5001/Store/Item/Create", {
+            method: "POST",
+            body: formData
+        })
+    }
 
     const [itemType, setItemType] = useState(undefined);
 
@@ -38,8 +61,8 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
         }
     );
 
-    const onSubmit = () => {
-
+    const onSubmit = (formData) => {
+        uploadFile(formData).then()
     }
 
 
@@ -93,7 +116,7 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
                            message: 'This field cannot be empty',
                        },
                        pattern: {
-                           value: /^(\d*([.,](?=\d{3}))?\d+)+((?!\2)[.,]\d\d)?$/,
+                           value: /^(\d{1,3})?(,?\d{3})*(\.\d{2})?$/,
                            message: 'Invalid price',
                        }
                    })}
@@ -188,8 +211,31 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
             {errors?.type && <small className="input-error">{errors?.type?.message}</small>}
 
 
+            {typeof itemType === "undefined" ?
+                <select id="subtype-list"
+                        className="form-control selectpicker"
+                        disabled={true}/>
+                :
+                <select id="subtype-list"
+                        className="form-control selectpicker"
+                        data-live-search="true"
+                        data-width="fit"
+                        defaultValue={''}
+                        {...register('subType', {
+                            required: {
+                                value: true,
+                                message: 'This field cannot be empty',
+                            },
+                        })}
+                >
+                    <SubTypeList Types={Types} itemType={itemType}/>
+                </select>
+            }
+            {errors?.subType && <small className="input-error">{errors?.subType?.message}</small>}
+
+
             <div id="size-list"
-                    className=""
+                 className=""
             >
                 <SizeList Sizes={Sizes} itemType={itemType}/>
             </div>
@@ -229,12 +275,29 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
             {errors?.season && <small className="input-error">{errors?.season?.message}</small>}
 
 
-            <input name={'Files'} type={'file'}/>
-            <input name={'Files'} type={'file'} multiple/>
+            <input name={'Files'}
+                   type={'file'}
+                   accept={'image/*'}
+                   {...register('mainPicture', {
+                       required: {
+                           value: true,
+                           message: 'You need to upload the main picture',
+                       },
+                   })}
+            />
+            {errors?.mainPicture && <small className="input-error">{errors?.mainPicture?.message}</small>}
+
+
+            <input name={'Files'}
+                   type={'file'}
+                   accept={'image/*'}
+                   multiple
+                   {...register('pictures')}
+            />
+
 
             <button className="btn btn-primary"
                     type="submit"
-                    onClick={uploadFile}
                     disabled={!isValid}
             >
                 Upload
