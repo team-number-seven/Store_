@@ -95,7 +95,7 @@ namespace Store.BusinessLogic.Commands.ItemCommands.ItemCreate
             return validationResult;
         }
 
-        private async Task<ValidationResult> ValidateFilesAsync(IFormFileCollection files)
+        private async Task<ValidationResult> ValidateFilesAsync(IList<IFormFile> files)
         {
             if (files is null || files.Count is 0)
                 return ValidationResult.Fail(
