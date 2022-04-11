@@ -23,14 +23,24 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
         formData.append('ItemTypeId', Types.find(type => type.Title === data.type).Id);
         formData.append('SubTypeItemId', Types.find(type => type.Title === itemType).subTypes.find(subType => subType.Title === data.subType).Id);
 
-        /*formData.append('SizeCountItemsCreateDto[0][SizeId]', '1');
-        formData.append('SizeCountItemsCreateDto[0][Count]', '1');*/
+        let idx = 0;
+        for (let size of Sizes[itemType]) {
+            formData.append(`CreateNumberOfSizesDto[${idx}][SizeId]`, size.Id);
+            formData.append(`CreateNumberOfSizesDto[${idx}][Count]`, size.Count);
+            idx++;
+        }
 
 
         await fetch("https://localhost:5001/Store/Item/Create", {
             method: "POST",
             body: formData
         })
+    }
+
+    const sizeInputHandler = (e) => {
+        if (parseInt(e.target.value)) {
+            Sizes[itemType].find((size) => size.Size === e.target.id.slice(5)).Count = e.target.value;
+        }
     }
 
     const [itemType, setItemType] = useState(undefined);
@@ -227,7 +237,7 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
             <div id="size-list"
                  className=""
             >
-                <SizeList Sizes={Sizes} itemType={itemType}/>
+                <SizeList Sizes={Sizes} itemType={itemType} onChangeSize={e => sizeInputHandler(e)}/>
             </div>
 
 

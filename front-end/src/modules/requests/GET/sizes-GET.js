@@ -8,6 +8,7 @@ export const SizesGET = async () => {
             this.Size = size;
             this.Standard = standard;
             this.ItemType = itemType;
+            this.Count = 0;
         }
     }
 
