@@ -21,7 +21,7 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
         formData.append('SeasonId', Seasons.find(season => season.Title === data.season).Id);
         formData.append('GenderId', Genders.find(gender => gender.Title === data.gender).Id);
         formData.append('ItemTypeId', Types.find(type => type.Title === data.type).Id);
-        formData.append('SubTypeItemId', Types.find(type => type.Title === itemType).subTypes.find(subType => subType.Title === data.subType).Id);
+        formData.append('SubTypeId', Types.find(type => type.Title === itemType).subTypes.find(subType => subType.Title === data.subType).Id);
 
         let idx = 0;
         for (let size of Sizes[itemType]) {
