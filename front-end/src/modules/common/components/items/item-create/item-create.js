@@ -1,11 +1,11 @@
 import {useState} from "react";
-import {AgesGET} from "../../../requests/GET/ages-GET";
-import {BrandsGET} from "../../../requests/GET/brands-GET";
-import {ColorsGET} from "../../../requests/GET/colors-GET";
-import {GendersGET} from "../../../requests/GET/genders-GET";
-import {SeasonsGET} from "../../../requests/GET/seasons-GET";
-import {SizesGET} from "../../../requests/GET/sizes-GET";
-import {TypesGET} from "../../../requests/GET/types-GET";
+import {AgesGET} from "../../../../requests/GET/ages-GET";
+import {BrandsGET} from "../../../../requests/GET/brands-GET";
+import {ColorsGET} from "../../../../requests/GET/colors-GET";
+import {GendersGET} from "../../../../requests/GET/genders-GET";
+import {SeasonsGET} from "../../../../requests/GET/seasons-GET";
+import {SizesGET} from "../../../../requests/GET/sizes-GET";
+import {TypesGET} from "../../../../requests/GET/types-GET";
 import {ItemCreateForm} from "./item-create-form/item-create-form";
 
 export const ItemCreate = () => {

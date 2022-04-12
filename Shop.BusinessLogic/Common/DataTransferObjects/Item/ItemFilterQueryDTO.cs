@@ -8,6 +8,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
         public string MaxPrice { get; set; }
         public string MinPrice { get; set; }
         public List<Guid> BrandsId { get; set; }
+        public List<Guid> Test { get; set; }
         public List<Guid> ColorsId { get; set; }
         public List<Guid> SizesId { get; set; }
         public Guid AgeTypeId { get; set; }

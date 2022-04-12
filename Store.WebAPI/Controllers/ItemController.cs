@@ -46,7 +46,7 @@ namespace Store.WebAPI.Controllers
             _logger.LogInformation(LoggerMessages.DoneMessage(nameof(GetItemByQuery), User?.FindFirstValue("Id")));
 
             return StatusCode((int) response.StatusCode, response);
-        }
+        }   
 
         [AllowAnonymous]
         [Route("GetById")]

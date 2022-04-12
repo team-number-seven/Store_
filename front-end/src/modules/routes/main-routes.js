@@ -6,7 +6,7 @@ import {KidsPage} from "../common/components/pages/kids-page/kids-page";
 import {SignIn} from "../common/components/sign-in/sign-in";
 import {SignUp} from "../common/components/sign-up/sign-up";
 import {ProfilePage} from "../common/components/pages/profile-page/profile-page";
-import {ItemCreate} from "../common/components/item-create/item-create";
+import {ItemCreate} from "../common/components/items/item-create/item-create";
 import {EmailSuccess} from "../common/components/email/confirm/email-success/email-success";
 import {EmailExist} from "../common/components/email/confirm/email-exist/email-exist";
 import {EmailNotFound} from "../common/components/email/confirm/email-not-found/email-not-found";

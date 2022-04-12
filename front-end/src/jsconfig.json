@@ -6,7 +6,8 @@
   "requests": {
     "POST": {
       "sign-up": "/User/SignUp",
-      "sign-in": "/User/SignIn"
+      "sign-in": "/User/SignIn",
+      "item-create": "/Item/Create"
     },
     "GET": {
       "countries": "/Country/Get",
@@ -16,7 +17,9 @@
       "genders": "/Gender/GetAll",
       "sizes": "/Size/Get",
       "seasons": "/Season/Get",
-      "types": "/ItemTypeAndSubType/Get"
+      "types": "/ItemTypeAndSubType/Get",
+      "item-by-id": "/Item/GetById",
+      "item-by-filter":"/Item/GetByFilter"
     }
   }
 }

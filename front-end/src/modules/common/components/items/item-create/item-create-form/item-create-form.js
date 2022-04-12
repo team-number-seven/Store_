@@ -1,13 +1,15 @@
-import {BrandList} from "../../lists/brand-list/brand-list";
-import {ColorList} from "../../lists/color-list/color-list";
-import {AgeList} from "../../lists/age-list/age-list";
-import {SizeList} from "../../lists/size-list/size-list";
-import {TypeList} from "../../lists/type-list/type-list";
-import {GenderList} from "../../lists/gender-list/gender-list";
-import {SeasonList} from "../../lists/season-list/season-list";
+import {BrandList} from "../../../lists/brand-list/brand-list";
+import {ColorList} from "../../../lists/color-list/color-list";
+import {AgeList} from "../../../lists/age-list/age-list";
+import {SizeList} from "../../../lists/size-list/size-list";
+import {TypeList} from "../../../lists/type-list/type-list";
+import {GenderList} from "../../../lists/gender-list/gender-list";
+import {SeasonList} from "../../../lists/season-list/season-list";
 import {useForm} from "react-hook-form";
 import {useState} from "react";
-import {SubTypeList} from "../../lists/sub-type-list/sub-type-list";
+import {SubTypeList} from "../../../lists/sub-type-list/sub-type-list";
+
+const CONFIG = require('../../../../../../jsconfig.json');
 
 
 export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, Ages}) => {
@@ -30,8 +32,7 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
             idx++;
         }
 
-
-        await fetch("https://localhost:5001/Store/Item/Create", {
+        await fetch(CONFIG["server"]+CONFIG.requests.POST["item-create"], {
             method: "POST",
             body: formData
         })
