@@ -10,6 +10,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
     public class ItemDto : IMapWith<DAL.Entities.Item>
     {
         public Guid Id { get; set; }
+        public string Title { get; set; }
         public string Price { get; set; }
         public string Description { get; set; }
         public string ArticleNumber { get; set; }
@@ -26,6 +27,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
         public void Mapping(Profile profile)
         {
             profile.CreateMap<DAL.Entities.Item, ItemDto>()
+                .ForMember(dto=>dto.Title,opt=>opt.MapFrom(s=>s.Title))
                 .ForMember(dto => dto.Id, opt => opt.MapFrom(s => s.Id))
                 .ForMember(dto => dto.Price, opt => opt.MapFrom(s => s.Price))
                 .ForMember(dto => dto.Description, opt => opt.MapFrom(s => s.Description))
