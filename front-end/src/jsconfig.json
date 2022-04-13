@@ -7,7 +7,9 @@
     "POST": {
       "sign-up": "/User/SignUp",
       "sign-in": "/User/SignIn",
-      "item-create": "/Item/Create"
+      "item-create": "/Item/Create",
+      "item-to-bag": "/User/AddItemToBagItems",
+      "item-to-favourites": "/User/AddItemToFavoriteItem"
     },
     "GET": {
       "countries": "/Country/Get",
@@ -19,7 +21,8 @@
       "seasons": "/Season/Get",
       "types": "/ItemTypeAndSubType/Get",
       "item-by-id": "/Item/GetById",
-      "item-by-filter":"/Item/GetByFilter"
+      "item-by-filter": "/Item/GetByFilter",
+      "bag-items": "/User/GetBagItems"
     }
   }
 }

@@ -11,7 +11,8 @@ import {EmailSuccess} from "../common/components/email/confirm/email-success/ema
 import {EmailExist} from "../common/components/email/confirm/email-exist/email-exist";
 import {EmailNotFound} from "../common/components/email/confirm/email-not-found/email-not-found";
 import {Item} from "../common/components/items/item/item";
-
+import {ItemsPage} from "../common/components/pages/items-page/items-page";
+import {Items} from "../common/components/items/items";
 
 
 export const MainRoutes = ({USER, userAuth, auth}) => {
@@ -37,6 +38,10 @@ export const MainRoutes = ({USER, userAuth, auth}) => {
                             <Navigate to={'../'} replace={true}/>
                     }/>
                 </Route>
+                <Route path="/item" element={<ItemsPage/>}>
+                    <Route index element={<Items/>}/>
+                    <Route path=":id/:title" element={<Item/>}/>
+                </Route>
                 <Route path={'men'} element={<MenPage/>}/>
                 <Route path={'women'} element={<WomenPage/>}/>
                 <Route path={'kids'} element={<KidsPage/>}/>
@@ -45,7 +50,7 @@ export const MainRoutes = ({USER, userAuth, auth}) => {
                     element={auth ? <ProfilePage/> : <Navigate to={'../sign-in'} replace={true}/>}
                 />
                 <Route
-                    path={'short-item-create'}
+                    path={'item-create'}
                     element={auth ? <ItemCreate/> : <Navigate to={'../sign-in'} replace={true}/>}
                 />
 

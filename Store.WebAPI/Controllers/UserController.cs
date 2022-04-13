@@ -138,7 +138,7 @@ namespace Store.WebAPI.Controllers
             return StatusCode((int)response.StatusCode, response);
         }
 
-
+        [AllowAnonymous]
         [HttpPost]
         [Route("[action]")]
         public async Task<IActionResult> AddItemToFavoriteItem([FromBody] AddItemToFavoriteCommand request)
