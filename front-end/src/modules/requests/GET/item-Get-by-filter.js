@@ -1,30 +1,18 @@
 import CONFIG from "../../../jsconfig.json";
+import {FieldsGetItemByFilters} from "../static-fields/fields-get-item-by-filters";
 
 export const ItemGetByFilter = async (filters) => {
 
     class QueryGetItemByFilter {
 
-        constructor(filters = {
-            MinPrice: '228',
-            MaxPrice: '1337',
-            BrandsId: ['030c38ab-feef-401f-b714-fa6193849f3f', '1a2c0024-5ef8-448a-96a8-11a53bf97761'],
-            ColorsId: [],
-            SizesId: [],
-            AgeTypeId: '',
-            SeasonsId: [],
-            GendersId: ['4bcccab5-8078-4183-acf5-b2424124c55f'],
-            ItemTypesId: [],
-            SubTypesId: [],
-            GetCountItems: '10'
-        }) {
-            this.filters = filters;
+        constructor(filters = FieldsGetItemByFilters) {
+            this.filters = filters
             this.query = "?";
             this.buildQuery();
         }
 
 
         buildQuery() {
-            debugger;
             for (let filter in this.filters) {
                 if (typeof this.filters[filter] !== "string") {
                     for (let id of this.filters[filter]) {
@@ -41,7 +29,7 @@ export const ItemGetByFilter = async (filters) => {
         }
     }
 
-    const query = new QueryGetItemByFilter().query;
+    const query = new QueryGetItemByFilter(filters).query;
     const response = await fetch(CONFIG["server"] + CONFIG.requests.GET["item-by-filter"] + query, {
         mode: CONFIG["requestMode"],
         headers: {
@@ -50,7 +38,7 @@ export const ItemGetByFilter = async (filters) => {
     });
     if (response.ok) {
         let json = await response.json();
-        return json.item;
+        return json.items;
 
     } else {
         let json = await response.json();

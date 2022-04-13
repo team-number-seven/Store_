@@ -15,7 +15,7 @@ const CONFIG = require('../../../../../../jsconfig.json');
 export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, Ages}) => {
 
     const uploadFile = async (data) => {
-        const formData = new FormData(document.querySelector('#item-create-form'));
+        const formData = new FormData(document.querySelector('#short-item-create-form'));
 
         formData.append('BrandId', Brands.find(brand => brand.Title === data.brand).Id);
         formData.append('ColorId', Colors.find(color => color.Title === data.color).Id);
@@ -32,7 +32,7 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
             idx++;
         }
 
-        await fetch(CONFIG["server"]+CONFIG.requests.POST["item-create"], {
+        await fetch(CONFIG["server"]+CONFIG.requests.POST["short-item-create"], {
             method: "POST",
             body: formData
         })
@@ -68,7 +68,7 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
 
 
     return (
-        <form id={'item-create-form'}
+        <form id={'short-item-create-form'}
               className="container form-group"
               onSubmit={handleSubmit(onSubmit)}
         >

@@ -19,7 +19,7 @@ export const ItemGETById = async (id) => {
     }
 
     const query = new QueryGetItemById(id).query;
-    const response = await fetch(CONFIG["server"] + CONFIG.requests.GET["item-by-id"]+query, {
+    const response = await fetch(CONFIG["server"] + CONFIG.requests.GET["short-item-by-id"]+query, {
         mode: CONFIG["requestMode"],
         headers: {
             'Access-Control-Allow-Origin': CONFIG["origin"],
