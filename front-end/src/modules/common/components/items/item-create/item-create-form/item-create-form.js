@@ -32,7 +32,7 @@ export const ItemCreateForm = ({Brands, Colors, Types, Genders, Seasons, Sizes, 
             idx++;
         }
 
-        await fetch(CONFIG["server"]+CONFIG.requests.POST["short-item-create"], {
+        await fetch(CONFIG["server"]+CONFIG.requests.POST["item-create"], {
             method: "POST",
             body: formData
         })

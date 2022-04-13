@@ -4,13 +4,13 @@ export const ShortItem = ({itemData}) => {
 
     const navigate = useNavigate();
 
-    const onClickShortItemHandler = (id) => {
-        navigate(`item/${id}`, {replace: true});
+    const onClickShortItemHandler = (id, title) => {
+        navigate(`${id}/${title}`, {replace: true});
     }
 
     return (
         <div className={'short-item'} style={{backgroundColor: "lightblue"}}
-             onClick={() => onClickShortItemHandler(itemData.id)}>
+             onClick={() => onClickShortItemHandler(itemData.id, itemData.title)}>
             <p>{itemData.title}</p>
             <p>{itemData.color}</p>
             <p>{itemData.type}</p>
