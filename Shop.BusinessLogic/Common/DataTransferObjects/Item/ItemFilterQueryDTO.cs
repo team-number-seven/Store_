@@ -7,6 +7,7 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
     {
         public string MaxPrice { get; set; }
         public string MinPrice { get; set; }
+        public string Title { get; set; }
         public List<Guid> BrandsId { get; set; }
         public List<Guid> ColorsId { get; set; }
         public List<Guid> SizesId { get; set; }
@@ -15,6 +16,6 @@ namespace Store.BusinessLogic.Common.DataTransferObjects.Item
         public List<Guid> GendersId { get; set; }
         public List<Guid> ItemTypesId { get; set; }
         public List<Guid> SubTypesId { get; set; }
-        public int GetCountItems { get; set; }
+        public int GetCountItems { get; set; } = 10;
     }
 }

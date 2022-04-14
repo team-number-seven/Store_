@@ -76,6 +76,7 @@ namespace Store.BusinessLogic.Queries.ItemQueries.GetByItemsFilter
                 items = items.FilterByBrands(query.BrandsId);
                 items = items.FilterBySeason(query.SeasonsId);
                 items = items.FilterByItemType(query.ItemTypesId);
+                items = items.FilterByTitle(query.Title);
                 items = items.FilterBySubTypes(query.SubTypesId);
                 items = items.FilterBySize(query.SizesId);
                 items = items.FilterByColors(query.ColorsId);

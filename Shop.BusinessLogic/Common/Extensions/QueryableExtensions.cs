@@ -43,6 +43,12 @@ namespace Store.BusinessLogic.Common.Extensions
                 : items.Where(i => typesId.Contains(i.Characteristic.ItemTypeId));
         }
 
+        public static IQueryable<Item> FilterByTitle(this IQueryable<Item> items, string title)
+        {
+            return title.IsNullOrEmpty()
+                ? items
+                : items.Where(i => i.Title.Contains(title));
+        }
         public static IQueryable<Item> FilterBySubTypes(this IQueryable<Item> items, IList<Guid> subTypesId)
         {
             return subTypesId.IsNullOrEmpty()
